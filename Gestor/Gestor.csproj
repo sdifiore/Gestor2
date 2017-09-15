@@ -229,9 +229,15 @@
     <Compile Include="Migrations\201709151919318_SeedUsers.Designer.cs">
       <DependentUpon>201709151919318_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709151947028_AddDbLogger.cs" />
+    <Compile Include="Migrations\201709151947028_AddDbLogger.Designer.cs">
+      <DependentUpon>201709151947028_AddDbLogger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LogData.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709151919318_SeedUsers.resx">
       <DependentUpon>201709151919318_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709151947028_AddDbLogger.resx">
+      <DependentUpon>201709151947028_AddDbLogger.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

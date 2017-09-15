@@ -25,6 +25,8 @@ namespace Gestor.Models
         {
         }
 
+        public DbSet<LogData> LogData { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
