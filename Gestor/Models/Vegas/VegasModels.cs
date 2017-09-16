@@ -5,9 +5,9 @@ namespace Gestor.Models.Vegas
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class VegasModel : DbContext
+    public partial class VegasModels : DbContext
     {
-        public VegasModel()
+        public VegasModels()
             : base("name=VegasModels")
         {
         }

@@ -29,5 +29,10 @@ namespace Gestor.Models
         {
             _stack.Clear();
         }
+
+        public int Depth()
+        {
+            return _stack.Count;
+        }
     }
 }
