@@ -26,6 +26,9 @@ namespace Gestor.Models
         }
 
         public DbSet<LogData> LogData { get; set; }
+        public DbSet<Product> Produtos { get; set; }
+        public DbSet<ProductTree> ProductTrees { get; set; }
+        public DbSet<Process> Processos { get; set; }
 
         public static ApplicationDbContext Create()
         {

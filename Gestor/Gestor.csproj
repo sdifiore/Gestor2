@@ -233,6 +233,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,14 +249,48 @@
     <Compile Include="Migrations\201709151947028_AddDbLogger.Designer.cs">
       <DependentUpon>201709151947028_AddDbLogger.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709251808210_AddProductTable.cs" />
+    <Compile Include="Migrations\201709251808210_AddProductTable.Designer.cs">
+      <DependentUpon>201709251808210_AddProductTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251811094_AddProductTreesTable.cs" />
+    <Compile Include="Migrations\201709251811094_AddProductTreesTable.Designer.cs">
+      <DependentUpon>201709251811094_AddProductTreesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251813545_AddProcessesTable.cs" />
+    <Compile Include="Migrations\201709251813545_AddProcessesTable.Designer.cs">
+      <DependentUpon>201709251813545_AddProcessesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251838361_AddIndexOnProductTree.cs" />
+    <Compile Include="Migrations\201709251838361_AddIndexOnProductTree.Designer.cs">
+      <DependentUpon>201709251838361_AddIndexOnProductTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251840053_AddIndexOnProducts.cs" />
+    <Compile Include="Migrations\201709251840053_AddIndexOnProducts.Designer.cs">
+      <DependentUpon>201709251840053_AddIndexOnProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251918324_AddedTitlesToDisplayColumns.cs" />
+    <Compile Include="Migrations\201709251918324_AddedTitlesToDisplayColumns.Designer.cs">
+      <DependentUpon>201709251918324_AddedTitlesToDisplayColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709251949366_RenamedProductsColumns.cs" />
+    <Compile Include="Migrations\201709251949366_RenamedProductsColumns.Designer.cs">
+      <DependentUpon>201709251949366_RenamedProductsColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\ExcelDb.cs" />
     <Compile Include="Models\Files.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoZero.cs" />
     <Compile Include="Models\LogData.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Parametros.cs" />
+    <Compile Include="Models\Process.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductTree.cs" />
+    <Compile Include="Models\Reason.cs" />
     <Compile Include="Models\Stack.cs" />
     <Compile Include="Models\Vegas\ag_acoes.cs" />
     <Compile Include="Models\Vegas\ag_agenda.cs" />
@@ -1647,6 +1682,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1665,6 +1702,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709151947028_AddDbLogger.resx">
       <DependentUpon>201709151947028_AddDbLogger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251808210_AddProductTable.resx">
+      <DependentUpon>201709251808210_AddProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251811094_AddProductTreesTable.resx">
+      <DependentUpon>201709251811094_AddProductTreesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251813545_AddProcessesTable.resx">
+      <DependentUpon>201709251813545_AddProcessesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251838361_AddIndexOnProductTree.resx">
+      <DependentUpon>201709251838361_AddIndexOnProductTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251840053_AddIndexOnProducts.resx">
+      <DependentUpon>201709251840053_AddIndexOnProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251918324_AddedTitlesToDisplayColumns.resx">
+      <DependentUpon>201709251918324_AddedTitlesToDisplayColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251949366_RenamedProductsColumns.resx">
+      <DependentUpon>201709251949366_RenamedProductsColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
