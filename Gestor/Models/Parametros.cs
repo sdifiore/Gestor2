@@ -15,10 +15,10 @@ namespace Gestor.Models
         [Display(Name ="Dólar")]
         public float Dolar { get; set; }
 
-        [Display(Name = "Proporção Destinada a Fios e Gaxetas")]
+        [Display(Name = "Proporção Fios e Gaxetas")]
         public float PropFitasFioGaxeta { get; set; } // Proporção do custo dos sub-produtos de PTFE Puro destinados a Fios & Gaxetas que é assimilado pela linha de Fitas
 
-        [Display(Name = "Proporção do Custo de Sucatas Vendáveis")]
+        [Display(Name = "Proporção Sucatas Vendáveis")]
         public float PropSucatas { get; set; } // Proporção do custo das sucatas vendáveis de PTFE Puro que é assimilado pela linha de Fitas
 
         [Display(Name ="Proporção Grafitados")]

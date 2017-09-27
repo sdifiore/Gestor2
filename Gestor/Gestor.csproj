@@ -235,6 +235,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TipoesController.cs" />
+    <Compile Include="Controllers\Units1Controller.cs" />
+    <Compile Include="Controllers\UnitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,8 +285,37 @@
     <Compile Include="Migrations\201709261215423_AddParametersTable.Designer.cs">
       <DependentUpon>201709261215423_AddParametersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709262309017_AddUnittsTable.cs" />
+    <Compile Include="Migrations\201709262309017_AddUnittsTable.Designer.cs">
+      <DependentUpon>201709262309017_AddUnittsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709262310568_AddUnits.cs" />
+    <Compile Include="Migrations\201709262310568_AddUnits.Designer.cs">
+      <DependentUpon>201709262310568_AddUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271337547_AddTipoTable.cs" />
+    <Compile Include="Migrations\201709271337547_AddTipoTable.Designer.cs">
+      <DependentUpon>201709271337547_AddTipoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271344093_PopulateTipoes.cs" />
+    <Compile Include="Migrations\201709271344093_PopulateTipoes.Designer.cs">
+      <DependentUpon>201709271344093_PopulateTipoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271405462_AddClasseCustoesTable.cs" />
+    <Compile Include="Migrations\201709271405462_AddClasseCustoesTable.Designer.cs">
+      <DependentUpon>201709271405462_AddClasseCustoesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271406547_PopulateClasseCustoes.cs" />
+    <Compile Include="Migrations\201709271406547_PopulateClasseCustoes.Designer.cs">
+      <DependentUpon>201709271406547_PopulateClasseCustoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271414214_RenamedApelidoInTipoesTable.cs" />
+    <Compile Include="Migrations\201709271414214_RenamedApelidoInTipoesTable.Designer.cs">
+      <DependentUpon>201709271414214_RenamedApelidoInTipoesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClasseCusto.cs" />
     <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\ExcelDb.cs" />
     <Compile Include="Models\Files.cs" />
@@ -296,6 +328,8 @@
     <Compile Include="Models\ProductTree.cs" />
     <Compile Include="Models\Reason.cs" />
     <Compile Include="Models\Stack.cs" />
+    <Compile Include="Models\Tipo.cs" />
+    <Compile Include="Models\Unit.cs" />
     <Compile Include="Models\Vegas\ag_acoes.cs" />
     <Compile Include="Models\Vegas\ag_agenda.cs" />
     <Compile Include="Models\Vegas\ag_agendatmp.cs" />
@@ -1733,6 +1767,19 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Parameters\Index.cshtml" />
     <Content Include="Views\Parameters\Create.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Units\Index.cshtml" />
+    <Content Include="Views\Units\Create.cshtml" />
+    <Content Include="Views\Units1\Create.cshtml" />
+    <Content Include="Views\Units1\Delete.cshtml" />
+    <Content Include="Views\Units1\Details.cshtml" />
+    <Content Include="Views\Units1\Edit.cshtml" />
+    <Content Include="Views\Units1\Index.cshtml" />
+    <Content Include="Views\Tipoes\Create.cshtml" />
+    <Content Include="Views\Tipoes\Delete.cshtml" />
+    <Content Include="Views\Tipoes\Details.cshtml" />
+    <Content Include="Views\Tipoes\Edit.cshtml" />
+    <Content Include="Views\Tipoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1775,6 +1822,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709261215423_AddParametersTable.resx">
       <DependentUpon>201709261215423_AddParametersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709262309017_AddUnittsTable.resx">
+      <DependentUpon>201709262309017_AddUnittsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709262310568_AddUnits.resx">
+      <DependentUpon>201709262310568_AddUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271337547_AddTipoTable.resx">
+      <DependentUpon>201709271337547_AddTipoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271344093_PopulateTipoes.resx">
+      <DependentUpon>201709271344093_PopulateTipoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271405462_AddClasseCustoesTable.resx">
+      <DependentUpon>201709271405462_AddClasseCustoesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271406547_PopulateClasseCustoes.resx">
+      <DependentUpon>201709271406547_PopulateClasseCustoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271414214_RenamedApelidoInTipoesTable.resx">
+      <DependentUpon>201709271414214_RenamedApelidoInTipoesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

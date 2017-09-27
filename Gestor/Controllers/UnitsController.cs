@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,11 +7,11 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    public class ProductsController : Controller
+    public class UnitsController : Controller
     {
         private ApplicationDbContext _context;
 
-        public ProductsController()
+        public UnitsController()
         {
             _context = new ApplicationDbContext();
         }
@@ -22,26 +21,26 @@ namespace Gestor.Controllers
             _context.Dispose();
         }
 
-        // GET: Products
+        // GET: Units
         public ActionResult Index()
         {
-            var products = _context.Produtos.ToList();
-            return View(products);
+            var units = _context.Unidades.ToList();
+            return View(units);
         }
 
-        // GET: Products/Details/5
+        // GET: Units/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Products/Create
+        // GET: Units/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Units/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -57,13 +56,13 @@ namespace Gestor.Controllers
             }
         }
 
-        // GET: Products/Edit/5
+        // GET: Units/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Products/Edit/5
+        // POST: Units/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -79,13 +78,13 @@ namespace Gestor.Controllers
             }
         }
 
-        // GET: Products/Delete/5
+        // GET: Units/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Products/Delete/5
+        // POST: Units/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -101,11 +100,11 @@ namespace Gestor.Controllers
             }
         }
 
-        public ActionResult Save(Product produto)
+        public ActionResult Save(Unit unidade)
         {
-            _context.Produtos.Add(produto);
+            _context.Unidades.Add(unidade);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Products");
+            return RedirectToAction("Index", "Unity");
         }
     }
 }
