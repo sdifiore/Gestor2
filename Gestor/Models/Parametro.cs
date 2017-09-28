@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gestor.Models
 {
-    public class Parametros
+    public class Parametro
     {
         public int Id { get; set; }
 
-        [Display(Name ="Data")]
+        [Display(Name = "Data")]
         [DataType(DataType.Date)]
         public DateTime Data { get; set; }
 
-        [Display(Name ="Dólar")]
+        [Display(Name = "Dólar")]
         public float Dolar { get; set; }
 
         [Display(Name = "Proporção Fios e Gaxetas")]
@@ -21,7 +21,7 @@ namespace Gestor.Models
         [Display(Name = "Proporção Sucatas Vendáveis")]
         public float PropSucatas { get; set; } // Proporção do custo das sucatas vendáveis de PTFE Puro que é assimilado pela linha de Fitas
 
-        [Display(Name ="Proporção Grafitados")]
+        [Display(Name = "Proporção Grafitados")]
         public float PropGrafitado { get; set; } // Proporção do custo dos sub-produtos de PTFE Grafitado destinados a Fios & Gaxetas que é assimilado pela linha de Fitas Grafitadas
     }
 }

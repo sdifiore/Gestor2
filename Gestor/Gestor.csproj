@@ -231,9 +231,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ParametersController.cs" />
+    <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TipoesController.cs" />
     <Compile Include="Controllers\Units1Controller.cs" />
@@ -313,16 +316,55 @@
     <Compile Include="Migrations\201709271414214_RenamedApelidoInTipoesTable.Designer.cs">
       <DependentUpon>201709271414214_RenamedApelidoInTipoesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709271439485_AddeCategoriaTable.cs" />
+    <Compile Include="Migrations\201709271439485_AddeCategoriaTable.Designer.cs">
+      <DependentUpon>201709271439485_AddeCategoriaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271440423_PopulateCategoriTable.cs" />
+    <Compile Include="Migrations\201709271440423_PopulateCategoriTable.Designer.cs">
+      <DependentUpon>201709271440423_PopulateCategoriTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271510422_AddFamiliasTable.cs" />
+    <Compile Include="Migrations\201709271510422_AddFamiliasTable.Designer.cs">
+      <DependentUpon>201709271510422_AddFamiliasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271511335_PopulateFamilias.cs" />
+    <Compile Include="Migrations\201709271511335_PopulateFamilias.Designer.cs">
+      <DependentUpon>201709271511335_PopulateFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271622289_AddLinhasTable.cs" />
+    <Compile Include="Migrations\201709271622289_AddLinhasTable.Designer.cs">
+      <DependentUpon>201709271622289_AddLinhasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271632572_PopulateLinhas.cs" />
+    <Compile Include="Migrations\201709271632572_PopulateLinhas.Designer.cs">
+      <DependentUpon>201709271632572_PopulateLinhas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271737438_RemoveParametros.cs" />
+    <Compile Include="Migrations\201709271737438_RemoveParametros.Designer.cs">
+      <DependentUpon>201709271737438_RemoveParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271741026_RecreateParametroes.cs" />
+    <Compile Include="Migrations\201709271741026_RecreateParametroes.Designer.cs">
+      <DependentUpon>201709271741026_RecreateParametroes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271744113_PopulateParametroes.cs" />
+    <Compile Include="Migrations\201709271744113_PopulateParametroes.Designer.cs">
+      <DependentUpon>201709271744113_PopulateParametroes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ClasseCusto.cs" />
     <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\ExcelDb.cs" />
+    <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Files.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\LogData.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Parametros.cs" />
+    <Compile Include="Models\Parametro.cs" />
     <Compile Include="Models\Process.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductTree.cs" />
@@ -1765,8 +1807,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Parameters\Index.cshtml" />
-    <Content Include="Views\Parameters\Create.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Units\Index.cshtml" />
     <Content Include="Views\Units\Create.cshtml" />
@@ -1780,6 +1820,26 @@
     <Content Include="Views\Tipoes\Details.cshtml" />
     <Content Include="Views\Tipoes\Edit.cshtml" />
     <Content Include="Views\Tipoes\Index.cshtml" />
+    <Content Include="Views\ClasseCustoes\Create.cshtml" />
+    <Content Include="Views\ClasseCustoes\Delete.cshtml" />
+    <Content Include="Views\ClasseCustoes\Details.cshtml" />
+    <Content Include="Views\ClasseCustoes\Edit.cshtml" />
+    <Content Include="Views\ClasseCustoes\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Linhas\Create.cshtml" />
+    <Content Include="Views\Linhas\Delete.cshtml" />
+    <Content Include="Views\Linhas\Details.cshtml" />
+    <Content Include="Views\Linhas\Edit.cshtml" />
+    <Content Include="Views\Linhas\Index.cshtml" />
+    <Content Include="Views\Parametroes\Create.cshtml" />
+    <Content Include="Views\Parametroes\Delete.cshtml" />
+    <Content Include="Views\Parametroes\Details.cshtml" />
+    <Content Include="Views\Parametroes\Edit.cshtml" />
+    <Content Include="Views\Parametroes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1843,6 +1903,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709271414214_RenamedApelidoInTipoesTable.resx">
       <DependentUpon>201709271414214_RenamedApelidoInTipoesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271439485_AddeCategoriaTable.resx">
+      <DependentUpon>201709271439485_AddeCategoriaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271440423_PopulateCategoriTable.resx">
+      <DependentUpon>201709271440423_PopulateCategoriTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271510422_AddFamiliasTable.resx">
+      <DependentUpon>201709271510422_AddFamiliasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271511335_PopulateFamilias.resx">
+      <DependentUpon>201709271511335_PopulateFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271622289_AddLinhasTable.resx">
+      <DependentUpon>201709271622289_AddLinhasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271632572_PopulateLinhas.resx">
+      <DependentUpon>201709271632572_PopulateLinhas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271737438_RemoveParametros.resx">
+      <DependentUpon>201709271737438_RemoveParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271741026_RecreateParametroes.resx">
+      <DependentUpon>201709271741026_RecreateParametroes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271744113_PopulateParametroes.resx">
+      <DependentUpon>201709271744113_PopulateParametroes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

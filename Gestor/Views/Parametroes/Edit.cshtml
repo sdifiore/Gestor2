@@ -1,20 +1,22 @@
-﻿@model Gestor.Models.Parametros
+﻿@model Gestor.Models.Parametro
 
 @{
-    ViewBag.Title = "Novo";
+    ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Novo</h2>
+<h2>Editar</h2>
 
-@using (Html.BeginForm("Save", "Parameters")) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Parametros</h4>
+        <h4>Parâmetros</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -57,13 +59,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Criar" class="btn btn-default" />
+                <input type="submit" value="Gravar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Retornar", "Index")
 </div>
-

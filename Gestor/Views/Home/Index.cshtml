@@ -5,26 +5,23 @@
 <div class="jumbotron">
     <h1>Plastifluor</h1>
     <p class="lead">Relatórios</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Todos &raquo;</a></p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <h2>Início</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris .
-        </p>
-        <p>@Html.ActionLink("Parâmetros", "Index", "Parameters", null, new { @class = "btn btn-primary" })</p>
-        <p>@Html.ActionLink("Produtos", "Index", "Products", null, new { @class = "btn btn-primary" })</p>
+
+        <p><h3>@Html.ActionLink("Parâmetros", "Index", "Parametroes")</h3></p>
+        <p><h3>@Html.ActionLink("Produtos", "Index", "Products")</h3></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
+    
+    <div class="col-md-6">
         <h2>Manutenção</h2>
-        <p>@Html.ActionLink("Unidades", "Index", "Units1", null, new { @class = "btn btn-primary" })</p>
-        <p>@Html.ActionLink("Tipos", "Index", "Tipoes", null, new { @class = "btn btn-primary" })</p>
+        <p><h3>@Html.ActionLink("Categorias", "Index", "Categorias")</h3></p>
+        <p><h3>@Html.ActionLink("Classes de Custo", "Index")</h3></p>
+        <p><h3>@Html.ActionLink("Linhas", "Index", "Linhas")</h3></p>
+        <p><h3>@Html.ActionLink("Tipos", "Index", "Tipoes")</h3></p>
+        <p><h3>@Html.ActionLink("Unidades", "Index", "Units1")</h3></p>
     </div>
 </div>

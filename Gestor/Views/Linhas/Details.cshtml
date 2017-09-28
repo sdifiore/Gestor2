@@ -1,15 +1,14 @@
-﻿@model Gestor.Models.Tipo
+﻿@model Gestor.Models.Linha
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Details</h2>
 
-<h3>Tem certeza que deseja eliminar o registro?</h3>
 <div>
-    <h4>Tipo</h4>
+    <h4>Linha</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,13 +28,8 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar", "Index")
+</p>

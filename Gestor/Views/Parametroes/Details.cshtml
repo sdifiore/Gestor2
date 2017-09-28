@@ -1,0 +1,59 @@
+﻿@model Gestor.Models.Parametro
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Parâmetros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dolar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dolar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropFitasFioGaxeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropFitasFioGaxeta)%
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropSucatas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropSucatas)%
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropGrafitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropGrafitado)%
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar", "Index")
+</p>
