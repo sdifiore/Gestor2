@@ -1,11 +1,11 @@
 ﻿@model Gestor.Models.ClasseCusto
 
 @{
-    ViewBag.Title = "Nova";
+    ViewBag.Title = "Criar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nova</h2>
+<h2>Criar</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -40,5 +40,5 @@
 }
 
 <div>
-    @Html.ActionLink("Retornar", "Index")
+    @Html.ActionLink("Retornar a lista", "Index")
 </div>

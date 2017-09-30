@@ -8,7 +8,7 @@ namespace Gestor.Models
         public int Id { get; set; }
 
         [StringLength(2)]
-        public string Unidade { get; set; }
+        public string Apelido { get; set; }
 
         [StringLength(16)]
         [Display(Name = "Descrição")]

@@ -6,7 +6,7 @@ namespace Gestor.Models
 {
     public class Tipo
     {
-        public int Id { get; set; }
+        public int TipoId { get; set; }
 
         [StringLength(1)]
         public string Apelido { get; set; }

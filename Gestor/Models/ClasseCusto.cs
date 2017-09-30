@@ -6,7 +6,7 @@ namespace Gestor.Models
 {
     public class ClasseCusto
     {
-        public int Id { get; set; }
+        public int ClasseCustoId { get; set; }
 
         [StringLength(2)]
         [Display(Name = "Classe de Custo")]

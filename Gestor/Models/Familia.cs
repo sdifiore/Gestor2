@@ -6,7 +6,7 @@ namespace Gestor.Models
 {
     public class Familia
     {
-        public int Id { get; set; }
+        public int FamiliaId { get; set; }
 
         [StringLength(3)]
         public string Apelido { get; set; }

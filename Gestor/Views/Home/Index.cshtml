@@ -9,19 +9,26 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h2>Início</h2>
 
         <p><h3>@Html.ActionLink("Parâmetros", "Index", "Parametroes")</h3></p>
         <p><h3>@Html.ActionLink("Produtos", "Index", "Products")</h3></p>
     </div>
     
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h2>Manutenção</h2>
         <p><h3>@Html.ActionLink("Categorias", "Index", "Categorias")</h3></p>
-        <p><h3>@Html.ActionLink("Classes de Custo", "Index")</h3></p>
+        <p><h3>@Html.ActionLink("Classes de Custo", "Index", "ClasseCustoes")</h3></p>
+        <p><h3>@Html.ActionLink("Famílias", "Index", "Familias")</h3></p>
+        <p><h3>@Html.ActionLink("Grupos de Rateio", "Index", "GrupoRateios")</h3></p>
         <p><h3>@Html.ActionLink("Linhas", "Index", "Linhas")</h3></p>
         <p><h3>@Html.ActionLink("Tipos", "Index", "Tipoes")</h3></p>
-        <p><h3>@Html.ActionLink("Unidades", "Index", "Units1")</h3></p>
+        <p><h3>@Html.ActionLink("Unidades", "Index", "Unidades")</h3></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Migração</h2>
+        <p><h3>@Html.ActionLink("Produtos", "XlProduto", "Migracao")</h3></p>
     </div>
 </div>
