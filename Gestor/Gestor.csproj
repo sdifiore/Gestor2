@@ -484,6 +484,26 @@
     <Compile Include="Migrations\201709301330089_AddSpecificIdToProdutoesDemoteApelidoAsField.Designer.cs">
       <DependentUpon>201709301330089_AddSpecificIdToProdutoesDemoteApelidoAsField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710011831508_AddIdentityToProducoes.cs" />
+    <Compile Include="Migrations\201710011831508_AddIdentityToProducoes.Designer.cs">
+      <DependentUpon>201710011831508_AddIdentityToProducoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710011837148_DropProdutoesTable.cs" />
+    <Compile Include="Migrations\201710011837148_DropProdutoesTable.Designer.cs">
+      <DependentUpon>201710011837148_DropProdutoesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710011839405_RecreateProdutoesWithIdentity.cs" />
+    <Compile Include="Migrations\201710011839405_RecreateProdutoesWithIdentity.Designer.cs">
+      <DependentUpon>201710011839405_RecreateProdutoesWithIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710011854198_DropAgainProdutoes.cs" />
+    <Compile Include="Migrations\201710011854198_DropAgainProdutoes.Designer.cs">
+      <DependentUpon>201710011854198_DropAgainProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710011857091_AddProdutoesWithIdentityToId.cs" />
+    <Compile Include="Migrations\201710011857091_AddProdutoesWithIdentityToId.Designer.cs">
+      <DependentUpon>201710011857091_AddProdutoesWithIdentityToId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -1826,6 +1846,7 @@
     <Compile Include="Models\Vegas\ws_servpars.cs" />
     <Compile Include="Models\Vegas\ws_servxusu.cs" />
     <Compile Include="Models\Vegas\ws_tipodado.cs" />
+    <Compile Include="ProdutoesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TipoesController.cs" />
@@ -1988,6 +2009,11 @@
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Produtoes\Create.cshtml" />
+    <Content Include="Views\Produtoes\Delete.cshtml" />
+    <Content Include="Views\Produtoes\Details.cshtml" />
+    <Content Include="Views\Produtoes\Edit.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2181,6 +2207,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709301330089_AddSpecificIdToProdutoesDemoteApelidoAsField.resx">
       <DependentUpon>201709301330089_AddSpecificIdToProdutoesDemoteApelidoAsField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710011831508_AddIdentityToProducoes.resx">
+      <DependentUpon>201710011831508_AddIdentityToProducoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710011837148_DropProdutoesTable.resx">
+      <DependentUpon>201710011837148_DropProdutoesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710011839405_RecreateProdutoesWithIdentity.resx">
+      <DependentUpon>201710011839405_RecreateProdutoesWithIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710011854198_DropAgainProdutoes.resx">
+      <DependentUpon>201710011854198_DropAgainProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710011857091_AddProdutoesWithIdentityToId.resx">
+      <DependentUpon>201710011857091_AddProdutoesWithIdentityToId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

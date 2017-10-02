@@ -6,6 +6,7 @@ namespace Gestor.Models
 {
     public class Produto
     {
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key]
         public int Id { get; set; }
 
         [StringLength(10)]

@@ -9,6 +9,7 @@ namespace Gestor.Models
         public int CategoriaId { get; set; }
 
         [StringLength(2)]
+        [Display(Name = "Categoria")]
         public string Apelido { get; set; }
 
         [StringLength(50)]

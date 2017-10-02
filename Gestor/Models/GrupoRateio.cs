@@ -9,7 +9,7 @@ namespace Gestor.Models
         public int GrupoRateioId { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Descrição")]
+        [Display(Name = "Grupo de Rateio")]
         public string Descricao { get; set; }
     }
 }

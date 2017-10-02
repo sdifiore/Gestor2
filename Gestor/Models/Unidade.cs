@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Gestor.Models
 {
@@ -9,6 +7,7 @@ namespace Gestor.Models
         public int UnidadeId { get; set; }
 
         [StringLength(2)]
+        [Display(Name = "Unidade")]
         public string Apelido { get; set; }
 
         [StringLength(16)]
