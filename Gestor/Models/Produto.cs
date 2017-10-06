@@ -44,5 +44,12 @@ namespace Gestor.Models
         public int CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
+
+        public float QuantidadeCusto { get; set; }
+
+        public float PesoBruto { get; set; }
+
+        [Display(Name = "Ativo")]
+        public bool Status { get; set; }
     }
 }

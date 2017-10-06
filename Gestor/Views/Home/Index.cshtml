@@ -4,31 +4,42 @@
 
 <div class="jumbotron">
     <h1>Plastifluor</h1>
-    <p class="lead">Relatórios</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Todos &raquo;</a></p>
+    <img src="http://www.plastifluor.com.br/images/produtos-01.png" alt="Produtos Plastifluor" height="135"/>
+    @*<p class="lead">Relatórios</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Todos &raquo;</a></p>*@
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Início</h2>
+        <h2>Funções</h2>
 
+        <p><h3></h3></p>
+        <p><h3></h3></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Cadastros</h2>
+        <p><h3>@Html.ActionLink("Estruturas", "Index", "Estruturas")</h3></p>
         <p><h3>@Html.ActionLink("Parâmetros", "Index", "Parametroes")</h3></p>
         <p><h3>@Html.ActionLink("Produtos", "Index", "Produtoes")</h3></p>
     </div>
     
     <div class="col-md-4">
         <h2>Manutenção</h2>
+        <p><h3>@Html.ActionLink("Áreas", "Index", "Areas")</h3></p>
         <p><h3>@Html.ActionLink("Categorias", "Index", "Categorias")</h3></p>
         <p><h3>@Html.ActionLink("Classes de Custo", "Index", "ClasseCustoes")</h3></p>
         <p><h3>@Html.ActionLink("Famílias", "Index", "Familias")</h3></p>
+        <p><h3>@Html.ActionLink("Fretes", "Index", "Fretes")</h3></p>
         <p><h3>@Html.ActionLink("Grupos de Rateio", "Index", "GrupoRateios")</h3></p>
         <p><h3>@Html.ActionLink("Linhas", "Index", "Linhas")</h3></p>
+        <p><h3>@Html.ActionLink("Máquinas", "Index", "QtdMaquinas")</h3></p>
+        <p><h3>@Html.ActionLink("Operações", "Index", "Operacaos")</h3></p>
+        <p><h3>@Html.ActionLink("Rateios", "Index", "Rateios")</h3></p>
+        <p><h3>@Html.ActionLink("Sequências", "Index", "Sequencias")</h3></p>
+        <p><h3>@Html.ActionLink("Setores", "Index", "Setors")</h3></p>
+        <p><h3>@Html.ActionLink("Sucatas e Sub-Produtos", "Index", "Sucatas")</h3></p>
         <p><h3>@Html.ActionLink("Tipos", "Index", "Tipoes")</h3></p>
         <p><h3>@Html.ActionLink("Unidades", "Index", "Unidades")</h3></p>
-    </div>
-
-    <div class="col-md-4">
-        <h2>Migração</h2>
-        <p><h3>@Html.ActionLink("Produtos", "XlProduto", "Migracao")</h3></p>
     </div>
 </div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Gestor.Models.Sequencia>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova sequência", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.SequenciaId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.SequenciaId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.SequenciaId })
+        </td>
+    </tr>
+}
+
+</table>

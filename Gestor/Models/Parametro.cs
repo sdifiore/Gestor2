@@ -23,5 +23,23 @@ namespace Gestor.Models
 
         [Display(Name = "Proporção Grafitados")]
         public float PropGrafitado { get; set; } // Proporção do custo dos sub-produtos de PTFE Grafitado destinados a Fios & Gaxetas que é assimilado pela linha de Fitas Grafitadas
+
+        [Display(Name = "Horas Disponíveis de MOD")]
+        public int HMod { get; set; }
+
+        [Display (Name = "Custo Fixo Industrial em Um Ano")]
+        public float CustoFixoIndustrialAno { get; set; }
+
+        [Display(Name = "Custo Fixo Comercial em Um Ano")]
+        public float CustoFixoComercialAno { get; set; }
+
+        [Display(Name = "Custo Fixo Comercial COMTEX em Um Ano")]
+        public float CustoFixoComtexAno { get; set; }
+
+        [Display(Name = "Custo Fixo Administrativo em Um Ano")]
+        public float CustoFixoAdminAno { get; set; }
+
+        [Display(Name = "Comissão GC-COMACS")]
+        public float ComissaoGcComacs { get; set; }
     }
 }

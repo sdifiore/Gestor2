@@ -12,7 +12,7 @@ namespace Gestor.Migrations
         
         public override void Down()
         {
-            Sql("Drop Index iCodigo on dbo.ProductTree");
+            Sql("Drop Index iCodigo on dbo.Estrutura");
         }
     }
 }

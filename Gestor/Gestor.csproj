@@ -230,13 +230,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ClasseCustoesController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
+    <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MigracaoController.cs" />
+    <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
+    <Compile Include="Controllers\QtdMaquinasController.cs" />
+    <Compile Include="Controllers\RateiosController.cs" />
+    <Compile Include="Controllers\SequenciasController.cs" />
+    <Compile Include="Controllers\SetorsController.cs" />
+    <Compile Include="Controllers\SucatasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -504,18 +513,195 @@
     <Compile Include="Migrations\201710011857091_AddProdutoesWithIdentityToId.Designer.cs">
       <DependentUpon>201710011857091_AddProdutoesWithIdentityToId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710021959023_AddSequenciaTable.cs" />
+    <Compile Include="Migrations\201710021959023_AddSequenciaTable.Designer.cs">
+      <DependentUpon>201710021959023_AddSequenciaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710022009000_PopulateSequencia.cs" />
+    <Compile Include="Migrations\201710022009000_PopulateSequencia.Designer.cs">
+      <DependentUpon>201710022009000_PopulateSequencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710022014284_DropProductTrees.cs" />
+    <Compile Include="Migrations\201710022014284_DropProductTrees.Designer.cs">
+      <DependentUpon>201710022014284_DropProductTrees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031131225_RenameApelidoToDescricaoInSequencia.cs" />
+    <Compile Include="Migrations\201710031131225_RenameApelidoToDescricaoInSequencia.Designer.cs">
+      <DependentUpon>201710031131225_RenameApelidoToDescricaoInSequencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031219426_AddQUantidadeCustoToProduto.cs" />
+    <Compile Include="Migrations\201710031219426_AddQUantidadeCustoToProduto.Designer.cs">
+      <DependentUpon>201710031219426_AddQUantidadeCustoToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031229167_DropProcesses.cs" />
+    <Compile Include="Migrations\201710031229167_DropProcesses.Designer.cs">
+      <DependentUpon>201710031229167_DropProcesses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031234244_AddEstruturaTable.cs" />
+    <Compile Include="Migrations\201710031234244_AddEstruturaTable.Designer.cs">
+      <DependentUpon>201710031234244_AddEstruturaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031240207_LinkSequenciaToEstrutura.cs" />
+    <Compile Include="Migrations\201710031240207_LinkSequenciaToEstrutura.Designer.cs">
+      <DependentUpon>201710031240207_LinkSequenciaToEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\.cs" />
+    <Compile Include="Migrations\.Designer.cs">
+      <DependentUpon>.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041221458_AddPesoNStatusToProduto.cs" />
+    <Compile Include="Migrations\201710041221458_AddPesoNStatusToProduto.Designer.cs">
+      <DependentUpon>201710041221458_AddPesoNStatusToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041258172_AddEstadosTable.cs" />
+    <Compile Include="Migrations\201710041258172_AddEstadosTable.Designer.cs">
+      <DependentUpon>201710041258172_AddEstadosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041329199_AddEstados.cs" />
+    <Compile Include="Migrations\201710041329199_AddEstados.Designer.cs">
+      <DependentUpon>201710041329199_AddEstados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041331120_PopulateEstadoes.cs" />
+    <Compile Include="Migrations\201710041331120_PopulateEstadoes.Designer.cs">
+      <DependentUpon>201710041331120_PopulateEstadoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041346267_AddRegioesTable.cs" />
+    <Compile Include="Migrations\201710041346267_AddRegioesTable.Designer.cs">
+      <DependentUpon>201710041346267_AddRegioesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041506066_PopulateRegiaos.cs" />
+    <Compile Include="Migrations\201710041506066_PopulateRegiaos.Designer.cs">
+      <DependentUpon>201710041506066_PopulateRegiaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041516453_ResizeDescricaoInRegiaosTable.cs" />
+    <Compile Include="Migrations\201710041516453_ResizeDescricaoInRegiaosTable.Designer.cs">
+      <DependentUpon>201710041516453_ResizeDescricaoInRegiaosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041517493_RepopulateRegiaos.cs" />
+    <Compile Include="Migrations\201710041517493_RepopulateRegiaos.Designer.cs">
+      <DependentUpon>201710041517493_RepopulateRegiaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041525578_DropEstadoes.cs" />
+    <Compile Include="Migrations\201710041525578_DropEstadoes.Designer.cs">
+      <DependentUpon>201710041525578_DropEstadoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041552061_RenameIdToRegiaoId.cs" />
+    <Compile Include="Migrations\201710041552061_RenameIdToRegiaoId.Designer.cs">
+      <DependentUpon>201710041552061_RenameIdToRegiaoId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041556370_AddEstadoWithLinkToRegiao.cs" />
+    <Compile Include="Migrations\201710041556370_AddEstadoWithLinkToRegiao.Designer.cs">
+      <DependentUpon>201710041556370_AddEstadoWithLinkToRegiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041559064_PopulateEstadoesWitRegiaos.cs" />
+    <Compile Include="Migrations\201710041559064_PopulateEstadoesWitRegiaos.Designer.cs">
+      <DependentUpon>201710041559064_PopulateEstadoesWitRegiaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041606544_RenameRegiaIdToRegiaoIdInEstaoes.cs" />
+    <Compile Include="Migrations\201710041606544_RenameRegiaIdToRegiaoIdInEstaoes.Designer.cs">
+      <DependentUpon>201710041606544_RenameRegiaIdToRegiaoIdInEstaoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041636447_DropEstadoswNRegioes.cs" />
+    <Compile Include="Migrations\201710041636447_DropEstadoswNRegioes.Designer.cs">
+      <DependentUpon>201710041636447_DropEstadoswNRegioes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041642120_AddRegioesComCodigodeRegiao.cs" />
+    <Compile Include="Migrations\201710041642120_AddRegioesComCodigodeRegiao.Designer.cs">
+      <DependentUpon>201710041642120_AddRegioesComCodigodeRegiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041645221_PopulateNewRegiaos.cs" />
+    <Compile Include="Migrations\201710041645221_PopulateNewRegiaos.Designer.cs">
+      <DependentUpon>201710041645221_PopulateNewRegiaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041710286_ALteraracaoParametros.cs" />
+    <Compile Include="Migrations\201710041710286_ALteraracaoParametros.Designer.cs">
+      <DependentUpon>201710041710286_ALteraracaoParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041953571_AddQtdMaquinas.cs" />
+    <Compile Include="Migrations\201710041953571_AddQtdMaquinas.Designer.cs">
+      <DependentUpon>201710041953571_AddQtdMaquinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710042029057_AddRaeios.cs" />
+    <Compile Include="Migrations\201710042029057_AddRaeios.Designer.cs">
+      <DependentUpon>201710042029057_AddRaeios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710042055030_AddSetors.cs" />
+    <Compile Include="Migrations\201710042055030_AddSetors.Designer.cs">
+      <DependentUpon>201710042055030_AddSetors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051219574_AddDescticaoToDequencia.cs" />
+    <Compile Include="Migrations\201710051219574_AddDescticaoToDequencia.Designer.cs">
+      <DependentUpon>201710051219574_AddDescticaoToDequencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051239137_DropSequencias.cs" />
+    <Compile Include="Migrations\201710051239137_DropSequencias.Designer.cs">
+      <DependentUpon>201710051239137_DropSequencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051241326_RecreateSequencias.cs" />
+    <Compile Include="Migrations\201710051241326_RecreateSequencias.Designer.cs">
+      <DependentUpon>201710051241326_RecreateSequencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051244117_PopulateNewSequencias.cs" />
+    <Compile Include="Migrations\201710051244117_PopulateNewSequencias.Designer.cs">
+      <DependentUpon>201710051244117_PopulateNewSequencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051307397_RenameDescToDescricaoInSequencias.cs" />
+    <Compile Include="Migrations\201710051307397_RenameDescToDescricaoInSequencias.Designer.cs">
+      <DependentUpon>201710051307397_RenameDescToDescricaoInSequencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051359399_AddOperacao.cs" />
+    <Compile Include="Migrations\201710051359399_AddOperacao.Designer.cs">
+      <DependentUpon>201710051359399_AddOperacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051941291_AddFretes.cs" />
+    <Compile Include="Migrations\201710051941291_AddFretes.Designer.cs">
+      <DependentUpon>201710051941291_AddFretes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051945487_PopulateFretes.cs" />
+    <Compile Include="Migrations\201710051945487_PopulateFretes.Designer.cs">
+      <DependentUpon>201710051945487_PopulateFretes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710051955215_AddDateToFrete.cs" />
+    <Compile Include="Migrations\201710051955215_AddDateToFrete.Designer.cs">
+      <DependentUpon>201710051955215_AddDateToFrete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710061221200_AddSucatas.cs" />
+    <Compile Include="Migrations\201710061221200_AddSucatas.Designer.cs">
+      <DependentUpon>201710061221200_AddSucatas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710061227406_AddSubProdutoes.cs" />
+    <Compile Include="Migrations\201710061227406_AddSubProdutoes.Designer.cs">
+      <DependentUpon>201710061227406_AddSubProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710061253575_DrpSubprodutos.cs" />
+    <Compile Include="Migrations\201710061253575_DrpSubprodutos.Designer.cs">
+      <DependentUpon>201710061253575_DrpSubprodutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710061256501_AddFlagSubProtutoToSucata.cs" />
+    <Compile Include="Migrations\201710061256501_AddFlagSubProtutoToSucata.Designer.cs">
+      <DependentUpon>201710061256501_AddFlagSubProtutoToSucata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710062111514_AddAreas.cs" />
+    <Compile Include="Migrations\201710062111514_AddAreas.Designer.cs">
+      <DependentUpon>201710062111514_AddAreas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CategoriasController.cs" />
     <Compile Include="Models\ClasseCusto.cs" />
     <Compile Include="Models\DbLogger.cs" />
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
     <Compile Include="Models\ExcelProduto.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Files.cs" />
+    <Compile Include="Models\Frete.cs" />
     <Compile Include="Models\GrupoRateio.cs" />
-    <Compile Include="Models\GrupoRateiosController.cs" />
+    <Compile Include="Controllers\GrupoRateiosController.cs" />
+    <Compile Include="Models\Operacao.cs" />
+    <Compile Include="Models\Rateio.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\LinhasController.cs" />
@@ -523,10 +709,15 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parametro.cs" />
     <Compile Include="Models\Process.cs" />
-    <Compile Include="Models\ProductTree.cs" />
+    <Compile Include="Models\Estrutura.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\QuantidadeMaquinas.cs" />
     <Compile Include="Models\Reason.cs" />
+    <Compile Include="Models\Regiao.cs" />
+    <Compile Include="Models\Sequencia.cs" />
+    <Compile Include="Models\Setor.cs" />
     <Compile Include="Models\Stack.cs" />
+    <Compile Include="Models\Sucata.cs" />
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Models\Unidade.cs" />
     <Compile Include="Models\Unit.cs" />
@@ -1846,13 +2037,15 @@
     <Compile Include="Models\Vegas\ws_servpars.cs" />
     <Compile Include="Models\Vegas\ws_servxusu.cs" />
     <Compile Include="Models\Vegas\ws_tipodado.cs" />
-    <Compile Include="ProdutoesController.cs" />
+    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="TipoesController.cs" />
-    <Compile Include="UnidadesController.cs" />
+    <Compile Include="Controllers\TipoesController.cs" />
+    <Compile Include="Controllers\UnidadesController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-cerulean.css" />
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2014,9 +2207,55 @@
     <Content Include="Views\Produtoes\Details.cshtml" />
     <Content Include="Views\Produtoes\Edit.cshtml" />
     <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\Estruturas\Create.cshtml" />
+    <Content Include="Views\Estruturas\Delete.cshtml" />
+    <Content Include="Views\Estruturas\Details.cshtml" />
+    <Content Include="Views\Estruturas\Edit.cshtml" />
+    <Content Include="Views\Estruturas\Index.cshtml" />
+    <Content Include="Views\QtdMaquinas\Create.cshtml" />
+    <Content Include="Views\QtdMaquinas\Delete.cshtml" />
+    <Content Include="Views\QtdMaquinas\Details.cshtml" />
+    <Content Include="Views\QtdMaquinas\Edit.cshtml" />
+    <Content Include="Views\QtdMaquinas\Index.cshtml" />
+    <Content Include="Views\Rateios\Create.cshtml" />
+    <Content Include="Views\Rateios\Delete.cshtml" />
+    <Content Include="Views\Rateios\Details.cshtml" />
+    <Content Include="Views\Rateios\Edit.cshtml" />
+    <Content Include="Views\Rateios\Index.cshtml" />
+    <Content Include="Views\Setors\Create.cshtml" />
+    <Content Include="Views\Setors\Delete.cshtml" />
+    <Content Include="Views\Setors\Details.cshtml" />
+    <Content Include="Views\Setors\Edit.cshtml" />
+    <Content Include="Views\Setors\Index.cshtml" />
+    <Content Include="Views\Sequencias\Create.cshtml" />
+    <Content Include="Views\Sequencias\Delete.cshtml" />
+    <Content Include="Views\Sequencias\Details.cshtml" />
+    <Content Include="Views\Sequencias\Edit.cshtml" />
+    <Content Include="Views\Sequencias\Index.cshtml" />
+    <Content Include="Views\Operacaos\Create.cshtml" />
+    <Content Include="Views\Operacaos\Delete.cshtml" />
+    <Content Include="Views\Operacaos\Details.cshtml" />
+    <Content Include="Views\Operacaos\Edit.cshtml" />
+    <Content Include="Views\Operacaos\Index.cshtml" />
+    <Content Include="Views\Fretes\Create.cshtml" />
+    <Content Include="Views\Fretes\Delete.cshtml" />
+    <Content Include="Views\Fretes\Details.cshtml" />
+    <Content Include="Views\Fretes\Edit.cshtml" />
+    <Content Include="Views\Fretes\Index.cshtml" />
+    <Content Include="Views\Sucatas\Create.cshtml" />
+    <Content Include="Views\Sucatas\Delete.cshtml" />
+    <Content Include="Views\Sucatas\Details.cshtml" />
+    <Content Include="Views\Sucatas\Edit.cshtml" />
+    <Content Include="Views\Sucatas\Index.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\Details.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
     <Folder Include="Views\Migracao\" />
   </ItemGroup>
   <ItemGroup>
@@ -2222,6 +2461,135 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710011857091_AddProdutoesWithIdentityToId.resx">
       <DependentUpon>201710011857091_AddProdutoesWithIdentityToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710021959023_AddSequenciaTable.resx">
+      <DependentUpon>201710021959023_AddSequenciaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710022009000_PopulateSequencia.resx">
+      <DependentUpon>201710022009000_PopulateSequencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710022014284_DropProductTrees.resx">
+      <DependentUpon>201710022014284_DropProductTrees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031131225_RenameApelidoToDescricaoInSequencia.resx">
+      <DependentUpon>201710031131225_RenameApelidoToDescricaoInSequencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031219426_AddQUantidadeCustoToProduto.resx">
+      <DependentUpon>201710031219426_AddQUantidadeCustoToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031229167_DropProcesses.resx">
+      <DependentUpon>201710031229167_DropProcesses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031234244_AddEstruturaTable.resx">
+      <DependentUpon>201710031234244_AddEstruturaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031240207_LinkSequenciaToEstrutura.resx">
+      <DependentUpon>201710031240207_LinkSequenciaToEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\.resx">
+      <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041221458_AddPesoNStatusToProduto.resx">
+      <DependentUpon>201710041221458_AddPesoNStatusToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041258172_AddEstadosTable.resx">
+      <DependentUpon>201710041258172_AddEstadosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041329199_AddEstados.resx">
+      <DependentUpon>201710041329199_AddEstados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041331120_PopulateEstadoes.resx">
+      <DependentUpon>201710041331120_PopulateEstadoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041346267_AddRegioesTable.resx">
+      <DependentUpon>201710041346267_AddRegioesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041506066_PopulateRegiaos.resx">
+      <DependentUpon>201710041506066_PopulateRegiaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041516453_ResizeDescricaoInRegiaosTable.resx">
+      <DependentUpon>201710041516453_ResizeDescricaoInRegiaosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041517493_RepopulateRegiaos.resx">
+      <DependentUpon>201710041517493_RepopulateRegiaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041525578_DropEstadoes.resx">
+      <DependentUpon>201710041525578_DropEstadoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041552061_RenameIdToRegiaoId.resx">
+      <DependentUpon>201710041552061_RenameIdToRegiaoId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041556370_AddEstadoWithLinkToRegiao.resx">
+      <DependentUpon>201710041556370_AddEstadoWithLinkToRegiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041559064_PopulateEstadoesWitRegiaos.resx">
+      <DependentUpon>201710041559064_PopulateEstadoesWitRegiaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041606544_RenameRegiaIdToRegiaoIdInEstaoes.resx">
+      <DependentUpon>201710041606544_RenameRegiaIdToRegiaoIdInEstaoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041636447_DropEstadoswNRegioes.resx">
+      <DependentUpon>201710041636447_DropEstadoswNRegioes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041642120_AddRegioesComCodigodeRegiao.resx">
+      <DependentUpon>201710041642120_AddRegioesComCodigodeRegiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041645221_PopulateNewRegiaos.resx">
+      <DependentUpon>201710041645221_PopulateNewRegiaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041710286_ALteraracaoParametros.resx">
+      <DependentUpon>201710041710286_ALteraracaoParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041953571_AddQtdMaquinas.resx">
+      <DependentUpon>201710041953571_AddQtdMaquinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710042029057_AddRaeios.resx">
+      <DependentUpon>201710042029057_AddRaeios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710042055030_AddSetors.resx">
+      <DependentUpon>201710042055030_AddSetors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051219574_AddDescticaoToDequencia.resx">
+      <DependentUpon>201710051219574_AddDescticaoToDequencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051239137_DropSequencias.resx">
+      <DependentUpon>201710051239137_DropSequencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051241326_RecreateSequencias.resx">
+      <DependentUpon>201710051241326_RecreateSequencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051244117_PopulateNewSequencias.resx">
+      <DependentUpon>201710051244117_PopulateNewSequencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051307397_RenameDescToDescricaoInSequencias.resx">
+      <DependentUpon>201710051307397_RenameDescToDescricaoInSequencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051359399_AddOperacao.resx">
+      <DependentUpon>201710051359399_AddOperacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051941291_AddFretes.resx">
+      <DependentUpon>201710051941291_AddFretes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051945487_PopulateFretes.resx">
+      <DependentUpon>201710051945487_PopulateFretes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051955215_AddDateToFrete.resx">
+      <DependentUpon>201710051955215_AddDateToFrete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061221200_AddSucatas.resx">
+      <DependentUpon>201710061221200_AddSucatas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061227406_AddSubProdutoes.resx">
+      <DependentUpon>201710061227406_AddSubProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061253575_DrpSubprodutos.resx">
+      <DependentUpon>201710061253575_DrpSubprodutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061256501_AddFlagSubProtutoToSucata.resx">
+      <DependentUpon>201710061256501_AddFlagSubProtutoToSucata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710062111514_AddAreas.resx">
+      <DependentUpon>201710062111514_AddAreas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

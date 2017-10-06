@@ -14,7 +14,14 @@ namespace Gestor
         // GET: Produtoes
         public ActionResult Index()
         {
-            var produtos = db.Produtos.Include(p => p.Categoria).Include(p => p.ClasseCusto).Include(p => p.Familia).Include(p => p.GrupoRateio).Include(p => p.Linha).Include(p => p.Tipo).Include(p => p.Unidade);
+            var produtos = db.Produtos
+                .Include(p => p.Categoria)
+                .Include(p => p.ClasseCusto)
+                .Include(p => p.Familia)
+                .Include(p => p.GrupoRateio)
+                .Include(p => p.Linha)
+                .Include(p => p.Tipo)
+                .Include(p => p.Unidade);
             return View(produtos.ToList());
         }
 
