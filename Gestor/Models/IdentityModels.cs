@@ -28,15 +28,18 @@ namespace Gestor.Models
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
+        public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
+        public DbSet<MedidaFita> MedidaFitas { get; set; }
         public DbSet<Operacao> Operacoe { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<QtdEmbalagem> QtdEmbalagems { get; set; }
         public DbSet<QtdMaquinas> QtdMaquinas { get; set; }
         public DbSet<Rateio> Rateios { get; set; }
         public DbSet<Regiao> Regioes { get; set; }

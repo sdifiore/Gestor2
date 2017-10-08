@@ -233,11 +233,13 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustoFolhasController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
     <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedidaFitasController.cs" />
     <Compile Include="Controllers\MigracaoController.cs" />
     <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
@@ -685,12 +687,33 @@
     <Compile Include="Migrations\201710062111514_AddAreas.Designer.cs">
       <DependentUpon>201710062111514_AddAreas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710062124148_ResizeNomeInAreaFrom2To16.cs" />
+    <Compile Include="Migrations\201710062124148_ResizeNomeInAreaFrom2To16.Designer.cs">
+      <DependentUpon>201710062124148_ResizeNomeInAreaFrom2To16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710071451261_AddCustoFolhas.cs" />
+    <Compile Include="Migrations\201710071451261_AddCustoFolhas.Designer.cs">
+      <DependentUpon>201710071451261_AddCustoFolhas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710081748097_AddMedidaFitas.cs" />
+    <Compile Include="Migrations\201710081748097_AddMedidaFitas.Designer.cs">
+      <DependentUpon>201710081748097_AddMedidaFitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710081749232_PopulateMedidaFitas.cs" />
+    <Compile Include="Migrations\201710081749232_PopulateMedidaFitas.Designer.cs">
+      <DependentUpon>201710081749232_PopulateMedidaFitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710081843077_QtdEmbalagems.cs" />
+    <Compile Include="Migrations\201710081843077_QtdEmbalagems.Designer.cs">
+      <DependentUpon>201710081843077_QtdEmbalagems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CategoriasController.cs" />
     <Compile Include="Models\ClasseCusto.cs" />
+    <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
@@ -701,6 +724,8 @@
     <Compile Include="Models\GrupoRateio.cs" />
     <Compile Include="Controllers\GrupoRateiosController.cs" />
     <Compile Include="Models\Operacao.cs" />
+    <Compile Include="Models\MedidaFita.cs" />
+    <Compile Include="Models\QtdEmbalagem.cs" />
     <Compile Include="Models\Rateio.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linha.cs" />
@@ -716,7 +741,7 @@
     <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Sequencia.cs" />
     <Compile Include="Models\Setor.cs" />
-    <Compile Include="Models\Stack.cs" />
+    <Compile Include="Stack.cs" />
     <Compile Include="Models\Sucata.cs" />
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Models\Unidade.cs" />
@@ -2252,6 +2277,16 @@
     <Content Include="Views\Areas\Details.cshtml" />
     <Content Include="Views\Areas\Edit.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\CustoFolhas\Create.cshtml" />
+    <Content Include="Views\CustoFolhas\Delete.cshtml" />
+    <Content Include="Views\CustoFolhas\Details.cshtml" />
+    <Content Include="Views\CustoFolhas\Edit.cshtml" />
+    <Content Include="Views\CustoFolhas\Index.cshtml" />
+    <Content Include="Views\MedidaFitas\Create.cshtml" />
+    <Content Include="Views\MedidaFitas\Delete.cshtml" />
+    <Content Include="Views\MedidaFitas\Details.cshtml" />
+    <Content Include="Views\MedidaFitas\Edit.cshtml" />
+    <Content Include="Views\MedidaFitas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2590,6 +2625,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710062111514_AddAreas.resx">
       <DependentUpon>201710062111514_AddAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710062124148_ResizeNomeInAreaFrom2To16.resx">
+      <DependentUpon>201710062124148_ResizeNomeInAreaFrom2To16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710071451261_AddCustoFolhas.resx">
+      <DependentUpon>201710071451261_AddCustoFolhas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710081748097_AddMedidaFitas.resx">
+      <DependentUpon>201710081748097_AddMedidaFitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710081749232_PopulateMedidaFitas.resx">
+      <DependentUpon>201710081749232_PopulateMedidaFitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710081843077_QtdEmbalagems.resx">
+      <DependentUpon>201710081843077_QtdEmbalagems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,8 @@ namespace Gestor.Models
         [Display(Name = "Código")]
         public string Apelido { get; set; }
 
-        [StringLength(2)]
+        [StringLength(16)]
+        [Display(Name = "Área")]
         public string Nome { get; set; }
     }
 }
