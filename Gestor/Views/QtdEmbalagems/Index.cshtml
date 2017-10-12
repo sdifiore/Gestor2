@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Gestor.Models.QtdEmbalagem>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova entrada", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MedidaFita.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartuchoRolCx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartuchoCxPlt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayRolCx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarretelRolCx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarretelCxPlt)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedidaFitasId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartuchoRolCx)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartuchoCxPlt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayRolCx)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarretelRolCx)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarretelCxPlt)
+        </td>
+
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new {id = item.QtdEmbalagemId}) |
+            @Html.ActionLink("Detalhes", "Details", new {id = item.QtdEmbalagemId}) |
+            @Html.ActionLink("Eliminar", "Delete", new {id = item.QtdEmbalagemId})
+        </td>
+    </tr>
+}
+
+</table>

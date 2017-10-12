@@ -243,6 +243,7 @@
     <Compile Include="Controllers\MigracaoController.cs" />
     <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
+    <Compile Include="Controllers\QtdEmbalagemsController.cs" />
     <Compile Include="Controllers\QtdMaquinasController.cs" />
     <Compile Include="Controllers\RateiosController.cs" />
     <Compile Include="Controllers\SequenciasController.cs" />
@@ -707,6 +708,54 @@
     <Compile Include="Migrations\201710081843077_QtdEmbalagems.Designer.cs">
       <DependentUpon>201710081843077_QtdEmbalagems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091202047_MakeAllFieldsInQtdEmbalagemsNullable.cs" />
+    <Compile Include="Migrations\201710091202047_MakeAllFieldsInQtdEmbalagemsNullable.Designer.cs">
+      <DependentUpon>201710091202047_MakeAllFieldsInQtdEmbalagemsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710091807470_AddApelidoToMedidaFita.cs" />
+    <Compile Include="Migrations\201710091807470_AddApelidoToMedidaFita.Designer.cs">
+      <DependentUpon>201710091807470_AddApelidoToMedidaFita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101155494_AddAreaFitas.cs" />
+    <Compile Include="Migrations\201710101155494_AddAreaFitas.Designer.cs">
+      <DependentUpon>201710101155494_AddAreaFitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101244589_DropAreaFita.cs" />
+    <Compile Include="Migrations\201710101244589_DropAreaFita.Designer.cs">
+      <DependentUpon>201710101244589_DropAreaFita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101300424_AddIndexOnApelidoInProdutoes.cs" />
+    <Compile Include="Migrations\201710101300424_AddIndexOnApelidoInProdutoes.Designer.cs">
+      <DependentUpon>201710101300424_AddIndexOnApelidoInProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111228299_AddFinalidades.cs" />
+    <Compile Include="Migrations\201710111228299_AddFinalidades.Designer.cs">
+      <DependentUpon>201710111228299_AddFinalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111229562_PopulateFinalidade.cs" />
+    <Compile Include="Migrations\201710111229562_PopulateFinalidade.Designer.cs">
+      <DependentUpon>201710111229562_PopulateFinalidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111247517_AddInsumoes.cs" />
+    <Compile Include="Migrations\201710111247517_AddInsumoes.Designer.cs">
+      <DependentUpon>201710111247517_AddInsumoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111728150_AtualizaInsumos.cs" />
+    <Compile Include="Migrations\201710111728150_AtualizaInsumos.Designer.cs">
+      <DependentUpon>201710111728150_AtualizaInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111733432_LinkInsumoesToProdutoes.cs" />
+    <Compile Include="Migrations\201710111733432_LinkInsumoesToProdutoes.Designer.cs">
+      <DependentUpon>201710111733432_LinkInsumoesToProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111737298_DropInsumoes.cs" />
+    <Compile Include="Migrations\201710111737298_DropInsumoes.Designer.cs">
+      <DependentUpon>201710111737298_DropInsumoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710111741489_AddInsumoesb.cs" />
+    <Compile Include="Migrations\201710111741489_AddInsumoesb.Designer.cs">
+      <DependentUpon>201710111741489_AddInsumoesb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Area.cs" />
@@ -720,9 +769,11 @@
     <Compile Include="Models\ExcelProduto.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Files.cs" />
+    <Compile Include="Models\Finalidade.cs" />
     <Compile Include="Models\Frete.cs" />
     <Compile Include="Models\GrupoRateio.cs" />
     <Compile Include="Controllers\GrupoRateiosController.cs" />
+    <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\Operacao.cs" />
     <Compile Include="Models\MedidaFita.cs" />
     <Compile Include="Models\QtdEmbalagem.cs" />
@@ -741,6 +792,7 @@
     <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Sequencia.cs" />
     <Compile Include="Models\Setor.cs" />
+    <Compile Include="Models\UnidadeConsumo.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Models\Sucata.cs" />
     <Compile Include="Models\Tipo.cs" />
@@ -2282,6 +2334,11 @@
     <Content Include="Views\CustoFolhas\Details.cshtml" />
     <Content Include="Views\CustoFolhas\Edit.cshtml" />
     <Content Include="Views\CustoFolhas\Index.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Create.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Delete.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Details.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Edit.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Index.cshtml" />
     <Content Include="Views\MedidaFitas\Create.cshtml" />
     <Content Include="Views\MedidaFitas\Delete.cshtml" />
     <Content Include="Views\MedidaFitas\Details.cshtml" />
@@ -2640,6 +2697,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710081843077_QtdEmbalagems.resx">
       <DependentUpon>201710081843077_QtdEmbalagems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091202047_MakeAllFieldsInQtdEmbalagemsNullable.resx">
+      <DependentUpon>201710091202047_MakeAllFieldsInQtdEmbalagemsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091807470_AddApelidoToMedidaFita.resx">
+      <DependentUpon>201710091807470_AddApelidoToMedidaFita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101155494_AddAreaFitas.resx">
+      <DependentUpon>201710101155494_AddAreaFitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101244589_DropAreaFita.resx">
+      <DependentUpon>201710101244589_DropAreaFita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101300424_AddIndexOnApelidoInProdutoes.resx">
+      <DependentUpon>201710101300424_AddIndexOnApelidoInProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111228299_AddFinalidades.resx">
+      <DependentUpon>201710111228299_AddFinalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111229562_PopulateFinalidade.resx">
+      <DependentUpon>201710111229562_PopulateFinalidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111247517_AddInsumoes.resx">
+      <DependentUpon>201710111247517_AddInsumoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111728150_AtualizaInsumos.resx">
+      <DependentUpon>201710111728150_AtualizaInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111733432_LinkInsumoesToProdutoes.resx">
+      <DependentUpon>201710111733432_LinkInsumoesToProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111737298_DropInsumoes.resx">
+      <DependentUpon>201710111737298_DropInsumoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710111741489_AddInsumoesb.resx">
+      <DependentUpon>201710111741489_AddInsumoesb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -31,8 +31,10 @@ namespace Gestor.Models
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
+        public DbSet<Finalidade> Finalidades { get; set; }
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
+        public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }
