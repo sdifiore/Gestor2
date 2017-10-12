@@ -28,9 +28,6 @@
             @Html.DisplayNameFor(model => model.Familia.Apelido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Linha.Apelido)
         </th>
         <th>
@@ -40,6 +37,9 @@
             @Html.DisplayNameFor(model => model.Unidade.Apelido)
         </th>
 
+        <th>
+            @Html.DisplayNameFor(model => model.FlagProduto)
+        </th>
         <th></th>
     </tr>
 
@@ -52,27 +52,27 @@
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Descricao)
+            @Html.DisplayFor(modelItem => item.Categoria.Apelido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ClasseCusto.Descricao)
+            @Html.DisplayFor(modelItem => item.ClasseCusto.Apelido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Familia.Descricao)
+            @Html.DisplayFor(modelItem => item.Familia.Apelido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GrupoRateio.Descricao)
+            @Html.DisplayFor(modelItem => item.Linha.Apelido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Linha.Descricao)
+            @Html.DisplayFor(modelItem => item.Tipo.Apelido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tipo.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+            @Html.DisplayFor(modelItem => item.Unidade.Apelido)
         </td>
 
+        <td>
+            @Html.DisplayFor(modelItem => item.FlagProduto)
+        </td>
         <td>
             @Html.ActionLink("Alterar", "Edit", new {id = item.Id})
             @Html.ActionLink("Detalhes", "Details", new {id = item.Id})

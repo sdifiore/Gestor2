@@ -17,39 +17,37 @@ namespace Gestor.Models
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Unidade")]
         public int UnidadeId { get; set; }
 
         public Unidade Unidade { get; set; }
 
+        [Display(Name = "Tipo")]
         public int TipoId { get; set; }
 
         public Tipo Tipo { get; set; }
 
+        [Display(Name = "Classe de Custo")]
         public int ClasseCustoId { get; set; }
 
         public ClasseCusto ClasseCusto { get; set; }
 
-        public int FamiliaId { get; set; }
-
-        public Familia Familia { get; set; }
-
-        public int LinhaId { get; set; }
-
-        public Linha Linha { get; set; }
-
-        public int GrupoRateioId { get; set; }
-
-        public GrupoRateio GrupoRateio { get; set; }
-
+        [Display(Name = "Categoria")]
         public int CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
 
-        public float QuantidadeCusto { get; set; }
+        [Display(Name = "Família")]
+        public int FamiliaId { get; set; }
 
-        public float PesoBruto { get; set; }
+        public Familia Familia { get; set; }
 
-        [Display(Name = "Ativo")]
-        public bool Status { get; set; }
+        [Display(Name = "Linha")]
+        public int LinhaId { get; set; }
+
+        public Linha Linha { get; set; }
+
+        [Display(Name = "Produto")]
+        public bool FlagProduto { get; set; }
     }
 }

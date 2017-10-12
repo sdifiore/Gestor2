@@ -12,6 +12,23 @@
     <h4>Produto</h4>
     <hr />
     <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Categoria.Apelido)
         </dt>
@@ -34,14 +51,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Familia.Apelido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GrupoRateio.Descricao)
         </dd>
 
         <dt>
@@ -69,19 +78,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Apelido)
+            @Html.DisplayNameFor(model => model.FlagProduto)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Apelido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
+            @Html.DisplayFor(model => model.FlagProduto)
         </dd>
 
     </dl>

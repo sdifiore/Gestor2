@@ -1,11 +1,10 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Gestor.Models;
 
-namespace Gestor
+namespace Gestor.Controllers
 {
     public class ProdutoesController : Controller
     {
@@ -14,14 +13,7 @@ namespace Gestor
         // GET: Produtoes
         public ActionResult Index()
         {
-            var produtos = db.Produtos
-                .Include(p => p.Categoria)
-                .Include(p => p.ClasseCusto)
-                .Include(p => p.Familia)
-                .Include(p => p.GrupoRateio)
-                .Include(p => p.Linha)
-                .Include(p => p.Tipo)
-                .Include(p => p.Unidade);
+            var produtos = db.Produtos.Include(p => p.Categoria).Include(p => p.ClasseCusto).Include(p => p.Familia).Include(p => p.Linha).Include(p => p.Tipo).Include(p => p.Unidade);
             return View(produtos.ToList());
         }
 
@@ -37,9 +29,8 @@ namespace Gestor
                 .Include(p => p.ClasseCusto)
                 .Include(p => p.Familia)
                 .Include(p => p.Linha)
-                .Include(p => p.GrupoRateio)
+                .Include(p => p.Tipo)
                 .Include(p => p.Unidade)
-                .Include((p => p.Tipo))
                 .SingleOrDefault(p => p.Id == id);
             if (produto == null)
             {
@@ -54,7 +45,6 @@ namespace Gestor
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido");
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido");
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido");
-            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao");
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido");
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido");
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
@@ -66,7 +56,7 @@ namespace Gestor
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,FamiliaId,LinhaId,GrupoRateioId,CategoriaId")] Produto produto)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,FlagProduto")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +68,6 @@ namespace Gestor
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
-            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
@@ -100,7 +89,6 @@ namespace Gestor
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
-            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
@@ -112,7 +100,7 @@ namespace Gestor
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,FamiliaId,LinhaId,GrupoRateioId,CategoriaId")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,FlagProduto")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -123,7 +111,6 @@ namespace Gestor
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
-            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
@@ -142,10 +129,10 @@ namespace Gestor
                 .Include(p => p.ClasseCusto)
                 .Include(p => p.Familia)
                 .Include(p => p.Linha)
-                .Include(p => p.GrupoRateio)
+                .Include(p => p.Tipo)
                 .Include(p => p.Unidade)
-                .Include((p => p.Tipo))
                 .SingleOrDefault(p => p.Id == id);
+
             if (produto == null)
             {
                 return HttpNotFound();

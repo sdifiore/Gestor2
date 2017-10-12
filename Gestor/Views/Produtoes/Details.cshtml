@@ -5,67 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Descricao</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Produto</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ClasseCusto.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Familia.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Familia.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GrupoRateio.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Linha.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Linha.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Unidade.Descricao)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Apelido)
@@ -82,10 +27,66 @@
         <dd>
             @Html.DisplayFor(model => model.Descricao)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClasseCusto.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familia.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familia.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linha.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linha.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade.Apelido)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlagProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlagProduto)
+        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Aterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Retornar a lista", "Index")
 </p>
