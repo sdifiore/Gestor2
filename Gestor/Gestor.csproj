@@ -234,6 +234,7 @@
     <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
+    <Compile Include="Controllers\DominiosController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
     <Compile Include="Controllers\FretesController.cs" />
@@ -243,6 +244,8 @@
     <Compile Include="Controllers\MigracaoController.cs" />
     <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
+    <Compile Include="Controllers\ParteProdutoesController.cs" />
+    <Compile Include="Controllers\PcpsController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\QtdEmbalagemsController.cs" />
     <Compile Include="Controllers\QtdMaquinasController.cs" />
@@ -250,6 +253,7 @@
     <Compile Include="Controllers\SequenciasController.cs" />
     <Compile Include="Controllers\SetorsController.cs" />
     <Compile Include="Controllers\SucatasController.cs" />
+    <Compile Include="Controllers\TipoProducaosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -761,6 +765,42 @@
     <Compile Include="Migrations\201710121614417_ResizeProdutoesToOnlyGreenFields.Designer.cs">
       <DependentUpon>201710121614417_ResizeProdutoesToOnlyGreenFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710121856324_AddDominioes.cs" />
+    <Compile Include="Migrations\201710121856324_AddDominioes.Designer.cs">
+      <DependentUpon>201710121856324_AddDominioes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710121903318_AddTipoProcucaos.cs" />
+    <Compile Include="Migrations\201710121903318_AddTipoProcucaos.Designer.cs">
+      <DependentUpon>201710121903318_AddTipoProcucaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710121908527_AddPcp.cs" />
+    <Compile Include="Migrations\201710121908527_AddPcp.Designer.cs">
+      <DependentUpon>201710121908527_AddPcp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710122130548_AddParteProdutoes.cs" />
+    <Compile Include="Migrations\201710122130548_AddParteProdutoes.Designer.cs">
+      <DependentUpon>201710122130548_AddParteProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131339535_AddDominioToParteProdutoes.cs" />
+    <Compile Include="Migrations\201710131339535_AddDominioToParteProdutoes.Designer.cs">
+      <DependentUpon>201710131339535_AddDominioToParteProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131344479_AddParteProtutoesToProdutoes.cs" />
+    <Compile Include="Migrations\201710131344479_AddParteProtutoesToProdutoes.Designer.cs">
+      <DependentUpon>201710131344479_AddParteProtutoesToProdutoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131348159_LinkProdutoToParteProduto.cs" />
+    <Compile Include="Migrations\201710131348159_LinkProdutoToParteProduto.Designer.cs">
+      <DependentUpon>201710131348159_LinkProdutoToParteProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131734159_ReanmePeloAsPesoInParteProduto.cs" />
+    <Compile Include="Migrations\201710131734159_ReanmePeloAsPesoInParteProduto.Designer.cs">
+      <DependentUpon>201710131734159_ReanmePeloAsPesoInParteProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131913539_unknown.cs" />
+    <Compile Include="Migrations\201710131913539_unknown.Designer.cs">
+      <DependentUpon>201710131913539_unknown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Area.cs" />
@@ -769,6 +809,7 @@
     <Compile Include="Models\ClasseCusto.cs" />
     <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\DbLogger.cs" />
+    <Compile Include="Models\Dominio.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
     <Compile Include="Models\ExcelProduto.cs" />
@@ -781,6 +822,8 @@
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\Operacao.cs" />
     <Compile Include="Models\MedidaFita.cs" />
+    <Compile Include="Models\ParteProduto.cs" />
+    <Compile Include="Models\Pcp.cs" />
     <Compile Include="Models\QtdEmbalagem.cs" />
     <Compile Include="Models\Rateio.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -797,6 +840,7 @@
     <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Sequencia.cs" />
     <Compile Include="Models\Setor.cs" />
+    <Compile Include="Models\TipoProducao.cs" />
     <Compile Include="Models\UnidadeConsumo.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Models\Sucata.cs" />
@@ -2341,11 +2385,31 @@
     <Content Include="Views\MedidaFitas\Details.cshtml" />
     <Content Include="Views\MedidaFitas\Edit.cshtml" />
     <Content Include="Views\MedidaFitas\Index.cshtml" />
+    <Content Include="Views\Dominios\Create.cshtml" />
+    <Content Include="Views\Dominios\Delete.cshtml" />
+    <Content Include="Views\Dominios\Details.cshtml" />
+    <Content Include="Views\Dominios\Edit.cshtml" />
+    <Content Include="Views\Dominios\Index.cshtml" />
+    <Content Include="Views\TipoProducaos\Create.cshtml" />
+    <Content Include="Views\TipoProducaos\Delete.cshtml" />
+    <Content Include="Views\TipoProducaos\Details.cshtml" />
+    <Content Include="Views\TipoProducaos\Edit.cshtml" />
+    <Content Include="Views\TipoProducaos\Index.cshtml" />
+    <Content Include="Views\Pcps\Create.cshtml" />
+    <Content Include="Views\Pcps\Delete.cshtml" />
+    <Content Include="Views\Pcps\Details.cshtml" />
+    <Content Include="Views\Pcps\Edit.cshtml" />
+    <Content Include="Views\Pcps\Index.cshtml" />
     <Content Include="Views\Produtoes\Create.cshtml" />
     <Content Include="Views\Produtoes\Delete.cshtml" />
     <Content Include="Views\Produtoes\Details.cshtml" />
     <Content Include="Views\Produtoes\Edit.cshtml" />
     <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\ParteProdutoes\Create.cshtml" />
+    <Content Include="Views\ParteProdutoes\Delete.cshtml" />
+    <Content Include="Views\ParteProdutoes\Details.cshtml" />
+    <Content Include="Views\ParteProdutoes\Edit.cshtml" />
+    <Content Include="Views\ParteProdutoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2738,6 +2802,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710121614417_ResizeProdutoesToOnlyGreenFields.resx">
       <DependentUpon>201710121614417_ResizeProdutoesToOnlyGreenFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710121856324_AddDominioes.resx">
+      <DependentUpon>201710121856324_AddDominioes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710121903318_AddTipoProcucaos.resx">
+      <DependentUpon>201710121903318_AddTipoProcucaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710121908527_AddPcp.resx">
+      <DependentUpon>201710121908527_AddPcp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710122130548_AddParteProdutoes.resx">
+      <DependentUpon>201710122130548_AddParteProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131339535_AddDominioToParteProdutoes.resx">
+      <DependentUpon>201710131339535_AddDominioToParteProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131344479_AddParteProtutoesToProdutoes.resx">
+      <DependentUpon>201710131344479_AddParteProtutoesToProdutoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131348159_LinkProdutoToParteProduto.resx">
+      <DependentUpon>201710131348159_LinkProdutoToParteProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131734159_ReanmePeloAsPesoInParteProduto.resx">
+      <DependentUpon>201710131734159_ReanmePeloAsPesoInParteProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131913539_unknown.resx">
+      <DependentUpon>201710131913539_unknown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

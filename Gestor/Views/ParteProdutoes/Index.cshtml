@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Gestor.Models.ParteProduto>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo complemento a produto", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dominio.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pcp.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProducao.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUndd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUndArmz)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dominio.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrupoRateio.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pcp.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoProducao.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdUndd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdUndArmz)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new {id = item.ParteProdutoId}) |
+            @Html.ActionLink("Detalhes", "Details", new {id = item.ParteProdutoId}) |
+            @Html.ActionLink("Eliminar", "Delete", new {id = item.ParteProdutoId})
+        </td>
+    </tr>
+}
+
+</table>

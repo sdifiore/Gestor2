@@ -49,5 +49,6 @@ namespace Gestor.Models
 
         [Display(Name = "Produto")]
         public bool FlagProduto { get; set; }
+
     }
 }
