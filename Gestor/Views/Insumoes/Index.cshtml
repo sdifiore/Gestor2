@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Gestor.Models.Insumo>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo insumo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cotacao.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finalidade.Descricao)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUsd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoRs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cofins)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Cotacao.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Finalidade.Descricao)
+        </td>
+ 
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUsd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cofins)
+        </td>
+        <td>
+
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.InsumoId })
+            @Html.ActionLink("Detalhes", "Details", new { id=item.InsumoId })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.InsumoId })
+        </td>
+    </tr>
+}
+
+</table>

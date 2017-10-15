@@ -28,6 +28,7 @@ namespace Gestor.Models
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
+        public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }

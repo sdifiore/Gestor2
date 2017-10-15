@@ -224,6 +224,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\FixTwoAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -233,12 +234,13 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CotacaosController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
-    <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
     <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsumoesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedidaFitasController.cs" />
     <Compile Include="Controllers\MigracaoController.cs" />
@@ -801,12 +803,49 @@
     <Compile Include="Migrations\201710131913539_unknown.Designer.cs">
       <DependentUpon>201710131913539_unknown.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141227137_AddCotacao.cs" />
+    <Compile Include="Migrations\201710141227137_AddCotacao.Designer.cs">
+      <DependentUpon>201710141227137_AddCotacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141308111_ChangeLengthOfDescricaoInCotacaoTo256.cs" />
+    <Compile Include="Migrations\201710141308111_ChangeLengthOfDescricaoInCotacaoTo256.Designer.cs">
+      <DependentUpon>201710141308111_ChangeLengthOfDescricaoInCotacaoTo256.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141335332_ComplementaInsumoes.cs" />
+    <Compile Include="Migrations\201710141335332_ComplementaInsumoes.Designer.cs">
+      <DependentUpon>201710141335332_ComplementaInsumoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141422422_AddColumnPrecoRsToCotacao.cs" />
+    <Compile Include="Migrations\201710141422422_AddColumnPrecoRsToCotacao.Designer.cs">
+      <DependentUpon>201710141422422_AddColumnPrecoRsToCotacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141837455_DropFieldItemInCotacao.cs" />
+    <Compile Include="Migrations\201710141837455_DropFieldItemInCotacao.Designer.cs">
+      <DependentUpon>201710141837455_DropFieldItemInCotacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710151659165_ALterEstruturas.cs" />
+    <Compile Include="Migrations\201710151659165_ALterEstruturas.Designer.cs">
+      <DependentUpon>201710151659165_ALterEstruturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710151709290_DropEstrutura.cs" />
+    <Compile Include="Migrations\201710151709290_DropEstrutura.Designer.cs">
+      <DependentUpon>201710151709290_DropEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710151711506_DropEstrutura1.cs" />
+    <Compile Include="Migrations\201710151711506_DropEstrutura1.Designer.cs">
+      <DependentUpon>201710151711506_DropEstrutura1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710151738058_RemoveProdutoFromEstrutura.cs" />
+    <Compile Include="Migrations\201710151738058_RemoveProdutoFromEstrutura.Designer.cs">
+      <DependentUpon>201710151738058_RemoveProdutoFromEstrutura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CategoriasController.cs" />
     <Compile Include="Models\ClasseCusto.cs" />
+    <Compile Include="Models\Cotacao.cs" />
     <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\DbLogger.cs" />
     <Compile Include="Models\Dominio.cs" />
@@ -2325,11 +2364,6 @@
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
-    <Content Include="Views\Estruturas\Create.cshtml" />
-    <Content Include="Views\Estruturas\Delete.cshtml" />
-    <Content Include="Views\Estruturas\Details.cshtml" />
-    <Content Include="Views\Estruturas\Edit.cshtml" />
-    <Content Include="Views\Estruturas\Index.cshtml" />
     <Content Include="Views\QtdMaquinas\Create.cshtml" />
     <Content Include="Views\QtdMaquinas\Delete.cshtml" />
     <Content Include="Views\QtdMaquinas\Details.cshtml" />
@@ -2410,6 +2444,16 @@
     <Content Include="Views\ParteProdutoes\Details.cshtml" />
     <Content Include="Views\ParteProdutoes\Edit.cshtml" />
     <Content Include="Views\ParteProdutoes\Index.cshtml" />
+    <Content Include="Views\Cotacaos\Create.cshtml" />
+    <Content Include="Views\Cotacaos\Delete.cshtml" />
+    <Content Include="Views\Cotacaos\Details.cshtml" />
+    <Content Include="Views\Cotacaos\Edit.cshtml" />
+    <Content Include="Views\Cotacaos\Index.cshtml" />
+    <Content Include="Views\Insumoes\Create.cshtml" />
+    <Content Include="Views\Insumoes\Delete.cshtml" />
+    <Content Include="Views\Insumoes\Details.cshtml" />
+    <Content Include="Views\Insumoes\Edit.cshtml" />
+    <Content Include="Views\Insumoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2829,6 +2873,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710131913539_unknown.resx">
       <DependentUpon>201710131913539_unknown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141227137_AddCotacao.resx">
+      <DependentUpon>201710141227137_AddCotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141308111_ChangeLengthOfDescricaoInCotacaoTo256.resx">
+      <DependentUpon>201710141308111_ChangeLengthOfDescricaoInCotacaoTo256.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141335332_ComplementaInsumoes.resx">
+      <DependentUpon>201710141335332_ComplementaInsumoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141422422_AddColumnPrecoRsToCotacao.resx">
+      <DependentUpon>201710141422422_AddColumnPrecoRsToCotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141837455_DropFieldItemInCotacao.resx">
+      <DependentUpon>201710141837455_DropFieldItemInCotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151659165_ALterEstruturas.resx">
+      <DependentUpon>201710151659165_ALterEstruturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151709290_DropEstrutura.resx">
+      <DependentUpon>201710151709290_DropEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151711506_DropEstrutura1.resx">
+      <DependentUpon>201710151711506_DropEstrutura1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151738058_RemoveProdutoFromEstrutura.resx">
+      <DependentUpon>201710151738058_RemoveProdutoFromEstrutura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
