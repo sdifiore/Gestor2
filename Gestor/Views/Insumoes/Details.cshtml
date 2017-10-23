@@ -11,6 +11,32 @@
     <h4>Insumo</h4>
     <hr />
     <dl class="dl-horizontal">
+    
+        
+    <dt>
+        @Html.DisplayNameFor(model => model.Apelido)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Apelido)
+    </dd>
+        
+    <dt>
+        @Html.DisplayNameFor(model => model.Produto.Descricao)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Produto.Descricao)
+    </dd>
+
+    <dt>
+        Unidade
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.UnidadeConsumo.Descricao)
+    </dd>
+    
         <dt>
             @Html.DisplayNameFor(model => model.Cotacao.Descricao)
         </dt>
@@ -25,30 +51,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Finalidade.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Produto.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Produto.Apelido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnidadeConsumo.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnidadeConsumo.Apelido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Apelido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Apelido)
         </dd>
 
         <dt>
@@ -145,6 +147,102 @@
 
         <dd>
             @Html.DisplayFor(model => model.QtdMltplCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrcBrtCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrcBrtCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrdtIcms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrdtIcms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrdtIpi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrdtIpi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrdtPis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrdtPis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrdtCofins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrdtCofins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SumCrdImpostos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumCrdImpostos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DspImportacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DspImportacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoExtra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoExtra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Custo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Custo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoUndCnsm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoUndCnsm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PgtFornecImp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PgtFornecImp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsoStru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsoStru)
         </dd>
 
     </dl>

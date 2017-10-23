@@ -1,0 +1,97 @@
+﻿@model Gestor.Models.Estrutura
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Estrutura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequencia.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequencia.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdCusto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdCusto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Onera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Onera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

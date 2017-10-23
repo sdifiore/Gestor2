@@ -1,0 +1,179 @@
+﻿@model Gestor.Models.DetalheEstrutura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetalheEstrutura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estrutura.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estrutura.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartCusto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartCusto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtEftvUntrCmpnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtEftvUntrCmpnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstCmprUndPrd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstCmprUndPrd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TpItmCst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TpItmCst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlrtSbPrdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlrtSbPrdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempMaq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempMaq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdUndd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdUndd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PsLiqdFnl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PsLiqdFnl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PsLiqdPrcdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PsLiqdPrcdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HrsModFnl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HrsModFnl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HrsModPrec1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HrsModPrec1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HrsModPrec2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HrsModPrec2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCmpnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCmpnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PdrHoraria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PdrHoraria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdComp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdComp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstMtrlDrt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstMtrlDrt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstMtrlPrcd1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstMtrlPrcd1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstMtrlPrcd2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstMtrlPrcd2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstMtrlPrcd3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstMtrlPrcd3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetalheEstruturaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

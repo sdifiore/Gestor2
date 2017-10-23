@@ -17,7 +17,7 @@ namespace Gestor.Controllers
         // GET: Operacaos
         public ActionResult Index()
         {
-            var operacoe = db.Operacoe.Include(o => o.Setor);
+            var operacoe = db.Operacoes.Include(o => o.Setor);
             return View(operacoe.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Operacao operacao = db.Operacoe.Find(id);
+            Operacao operacao = db.Operacoes.Find(id);
             if (operacao == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace Gestor.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Operacoe.Add(operacao);
+                db.Operacoes.Add(operacao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -68,7 +68,7 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Operacao operacao = db.Operacoe.Find(id);
+            Operacao operacao = db.Operacoes.Find(id);
             if (operacao == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Operacao operacao = db.Operacoe.Find(id);
+            Operacao operacao = db.Operacoes.Find(id);
             if (operacao == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Operacao operacao = db.Operacoe.Find(id);
-            db.Operacoe.Remove(operacao);
+            Operacao operacao = db.Operacoes.Find(id);
+            db.Operacoes.Remove(operacao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

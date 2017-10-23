@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Gestor.Models
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -13,18 +14,20 @@
     <div class="col-md-4">
         <h2>Funções</h2>
 
-        <p><h3></h3></p>
-        <p><h3></h3></p>
+        <p><h3>@Html.ActionLink("Detalhes de Estruturas", "Index", "DetalheEstruturas")</h3></p>
+        <p><h3>@Html.ActionLink("Detalhes de Produtos", "Index", "DetalheProdutoes")</h3></p>
+        <p><h3>@Html.ActionLink("Insumos", "Index", "Insumoes")</h3></p>
+        <p><h3>@Html.ActionLink("Insumos, Custos", "Index", "CustoInsumoes")</h3></p>
     </div>
 
     <div class="col-md-4">
         <h2>Cadastros</h2>
         <p><h3>@Html.ActionLink("Custos da Folha", "Index", "CustoFolhas")</h3></p>
         <p><h3>@Html.ActionLink("Estruturas", "Index", "Estruturas")</h3></p>
-        <p><h3>@Html.ActionLink("Insumos", "Index", "Insumoes")</h3></p>
         <p><h3>@Html.ActionLink("Parâmetros", "Index", "Parametroes")</h3></p>
         <p><h3>@Html.ActionLink("Produtos", "Index", "Produtoes")</h3></p>
         <p><h3>@Html.ActionLink("Produtos, Complementos", "Index", "ParteProdutoes")</h3></p>
+        <p><h3>@Html.ActionLink("Substituição de Produto", "Index", "Ajustes")</h3></p>
     </div>
     
     <div class="col-md-4">
@@ -47,6 +50,7 @@
         <p><h3>@Html.ActionLink("Sequências", "Index", "Sequencias")</h3></p>
         <p><h3>@Html.ActionLink("Setores", "Index", "Setors")</h3></p>
         <p><h3>@Html.ActionLink("Sucatas e Sub-Produtos", "Index", "Sucatas")</h3></p>
+        <p><h3>@Html.ActionLink("Tipos de Alteração", "Index", "TipoAlteracaos")</h3></p>
         <p><h3>@Html.ActionLink("Tipos de Produção", "Index", "TipoProducaos")</h3></p>
         <p><h3>@Html.ActionLink("Tipos", "Index", "Tipoes")</h3></p>
         <p><h3>@Html.ActionLink("Unidades", "Index", "Unidades")</h3></p>

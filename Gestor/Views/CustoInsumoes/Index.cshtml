@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Gestor.Models.CustoInsumo>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @*@Html.ActionLink("Criar novo custo de insumo", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrcBrtCmpr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtIcms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtIpi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtPis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtCofins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumCrdtImpostos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespImport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoExtra)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Custo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CstUndConsumo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PgmtoFornecImport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsoStrut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExisteRede)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrcBrtCmpr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrdtIcms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrdtIpi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrdtPis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrdtCofins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumCrdtImpostos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DespImport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoExtra)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Custo)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CstUndConsumo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PgmtoFornecImport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsoStrut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExisteRede)
+        </td>
+        <td>
+            @Html.ActionLink("Detalhes", "Details", new { id=item.CustoInsumoId })
+        </td>
+    </tr>
+}
+
+</table>

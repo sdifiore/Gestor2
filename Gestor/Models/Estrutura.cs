@@ -32,10 +32,15 @@ namespace Gestor.Models
         [Display(Name = "Lote")]
         public float Lote { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         [Display(Name = "Perdas")]
         public float Perda { get; set; }
 
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
+
+        public int ProdutoId { get; set; }
+
+        public Produto Produto { get; set; }
     }
 }

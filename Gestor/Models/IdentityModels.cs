@@ -25,11 +25,15 @@ namespace Gestor.Models
         {
         }
 
+        public DbSet<Ajuste> Ajustes { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
+        public DbSet<CustoInsumo> CustoInsumos { get; set; }
+        public DbSet<DetalheEstrutura> DetalheEstruturas { get; set; }
+        public DbSet<DetalheProduto> DetalheProdutoes { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
@@ -40,7 +44,7 @@ namespace Gestor.Models
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }
-        public DbSet<Operacao> Operacoe { get; set; }
+        public DbSet<Operacao> Operacoes { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
         public DbSet<ParteProduto> ParteProdutos { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
@@ -53,6 +57,7 @@ namespace Gestor.Models
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Sucata> Sucatas { get; set; }
         public DbSet<TipoProducao> TiposProducao { get; set; }
+        public DbSet<TipoAlteracao> TiposAlteracao { get; set; }
         public DbSet<Tipo> Tipos { get; set; }
         public DbSet<Unidade> Unidades { get; set; }
 
@@ -60,6 +65,5 @@ namespace Gestor.Models
         {
             return new ApplicationDbContext();
         }
-
     }
 }

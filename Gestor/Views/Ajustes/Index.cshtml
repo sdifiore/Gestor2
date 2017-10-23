@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Gestor.Models.Ajuste>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova substituição", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            De
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadeDeId)
+        </th>
+
+        <th>
+            Para
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadeParaId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TipoAlteracao.Descricao)
+        </th>
+        
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Fator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medida)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Origem.Apelido)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadeDeId)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Atual.Apelido)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadeParaId)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoAlteracao.Descricao)
+        </td>
+       
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Fator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medida)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new {id = item.AjusteId}) |
+            @Html.ActionLink("Detalhes", "Details", new {id = item.AjusteId}) |
+            @Html.ActionLink("Eliminar", "Delete", new {id = item.AjusteId})
+        </td>
+    </tr>
+}
+
+</table>

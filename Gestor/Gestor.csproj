@@ -224,6 +224,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.cs" />
+    <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.Designer.cs">
+      <DependentUpon>201710221054446_AddLastColumnsToInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710221114490_AddDespesasANdCreditosToInsumos.cs" />
+    <Compile Include="Migrations\201710221114490_AddDespesasANdCreditosToInsumos.Designer.cs">
+      <DependentUpon>201710221114490_AddDespesasANdCreditosToInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710221616068_AddUsoStruToInsumos.cs" />
+    <Compile Include="Migrations\201710221616068_AddUsoStruToInsumos.Designer.cs">
+      <DependentUpon>201710221616068_AddUsoStruToInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlReader.cs" />
     <Content Include="App_Code\FixTwoAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -231,16 +246,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AjustesController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ClasseCustoesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CotacaosController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
+    <Compile Include="Controllers\CustoInsumoesController.cs" />
+    <Compile Include="Controllers\DetalheEstruturasController.cs" />
+    <Compile Include="Controllers\DetalheProdutoesController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
+    <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
     <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InsumoesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedidaFitasController.cs" />
     <Compile Include="Controllers\MigracaoController.cs" />
@@ -255,6 +274,7 @@
     <Compile Include="Controllers\SequenciasController.cs" />
     <Compile Include="Controllers\SetorsController.cs" />
     <Compile Include="Controllers\SucatasController.cs" />
+    <Compile Include="Controllers\TipoAlteracaosController.cs" />
     <Compile Include="Controllers\TipoProducaosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -839,15 +859,103 @@
     <Compile Include="Migrations\201710151738058_RemoveProdutoFromEstrutura.Designer.cs">
       <DependentUpon>201710151738058_RemoveProdutoFromEstrutura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710151918554_AddTipoAlteracaos.cs" />
+    <Compile Include="Migrations\201710151918554_AddTipoAlteracaos.Designer.cs">
+      <DependentUpon>201710151918554_AddTipoAlteracaos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710151942378_AddAjustes.cs" />
+    <Compile Include="Migrations\201710151942378_AddAjustes.Designer.cs">
+      <DependentUpon>201710151942378_AddAjustes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710152009136_AddUnidadesToAjuste.cs" />
+    <Compile Include="Migrations\201710152009136_AddUnidadesToAjuste.Designer.cs">
+      <DependentUpon>201710152009136_AddUnidadesToAjuste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171232520_AddCustoInsumos.cs" />
+    <Compile Include="Migrations\201710171232520_AddCustoInsumos.Designer.cs">
+      <DependentUpon>201710171232520_AddCustoInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171235092_LinkCustoConsumoToProduto.cs" />
+    <Compile Include="Migrations\201710171235092_LinkCustoConsumoToProduto.Designer.cs">
+      <DependentUpon>201710171235092_LinkCustoConsumoToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710181333394_CustoColumnToCUstoInsumoTable.cs" />
+    <Compile Include="Migrations\201710181333394_CustoColumnToCUstoInsumoTable.Designer.cs">
+      <DependentUpon>201710181333394_CustoColumnToCUstoInsumoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710181728278_ModelCorrections.cs" />
+    <Compile Include="Migrations\201710181728278_ModelCorrections.Designer.cs">
+      <DependentUpon>201710181728278_ModelCorrections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191101395_CreateDetalheProduto.cs" />
+    <Compile Include="Migrations\201710191101395_CreateDetalheProduto.Designer.cs">
+      <DependentUpon>201710191101395_CreateDetalheProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191151039_LinkDetalheProdutoToProduto.cs" />
+    <Compile Include="Migrations\201710191151039_LinkDetalheProdutoToProduto.Designer.cs">
+      <DependentUpon>201710191151039_LinkDetalheProdutoToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191607290_AddDetalheEstrutura.cs" />
+    <Compile Include="Migrations\201710191607290_AddDetalheEstrutura.Designer.cs">
+      <DependentUpon>201710191607290_AddDetalheEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191632322_AJuste1.cs" />
+    <Compile Include="Migrations\201710191632322_AJuste1.Designer.cs">
+      <DependentUpon>201710191632322_AJuste1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191645221_linkDetalheEstruturaToEstutura.cs" />
+    <Compile Include="Migrations\201710191645221_linkDetalheEstruturaToEstutura.Designer.cs">
+      <DependentUpon>201710191645221_linkDetalheEstruturaToEstutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191751188_AddSupraStru.cs" />
+    <Compile Include="Migrations\201710191751188_AddSupraStru.Designer.cs">
+      <DependentUpon>201710191751188_AddSupraStru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191842371_DropSupraStru.cs" />
+    <Compile Include="Migrations\201710191842371_DropSupraStru.Designer.cs">
+      <DependentUpon>201710191842371_DropSupraStru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191847217_AddHeaderFlagToDetalheEstrutura.cs" />
+    <Compile Include="Migrations\201710191847217_AddHeaderFlagToDetalheEstrutura.Designer.cs">
+      <DependentUpon>201710191847217_AddHeaderFlagToDetalheEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191857218_AddIdProdToDetalheEstrutura.cs" />
+    <Compile Include="Migrations\201710191857218_AddIdProdToDetalheEstrutura.Designer.cs">
+      <DependentUpon>201710191857218_AddIdProdToDetalheEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191904457_AddLinkEstruturaToProduto.cs" />
+    <Compile Include="Migrations\201710191904457_AddLinkEstruturaToProduto.Designer.cs">
+      <DependentUpon>201710191904457_AddLinkEstruturaToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710211044043_DropRelation1To1EsruturaToProduto.cs" />
+    <Compile Include="Migrations\201710211044043_DropRelation1To1EsruturaToProduto.Designer.cs">
+      <DependentUpon>201710211044043_DropRelation1To1EsruturaToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710211045504_AddRelation1ToNFromProdutoToEstrutura.cs" />
+    <Compile Include="Migrations\201710211045504_AddRelation1ToNFromProdutoToEstrutura.Designer.cs">
+      <DependentUpon>201710211045504_AddRelation1ToNFromProdutoToEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710211109173_LastDetailToHaveThe1ToNRelationBetweenProdutoAndEstrutura.cs" />
+    <Compile Include="Migrations\201710211109173_LastDetailToHaveThe1ToNRelationBetweenProdutoAndEstrutura.Designer.cs">
+      <DependentUpon>201710211109173_LastDetailToHaveThe1ToNRelationBetweenProdutoAndEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710211112036_AddProdutoIdFieldToEstrutura.cs" />
+    <Compile Include="Migrations\201710211112036_AddProdutoIdFieldToEstrutura.Designer.cs">
+      <DependentUpon>201710211112036_AddProdutoIdFieldToEstrutura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Ajuste.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CategoriasController.cs" />
     <Compile Include="Models\ClasseCusto.cs" />
     <Compile Include="Models\Cotacao.cs" />
     <Compile Include="Models\CustoFolha.cs" />
+    <Compile Include="Models\CustoInsumo.cs" />
     <Compile Include="Models\DbLogger.cs" />
+    <Compile Include="Models\DetalheEstrutura.cs" />
+    <Compile Include="Models\DetalheProduto.cs" />
     <Compile Include="Models\Dominio.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
@@ -879,8 +987,10 @@
     <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Sequencia.cs" />
     <Compile Include="Models\Setor.cs" />
+    <Compile Include="Models\TipoAlteracao.cs" />
     <Compile Include="Models\TipoProducao.cs" />
     <Compile Include="Models\UnidadeConsumo.cs" />
+    <Compile Include="Populate.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Models\Sucata.cs" />
     <Compile Include="Models\Tipo.cs" />
@@ -2257,6 +2367,9 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Frases.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
@@ -2449,6 +2562,36 @@
     <Content Include="Views\Cotacaos\Details.cshtml" />
     <Content Include="Views\Cotacaos\Edit.cshtml" />
     <Content Include="Views\Cotacaos\Index.cshtml" />
+    <Content Include="Views\Estruturas\Create.cshtml" />
+    <Content Include="Views\Estruturas\Delete.cshtml" />
+    <Content Include="Views\Estruturas\Details.cshtml" />
+    <Content Include="Views\Estruturas\Edit.cshtml" />
+    <Content Include="Views\Estruturas\Index.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Create.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Delete.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Details.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Edit.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Index.cshtml" />
+    <Content Include="Views\Ajustes\Create.cshtml" />
+    <Content Include="Views\Ajustes\Delete.cshtml" />
+    <Content Include="Views\Ajustes\Details.cshtml" />
+    <Content Include="Views\Ajustes\Edit.cshtml" />
+    <Content Include="Views\Ajustes\Index.cshtml" />
+    <Content Include="Views\CustoInsumoes\Create.cshtml" />
+    <Content Include="Views\CustoInsumoes\Delete.cshtml" />
+    <Content Include="Views\CustoInsumoes\Details.cshtml" />
+    <Content Include="Views\CustoInsumoes\Edit.cshtml" />
+    <Content Include="Views\CustoInsumoes\Index.cshtml" />
+    <Content Include="Views\DetalheProdutoes\Create.cshtml" />
+    <Content Include="Views\DetalheProdutoes\Delete.cshtml" />
+    <Content Include="Views\DetalheProdutoes\Details.cshtml" />
+    <Content Include="Views\DetalheProdutoes\Edit.cshtml" />
+    <Content Include="Views\DetalheProdutoes\Index.cshtml" />
+    <Content Include="Views\DetalheEstruturas\Create.cshtml" />
+    <Content Include="Views\DetalheEstruturas\Delete.cshtml" />
+    <Content Include="Views\DetalheEstruturas\Details.cshtml" />
+    <Content Include="Views\DetalheEstruturas\Edit.cshtml" />
+    <Content Include="Views\DetalheEstruturas\Index.cshtml" />
     <Content Include="Views\Insumoes\Create.cshtml" />
     <Content Include="Views\Insumoes\Delete.cshtml" />
     <Content Include="Views\Insumoes\Details.cshtml" />
@@ -2900,6 +3043,78 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710151738058_RemoveProdutoFromEstrutura.resx">
       <DependentUpon>201710151738058_RemoveProdutoFromEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151918554_AddTipoAlteracaos.resx">
+      <DependentUpon>201710151918554_AddTipoAlteracaos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151942378_AddAjustes.resx">
+      <DependentUpon>201710151942378_AddAjustes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710152009136_AddUnidadesToAjuste.resx">
+      <DependentUpon>201710152009136_AddUnidadesToAjuste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171232520_AddCustoInsumos.resx">
+      <DependentUpon>201710171232520_AddCustoInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171235092_LinkCustoConsumoToProduto.resx">
+      <DependentUpon>201710171235092_LinkCustoConsumoToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181333394_CustoColumnToCUstoInsumoTable.resx">
+      <DependentUpon>201710181333394_CustoColumnToCUstoInsumoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181728278_ModelCorrections.resx">
+      <DependentUpon>201710181728278_ModelCorrections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191101395_CreateDetalheProduto.resx">
+      <DependentUpon>201710191101395_CreateDetalheProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191151039_LinkDetalheProdutoToProduto.resx">
+      <DependentUpon>201710191151039_LinkDetalheProdutoToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191607290_AddDetalheEstrutura.resx">
+      <DependentUpon>201710191607290_AddDetalheEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191632322_AJuste1.resx">
+      <DependentUpon>201710191632322_AJuste1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191645221_linkDetalheEstruturaToEstutura.resx">
+      <DependentUpon>201710191645221_linkDetalheEstruturaToEstutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191751188_AddSupraStru.resx">
+      <DependentUpon>201710191751188_AddSupraStru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191842371_DropSupraStru.resx">
+      <DependentUpon>201710191842371_DropSupraStru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191847217_AddHeaderFlagToDetalheEstrutura.resx">
+      <DependentUpon>201710191847217_AddHeaderFlagToDetalheEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191857218_AddIdProdToDetalheEstrutura.resx">
+      <DependentUpon>201710191857218_AddIdProdToDetalheEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191904457_AddLinkEstruturaToProduto.resx">
+      <DependentUpon>201710191904457_AddLinkEstruturaToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710211044043_DropRelation1To1EsruturaToProduto.resx">
+      <DependentUpon>201710211044043_DropRelation1To1EsruturaToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710211045504_AddRelation1ToNFromProdutoToEstrutura.resx">
+      <DependentUpon>201710211045504_AddRelation1ToNFromProdutoToEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710211109173_LastDetailToHaveThe1ToNRelationBetweenProdutoAndEstrutura.resx">
+      <DependentUpon>201710211109173_LastDetailToHaveThe1ToNRelationBetweenProdutoAndEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710211112036_AddProdutoIdFieldToEstrutura.resx">
+      <DependentUpon>201710211112036_AddProdutoIdFieldToEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710221054446_AddLastColumnsToInsumos.resx">
+      <DependentUpon>201710221054446_AddLastColumnsToInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710221114490_AddDespesasANdCreditosToInsumos.resx">
+      <DependentUpon>201710221114490_AddDespesasANdCreditosToInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710221616068_AddUsoStruToInsumos.resx">
+      <DependentUpon>201710221616068_AddUsoStruToInsumos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
