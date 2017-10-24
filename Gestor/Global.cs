@@ -3,5 +3,6 @@
     public class Global
     {
         public const float Tolerance = 0.0001f;
+        public const string CompAlias = "§§§§";
     }
 }

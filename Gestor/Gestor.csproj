@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="FxEstrutura.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.Designer.cs">
@@ -237,6 +238,18 @@
     <Compile Include="Migrations\201710221616068_AddUsoStruToInsumos.cs" />
     <Compile Include="Migrations\201710221616068_AddUsoStruToInsumos.Designer.cs">
       <DependentUpon>201710221616068_AddUsoStruToInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231230445_MakeEstuturaBeFullSpreaqdsheet.cs" />
+    <Compile Include="Migrations\201710231230445_MakeEstuturaBeFullSpreaqdsheet.Designer.cs">
+      <DependentUpon>201710231230445_MakeEstuturaBeFullSpreaqdsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231256517_DropDetalheEstrutura.cs" />
+    <Compile Include="Migrations\201710231256517_DropDetalheEstrutura.Designer.cs">
+      <DependentUpon>201710231256517_DropDetalheEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.cs" />
+    <Compile Include="Migrations\201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.Designer.cs">
+      <DependentUpon>201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.cs</DependentUpon>
     </Compile>
     <Compile Include="XmlReader.cs" />
     <Content Include="App_Code\FixTwoAttribute.cs" />
@@ -253,7 +266,6 @@
     <Compile Include="Controllers\CotacaosController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
     <Compile Include="Controllers\CustoInsumoesController.cs" />
-    <Compile Include="Controllers\DetalheEstruturasController.cs" />
     <Compile Include="Controllers\DetalheProdutoesController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
@@ -954,7 +966,6 @@
     <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\CustoInsumo.cs" />
     <Compile Include="Models\DbLogger.cs" />
-    <Compile Include="Models\DetalheEstrutura.cs" />
     <Compile Include="Models\DetalheProduto.cs" />
     <Compile Include="Models\Dominio.cs" />
     <Compile Include="Models\Estado.cs" />
@@ -2587,11 +2598,6 @@
     <Content Include="Views\DetalheProdutoes\Details.cshtml" />
     <Content Include="Views\DetalheProdutoes\Edit.cshtml" />
     <Content Include="Views\DetalheProdutoes\Index.cshtml" />
-    <Content Include="Views\DetalheEstruturas\Create.cshtml" />
-    <Content Include="Views\DetalheEstruturas\Delete.cshtml" />
-    <Content Include="Views\DetalheEstruturas\Details.cshtml" />
-    <Content Include="Views\DetalheEstruturas\Edit.cshtml" />
-    <Content Include="Views\DetalheEstruturas\Index.cshtml" />
     <Content Include="Views\Insumoes\Create.cshtml" />
     <Content Include="Views\Insumoes\Delete.cshtml" />
     <Content Include="Views\Insumoes\Details.cshtml" />
@@ -3115,6 +3121,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710221616068_AddUsoStruToInsumos.resx">
       <DependentUpon>201710221616068_AddUsoStruToInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231230445_MakeEstuturaBeFullSpreaqdsheet.resx">
+      <DependentUpon>201710231230445_MakeEstuturaBeFullSpreaqdsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231256517_DropDetalheEstrutura.resx">
+      <DependentUpon>201710231256517_DropDetalheEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.resx">
+      <DependentUpon>201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

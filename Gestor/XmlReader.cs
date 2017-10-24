@@ -6,7 +6,7 @@ namespace Gestor
 {
     public static class XmlReader
     {
-        public static string Find(string key)
+        public static string Read(string key)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Files.Frases);

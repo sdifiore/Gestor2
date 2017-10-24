@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
   <Insumos>Insumos/Matérias-Primas</Insumos>
-  <Subproduto>Subproduto</Subproduto>
+  <Manufaturado>Manufaturado</Manufaturado>
   <Revenda>Revenda</Revenda>
+  <SequenciaE1>E1</SequenciaE1>
+  <Subproduto>Subproduto</Subproduto>
+  <TipoNaoInformado>Não Informado</TipoNaoInformado>
+  <UnidadeHora>hora</UnidadeHora>
+  <UnidadeNaoInformada>Não Informada</UnidadeNaoInformada>
+  <UnidadeUnidade>unidade</UnidadeUnidade>
 </root>

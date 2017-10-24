@@ -32,7 +32,6 @@ namespace Gestor.Models
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
-        public DbSet<DetalheEstrutura> DetalheEstruturas { get; set; }
         public DbSet<DetalheProduto> DetalheProdutoes { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
