@@ -251,8 +251,15 @@
     <Compile Include="Migrations\201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.Designer.cs">
       <DependentUpon>201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710251032252_ChangeProdutoToFullSpreadsheet.cs" />
+    <Compile Include="Migrations\201710251032252_ChangeProdutoToFullSpreadsheet.Designer.cs">
+      <DependentUpon>201710251032252_ChangeProdutoToFullSpreadsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251041353_DropParteProdutos.cs" />
+    <Compile Include="Migrations\201710251041353_DropParteProdutos.Designer.cs">
+      <DependentUpon>201710251041353_DropParteProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="XmlReader.cs" />
-    <Content Include="App_Code\FixTwoAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -277,7 +284,6 @@
     <Compile Include="Controllers\MigracaoController.cs" />
     <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
-    <Compile Include="Controllers\ParteProdutoesController.cs" />
     <Compile Include="Controllers\PcpsController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\QtdEmbalagemsController.cs" />
@@ -2563,11 +2569,6 @@
     <Content Include="Views\Produtoes\Details.cshtml" />
     <Content Include="Views\Produtoes\Edit.cshtml" />
     <Content Include="Views\Produtoes\Index.cshtml" />
-    <Content Include="Views\ParteProdutoes\Create.cshtml" />
-    <Content Include="Views\ParteProdutoes\Delete.cshtml" />
-    <Content Include="Views\ParteProdutoes\Details.cshtml" />
-    <Content Include="Views\ParteProdutoes\Edit.cshtml" />
-    <Content Include="Views\ParteProdutoes\Index.cshtml" />
     <Content Include="Views\Cotacaos\Create.cshtml" />
     <Content Include="Views\Cotacaos\Delete.cshtml" />
     <Content Include="Views\Cotacaos\Details.cshtml" />
@@ -2605,6 +2606,7 @@
     <Content Include="Views\Insumoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Migracao\" />
@@ -3130,6 +3132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.resx">
       <DependentUpon>201710231845092_LinkUnidadeCompraToUnidadesInEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251032252_ChangeProdutoToFullSpreadsheet.resx">
+      <DependentUpon>201710251032252_ChangeProdutoToFullSpreadsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251041353_DropParteProdutos.resx">
+      <DependentUpon>201710251041353_DropParteProdutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

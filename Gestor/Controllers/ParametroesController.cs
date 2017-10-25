@@ -36,27 +36,27 @@ namespace Gestor.Controllers
         }
 
         // GET: Parametroes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: Parametroes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Data,Dolar,PropFitasFioGaxeta,PropSucatas,PropGrafitado")] Parametro parametro)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Parametros.Add(parametro);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //// POST: Parametroes/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Data,Dolar,PropFitasFioGaxeta,PropSucatas,PropGrafitado")] Parametro parametro)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Parametros.Add(parametro);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(parametro);
-        }
+        //    return View(parametro);
+        //}
 
         // GET: Parametroes/Edit/5
         public ActionResult Edit(int? id)
@@ -90,30 +90,30 @@ namespace Gestor.Controllers
         }
 
         // GET: Parametroes/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Parametro parametro = db.Parametros.Find(id);
-            if (parametro == null)
-            {
-                return HttpNotFound();
-            }
-            return View(parametro);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Parametro parametro = db.Parametros.Find(id);
+        //    if (parametro == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(parametro);
+        //}
 
-        // POST: Parametroes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Parametro parametro = db.Parametros.Find(id);
-            db.Parametros.Remove(parametro);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Parametroes/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Parametro parametro = db.Parametros.Find(id);
+        //    db.Parametros.Remove(parametro);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

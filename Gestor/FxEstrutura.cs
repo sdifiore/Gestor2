@@ -90,7 +90,7 @@ namespace Gestor
         public static float CustoUnitCompra(Estrutura register, string tpItmCst)        // I
         {
             var db = new ApplicationDbContext();
-            float result;
+            float result = 0f;
 
             if (register.Sequencia.Descricao != "")
             {
@@ -105,6 +105,8 @@ namespace Gestor
                      *  *********************************** */
                 }
             }
+
+            return result;
         }
     }
 }

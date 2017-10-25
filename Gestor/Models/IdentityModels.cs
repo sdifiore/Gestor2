@@ -45,7 +45,6 @@ namespace Gestor.Models
         public DbSet<MedidaFita> MedidaFitas { get; set; }
         public DbSet<Operacao> Operacoes { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
-        public DbSet<ParteProduto> ParteProdutos { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<QtdEmbalagem> QtdEmbalagems { get; set; }
