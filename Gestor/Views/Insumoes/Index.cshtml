@@ -1,42 +1,54 @@
 ﻿@model IEnumerable<Gestor.Models.Insumo>
 
 @{
-    ViewBag.Title = "Índice";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Índice</h2>
+<h2>Index</h2>
 
-@*<p>
-    @Html.ActionLink("Criar novo Insumo", "Create")
-</p>*@
+<p>
+    @Html.ActionLink("Criar novo insumo", "Create")
+</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Produto.Apelido)
-        </th>
         
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Apelido)
-        </th>*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadeConsumo.Apelido)
+        </th>
         
         <th>
-            @Html.DisplayNameFor(model => model.Produto.Descricao)
+            @Html.DisplayNameFor(model => model.Tipo.Apelido)
         </th>
-
+        
         <th>
-            @Html.DisplayNameFor(model => model.Cotacao.Descricao)
+            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Finalidade.Descricao)
         </th>
-
         <th>
-            @Html.DisplayNameFor(model => model.UnidadeConsumo.Apelido)
+            @Html.DisplayNameFor(model => model.Categoria.Apelido)
         </th>
-
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Familia.Apelido)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Linha.Apelido)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cotacao)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PrecoUsd)
@@ -70,6 +82,21 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QtdMltplCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FormaPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prazo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prazo2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctPgto1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportPzPagDesp)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PrcBrtCompra)
@@ -112,31 +139,42 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.Apelido)
-        </td>
         
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.Apelido)
-        </td>*@
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.Descricao)
         </td>
-
         <td>
-            @Html.DisplayFor(modelItem => item.Cotacao.Descricao)
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadeConsumo.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClasseCusto.Descricao)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Finalidade.Descricao)
         </td>
-
         <td>
-            @Html.DisplayFor(modelItem => item.UnidadeConsumo.Apelido)
+            @Html.DisplayFor(modelItem => item.Categoria.Descricao)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Familia.Descricao)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Linha.Descricao)
         </td>
 
         <td>
             @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cotacao)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PrecoUsd)
@@ -170,6 +208,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QtdMltplCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FormaPgto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prazo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prazo2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctPgto1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImportPzPagDesp)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PrcBrtCompra)
@@ -208,9 +261,9 @@
             @Html.DisplayFor(modelItem => item.UsoStru)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Edit", new {id = item.InsumoId})
-            @Html.ActionLink("Detalhes", "Details", new {id = item.InsumoId})
-            @Html.ActionLink("Eliminar", "Delete", new {id = item.InsumoId})
+            @Html.ActionLink("Alterar", "Edit", new { id=item.InsumoId })
+            @Html.ActionLink("Detalhes", "Details", new { id=item.InsumoId })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.InsumoId })
         </td>
     </tr>
 }

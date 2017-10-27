@@ -12,13 +12,46 @@ namespace Gestor.Models
         [Display(Name = "Código")]
         public string Apelido { get; set; }
 
+        [StringLength(100)]
+        [Display(Name = "Descrição")]
+        public string Descricao { get; set; }
+
+        [Display(Name = "Unidade")]
+        public int UnidadeId { get; set; }
+
+        public Unidade Unidade { get; set; }
+
+        [Display(Name = "Tipo")]
+        public int TipoId { get; set; }
+
+        public Tipo Tipo { get; set; }
+
+        [Display(Name = "Classe de Custo")]
+        public int ClasseCustoId { get; set; }
+
+        public ClasseCusto ClasseCusto { get; set; }
+
+        [Display(Name = "Categoria")]
+        public int CategoriaId { get; set; }
+
+        public Categoria Categoria { get; set; }
+
+        [Display(Name = "Família")]
+        public int FamiliaId { get; set; }
+
+        public Familia Familia { get; set; }
+
+        [Display(Name = "Linha")]
+        public int LinhaId { get; set; }
+
+        public Linha Linha { get; set; }
+
         [Display(Name = "Peso")]
         public float Peso { get; set; }
 
         [Display(Name = "Última atualização")]
-        public int CotacaoId { get; set; }
-
-        public Cotacao Cotacao { get; set; }
+        [StringLength(1024)]
+        public string Cotacao { get; set; }
 
         [Display(Name = "Preço USD")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
@@ -74,6 +107,22 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public float QtdMltplCompra { get; set; }
 
+        [Display(Name = "Forma de Pagamento")]
+        [StringLength(16)]
+        public string FormaPgto { get; set; }
+
+        [Display(Name = "Prazo 1")]
+        public int Prazo1 { get; set; }
+
+        [Display(Name = "Prazo 2")]
+        public int Prazo2 { get; set; }
+
+        [Display(Name = "% Pag 1")]
+        public float PctPgto1 { get; set; }
+
+        [Display(Name = "Import Pz Pag Desp")]
+        public int ImportPzPagDesp { get; set; }
+
         [Display(Name = "Preço Bruto Compra")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public float PrcBrtCompra { get; set; }
@@ -120,11 +169,6 @@ namespace Gestor.Models
 
         [Display(Name = "Uso em estruturas")]
         public int UsoStru { get; set; }
-
-        [ForeignKey("Produto")]
-        public int ProdutoId { get; set; }
-
-        public Produto Produto { get; set; }
 
     }
 }

@@ -10,65 +10,65 @@ namespace Gestor
 {
     public static class Populate
     {
-        public static List<CustoInsumo> CustoInsumo()
-        {
-            var result = new List<CustoInsumo>();
-            var db = new ApplicationDbContext();
-            var parm = db.Parametros.ToList().Last();
-            var model = db.Insumos.Include(i => i.Finalidade).ToList();
-            int index = 1;
+        //public static List<CustoInsumo> CustoInsumo()
+        //{
+        //    var result = new List<CustoInsumo>();
+        //    var db = new ApplicationDbContext();
+        //    var parm = db.Parametros.ToList().Last();
+        //    //var model = db.Insumos.Include(i => i.Finalidade).ToList();
+        //    //int index = 1;
 
-            foreach (var register in model)
-            {
-                var data = new CustoInsumo
-                {
-                    PrcBrtCmpr = Math.Abs(register.PrecoUsd) > Global.Tolerance
-                        ? parm.Dolar * register.PrecoUsd * (1 + register.Ipi)
-                        : register.PrecoRs * (1 + register.Ipi)
-                };
+            //foreach (var register in model)
+            //{
+            //    var data = new CustoInsumo
+            //    {
+            //        PrcBrtCmpr = Math.Abs(register.PrecoUsd) > Global.Tolerance
+            //            ? parm.Dolar * register.PrecoUsd * (1 + register.Ipi)
+            //            : register.PrecoRs * (1 + register.Ipi)
+            //    };
 
-                data.CustoInsumoId = index++;
-                data.CrdtIcms = data.PrcBrtCmpr / (1 + register.Ipi) * register.Icms;
-                data.CrdtIpi = data.PrcBrtCmpr / (1 + register.Ipi) * register.Ipi;
-                data.CrdtPis = data.PrcBrtCmpr / (1 + register.Ipi) * register.Pis;
-                data.CrdtCofins = data.PrcBrtCmpr / (1 + register.Ipi) * register.Cofins;
-                data.SumCrdtImpostos = data.PrcBrtCmpr + data.CrdtIcms + data.CrdtIpi + data.CrdtPis + data.CrdtCofins;
-                data.DespImport = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespImport;
-                data.CustoExtra = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespExtra;
-                data.Custo = data.PrcBrtCmpr - data.CrdtIcms - data.CrdtPis - data.CrdtCofins + data.CustoExtra;
-                data.Custo = register.Finalidade.Descricao == XmlReader.Read("Revenda")
-                    ? data.Custo
-                    : data.Custo - data.CrdtIpi;
-                data.CstUndConsumo = data.Custo * register.QtdUnddConsumo;
-                data.PgmtoFornecImport = Math.Abs(data.DespImport) > Global.Tolerance
-                    ? data.PrcBrtCmpr - data.SumCrdtImpostos - data.DespImport
-                    : 0;
-                data.UsoStrut = db.Estruturas.Count(e => e.Item == register.Apelido);
-                data.Produto = db.Produtos.Single(p => p.Apelido == register.Apelido);
+            //    data.CustoInsumoId = index++;
+            //    data.CrdtIcms = data.PrcBrtCmpr / (1 + register.Ipi) * register.Icms;
+            //    data.CrdtIpi = data.PrcBrtCmpr / (1 + register.Ipi) * register.Ipi;
+            //    data.CrdtPis = data.PrcBrtCmpr / (1 + register.Ipi) * register.Pis;
+            //    data.CrdtCofins = data.PrcBrtCmpr / (1 + register.Ipi) * register.Cofins;
+            //    data.SumCrdtImpostos = data.PrcBrtCmpr + data.CrdtIcms + data.CrdtIpi + data.CrdtPis + data.CrdtCofins;
+            //    data.DespImport = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespImport;
+            //    data.CustoExtra = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespExtra;
+            //    data.Custo = data.PrcBrtCmpr - data.CrdtIcms - data.CrdtPis - data.CrdtCofins + data.CustoExtra;
+            //    data.Custo = register.Finalidade.Descricao == XmlReader.Read("Revenda")
+            //        ? data.Custo
+            //        : data.Custo - data.CrdtIpi;
+            //    data.CstUndConsumo = data.Custo * register.QtdUnddConsumo;
+            //    data.PgmtoFornecImport = Math.Abs(data.DespImport) > Global.Tolerance
+            //        ? data.PrcBrtCmpr - data.SumCrdtImpostos - data.DespImport
+            //        : 0;
+            // //   data.UsoStrut = db.Estruturas.Count(e => e.Item == register.Apelido);
+            //   // data.Produto = db.Produtos.Single(p => p.Apelido == register.Apelido);
 
-                result.Add(data);
-            }
+                //result.Add(data);
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        public static List<DetalheProduto> DetalheProduto()
-        {
-            var result = new List<DetalheProduto>();
-            var db = new ApplicationDbContext();
-            var model = db.Produtos;
-            int index = 1;
+        //public static List<DetalheProduto> DetalheProduto()
+        //{
+        //    var result = new List<DetalheProduto>();
+        //    var db = new ApplicationDbContext();
+        //    var model = db.Produtos;
+        //    int index = 1;
 
-            foreach (var register in model)
-            {
-                var data = new DetalheProduto
-                {
-                    DetalheProdutoId = index++
-                };
-            }
+        //    foreach (var register in model)
+        //    {
+        //        var data = new DetalheProduto
+        //        {
+        //          //  DetalheProdutoId = index++
+        //        };
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static void Estrutura()
         {
@@ -77,7 +77,7 @@ namespace Gestor
                 .Include(e => e.Produto)
                 .ToList();
             string compAlias = Global.CompAlias;
-            Insumo();
+          //  Insumo();
 
             foreach (var register in model)
             {
@@ -92,7 +92,7 @@ namespace Gestor
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
                 register.TpItmCst = FxEstrutura.TipoItemCusto(register); // Q
                 register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register, register.TpItmCst); // H
-                Insumo();
+             //   Insumo();
 
                 /* *************************************
                      * 
@@ -109,11 +109,10 @@ namespace Gestor
             public static void Insumo()
         {
             var db = new ApplicationDbContext();
-            var model = db.Insumos
-                .Include(i => i.Finalidade)
-                .ToList();
+            var model = db.Insumos.Include(i => i.Finalidade).ToList();
             var estrutura = db.Estruturas.ToList();
             float dolar = db.Parametros.OrderByDescending(p => p.Data).First().Dolar;
+            int j = 2;
 
             foreach (var register in model)
             {
@@ -134,9 +133,10 @@ namespace Gestor
                 if (register.Finalidade.Descricao != frase) register.Custo -= register.CrdtIpi;
                 register.CustoUndCnsm = register.Custo * register.QtdUnddConsumo;
                 register.PgtFornecImp = Math.Abs(register.DespImport) > Global.Tolerance
-                    ? register.PrcBrtCompra - register.SumCrdImpostos - register.DespImport
+                    ? register.PrcBrtCompra - register.SumCrdImpostos - register.DspImportacao
                     : 0;
                 register.UsoStru = estrutura.Count(e => e.Item == register.Apelido);
+                j++;
             }
 
             db.SaveChanges();

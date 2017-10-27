@@ -6,25 +6,30 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
+    [RoutePrefix("Insumo")]
     public class InsumoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Insumoes
+        [Route]
         public ActionResult Index()
         {
             Populate.Insumo();
-
             var insumos = db.Insumos
-                .Include(i => i.Cotacao)
+                .Include(i => i.Categoria)
+                .Include(i => i.ClasseCusto)
+                .Include(i => i.Familia)
                 .Include(i => i.Finalidade)
-                .Include(i => i.Produto)
+                .Include(i => i.Linha)
+                .Include(i => i.Tipo)
                 .Include(i => i.UnidadeConsumo);
 
             return View(insumos.ToList());
         }
 
         // GET: Insumoes/Details/5
+        [Route("Details")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -33,11 +38,14 @@ namespace Gestor.Controllers
             }
 
             var insumo = db.Insumos
-                .Include(i => i.Cotacao)
+                .Include(i => i.Categoria)
+                .Include(i => i.ClasseCusto)
+                .Include(i => i.Familia)
                 .Include(i => i.Finalidade)
-                .Include(i => i.Produto)
+                .Include(i => i.Linha)
+                .Include(i => i.Tipo)
                 .Include(i => i.UnidadeConsumo)
-                .SingleOrDefault(i => i.InsumoId == id);
+                .Single(i => i.InsumoId == id);
 
             if (insumo == null)
             {
@@ -47,46 +55,45 @@ namespace Gestor.Controllers
         }
 
         // GET: Insumoes/Create
-        //public ActionResult Create()
-        //{
-        //    ViewBag.CotacaoId = new SelectList(db.Cotacoes, "CotacaoId", "Descricao");
-        //    ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao");
-        //    ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
-        //    ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
-        //    return View();
-        //}
+        [Route("Criar")]
+        public ActionResult Create()
+        {
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido");
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido");
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido");
+            ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao");
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido");
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido");
+            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
+            return View();
+        }
 
         // POST: Insumoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "InsumoId,Apelido,Peso,CotacaoId,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru,ProdutoId")] Insumo insumo)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var apelido = db.Produtos.SingleOrDefault(p => p.Id == insumo.ProdutoId);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Insumos.Add(insumo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-        //        if (apelido == null)
-        //        {
-        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //        }
-
-        //        insumo.Apelido = apelido.Apelido;
-
-        //        db.Insumos.Add(insumo);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.CotacaoId = new SelectList(db.Cotacoes, "CotacaoId", "Descricao", insumo.CotacaoId);
-        //    ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
-        //    ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", insumo.ProdutoId);
-        //    ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
-        //    return View(insumo);
-        //}
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
+            ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
+            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
+            return View(insumo);
+        }
 
         // GET: Insumoes/Edit/5
+        [Route("Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -98,17 +105,12 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
-
-            insumo.Icms = insumo.Icms * 100;
-            insumo.Ipi = insumo.Ipi * 100;
-            insumo.Pis = insumo.Pis * 100;
-            insumo.Cofins = insumo.Cofins * 100;
-            insumo.DespExtra = insumo.DespExtra * 100;
-            insumo.DespImport = insumo.DespImport * 100;
-
-            ViewBag.CotacaoId = new SelectList(db.Cotacoes, "CotacaoId", "Descricao", insumo.CotacaoId);
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", insumo.ProdutoId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
             ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
             return View(insumo);
         }
@@ -118,29 +120,26 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InsumoId,Apelido,Peso,CotacaoId,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru,ProdutoId")] Insumo insumo)
+        public ActionResult Edit([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
         {
             if (ModelState.IsValid)
             {
-                insumo.Icms = insumo.Icms / 100;
-                insumo.Ipi = insumo.Ipi / 100;
-                insumo.Pis = insumo.Pis / 100;
-                insumo.Cofins = insumo.Cofins / 100;
-                insumo.DespExtra = insumo.DespExtra / 100;
-                insumo.DespImport = insumo.DespImport / 100;
-
                 db.Entry(insumo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CotacaoId = new SelectList(db.Cotacoes, "CotacaoId", "Descricao", insumo.CotacaoId);
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", insumo.ProdutoId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
             ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
             return View(insumo);
         }
 
         // GET: Insumoes/Delete/5
+        [Route("Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -148,12 +147,15 @@ namespace Gestor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Insumo insumo = db.Insumos
-                .Include(i => i.Cotacao)
+            var insumo = db.Insumos
+                .Include(i => i.Categoria)
+                .Include(i => i.ClasseCusto)
+                .Include(i => i.Familia)
                 .Include(i => i.Finalidade)
-                .Include(i => i.Produto)
+                .Include(i => i.Linha)
+                .Include(i => i.Tipo)
                 .Include(i => i.UnidadeConsumo)
-                .SingleOrDefault(i => i.InsumoId == id);
+                .Single(i => i.InsumoId == id);
 
             if (insumo == null)
             {

@@ -29,10 +29,10 @@ namespace Gestor.Models
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
+        public DbSet<Comum> Comuns { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
-        public DbSet<DetalheProduto> DetalheProdutoes { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
@@ -40,6 +40,7 @@ namespace Gestor.Models
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
         public DbSet<Insumo> Insumos { get; set; }
+        public DbSet<InsumoXtd> InsumoXtds { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }
@@ -63,5 +64,6 @@ namespace Gestor.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

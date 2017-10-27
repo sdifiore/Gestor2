@@ -95,8 +95,8 @@ namespace Gestor
             if (register.Sequencia.Descricao != "")
             {
 
-                if (tpItmCst == XmlReader.Read("Insumos")) result = db.Insumos.Single(i => i.Apelido == register.Item).CustoUndCnsm;
-                else
+                //if (tpItmCst == XmlReader.Read("Insumos")) result = db.Insumos.Single(i => i.Apelido == register.Item).CustoUndCnsm;
+                //else
                 {
                     /* *************************************
                      * 

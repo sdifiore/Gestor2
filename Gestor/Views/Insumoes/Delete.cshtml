@@ -14,27 +14,43 @@
     <dl class="dl-horizontal">
     
     <dt>
-        @Html.DisplayNameFor(model => model.Produto.Apelido)
+        @Html.DisplayNameFor(model => model.Apelido)
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.Produto.Apelido)
+        @Html.DisplayFor(model => model.Apelido)
     </dd>
-        
+
     <dt>
-        @Html.DisplayNameFor(model => model.Produto.Descricao)
+        @Html.DisplayNameFor(model => model.Descricao)
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.Produto.Descricao)
+        @Html.DisplayFor(model => model.Descricao)
     </dd>
     
     <dt>
-            @Html.DisplayNameFor(model => model.Cotacao.Descricao)
+            @Html.DisplayNameFor(model => model.Categoria.Apelido)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Cotacao.Descricao)
+            @Html.DisplayFor(model => model.Categoria.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClasseCusto.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familia.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familia.Descricao)
         </dd>
 
         <dt>
@@ -46,12 +62,38 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Linha.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linha.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo.Descricao)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.UnidadeConsumo.Apelido)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UnidadeConsumo.Apelido)
+            @Html.DisplayFor(model => model.UnidadeConsumo.Descricao)
         </dd>
+
+        
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.UnidadeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade.Descricao)
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Peso)
@@ -59,6 +101,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cotacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cotacao)
         </dd>
 
         <dt>
@@ -147,6 +197,46 @@
 
         <dd>
             @Html.DisplayFor(model => model.QtdMltplCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPgto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPgto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prazo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prazo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prazo2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prazo2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctPgto1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctPgto1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImportPzPagDesp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImportPzPagDesp)
         </dd>
 
         <dt>

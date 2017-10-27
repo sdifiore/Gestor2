@@ -259,6 +259,88 @@
     <Compile Include="Migrations\201710251041353_DropParteProdutos.Designer.cs">
       <DependentUpon>201710251041353_DropParteProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710251223203_ReduceProdutosToMinimum.cs" />
+    <Compile Include="Migrations\201710251223203_ReduceProdutosToMinimum.Designer.cs">
+      <DependentUpon>201710251223203_ReduceProdutosToMinimum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251226134_DetalheProdutoRedefined.cs" />
+    <Compile Include="Migrations\201710251226134_DetalheProdutoRedefined.Designer.cs">
+      <DependentUpon>201710251226134_DetalheProdutoRedefined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251228353_LinkDetalheProtutoToProduto.cs" />
+    <Compile Include="Migrations\201710251228353_LinkDetalheProtutoToProduto.Designer.cs">
+      <DependentUpon>201710251228353_LinkDetalheProtutoToProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251235544_RemovePhisicalTableDetalheProdutos.cs" />
+    <Compile Include="Migrations\201710251235544_RemovePhisicalTableDetalheProdutos.Designer.cs">
+      <DependentUpon>201710251235544_RemovePhisicalTableDetalheProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251249100_UnifiedProdutos.cs" />
+    <Compile Include="Migrations\201710251249100_UnifiedProdutos.Designer.cs">
+      <DependentUpon>201710251249100_UnifiedProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251310213_AddBasesTable.cs" />
+    <Compile Include="Migrations\201710251310213_AddBasesTable.Designer.cs">
+      <DependentUpon>201710251310213_AddBasesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251318283_LinkInssumoToBaseInstead.cs" />
+    <Compile Include="Migrations\201710251318283_LinkInssumoToBaseInstead.Designer.cs">
+      <DependentUpon>201710251318283_LinkInssumoToBaseInstead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251638551_AddInsumoXtd.cs" />
+    <Compile Include="Migrations\201710251638551_AddInsumoXtd.Designer.cs">
+      <DependentUpon>201710251638551_AddInsumoXtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251644423_AddFinacialFieldsToInsumoXtd.cs" />
+    <Compile Include="Migrations\201710251644423_AddFinacialFieldsToInsumoXtd.Designer.cs">
+      <DependentUpon>201710251644423_AddFinacialFieldsToInsumoXtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251648051_AddInsumoXtdToContext.cs" />
+    <Compile Include="Migrations\201710251648051_AddInsumoXtdToContext.Designer.cs">
+      <DependentUpon>201710251648051_AddInsumoXtdToContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251706288_CorrectPctPgto1InInsumoXtdToFloat.cs" />
+    <Compile Include="Migrations\201710251706288_CorrectPctPgto1InInsumoXtdToFloat.Designer.cs">
+      <DependentUpon>201710251706288_CorrectPctPgto1InInsumoXtdToFloat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251735312_ChangeCotacaoToStringInInsumoXtd.cs" />
+    <Compile Include="Migrations\201710251735312_ChangeCotacaoToStringInInsumoXtd.Designer.cs">
+      <DependentUpon>201710251735312_ChangeCotacaoToStringInInsumoXtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251914183_ChangeFormaPgtoInInsumoXtdToString.cs" />
+    <Compile Include="Migrations\201710251914183_ChangeFormaPgtoInInsumoXtdToString.Designer.cs">
+      <DependentUpon>201710251914183_ChangeFormaPgtoInInsumoXtdToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251921224_LongerStringsInInsumoXtd.cs" />
+    <Compile Include="Migrations\201710251921224_LongerStringsInInsumoXtd.Designer.cs">
+      <DependentUpon>201710251921224_LongerStringsInInsumoXtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261146224_RenameBaseTableAsComum.cs" />
+    <Compile Include="Migrations\201710261146224_RenameBaseTableAsComum.Designer.cs">
+      <DependentUpon>201710261146224_RenameBaseTableAsComum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261214333_CreateInsumoViewModel.cs" />
+    <Compile Include="Migrations\201710261214333_CreateInsumoViewModel.Designer.cs">
+      <DependentUpon>201710261214333_CreateInsumoViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261613494_AllInOneInsumo.cs" />
+    <Compile Include="Migrations\201710261613494_AllInOneInsumo.Designer.cs">
+      <DependentUpon>201710261613494_AllInOneInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261642271_DropInsumos.cs" />
+    <Compile Include="Migrations\201710261642271_DropInsumos.Designer.cs">
+      <DependentUpon>201710261642271_DropInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261646119_DropAgainInsumos.cs" />
+    <Compile Include="Migrations\201710261646119_DropAgainInsumos.Designer.cs">
+      <DependentUpon>201710261646119_DropAgainInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261651576_ReAddInsumoAsWhole.cs" />
+    <Compile Include="Migrations\201710261651576_ReAddInsumoAsWhole.Designer.cs">
+      <DependentUpon>201710261651576_ReAddInsumoAsWhole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comum.cs" />
+    <Compile Include="Models\Insumo.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -272,8 +354,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CotacaosController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
-    <Compile Include="Controllers\CustoInsumoesController.cs" />
-    <Compile Include="Controllers\DetalheProdutoesController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
@@ -285,7 +365,6 @@
     <Compile Include="Controllers\OperacaosController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\PcpsController.cs" />
-    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\QtdEmbalagemsController.cs" />
     <Compile Include="Controllers\QtdMaquinasController.cs" />
     <Compile Include="Controllers\RateiosController.cs" />
@@ -972,7 +1051,6 @@
     <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\CustoInsumo.cs" />
     <Compile Include="Models\DbLogger.cs" />
-    <Compile Include="Models\DetalheProduto.cs" />
     <Compile Include="Models\Dominio.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
@@ -983,7 +1061,6 @@
     <Compile Include="Models\Frete.cs" />
     <Compile Include="Models\GrupoRateio.cs" />
     <Compile Include="Controllers\GrupoRateiosController.cs" />
-    <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\Operacao.cs" />
     <Compile Include="Models\MedidaFita.cs" />
     <Compile Include="Models\ParteProduto.cs" />
@@ -2564,11 +2641,6 @@
     <Content Include="Views\Pcps\Details.cshtml" />
     <Content Include="Views\Pcps\Edit.cshtml" />
     <Content Include="Views\Pcps\Index.cshtml" />
-    <Content Include="Views\Produtoes\Create.cshtml" />
-    <Content Include="Views\Produtoes\Delete.cshtml" />
-    <Content Include="Views\Produtoes\Details.cshtml" />
-    <Content Include="Views\Produtoes\Edit.cshtml" />
-    <Content Include="Views\Produtoes\Index.cshtml" />
     <Content Include="Views\Cotacaos\Create.cshtml" />
     <Content Include="Views\Cotacaos\Delete.cshtml" />
     <Content Include="Views\Cotacaos\Details.cshtml" />
@@ -2589,11 +2661,6 @@
     <Content Include="Views\Ajustes\Details.cshtml" />
     <Content Include="Views\Ajustes\Edit.cshtml" />
     <Content Include="Views\Ajustes\Index.cshtml" />
-    <Content Include="Views\CustoInsumoes\Create.cshtml" />
-    <Content Include="Views\CustoInsumoes\Delete.cshtml" />
-    <Content Include="Views\CustoInsumoes\Details.cshtml" />
-    <Content Include="Views\CustoInsumoes\Edit.cshtml" />
-    <Content Include="Views\CustoInsumoes\Index.cshtml" />
     <Content Include="Views\DetalheProdutoes\Create.cshtml" />
     <Content Include="Views\DetalheProdutoes\Delete.cshtml" />
     <Content Include="Views\DetalheProdutoes\Details.cshtml" />
@@ -3138,6 +3205,66 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710251041353_DropParteProdutos.resx">
       <DependentUpon>201710251041353_DropParteProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251223203_ReduceProdutosToMinimum.resx">
+      <DependentUpon>201710251223203_ReduceProdutosToMinimum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251226134_DetalheProdutoRedefined.resx">
+      <DependentUpon>201710251226134_DetalheProdutoRedefined.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251228353_LinkDetalheProtutoToProduto.resx">
+      <DependentUpon>201710251228353_LinkDetalheProtutoToProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251235544_RemovePhisicalTableDetalheProdutos.resx">
+      <DependentUpon>201710251235544_RemovePhisicalTableDetalheProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251249100_UnifiedProdutos.resx">
+      <DependentUpon>201710251249100_UnifiedProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251310213_AddBasesTable.resx">
+      <DependentUpon>201710251310213_AddBasesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251318283_LinkInssumoToBaseInstead.resx">
+      <DependentUpon>201710251318283_LinkInssumoToBaseInstead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251638551_AddInsumoXtd.resx">
+      <DependentUpon>201710251638551_AddInsumoXtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251644423_AddFinacialFieldsToInsumoXtd.resx">
+      <DependentUpon>201710251644423_AddFinacialFieldsToInsumoXtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251648051_AddInsumoXtdToContext.resx">
+      <DependentUpon>201710251648051_AddInsumoXtdToContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251706288_CorrectPctPgto1InInsumoXtdToFloat.resx">
+      <DependentUpon>201710251706288_CorrectPctPgto1InInsumoXtdToFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251735312_ChangeCotacaoToStringInInsumoXtd.resx">
+      <DependentUpon>201710251735312_ChangeCotacaoToStringInInsumoXtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251914183_ChangeFormaPgtoInInsumoXtdToString.resx">
+      <DependentUpon>201710251914183_ChangeFormaPgtoInInsumoXtdToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251921224_LongerStringsInInsumoXtd.resx">
+      <DependentUpon>201710251921224_LongerStringsInInsumoXtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261146224_RenameBaseTableAsComum.resx">
+      <DependentUpon>201710261146224_RenameBaseTableAsComum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261214333_CreateInsumoViewModel.resx">
+      <DependentUpon>201710261214333_CreateInsumoViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261613494_AllInOneInsumo.resx">
+      <DependentUpon>201710261613494_AllInOneInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261642271_DropInsumos.resx">
+      <DependentUpon>201710261642271_DropInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261646119_DropAgainInsumos.resx">
+      <DependentUpon>201710261646119_DropAgainInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261651576_ReAddInsumoAsWhole.resx">
+      <DependentUpon>201710261651576_ReAddInsumoAsWhole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
