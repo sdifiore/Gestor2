@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.UI.WebControls;
 using Gestor.Models;
+
 
 namespace Gestor
 {
@@ -75,35 +75,42 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var model = db.Estruturas
                 .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
                 .ToList();
             string compAlias = Global.CompAlias;
-          //  Insumo();
+
+            Insumo();
 
             foreach (var register in model)
             {
-                register.Header = false;
 
-                if (register.Produto.Apelido == compAlias)
-                {
-                    register.Header = true;
-                    register.Produto.Apelido = register.Produto.Apelido;
-                }
-
+                register.AlrtSbPrdt = FxEstrutura.AlrtSbPrdt(register);     // R
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
-                register.TpItmCst = FxEstrutura.TipoItemCusto(register); // Q
-                register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register, register.TpItmCst); // H
-             //   Insumo();
-
-                /* *************************************
-                     * 
-                     *  Requer a aba produto
-                     *  
-                     *  *********************************** */
-
-                register.CustoUnitCompra = FxEstrutura.CustoUnitCompra(register, register.TpItmCst); // I
-
-                db.SaveChanges();
+                register.TpItmCst = FxEstrutura.TipoItemCusto(register);    // Q
+                register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H
+                register.CustoUnitCompra = FxEstrutura.CustoUnitCompra(register);   // I
+                register.QtEftvUntrCmpnt = FxEstrutura.QtEftvUntrCmpnt(register);   // O
+                register.CstCmprUndPrd = FxEstrutura.CstCmprUndPrd(register);   // P
+                register.PartCusto = FxEstrutura.PartCusto(register);   // N
+                register.TempMaq = FxEstrutura.TempMaq(register);   // S
+                register.QtdUndd = register.Produto.QtUnPorUnArmz;  // T
+                register.PsLiqdFnl = FxEstrutura.PsLiqdFnl(register);   // U
+                register.PsLiqdPrcdt = FxEstrutura.PesoLiqPrec(register);   // V
+                register.HrsModFnl = FxEstrutura.HrsModFnl(register);   // W
+                register.HrsModPrec1 = FxEstrutura.HrsModPrec1(register);   // X
+                register.HrsModPrec2 = FxEstrutura.HrsModPrec2(register);   // Y
+                register.IdProd = FxEstrutura.IdProd(register);     // Z
+                register.IdCmpnt = FxEstrutura.IdCmpnt(register);   // AA
+                register.PdrHoraria = FxEstrutura.PdrHoraria(register);     // AB
+                register.ProdComp = FxEstrutura.ProdComp(register);     // AC
+                register.CstIndividual = FxEstrutura.CstIndividual(register);   // AD
+                register.CstMtrlDrt = FxEstrutura.CstMtrlDrt(register);     // AE
+                register.CstMtrlPrcd1 = FxEstrutura.CstMtrlPrcd1(register);     // AF
+                register.CstMtrlPrcd2 = FxEstrutura.CstMtrlPrcd2(register);     // AG
+                register.CstMtrlPrcd3 = FxEstrutura.CstMtrlPrcd3(register);     // AH
             }
+
+            db.SaveChanges();
         }
 
             public static void Insumo()
@@ -112,7 +119,6 @@ namespace Gestor
             var model = db.Insumos.Include(i => i.Finalidade).ToList();
             var estrutura = db.Estruturas.ToList();
             float dolar = db.Parametros.OrderByDescending(p => p.Data).First().Dolar;
-            int j = 2;
 
             foreach (var register in model)
             {
@@ -136,10 +142,20 @@ namespace Gestor
                     ? register.PrcBrtCompra - register.SumCrdImpostos - register.DspImportacao
                     : 0;
                 register.UsoStru = estrutura.Count(e => e.Item == register.Apelido);
-                j++;
             }
 
             db.SaveChanges();
+        }
+
+        public static void Produto()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.Produtos;
+
+            foreach (var register in model)
+            {
+                register.PesoLiquidoCalc = FxProduto.PesoLiquidoCalc(register);
+            }
         }
     }
 }

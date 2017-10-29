@@ -224,8 +224,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="FxEstrutura.cs" />
+    <Compile Include="FxProduto.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.Designer.cs">
@@ -339,6 +342,22 @@
     <Compile Include="Migrations\201710261651576_ReAddInsumoAsWhole.Designer.cs">
       <DependentUpon>201710261651576_ReAddInsumoAsWhole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710271532205_DropInsumosXtd.cs" />
+    <Compile Include="Migrations\201710271532205_DropInsumosXtd.Designer.cs">
+      <DependentUpon>201710271532205_DropInsumosXtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710271730406_RemoveHeaderFromEstrutura.cs" />
+    <Compile Include="Migrations\201710271730406_RemoveHeaderFromEstrutura.Designer.cs">
+      <DependentUpon>201710271730406_RemoveHeaderFromEstrutura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291902373_ChangeProdCompFromEstuturaIntoString.cs" />
+    <Compile Include="Migrations\201710291902373_ChangeProdCompFromEstuturaIntoString.Designer.cs">
+      <DependentUpon>201710291902373_ChangeProdCompFromEstuturaIntoString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291917123_ProdCompInEstuturaTo24Char.cs" />
+    <Compile Include="Migrations\201710291917123_ProdCompInEstuturaTo24Char.Designer.cs">
+      <DependentUpon>201710291917123_ProdCompInEstuturaTo24Char.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="XmlReader.cs" />
@@ -355,7 +374,6 @@
     <Compile Include="Controllers\CotacaosController.cs" />
     <Compile Include="Controllers\CustoFolhasController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
-    <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\FamiliasController.cs" />
     <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2646,11 +2664,6 @@
     <Content Include="Views\Cotacaos\Details.cshtml" />
     <Content Include="Views\Cotacaos\Edit.cshtml" />
     <Content Include="Views\Cotacaos\Index.cshtml" />
-    <Content Include="Views\Estruturas\Create.cshtml" />
-    <Content Include="Views\Estruturas\Delete.cshtml" />
-    <Content Include="Views\Estruturas\Details.cshtml" />
-    <Content Include="Views\Estruturas\Edit.cshtml" />
-    <Content Include="Views\Estruturas\Index.cshtml" />
     <Content Include="Views\TipoAlteracaos\Create.cshtml" />
     <Content Include="Views\TipoAlteracaos\Delete.cshtml" />
     <Content Include="Views\TipoAlteracaos\Details.cshtml" />
@@ -2671,6 +2684,16 @@
     <Content Include="Views\Insumoes\Details.cshtml" />
     <Content Include="Views\Insumoes\Edit.cshtml" />
     <Content Include="Views\Insumoes\Index.cshtml" />
+    <Content Include="Views\Produtoes\Create.cshtml" />
+    <Content Include="Views\Produtoes\Delete.cshtml" />
+    <Content Include="Views\Produtoes\Details.cshtml" />
+    <Content Include="Views\Produtoes\Edit.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\Estruturas\Create.cshtml" />
+    <Content Include="Views\Estruturas\Delete.cshtml" />
+    <Content Include="Views\Estruturas\Details.cshtml" />
+    <Content Include="Views\Estruturas\Edit.cshtml" />
+    <Content Include="Views\Estruturas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -3265,6 +3288,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710261651576_ReAddInsumoAsWhole.resx">
       <DependentUpon>201710261651576_ReAddInsumoAsWhole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710271532205_DropInsumosXtd.resx">
+      <DependentUpon>201710271532205_DropInsumosXtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710271730406_RemoveHeaderFromEstrutura.resx">
+      <DependentUpon>201710271730406_RemoveHeaderFromEstrutura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291902373_ChangeProdCompFromEstuturaIntoString.resx">
+      <DependentUpon>201710291902373_ChangeProdCompFromEstuturaIntoString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291917123_ProdCompInEstuturaTo24Char.resx">
+      <DependentUpon>201710291917123_ProdCompInEstuturaTo24Char.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

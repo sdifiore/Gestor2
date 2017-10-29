@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
   <Insumos>Insumos/Matérias-Primas</Insumos>
+  <ItemNaoExiste>999999</ItemNaoExiste>
   <Manufaturado>Manufaturado</Manufaturado>
   <Revenda>Revenda</Revenda>
+  <SequenciaA>A</SequenciaA>
+  <SequenciaB>B</SequenciaB>
+  <SequenciaC>C</SequenciaC>
+  <SequenciaD>D</SequenciaD>
   <SequenciaE1>E1</SequenciaE1>
   <Subproduto>Subproduto</Subproduto>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>

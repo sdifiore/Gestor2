@@ -101,7 +101,8 @@ namespace Gestor.Models
         public float PdrHoraria { get; set; }
 
         [Display(Name = "Prod-comp")]
-        public float ProdComp { get; set; }
+        [StringLength(24)]
+        public string ProdComp { get; set; }
 
         [Display(Name = "Custo Individual")]
         public float CstIndividual { get; set; }

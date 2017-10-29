@@ -13,7 +13,13 @@ namespace Gestor.Controllers
         // GET: Estruturas
         public ActionResult Index()
         {
-            var estruturas = db.Estruturas.Include(e => e.Sequencia).Include(e => e.Unidade);
+           Populate.Estrutura();
+
+            var estruturas = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .Include(e => e.Unidade);
+
             return View(estruturas.ToList());
         }
 
@@ -25,24 +31,23 @@ namespace Gestor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Estrutura estrutura = db.Estruturas
+            var estrutura = db.Estruturas
+                .Include(e => e.Produto)
                 .Include(e => e.Sequencia)
-                .Include(e => e.Unidade)
                 .SingleOrDefault(e => e.Id == id);
 
             if (estrutura == null)
             {
                 return HttpNotFound();
             }
-
             return View(estrutura);
         }
 
         // GET: Estruturas/Create
         public ActionResult Create()
         {
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
             return View();
         }
 
@@ -51,18 +56,17 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Apelido,UnidadeId,QtdCusto,SequenciaId,Item,Onera,Lote,Perda,Observacao")] Estrutura estrutura)
+        public ActionResult Create([Bind(Include = "Id,ProdutoId,UnidadeId,QtdCusto,SequenciaId,Item,DescCompProc,UnidadeCompraId,CustoUnitCompra,Onera,Lote,Perda,Observacao,PartCusto,QtEftvUntrCmpnt,CstCmprUndPrd,TpItmCst,AlrtSbPrdt,TempMaq,QtdUndd,PsLiqdFnl,PsLiqdPrcdt,HrsModFnl,HrsModPrec1,HrsModPrec2,IdProd,IdCmpnt,PdrHoraria,ProdComp,CstIndividual,CstMtrlDrt,CstMtrlPrcd1,CstMtrlPrcd2,CstMtrlPrcd3,Header")] Estrutura estrutura)
         {
             if (ModelState.IsValid)
             {
-                estrutura.Perda = estrutura.Perda / 100;
                 db.Estruturas.Add(estrutura);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeId);
             return View(estrutura);
         }
 
@@ -78,11 +82,8 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeId);
-
-            estrutura.Perda = estrutura.Perda * 100;
-
             return View(estrutura);
         }
 
@@ -91,17 +92,16 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Apelido,UnidadeId,QtdCusto,SequenciaId,Item,Onera,Lote,Perda,Observacao")] Estrutura estrutura)
+        public ActionResult Edit([Bind(Include = "Id,ProdutoId,UnidadeId,QtdCusto,SequenciaId,Item,DescCompProc,UnidadeCompraId,CustoUnitCompra,Onera,Lote,Perda,Observacao,PartCusto,QtEftvUntrCmpnt,CstCmprUndPrd,TpItmCst,AlrtSbPrdt,TempMaq,QtdUndd,PsLiqdFnl,PsLiqdPrcdt,HrsModFnl,HrsModPrec1,HrsModPrec2,IdProd,IdCmpnt,PdrHoraria,ProdComp,CstIndividual,CstMtrlDrt,CstMtrlPrcd1,CstMtrlPrcd2,CstMtrlPrcd3,Header")] Estrutura estrutura)
         {
             if (ModelState.IsValid)
             {
-                estrutura.Perda = estrutura.Perda / 100;
                 db.Entry(estrutura).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeId);
             return View(estrutura);
         }
 
@@ -112,12 +112,7 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            Estrutura estrutura = db.Estruturas
-                .Include(e => e.Sequencia)
-                .Include(e => e.Unidade)
-                .SingleOrDefault(e => e.Id == id);
-
+            Estrutura estrutura = db.Estruturas.Find(id);
             if (estrutura == null)
             {
                 return HttpNotFound();
@@ -130,7 +125,11 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Estrutura estrutura = db.Estruturas.Find(id);
+            var estrutura = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .SingleOrDefault(e => e.Id == id);
+
             db.Estruturas.Remove(estrutura);
             db.SaveChanges();
             return RedirectToAction("Index");

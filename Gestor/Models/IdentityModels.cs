@@ -40,7 +40,6 @@ namespace Gestor.Models
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
         public DbSet<Insumo> Insumos { get; set; }
-        public DbSet<InsumoXtd> InsumoXtds { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }

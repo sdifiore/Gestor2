@@ -6,7 +6,7 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    [RoutePrefix("Insumo")]
+    [RoutePrefix("Insumos")]
     public class InsumoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
