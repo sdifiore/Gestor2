@@ -11,22 +11,17 @@ namespace Gestor
             var db = new ApplicationDbContext();
             string descCompProc = "";
 
-            if (register.Sequencia.Descricao != "")
+            var insumo = db.Insumos.SingleOrDefault(i => i.Apelido == register.Item);
+
+            if (insumo != null) descCompProc = insumo.Descricao;
+            else
             {
-                descCompProc = register.Produto.Descricao;
+                var produto = db.Produtos.SingleOrDefault(i => i.Apelido == register.Item);
 
-                if (register.Sequencia.Descricao.Substring(0, 1) == "E")
-                {
-                    var temp = db.Operacoes.SingleOrDefault(o => o.CodigoOperacao == register.Produto.Apelido);
-
-                    if (temp == null)
-                    {
-                        DbLogger.Log(Reason.Error, $"Código {register.Item} não encontrado em Estruturas");
-                        throw new ApplicationException($"Código {register.Item} não encontrado em Estruturas");
-                    }
-
-                    descCompProc = $"Oper. de {db.Operacoes.Single(o => o.CodigoOperacao == register.Item)}";
-                } 
+                if (produto != null) descCompProc = produto.Descricao;
+                else
+                    if (register.Sequencia.Tipo.Substring(0, 1) == XmlReader.Read("SequenciaE1").Substring(0, 1))
+                        descCompProc = $"Oper. de {db.Operacoes.Single(o => o.CodigoOperacao == register.Item).Descricao}";
             }
 
             return descCompProc;
@@ -90,7 +85,7 @@ namespace Gestor
                             result = db.Unidades.Single(u => u.Descricao == unidadeHora).UnidadeId;
                         else result = db.Unidades.Single(u => u.Descricao == unidadeHora).UnidadeId;
                     }
-                } 
+                }
             }
 
             return result;
@@ -118,7 +113,7 @@ namespace Gestor
                         result = db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).Custo;
                 }
             }
-            
+
 
             return result;
         }
@@ -166,7 +161,7 @@ namespace Gestor
                 float soma = stru.Sum(e => e.CustoUnitCompra);
                 result = soma < Global.Tolerance
                     ? 0
-                    : estrutura.CustoUnitCompra / soma; 
+                    : estrutura.CustoUnitCompra / soma;
             }
 
             return result;
@@ -178,7 +173,7 @@ namespace Gestor
             var produto = db.Produtos.SingleOrDefault(p => p.Apelido == estrutura.Item);
 
             string result = produto != null
-                ? produto.Categoria.Descricao
+                ? db.Categorias.Single(c => c.CategoriaId == produto.CategoriaId).Descricao
                 : "";
 
             return result;
@@ -187,7 +182,8 @@ namespace Gestor
         public static float TempMaq(Estrutura estrutura)        // S
         {
             var db = new ApplicationDbContext();
-            float result = estrutura.TpItmCst.Substring(0, 5) == "c-MOD"
+            string tpItmCst = $"{estrutura.TpItmCst}{Global.Space20}";
+            float result = tpItmCst.Substring(0, 5) == "c-MOD"
                 ? db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).TaxaOcupacao
                 : 0;
 
@@ -249,12 +245,25 @@ namespace Gestor
 
         public static string IdProd(Estrutura estrutura)        // Z
         {
-            return $"{estrutura.Produto.Descricao}-{estrutura.Produto.Apelido}-{estrutura.Unidade.Apelido}";
+            var db = new ApplicationDbContext();
+            var produto = db.Produtos.SingleOrDefault(p => p.Apelido == estrutura.Item);
+
+            if (produto == null)
+            {
+                DbLogger.Log(Reason.Error,$"Erro: Produto {estrutura.Item} não encontrado");
+                return "Erro";
+            }
+
+            var unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeId);
+            return $"{produto.Descricao}-{produto.Apelido}-{unidade.Apelido}";
         }
 
         public static string IdCmpnt(Estrutura estrutura)       // AA
         {
-            return $"{estrutura.Item}-{estrutura.DescCompProc}-{estrutura.UnidadeCompra.Apelido}";
+            var db = new ApplicationDbContext();
+            string unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeId).Apelido;
+
+            return $"{estrutura.Item}-{estrutura.DescCompProc}-{unidade}";
         }
 
         public static float PdrHoraria(Estrutura estrutura)     // AB
@@ -281,7 +290,7 @@ namespace Gestor
         {
             var db = new ApplicationDbContext();
 
-            return db.Produtos.Single(p => p.Apelido == estrutura.Item).QtdUnid;
+            return db.Produtos.Single(p => p.Apelido == estrutura.Produto.Apelido).QtdUnid;
         }
 
         public static float CstMtrlDrt(Estrutura estrutura)     // AE

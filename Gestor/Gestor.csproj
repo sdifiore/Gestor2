@@ -358,6 +358,14 @@
     <Compile Include="Migrations\201710291917123_ProdCompInEstuturaTo24Char.Designer.cs">
       <DependentUpon>201710291917123_ProdCompInEstuturaTo24Char.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710301434237_DeleteRelationFromEstruiturasToProdutos.cs" />
+    <Compile Include="Migrations\201710301434237_DeleteRelationFromEstruiturasToProdutos.Designer.cs">
+      <DependentUpon>201710301434237_DeleteRelationFromEstruiturasToProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710301518085_Stabilish1ToNRelationshipFromProdutoToEstrutura.cs" />
+    <Compile Include="Migrations\201710301518085_Stabilish1ToNRelationshipFromProdutoToEstrutura.Designer.cs">
+      <DependentUpon>201710301518085_Stabilish1ToNRelationshipFromProdutoToEstrutura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="XmlReader.cs" />
@@ -3300,6 +3308,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710291917123_ProdCompInEstuturaTo24Char.resx">
       <DependentUpon>201710291917123_ProdCompInEstuturaTo24Char.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710301434237_DeleteRelationFromEstruiturasToProdutos.resx">
+      <DependentUpon>201710301434237_DeleteRelationFromEstruiturasToProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710301518085_Stabilish1ToNRelationshipFromProdutoToEstrutura.resx">
+      <DependentUpon>201710301518085_Stabilish1ToNRelationshipFromProdutoToEstrutura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

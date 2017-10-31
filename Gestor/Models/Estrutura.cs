@@ -6,10 +6,9 @@ namespace Gestor.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Código")]
         public int ProdutoId { get; set; }
 
-        public Produto Produto { get; set; }
+        public virtual Produto Produto { get; set; }
 
         [Display(Name = "Unidade Produto")]
         public int UnidadeId { get; set; }

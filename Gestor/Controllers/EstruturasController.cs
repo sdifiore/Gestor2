@@ -13,7 +13,8 @@ namespace Gestor.Controllers
         // GET: Estruturas
         public ActionResult Index()
         {
-           Populate.Estrutura();
+
+            Populate.Estrutura();
 
             var estruturas = db.Estruturas
                 .Include(e => e.Produto)
@@ -30,12 +31,7 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            var estrutura = db.Estruturas
-                .Include(e => e.Produto)
-                .Include(e => e.Sequencia)
-                .SingleOrDefault(e => e.Id == id);
-
+            Estrutura estrutura = db.Estruturas.Find(id);
             if (estrutura == null)
             {
                 return HttpNotFound();
@@ -125,11 +121,7 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var estrutura = db.Estruturas
-                .Include(e => e.Produto)
-                .Include(e => e.Sequencia)
-                .SingleOrDefault(e => e.Id == id);
-
+            Estrutura estrutura = db.Estruturas.Find(id);
             db.Estruturas.Remove(estrutura);
             db.SaveChanges();
             return RedirectToAction("Index");

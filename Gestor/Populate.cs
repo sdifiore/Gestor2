@@ -83,6 +83,15 @@ namespace Gestor
 
             foreach (var register in model)
             {
+                register.Header = false;
+                register.IdProd = "";
+
+                if (register.Produto.Apelido != compAlias)
+                {
+                    register.Header = true;
+                    compAlias = register.Produto.Apelido;
+                    register.IdProd = FxEstrutura.IdProd(register);     // Z
+                }
 
                 register.AlrtSbPrdt = FxEstrutura.AlrtSbPrdt(register);     // R
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
@@ -99,7 +108,6 @@ namespace Gestor
                 register.HrsModFnl = FxEstrutura.HrsModFnl(register);   // W
                 register.HrsModPrec1 = FxEstrutura.HrsModPrec1(register);   // X
                 register.HrsModPrec2 = FxEstrutura.HrsModPrec2(register);   // Y
-                register.IdProd = FxEstrutura.IdProd(register);     // Z
                 register.IdCmpnt = FxEstrutura.IdCmpnt(register);   // AA
                 register.PdrHoraria = FxEstrutura.PdrHoraria(register);     // AB
                 register.ProdComp = FxEstrutura.ProdComp(register);     // AC

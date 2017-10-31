@@ -18,14 +18,15 @@
         <th>
             @Html.DisplayNameFor(model => model.Produto.Descricao)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sequencia.Tipo)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.UnidadeId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QtdCusto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sequencia.Tipo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Item)
@@ -114,9 +115,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CstMtrlPrcd3)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Header)
-        </th>*@
+        </th>
         <th></th>
     </tr>
 
@@ -128,14 +129,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Produto.Descricao)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Sequencia.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+            @Html.DisplayFor(modelItem => item.UnidadeId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QtdCusto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sequencia.Tipo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Item)
@@ -144,7 +146,7 @@
             @Html.DisplayFor(modelItem => item.DescCompProc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnidadeCompra.Descricao)
+            @Html.DisplayFor(modelItem => item.UnidadeCompraId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CustoUnitCompra)
@@ -224,9 +226,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CstMtrlPrcd3)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.Header)
-        </td>*@
+        </td>
         <td>
             @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
             @Html.ActionLink("Detalhes", "Details", new { id=item.Id })

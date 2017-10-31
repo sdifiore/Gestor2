@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -150,6 +148,6 @@ namespace Gestor.Models
         [Display(Name = "% mats etapa preced 3")]
         public float PctMatEtapa3 { get; set; }
 
-        public ICollection<Estrutura> Estrutura { get; set; }
+        public virtual ICollection<Estrutura> Estrutura { get; set; }
     }
 }
