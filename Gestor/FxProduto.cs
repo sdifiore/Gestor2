@@ -1,4 +1,6 @@
 ﻿using Gestor.Models;
+using System.Collections;
+using System.Linq;
 
 namespace Gestor
 {
@@ -7,7 +9,8 @@ namespace Gestor
         public static float PesoLiquidoCalc(Produto produto)
         {
             var db = new ApplicationDbContext();
-            var stru = db.Estruturas;
+            var estrutura = db.Estruturas;
+            var final = estrutura.Where(e => e.Produto.Apelido == produto.Apelido);
 
             return 0f;
         }

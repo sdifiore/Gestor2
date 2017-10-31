@@ -24,7 +24,8 @@ namespace Gestor.Controllers
                 .Include(p => p.Linha)
                 .Include(p => p.Pcp)
                 .Include(p => p.Tipo)
-                .Include(p => p.Unidade);
+                .Include(p => p.Unidade)
+                .OrderBy(p => p.Apelido);
 
             return View(produtos.ToList());
         }
