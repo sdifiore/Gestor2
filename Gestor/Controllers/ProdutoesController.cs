@@ -15,6 +15,8 @@ namespace Gestor.Controllers
         [Route]
         public ActionResult Index()
         {
+            // Populate.Produto();
+
             var produtos = db.Produtos
                 .Include(p => p.Categoria)
                 .Include(p => p.ClasseCusto)
@@ -185,6 +187,29 @@ namespace Gestor.Controllers
             db.Produtos.Remove(produto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var produto = db.Produtos
+                .Include(p => p.Categoria)
+                .Include(p => p.ClasseCusto)
+                .Include(p => p.Dominio)
+                .Include(p => p.Familia)
+                .Include(p => p.GrupoRateio)
+                .Include(p => p.Linha)
+                .Include(p => p.Pcp)
+                .Include(p => p.Tipo)
+                .Include(p => p.Unidade)
+                .SingleOrDefault(p => p.Apelido == search);
+
+            if (produto == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo produto {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+            return View("Details", produto);
         }
 
         protected override void Dispose(bool disposing)

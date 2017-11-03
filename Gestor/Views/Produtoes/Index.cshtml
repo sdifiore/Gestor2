@@ -7,6 +7,18 @@
 
 <h2>Índice</h2>
 
+@Html.ActionLink("Criar nova estrutura", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Produtoes", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar"
+    </p>
+}
+
+
 <p>
     @Html.ActionLink("Criar novo produto", "Create")
 </p>

@@ -149,5 +149,8 @@ namespace Gestor.Models
         public float PctMatEtapa3 { get; set; }
 
         public virtual ICollection<Estrutura> Estrutura { get; set; }
+
+        [StringLength(10)]
+        public string Input { get; set; }
     }
 }

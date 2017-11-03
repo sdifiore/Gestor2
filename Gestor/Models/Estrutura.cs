@@ -13,9 +13,10 @@ namespace Gestor.Models
         [Display(Name = "Unidade Produto")]
         public int UnidadeId { get; set; }
 
-        public Unidade Unidade { get; set; }
+        public virtual Unidade Unidade { get; set; }
 
         [Display(Name = "Quantidade para Custo")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float QtdCusto { get; set; }
 
         [Display(Name = "Sequência")]
@@ -37,7 +38,7 @@ namespace Gestor.Models
         public Unidade UnidadeCompra { get; set; }
 
         [Display(Name = "Custo unit compra")]
-        [DisplayFormat(DataFormatString = "{0:N2}")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoUnitCompra { get; set; }
 
         [Display(Name = "Onera")]
@@ -119,5 +120,8 @@ namespace Gestor.Models
         public float CstMtrlPrcd3 { get; set; }
 
         public bool Header { get; set; }
+
+        [StringLength(10)]
+        public string Input { get; set; }
     }
 }

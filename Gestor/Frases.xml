@@ -9,6 +9,8 @@
   <SequenciaC>C</SequenciaC>
   <SequenciaD>D</SequenciaD>
   <SequenciaE1>E1</SequenciaE1>
+  <SequenciaE2>E2</SequenciaE2>
+  <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
   <Subproduto>Subproduto</Subproduto>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
   <UnidadeHora>hora</UnidadeHora>

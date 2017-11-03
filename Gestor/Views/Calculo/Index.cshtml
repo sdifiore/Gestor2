@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Selecione o cálculo desejado</h2>
+<h3>
+    <p>@Html.ActionLink("Estruturas", "Estrutura", "Calculo")</p>
+    <p>@Html.ActionLink("Insumos", "Insumo", "Calculo")</p>
+    <p>@Html.ActionLink("Produtos", "Produto", "Calculo")</p>
+    <br />
+    <p>@Html.ActionLink("Tudo", "Tudo", "Calculo")</p>
+</h3>
+
+
+
+

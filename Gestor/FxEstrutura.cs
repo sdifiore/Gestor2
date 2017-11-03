@@ -20,8 +20,22 @@ namespace Gestor
 
                 if (produto != null) descCompProc = produto.Descricao;
                 else
+                {
                     if (register.Sequencia.Tipo.Substring(0, 1) == XmlReader.Read("SequenciaE1").Substring(0, 1))
-                        descCompProc = $"Oper. de {db.Operacoes.Single(o => o.CodigoOperacao == register.Item).Descricao}";
+                    {
+                        var operando = db.Operacoes.SingleOrDefault(o => o.CodigoOperacao == register.Item);
+                        if (operando != null)
+                        {
+                            descCompProc = $"Oper. de {operando.Descricao}";
+                        }
+
+                        else
+                        {
+                            DbLogger.Log(Reason.Error, $"DescComProc: Código {register.Item} não encontrado");
+                            descCompProc = "Erro";
+                        }
+                    }
+                }
             }
 
             return descCompProc;

@@ -14,7 +14,7 @@ namespace Gestor.Controllers
         public ActionResult Index()
         {
 
-            Populate.Estrutura();
+            //Populate.Estrutura();
 
             var estruturas = db.Estruturas
                 .Include(e => e.Produto)
@@ -31,7 +31,13 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estrutura estrutura = db.Estruturas.Find(id);
+
+            var estrutura = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .Include(e => e.Unidade)
+                .SingleOrDefault(e => e.Id == id);
+
             if (estrutura == null)
             {
                 return HttpNotFound();
@@ -125,6 +131,24 @@ namespace Gestor.Controllers
             db.Estruturas.Remove(estrutura);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var estruturas = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .Include(e => e.Unidade)
+                .Where(e => e.Produto.Apelido == search);
+
+            if (!estruturas.Any())
+            {
+                DbLogger.Log(Reason.Info, $"Procura pela estrutura {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Index", estruturas);
         }
 
         protected override void Dispose(bool disposing)

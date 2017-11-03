@@ -10,66 +10,6 @@ namespace Gestor
 {
     public static class Populate
     {
-        //public static List<CustoInsumo> CustoInsumo()
-        //{
-        //    var result = new List<CustoInsumo>();
-        //    var db = new ApplicationDbContext();
-        //    var parm = db.Parametros.ToList().Last();
-        //    //var model = db.Insumos.Include(i => i.Finalidade).ToList();
-        //    //int index = 1;
-
-            //foreach (var register in model)
-            //{
-            //    var data = new CustoInsumo
-            //    {
-            //        PrcBrtCmpr = Math.Abs(register.PrecoUsd) > Global.Tolerance
-            //            ? parm.Dolar * register.PrecoUsd * (1 + register.Ipi)
-            //            : register.PrecoRs * (1 + register.Ipi)
-            //    };
-
-            //    data.CustoInsumoId = index++;
-            //    data.CrdtIcms = data.PrcBrtCmpr / (1 + register.Ipi) * register.Icms;
-            //    data.CrdtIpi = data.PrcBrtCmpr / (1 + register.Ipi) * register.Ipi;
-            //    data.CrdtPis = data.PrcBrtCmpr / (1 + register.Ipi) * register.Pis;
-            //    data.CrdtCofins = data.PrcBrtCmpr / (1 + register.Ipi) * register.Cofins;
-            //    data.SumCrdtImpostos = data.PrcBrtCmpr + data.CrdtIcms + data.CrdtIpi + data.CrdtPis + data.CrdtCofins;
-            //    data.DespImport = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespImport;
-            //    data.CustoExtra = data.PrcBrtCmpr / (1 + register.Ipi) * register.DespExtra;
-            //    data.Custo = data.PrcBrtCmpr - data.CrdtIcms - data.CrdtPis - data.CrdtCofins + data.CustoExtra;
-            //    data.Custo = register.Finalidade.Descricao == XmlReader.Read("Revenda")
-            //        ? data.Custo
-            //        : data.Custo - data.CrdtIpi;
-            //    data.CstUndConsumo = data.Custo * register.QtdUnddConsumo;
-            //    data.PgmtoFornecImport = Math.Abs(data.DespImport) > Global.Tolerance
-            //        ? data.PrcBrtCmpr - data.SumCrdtImpostos - data.DespImport
-            //        : 0;
-            // //   data.UsoStrut = db.Estruturas.Count(e => e.Item == register.Apelido);
-            //   // data.Produto = db.Produtos.Single(p => p.Apelido == register.Apelido);
-
-                //result.Add(data);
-        //    }
-
-        //    return result;
-        //}
-
-        //public static List<DetalheProduto> DetalheProduto()
-        //{
-        //    var result = new List<DetalheProduto>();
-        //    var db = new ApplicationDbContext();
-        //    var model = db.Produtos;
-        //    int index = 1;
-
-        //    foreach (var register in model)
-        //    {
-        //        var data = new DetalheProduto
-        //        {
-        //          //  DetalheProdutoId = index++
-        //        };
-        //    }
-
-        //    return result;
-        //}
-
         public static void Estrutura()
         {
             var db = new ApplicationDbContext();
@@ -79,7 +19,7 @@ namespace Gestor
                 .ToList();
             string compAlias = Global.CompAlias;
 
-            Insumo();
+          //  Insumo();
 
             foreach (var register in model)
             {
@@ -158,11 +98,34 @@ namespace Gestor
         public static void Produto()
         {
             var db = new ApplicationDbContext();
-            var model = db.Produtos;
+            var model = db.Produtos
+                .Include(p => p.Categoria)
+                .Include(p => p.ClasseCusto);
 
             foreach (var register in model)
             {
-                register.PesoLiquidoCalc = FxProduto.PesoLiquidoCalc(register);
+                register.PesoLiquidoCalc = FxProduto.PesoLiquidoCalc(register);     // R
+                register.ItemStru = FxProduto.ItemStru(register);       // S
+                register.CustODirTotal = FxProduto.CustoDirTotal(register);     //T
+                register.CstMatUltmEtapa = FxProduto.CstMatUltmEtapa(register);     // U
+                register.CstMatEtapa1 = FxProduto.CstMatEtapa1(register);       // V
+                register.CstMatEtapa2 = FxProduto.CstMatEtapa2(register);       // W
+                register.CstMatEtapa3 = FxProduto.CstMatEtapa3(register);       // X
+                register.CstTotMaterial = FxProduto.CstTotMaterial(register);   // Y
+                register.CustoDirMod = FxProduto.CustoDirMod(register);     // Z
+                register.HorasModUltmEtapa = FxProduto.HorasModUltmEtapa(register);       // AA
+                register.HorasModEtapa1 = FxProduto.HorasModEtapa1(register);       // AB
+                register.HorasModEtapa2 = FxProduto.HorasModEtapa2(register);       // AC
+                register.HorasModTotal = FxProduto.HorasModTotal(register);     // AD
+                register.CapProdHora = FxProduto.CapProdHora(register);     // AE
+                register.LoteMinimo = FxProduto.LoteMinimo(register);       // AF
+                register.UsoStru = FxProduto.UsoStru(register);     // AG
+                register.CustoDir = FxProduto.CustoDir(register);       // AH
+                register.RelModCstDir = FxProduto.RelModCstDir(register);       // AI
+                register.PctMatEtapaFinal = FxProduto.PctMatEtapaFinal(register);        // AJ
+                register.PctMatEtapa1 = FxProduto.PctMatEtapa1(register);       // AK
+                register.PctMatEtapa2 = FxProduto.PctMatEtapa2(register);       // AL
+                register.PctMatEtapa3 = FxProduto.PctMatEtapa3(register);       // AM
             }
         }
     }

@@ -51,6 +51,7 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(insumo);
         }
 
@@ -89,6 +90,7 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
             ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
+
             return View(insumo);
         }
 
@@ -112,6 +114,7 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
             ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
+
             return View(insumo);
         }
 
@@ -135,6 +138,7 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
             ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnddId);
+
             return View(insumo);
         }
 
@@ -161,6 +165,7 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(insumo);
         }
 
@@ -173,6 +178,28 @@ namespace Gestor.Controllers
             db.Insumos.Remove(insumo);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var insumo = db.Insumos
+                .Include(i => i.Categoria)
+                .Include(i => i.ClasseCusto)
+                .Include(i => i.Familia)
+                .Include(i => i.Finalidade)
+                .Include(i => i.Linha)
+                .Include(i => i.Tipo)
+                .Include(i => i.UnidadeConsumo)
+                .SingleOrDefault(i => i.Apelido == search);
+
+            if (insumo == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo insumo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", insumo);
         }
 
         protected override void Dispose(bool disposing)

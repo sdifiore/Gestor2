@@ -10,6 +10,15 @@
 <p>
     @Html.ActionLink("Criar novo insumo", "Create")
 </p>
+
+@using (Html.BeginForm("Search", "Insumoes", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar"
+    </p>
+}
+
 <table class="table">
     <tr>
         
