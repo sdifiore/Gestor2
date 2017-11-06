@@ -225,8 +225,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CalculoController.cs" />
+    <Compile Include="Controllers\EmbalagemsController.cs" />
+    <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxProduto.cs" />
@@ -379,8 +382,45 @@
     <Compile Include="Migrations\201711031141155_AddInputFieldToProdutosTable.Designer.cs">
       <DependentUpon>201711031141155_AddInputFieldToProdutosTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711031726562_AddEncapTubosTable.cs" />
+    <Compile Include="Migrations\201711031726562_AddEncapTubosTable.Designer.cs">
+      <DependentUpon>201711031726562_AddEncapTubosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711031730480_FormatNumbersInEncapTubos.cs" />
+    <Compile Include="Migrations\201711031730480_FormatNumbersInEncapTubos.Designer.cs">
+      <DependentUpon>201711031730480_FormatNumbersInEncapTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711031758375_ResetEndTubos.cs" />
+    <Compile Include="Migrations\201711031758375_ResetEndTubos.Designer.cs">
+      <DependentUpon>201711031758375_ResetEndTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711031811285_AddDintRevestToEncapTubos.cs" />
+    <Compile Include="Migrations\201711031811285_AddDintRevestToEncapTubos.Designer.cs">
+      <DependentUpon>201711031811285_AddDintRevestToEncapTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711051629076_AddParmGraxa.cs" />
+    <Compile Include="Migrations\201711051629076_AddParmGraxa.Designer.cs">
+      <DependentUpon>201711051629076_AddParmGraxa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711051737404_TotalParmGraxa.cs" />
+    <Compile Include="Migrations\201711051737404_TotalParmGraxa.Designer.cs">
+      <DependentUpon>201711051737404_TotalParmGraxa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711051739492_UncorrectFieldInParmGraxas.cs" />
+    <Compile Include="Migrations\201711051739492_UncorrectFieldInParmGraxas.Designer.cs">
+      <DependentUpon>201711051739492_UncorrectFieldInParmGraxas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711051905567_Embalagens.cs" />
+    <Compile Include="Migrations\201711051905567_Embalagens.Designer.cs">
+      <DependentUpon>201711051905567_Embalagens.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
+    <Compile Include="Models\Embalagem.cs" />
+    <Compile Include="Models\EncapTubo.cs" />
+    <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\ParmGraxa.cs" />
+    <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1089,7 +1129,7 @@
     <Compile Include="Models\Cotacao.cs" />
     <Compile Include="Models\CustoFolha.cs" />
     <Compile Include="Models\CustoInsumo.cs" />
-    <Compile Include="Models\DbLogger.cs" />
+    <Compile Include="DbLogger.cs" />
     <Compile Include="Models\Dominio.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ExcelDb.cs" />
@@ -1401,6 +1441,21 @@
     <Content Include="Views\Estruturas\Index.cshtml" />
     <Content Include="Views\Calculo\Index.cshtml" />
     <Content Include="Views\Produtoes\Search.cshtml" />
+    <Content Include="Views\EncapTuboes\Create.cshtml" />
+    <Content Include="Views\EncapTuboes\Delete.cshtml" />
+    <Content Include="Views\EncapTuboes\Details.cshtml" />
+    <Content Include="Views\EncapTuboes\Edit.cshtml" />
+    <Content Include="Views\EncapTuboes\Index.cshtml" />
+    <Content Include="Views\ParmGraxas\Create.cshtml" />
+    <Content Include="Views\ParmGraxas\Delete.cshtml" />
+    <Content Include="Views\ParmGraxas\Details.cshtml" />
+    <Content Include="Views\ParmGraxas\Edit.cshtml" />
+    <Content Include="Views\ParmGraxas\Index.cshtml" />
+    <Content Include="Views\Embalagems\Create.cshtml" />
+    <Content Include="Views\Embalagems\Delete.cshtml" />
+    <Content Include="Views\Embalagems\Details.cshtml" />
+    <Content Include="Views\Embalagems\Edit.cshtml" />
+    <Content Include="Views\Embalagems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2022,6 +2077,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711031141155_AddInputFieldToProdutosTable.resx">
       <DependentUpon>201711031141155_AddInputFieldToProdutosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711031726562_AddEncapTubosTable.resx">
+      <DependentUpon>201711031726562_AddEncapTubosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711031730480_FormatNumbersInEncapTubos.resx">
+      <DependentUpon>201711031730480_FormatNumbersInEncapTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711031758375_ResetEndTubos.resx">
+      <DependentUpon>201711031758375_ResetEndTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711031811285_AddDintRevestToEncapTubos.resx">
+      <DependentUpon>201711031811285_AddDintRevestToEncapTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051629076_AddParmGraxa.resx">
+      <DependentUpon>201711051629076_AddParmGraxa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051737404_TotalParmGraxa.resx">
+      <DependentUpon>201711051737404_TotalParmGraxa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051739492_UncorrectFieldInParmGraxas.resx">
+      <DependentUpon>201711051739492_UncorrectFieldInParmGraxas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051905567_Embalagens.resx">
+      <DependentUpon>201711051905567_Embalagens.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

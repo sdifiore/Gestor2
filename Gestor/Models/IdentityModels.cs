@@ -34,6 +34,8 @@ namespace Gestor.Models
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
+        public DbSet<Embalagem> Embalagens { get; set; }
+        public DbSet<EncapTubo> EncapTuboes { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
         public DbSet<Finalidade> Finalidades { get; set; }
@@ -45,6 +47,7 @@ namespace Gestor.Models
         public DbSet<MedidaFita> MedidaFitas { get; set; }
         public DbSet<Operacao> Operacoes { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
+        public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<QtdEmbalagem> QtdEmbalagems { get; set; }
@@ -57,12 +60,12 @@ namespace Gestor.Models
         public DbSet<TipoProducao> TiposProducao { get; set; }
         public DbSet<TipoAlteracao> TiposAlteracao { get; set; }
         public DbSet<Tipo> Tipos { get; set; }
+        public DbSet<TotalParmGraxa> TotalParmGraxas { get; set; }
         public DbSet<Unidade> Unidades { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
     }
 }

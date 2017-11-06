@@ -13,7 +13,12 @@ namespace Gestor.Controllers
         // GET: Ajustes
         public ActionResult Index()
         {
-            var ajustes = db.Ajustes.Include(a => a.Atual).Include(a => a.Origem).Include(a => a.TipoAlteracao);
+            var ajustes = db.Ajustes
+                .Include(a => a.Atual)
+                .Include(a => a.Origem)
+                .Include(a => a.TipoAlteracao)
+                .Include(a => a.UnidadeDe)
+                .Include(a => a.UnidadePara);
             return View(ajustes.ToList());
         }
 

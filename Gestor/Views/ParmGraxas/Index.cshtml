@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Gestor.Models.ParmGraxa>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo parâmetro de graxa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pesagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KgH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pesagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KgH)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

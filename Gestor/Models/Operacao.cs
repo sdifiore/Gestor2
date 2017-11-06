@@ -29,6 +29,7 @@ namespace Gestor.Models
         public int QtdMaquinas { get; set; }
 
         [Display(Name = "Custo em R$/h")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float Custo { get; set; }
 
         [Display(Name = "Setor")]

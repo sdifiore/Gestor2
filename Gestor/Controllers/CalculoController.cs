@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Gestor.Controllers
 {
@@ -18,21 +14,35 @@ namespace Gestor.Controllers
         {
             Populate.Estrutura();
 
-            return Redirect("/Calculo");
+            return Redirect("/");
         }
 
         public ActionResult Insumo()
         {
             Populate.Insumo();
 
-            return Redirect("/Calculo");
+            return Redirect("/");
         }
 
         public ActionResult Produto()
         {
             Populate.Produto();
 
-            return Redirect("/Calculo");
+            return Redirect("/");
+        }
+
+        public ActionResult EncapTubo()
+        {
+            Populate.EncapTubos();
+
+            return Redirect("/");
+        }
+
+        public ActionResult Graxas()
+        {
+            Populate.Graxas();
+
+            return Redirect("/");
         }
 
         public ActionResult Tudo()
@@ -40,6 +50,8 @@ namespace Gestor.Controllers
             Populate.Insumo();
             Populate.Estrutura();
             Populate.Produto();
+            Populate.EncapTubos();
+            Populate.Graxas();
 
             return Redirect("/");
         }

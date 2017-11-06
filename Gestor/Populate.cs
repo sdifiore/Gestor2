@@ -127,6 +127,34 @@ namespace Gestor
                 register.PctMatEtapa2 = FxProduto.PctMatEtapa2(register);       // AL
                 register.PctMatEtapa3 = FxProduto.PctMatEtapa3(register);       // AM
             }
+
+            db.SaveChanges();
+        }
+
+        public static void EncapTubos()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.EncapTuboes;
+
+            foreach (var register in model)
+            {
+                register.PesoRevest = (register.DextRevest * register.DextRevest - register.DintRevest * register.DintRevest) * (float)Math.PI / 4 * register.DenRev / 1000;
+                register.Resina = register.PesoRevest * (1 - register.PctCarga);
+                register.Master = register.PesoRevest - register.Resina;
+            }
+
+            db.SaveChanges();
+        }
+
+        public static void Graxas()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.TotalParmGraxas;
+            TotalParmGraxa data = model.First();
+            data.MinHora = (float)db.ParmGraxas.Sum(g => g.Pesagem);
+            data.KgH = 10 / data.MinHora * 60;
+
+            db.SaveChanges();
         }
     }
 }
