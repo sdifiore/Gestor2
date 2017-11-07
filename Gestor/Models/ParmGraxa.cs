@@ -15,5 +15,8 @@ namespace Gestor.Models
 
         [Display(Name = "Kg/h")]
         public float KgH { get; set; }
+
+        [Display(Name = "Totaliza")]
+        public bool Totaliza { get; set; }
     }
 }

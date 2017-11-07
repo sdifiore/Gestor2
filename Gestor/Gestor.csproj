@@ -228,9 +228,11 @@
     <Compile Include="Controllers\EmbalagemsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
+    <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\ResinasController.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxProduto.cs" />
     <Compile Include="Global.cs" />
@@ -414,12 +416,25 @@
     <Compile Include="Migrations\201711051905567_Embalagens.Designer.cs">
       <DependentUpon>201711051905567_Embalagens.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711061537491_Resinas.cs" />
+    <Compile Include="Migrations\201711061537491_Resinas.Designer.cs">
+      <DependentUpon>201711061537491_Resinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061615536_Graxas.cs" />
+    <Compile Include="Migrations\201711061615536_Graxas.Designer.cs">
+      <DependentUpon>201711061615536_Graxas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711071258375_AddTotalizaFieldToParmGraxas.cs" />
+    <Compile Include="Migrations\201711071258375_AddTotalizaFieldToParmGraxas.Designer.cs">
+      <DependentUpon>201711071258375_AddTotalizaFieldToParmGraxas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\ParmGraxa.cs" />
+    <Compile Include="Models\Resina.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1446,16 +1461,26 @@
     <Content Include="Views\EncapTuboes\Details.cshtml" />
     <Content Include="Views\EncapTuboes\Edit.cshtml" />
     <Content Include="Views\EncapTuboes\Index.cshtml" />
-    <Content Include="Views\ParmGraxas\Create.cshtml" />
-    <Content Include="Views\ParmGraxas\Delete.cshtml" />
-    <Content Include="Views\ParmGraxas\Details.cshtml" />
-    <Content Include="Views\ParmGraxas\Edit.cshtml" />
-    <Content Include="Views\ParmGraxas\Index.cshtml" />
     <Content Include="Views\Embalagems\Create.cshtml" />
     <Content Include="Views\Embalagems\Delete.cshtml" />
     <Content Include="Views\Embalagems\Details.cshtml" />
     <Content Include="Views\Embalagems\Edit.cshtml" />
     <Content Include="Views\Embalagems\Index.cshtml" />
+    <Content Include="Views\Resinas\Create.cshtml" />
+    <Content Include="Views\Resinas\Delete.cshtml" />
+    <Content Include="Views\Resinas\Details.cshtml" />
+    <Content Include="Views\Resinas\Edit.cshtml" />
+    <Content Include="Views\Resinas\Index.cshtml" />
+    <Content Include="Views\Graxas\Create.cshtml" />
+    <Content Include="Views\Graxas\Delete.cshtml" />
+    <Content Include="Views\Graxas\Details.cshtml" />
+    <Content Include="Views\Graxas\Edit.cshtml" />
+    <Content Include="Views\Graxas\Index.cshtml" />
+    <Content Include="Views\ParmGraxas\Create.cshtml" />
+    <Content Include="Views\ParmGraxas\Delete.cshtml" />
+    <Content Include="Views\ParmGraxas\Details.cshtml" />
+    <Content Include="Views\ParmGraxas\Edit.cshtml" />
+    <Content Include="Views\ParmGraxas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2101,6 +2126,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711051905567_Embalagens.resx">
       <DependentUpon>201711051905567_Embalagens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061537491_Resinas.resx">
+      <DependentUpon>201711061537491_Resinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061615536_Graxas.resx">
+      <DependentUpon>201711061615536_Graxas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711071258375_AddTotalizaFieldToParmGraxas.resx">
+      <DependentUpon>201711071258375_AddTotalizaFieldToParmGraxas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

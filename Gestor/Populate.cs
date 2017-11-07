@@ -151,8 +151,36 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var model = db.TotalParmGraxas;
             TotalParmGraxa data = model.First();
-            data.MinHora = (float)db.ParmGraxas.Sum(g => g.Pesagem);
+            data.MinHora = (float)db.ParmGraxas
+                .Where(mh => mh.Totaliza)
+                .Sum(g => g.Pesagem);
             data.KgH = 10 / data.MinHora * 60;
+            db.SaveChanges();
+
+            var graxas = db.Graxas;
+            string comp = XmlReader.Read("PesagemCarga");
+            var pesagem = db.ParmGraxas.SingleOrDefault(g => g.Descricao == comp);
+
+            if (pesagem == null)
+            {
+                DbLogger.Log(Reason.Error, $"Parâmetro de graxa {comp} não encontrado");
+                throw new Exception($"Parâmetro de graxa {comp} não encontrado");
+            }
+
+            foreach (var graxa in graxas)
+            {
+                graxa.Ptfe = 1 - graxa.PctSilicone - graxa.PctSilica;
+                graxa.PesagemMinUn = 60 / pesagem.KgH * graxa.Peso;
+                graxa.Mistura = 60 / data.KgH * graxa.Peso;
+                graxa.LoteMinino = 16 / graxa.Peso;
+                graxa.Ptfe = graxa.Peso * graxa.LoteMinino * graxa.PctPtfe;
+                graxa.Silicone = graxa.Peso * graxa.LoteMinino * graxa.PctSilicone;
+                graxa.Silica = graxa.Peso * graxa.LoteMinino * graxa.PctSilica;
+                graxa.PesagemH = (float)pesagem.Pesagem / 60;
+                graxa.MisturaH = data.MinHora / 60;
+                graxa.EmbalarH = graxa.EmbalagemMedida * graxa.LoteMinino / 60;
+                graxa.RotularH = graxa.Rotulagem * graxa.LoteMinino / 60;
+            }
 
             db.SaveChanges();
         }

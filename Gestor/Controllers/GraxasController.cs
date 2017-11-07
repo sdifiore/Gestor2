@@ -6,107 +6,120 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    public class ParmGraxasController : Controller
+    public class GraxasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ParmGraxas
+        // GET: Graxas
         public ActionResult Index()
         {
-            return View(db.ParmGraxas.ToList());
+            var graxas = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina)
+                .OrderBy(g => g.Apelido);
+
+            return View(graxas.ToList());
         }
 
-        // GET: ParmGraxas/Details/5
+        // GET: Graxas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Graxa graxa = db.Graxas.Find(id);
+            if (graxa == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            return View(graxa);
         }
 
-        // GET: ParmGraxas/Create
+        // GET: Graxas/Create
         public ActionResult Create()
         {
+            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao");
+            ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao");
             return View();
         }
 
-        // POST: ParmGraxas/Create
+        // POST: Graxas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Descricao,Pesagem,KgH,Totaliza")] ParmGraxa parmGraxa)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao,EmbalagemId,Peso,PctSilicone,PctSilica,PctPtfe,ResinaId,PesagemMinUn,Mistura,EmbalagemMedida,Rotulagem,LoteMinino,Ptfe,Silicone,Silica,PesagemH,MisturaH,EmbalarH,RotularH")] Graxa graxa)
         {
             if (ModelState.IsValid)
             {
-                db.ParmGraxas.Add(parmGraxa);
+                db.Graxas.Add(graxa);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(parmGraxa);
+            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
+            return View(graxa);
         }
 
-        // GET: ParmGraxas/Edit/5
+        // GET: Graxas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Graxa graxa = db.Graxas.Find(id);
+            if (graxa == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
+            return View(graxa);
         }
 
-        // POST: ParmGraxas/Edit/5
+        // POST: Graxas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Descricao,Pesagem,KgH,Totaliza")] ParmGraxa parmGraxa)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,EmbalagemId,Peso,PctSilicone,PctSilica,PctPtfe,ResinaId,PesagemMinUn,Mistura,EmbalagemMedida,Rotulagem,LoteMinino,Ptfe,Silicone,Silica,PesagemH,MisturaH,EmbalarH,RotularH")] Graxa graxa)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(parmGraxa).State = EntityState.Modified;
+                db.Entry(graxa).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(parmGraxa);
+            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
+            return View(graxa);
         }
 
-        // GET: ParmGraxas/Delete/5
+        // GET: Graxas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Graxa graxa = db.Graxas.Find(id);
+            if (graxa == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            return View(graxa);
         }
 
-        // POST: ParmGraxas/Delete/5
+        // POST: Graxas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            db.ParmGraxas.Remove(parmGraxa);
+            Graxa graxa = db.Graxas.Find(id);
+            db.Graxas.Remove(graxa);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

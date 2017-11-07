@@ -40,6 +40,7 @@ namespace Gestor.Models
         public DbSet<Familia> Familias { get; set; }
         public DbSet<Finalidade> Finalidades { get; set; }
         public DbSet<Frete> Fretes { get; set; }
+        public DbSet<Graxa> Graxas { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
         public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Linha> Linhas { get; set; }
@@ -54,6 +55,7 @@ namespace Gestor.Models
         public DbSet<QtdMaquinas> QtdMaquinas { get; set; }
         public DbSet<Rateio> Rateios { get; set; }
         public DbSet<Regiao> Regioes { get; set; }
+        public DbSet<Resina> Resinas { get; set; }
         public DbSet<Sequencia> Sequencias { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Sucata> Sucatas { get; set; }

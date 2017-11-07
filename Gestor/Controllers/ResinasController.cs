@@ -6,107 +6,107 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    public class ParmGraxasController : Controller
+    public class ResinasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ParmGraxas
+        // GET: Resinas
         public ActionResult Index()
         {
-            return View(db.ParmGraxas.ToList());
+            return View(db.Resinas.ToList());
         }
 
-        // GET: ParmGraxas/Details/5
+        // GET: Resinas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Resina resina = db.Resinas.Find(id);
+            if (resina == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            return View(resina);
         }
 
-        // GET: ParmGraxas/Create
+        // GET: Resinas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ParmGraxas/Create
+        // POST: Resinas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Descricao,Pesagem,KgH,Totaliza")] ParmGraxa parmGraxa)
+        public ActionResult Create([Bind(Include = "Id,Descricao")] Resina resina)
         {
             if (ModelState.IsValid)
             {
-                db.ParmGraxas.Add(parmGraxa);
+                db.Resinas.Add(resina);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(parmGraxa);
+            return View(resina);
         }
 
-        // GET: ParmGraxas/Edit/5
+        // GET: Resinas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Resina resina = db.Resinas.Find(id);
+            if (resina == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            return View(resina);
         }
 
-        // POST: ParmGraxas/Edit/5
+        // POST: Resinas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Descricao,Pesagem,KgH,Totaliza")] ParmGraxa parmGraxa)
+        public ActionResult Edit([Bind(Include = "Id,Descricao")] Resina resina)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(parmGraxa).State = EntityState.Modified;
+                db.Entry(resina).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(parmGraxa);
+            return View(resina);
         }
 
-        // GET: ParmGraxas/Delete/5
+        // GET: Resinas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            if (parmGraxa == null)
+            Resina resina = db.Resinas.Find(id);
+            if (resina == null)
             {
                 return HttpNotFound();
             }
-            return View(parmGraxa);
+            return View(resina);
         }
 
-        // POST: ParmGraxas/Delete/5
+        // POST: Resinas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ParmGraxa parmGraxa = db.ParmGraxas.Find(id);
-            db.ParmGraxas.Remove(parmGraxa);
+            Resina resina = db.Resinas.Find(id);
+            db.Resinas.Remove(resina);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

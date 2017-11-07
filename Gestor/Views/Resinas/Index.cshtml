@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Gestor.Models.ParmGraxa>
+﻿@model IEnumerable<Gestor.Models.Resina>
 
 @{
     ViewBag.Title = "Índice";
@@ -8,21 +8,12 @@
 <h2>Índice</h2>
 
 <p>
-    @Html.ActionLink("Criar novo parâmetro de graxa", "Create")
+    @Html.ActionLink("Criar nova resina", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pesagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KgH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Totaliza)
         </th>
         <th></th>
     </tr>
@@ -31,15 +22,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pesagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KgH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Totaliza)
         </td>
         <td>
             @Html.ActionLink("Alterar", "Edit", new { id=item.Id }) |

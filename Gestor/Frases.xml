@@ -11,6 +11,7 @@
   <SequenciaE1>E1</SequenciaE1>
   <SequenciaE2>E2</SequenciaE2>
   <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
+  <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
   <Subproduto>Subproduto</Subproduto>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
   <UnidadeHora>hora</UnidadeHora>
