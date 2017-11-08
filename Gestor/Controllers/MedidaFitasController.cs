@@ -17,7 +17,9 @@ namespace Gestor.Controllers
         // GET: MedidaFitas
         public ActionResult Index()
         {
-            return View(db.MedidaFitas.ToList());
+            var model = db.MedidaFitas.OrderBy(mf => mf.Apelido);
+
+            return View(model.ToList());
         }
 
         // GET: MedidaFitas/Details/5

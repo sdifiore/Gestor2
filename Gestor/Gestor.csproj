@@ -428,6 +428,11 @@
     <Compile Include="Migrations\201711071258375_AddTotalizaFieldToParmGraxas.Designer.cs">
       <DependentUpon>201711071258375_AddTotalizaFieldToParmGraxas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711071829425_AjusteProdutos.cs" />
+    <Compile Include="Migrations\201711071829425_AjusteProdutos.Designer.cs">
+      <DependentUpon>201711071829425_AjusteProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AjusteProduto.cs" />
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
@@ -2135,6 +2140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711071258375_AddTotalizaFieldToParmGraxas.resx">
       <DependentUpon>201711071258375_AddTotalizaFieldToParmGraxas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711071829425_AjusteProdutos.resx">
+      <DependentUpon>201711071829425_AjusteProdutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

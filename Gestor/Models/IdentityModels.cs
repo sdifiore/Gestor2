@@ -26,6 +26,7 @@ namespace Gestor.Models
         }
 
         public DbSet<Ajuste> Ajustes { get; set; }
+        public DbSet<AjusteProduto> AjusteProdutos { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
