@@ -234,6 +234,7 @@
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
+    <Compile Include="Controllers\PrensaPreFormasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
     <Compile Include="FxEstrutura.cs" />
@@ -459,6 +460,10 @@
     <Compile Include="Migrations\201711091837252_PadraoFixos.Designer.cs">
       <DependentUpon>201711091837252_PadraoFixos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711101202443_PrensaPreForma.cs" />
+    <Compile Include="Migrations\201711101202443_PrensaPreForma.Designer.cs">
+      <DependentUpon>201711101202443_PrensaPreForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
@@ -467,6 +472,8 @@
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\PadraoFixo.cs" />
     <Compile Include="Models\ParmGraxa.cs" />
+    <Compile Include="Models\PreForma.cs" />
+    <Compile Include="Models\PrensaPreForma.cs" />
     <Compile Include="Models\Resina.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="XmlReader.cs" />
@@ -1523,6 +1530,11 @@
     <Content Include="Views\PadraoFixoes\Details.cshtml" />
     <Content Include="Views\PadraoFixoes\Edit.cshtml" />
     <Content Include="Views\PadraoFixoes\Index.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Create.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Delete.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Details.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Edit.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2198,6 +2210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711091837252_PadraoFixos.resx">
       <DependentUpon>201711091837252_PadraoFixos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101202443_PrensaPreForma.resx">
+      <DependentUpon>201711101202443_PrensaPreForma.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -6,111 +6,107 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    [RoutePrefix("PadroesFixos")]
-    public class PadraoFixoesController : Controller
+    public class PrensaPreFormasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: PadraoFixoes
-        [Route]
+        // GET: PrensaPreFormas
         public ActionResult Index()
         {
-            var model = db.PadroesFixos.OrderBy(pf => pf.Descricao).ToList();
-
-            return View(model);
+            return View(db.PrensasPreForma.ToList());
         }
 
-        // GET: PadraoFixoes/Details/5
+        // GET: PrensaPreFormas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
-            if (padraoFixo == null)
+            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
+            if (prensaPreForma == null)
             {
                 return HttpNotFound();
             }
-            return View(padraoFixo);
+            return View(prensaPreForma);
         }
 
-        // GET: PadraoFixoes/Create
+        // GET: PrensaPreFormas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PadraoFixoes/Create
+        // POST: PrensaPreFormas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Descricao,Valor")] PadraoFixo padraoFixo)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao")] PrensaPreForma prensaPreForma)
         {
             if (ModelState.IsValid)
             {
-                db.PadroesFixos.Add(padraoFixo);
+                db.PrensasPreForma.Add(prensaPreForma);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(padraoFixo);
+            return View(prensaPreForma);
         }
 
-        // GET: PadraoFixoes/Edit/5
+        // GET: PrensaPreFormas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
-            if (padraoFixo == null)
+            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
+            if (prensaPreForma == null)
             {
                 return HttpNotFound();
             }
-            return View(padraoFixo);
+            return View(prensaPreForma);
         }
 
-        // POST: PadraoFixoes/Edit/5
+        // POST: PrensaPreFormas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Descricao,Valor")] PadraoFixo padraoFixo)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao")] PrensaPreForma prensaPreForma)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(padraoFixo).State = EntityState.Modified;
+                db.Entry(prensaPreForma).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(padraoFixo);
+            return View(prensaPreForma);
         }
 
-        // GET: PadraoFixoes/Delete/5
+        // GET: PrensaPreFormas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
-            if (padraoFixo == null)
+            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
+            if (prensaPreForma == null)
             {
                 return HttpNotFound();
             }
-            return View(padraoFixo);
+            return View(prensaPreForma);
         }
 
-        // POST: PadraoFixoes/Delete/5
+        // POST: PrensaPreFormas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
-            db.PadroesFixos.Remove(padraoFixo);
+            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
+            db.PrensasPreForma.Remove(prensaPreForma);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

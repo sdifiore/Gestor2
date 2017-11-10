@@ -52,6 +52,7 @@ namespace Gestor.Models
         public DbSet<Parametro> Parametros { get; set; }
         public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
+        public DbSet<PrensaPreForma> PrensasPreForma { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<QtdEmbalagem> QtdEmbalagems { get; set; }
         public DbSet<QtdMaquinas> QtdMaquinas { get; set; }
