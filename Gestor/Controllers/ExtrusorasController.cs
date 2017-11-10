@@ -13,7 +13,9 @@ namespace Gestor.Controllers
         // GET: Extrusoras
         public ActionResult Index()
         {
-            return View(db.Extrusoras.ToList());
+            var model = db.Extrusoras.OrderBy(e => e.Apelido).ToList();
+
+            return View(model);
         }
 
         // GET: Extrusoras/Details/5

@@ -45,6 +45,13 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult PreForma()
+        {
+            Populate.PreForma();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.Insumo();
@@ -52,6 +59,7 @@ namespace Gestor.Controllers
             Populate.Produto();
             Populate.EncapTubos();
             Populate.Graxas();
+            Populate.PreForma();
 
             return Redirect("/");
         }

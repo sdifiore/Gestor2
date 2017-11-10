@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
+  <CompactacaoPTFE>Compactação PTFE Puro, kgf/cm2</CompactacaoPTFE>
+  <DensidadePadraoPreForma>Densidade Padrão da Pré-Forma</DensidadePadraoPreForma>
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <ItemNaoExiste>999999</ItemNaoExiste>
   <Manufaturado>Manufaturado</Manufaturado>

@@ -235,6 +235,7 @@
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
+    <Compile Include="Controllers\PreFormasController.cs" />
     <Compile Include="Controllers\PrensaPreFormasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
@@ -468,6 +469,22 @@
     <Compile Include="Migrations\201711101219306_Extrusoras.cs" />
     <Compile Include="Migrations\201711101219306_Extrusoras.Designer.cs">
       <DependentUpon>201711101219306_Extrusoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711101243095_PreFormas.cs" />
+    <Compile Include="Migrations\201711101243095_PreFormas.Designer.cs">
+      <DependentUpon>201711101243095_PreFormas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711101706081_PreparoToFloatInPreforma.cs" />
+    <Compile Include="Migrations\201711101706081_PreparoToFloatInPreforma.Designer.cs">
+      <DependentUpon>201711101706081_PreparoToFloatInPreforma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711101708352_CorrectTupeError.cs" />
+    <Compile Include="Migrations\201711101708352_CorrectTupeError.Designer.cs">
+      <DependentUpon>201711101708352_CorrectTupeError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711101740390_ChangeMedidasInPreFormaToString.cs" />
+    <Compile Include="Migrations\201711101740390_ChangeMedidasInPreFormaToString.Designer.cs">
+      <DependentUpon>201711101740390_ChangeMedidasInPreFormaToString.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
@@ -1546,6 +1563,11 @@
     <Content Include="Views\Extrusoras\Details.cshtml" />
     <Content Include="Views\Extrusoras\Edit.cshtml" />
     <Content Include="Views\Extrusoras\Index.cshtml" />
+    <Content Include="Views\PreFormas\Create.cshtml" />
+    <Content Include="Views\PreFormas\Delete.cshtml" />
+    <Content Include="Views\PreFormas\Details.cshtml" />
+    <Content Include="Views\PreFormas\Edit.cshtml" />
+    <Content Include="Views\PreFormas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2227,6 +2249,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101219306_Extrusoras.resx">
       <DependentUpon>201711101219306_Extrusoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101243095_PreFormas.resx">
+      <DependentUpon>201711101243095_PreFormas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101706081_PreparoToFloatInPreforma.resx">
+      <DependentUpon>201711101706081_PreparoToFloatInPreforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101708352_CorrectTupeError.resx">
+      <DependentUpon>201711101708352_CorrectTupeError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101740390_ChangeMedidasInPreFormaToString.resx">
+      <DependentUpon>201711101740390_ChangeMedidasInPreFormaToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

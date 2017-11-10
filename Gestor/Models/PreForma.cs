@@ -15,9 +15,8 @@ namespace Gestor.Models
         [Display(Name = "Vareta - ØI mm")]
         public int VaretaDiamI { get; set; }
 
-        public int MedidaFitaId { get; set; }
-
-        public MedidaFita MedidaFita { get; set; }
+        [StringLength(8)]
+        public string Medidas { get; set; }
 
         [Display(Name = "Comprimento mm")]
         public int Comprimento { get; set; }
@@ -26,13 +25,40 @@ namespace Gestor.Models
         public int Tup { get; set; }
 
         [Display(Name = "Prensa Pré-Forma")]
-        [StringLength(8)]
-        public int PrensaPreForma { get; set; }
+        public int PrensaPreFormaId { get; set; }
+
+        public PrensaPreForma PrensaPreForma { get; set; }
 
         [Display(Name = "Preparo (min)")]
         public int Preparo { get; set; }
 
         [Display(Name = "Troca PF (min)")]
-        public int TrocaPf { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N1}")]
+        public float TrocaPf { get; set; }
+
+        [Display(Name = "Extrusora")]
+        public int ExtrusoraId { get; set; }
+
+        public Extrusora Extrusora { get; set; }
+
+        [Display(Name = "Seçãoda PF")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
+        public float SecaoPf { get; set; }
+
+        [Display(Name = "Kgf Prensagem")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float KgfPrensagem { get; set; }
+
+        [Display(Name = "Pressão Óleo")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
+        public float PressaoOleo { get; set; }
+
+        [Display(Name = "Ø Pistão Hidráulico")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
+        public float DiamPistaoHidraulico { get; set; }
+
+        [Display(Name = "Kg PF úmida")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
+        public float KgPfUmida { get; set; }
     }
 }

@@ -187,5 +187,30 @@ namespace Gestor
 
             db.SaveChanges();
         }
+
+        public static void PreForma()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PreFormas.ToList();
+            string comp1 = XmlReader.Read("CompactacaoPTFE");
+            string comp2 = XmlReader.Read("DensidadePadraoPreForma");
+
+            foreach (var register in model)
+            {
+                int x = 0;
+
+                register.SecaoPf = (register.FormaDiamE * register.FormaDiamE - register.VaretaDiamI * register.VaretaDiamI) 
+                    * (float)Math.PI / 400;
+                register.KgfPrensagem = db.PadroesFixos.Single(p => p.Descricao == comp1).Valor * register.SecaoPf;
+                register.PressaoOleo = register.DiamPistaoHidraulico < Global.Tolerance
+                    ? float.MaxValue
+                    : register.SecaoPf / (register.DiamPistaoHidraulico * register.DiamPistaoHidraulico
+                    * (float)Math.PI / 400) * db.PadroesFixos.Single(p => p.Descricao == comp1).Valor;
+                register.KgPfUmida = register.FormaDiamE * register.FormaDiamE * (float)Math.PI / 4 
+                    * register.Comprimento / 1000 * db.PadroesFixos.Single(p => p.Descricao == comp2).Valor / 1000;
+            }
+
+            db.SaveChanges();
+        }
     }
 }
