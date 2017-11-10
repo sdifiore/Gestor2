@@ -1,0 +1,153 @@
+﻿@model Gestor.Models.FatHistorico
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Faturamento Histórico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rotulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rotulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FitaRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FitaRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FitaPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FitaPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FitaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FitaHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuboRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuboRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuboPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuboPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuboHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuboHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfPuroRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfPuroRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfPuroPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfPuroPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfPuroHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfPuroHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfGrafRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfGrafRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfGrafPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfGrafPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GxfGrafHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GxfGrafHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GraxaRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraxaRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GraxaPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraxaPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GraxaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraxaHora)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

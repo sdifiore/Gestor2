@@ -66,7 +66,7 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var model = db.Insumos.Include(i => i.Finalidade).ToList();
             var estrutura = db.Estruturas.ToList();
-            float dolar = db.Parametros.OrderByDescending(p => p.Data).First().Dolar;
+            float dolar = db.Parametros.First().Dolar;
 
             foreach (var register in model)
             {
@@ -104,7 +104,7 @@ namespace Gestor
 
             foreach (var register in model)
             {
-                register.PesoLiquidoCalc = FxProduto.PesoLiquidoCalc(register);     // R
+                register.PesoLiquidoCalc = FxProduto.PesoLiquidoCalc(register);     // Planilha 1, R
                 register.ItemStru = FxProduto.ItemStru(register);       // S
                 register.CustODirTotal = FxProduto.CustoDirTotal(register);     //T
                 register.CstMatUltmEtapa = FxProduto.CstMatUltmEtapa(register);     // U
@@ -126,6 +126,9 @@ namespace Gestor
                 register.PctMatEtapa1 = FxProduto.PctMatEtapa1(register);       // AK
                 register.PctMatEtapa2 = FxProduto.PctMatEtapa2(register);       // AL
                 register.PctMatEtapa3 = FxProduto.PctMatEtapa3(register);       // AM
+                register.CustoFixoTotal = FxProduto.CustoFixoTotal(register);       // Planilha 2, S -- Fazer
+                register.MoiFabricacao = FxProduto.MoiFabricacao(register);     // T -- Fazer
+
             }
 
             db.SaveChanges();

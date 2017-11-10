@@ -26,7 +26,6 @@ namespace Gestor.Models
         }
 
         public DbSet<Ajuste> Ajustes { get; set; }
-        public DbSet<AjusteProduto> AjusteProdutos { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
@@ -39,6 +38,7 @@ namespace Gestor.Models
         public DbSet<EncapTubo> EncapTuboes { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }
+        public DbSet<FatHistorico> FatHistoricos { get; set; }
         public DbSet<Finalidade> Finalidades { get; set; }
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<Graxa> Graxas { get; set; }
@@ -48,6 +48,7 @@ namespace Gestor.Models
         public DbSet<LogData> LogData { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }
         public DbSet<Operacao> Operacoes { get; set; }
+        public DbSet<PadraoFixo> PadroesFixos { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
         public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }

@@ -240,5 +240,15 @@ namespace Gestor
 
             return result;
         }
+
+        public static float CustoFixoTotal(Produto produto)     // Planilha 2, S
+        {
+            return 0;
+        }
+
+        public static float MoiFabricacao(Produto produto)     // Planilha 2, T
+        {
+            return 0;
+        }
     }
 }

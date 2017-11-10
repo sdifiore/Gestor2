@@ -7,14 +7,11 @@
 
 <h2>Índice</h2>
 
-@*<p>
-    @Html.ActionLink("Novo", "Create")
-</p>*@
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Dolar)
         </th>
@@ -27,30 +24,129 @@
         <th>
             @Html.DisplayNameFor(model => model.PropGrafitado)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoIndustrialAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoComercialAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoComtexAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComissaoGcComacs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inss)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comissão)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MargemLiquida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComissGestVenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CondicaoPgtoStd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TxJuroStd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoCobranca)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Dolar)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PropFitasFioGaxeta)%
+            @Html.DisplayFor(modelItem => item.PropFitasFioGaxeta)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PropSucatas)%
+            @Html.DisplayFor(modelItem => item.PropSucatas)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PropGrafitado)%
+            @Html.DisplayFor(modelItem => item.PropGrafitado)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Edit", new { id=item.Id }) |
+            @Html.DisplayFor(modelItem => item.HMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoIndustrialAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoComercialAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoComtexAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoAdminAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComissaoGcComacs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inss)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comissão)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Frete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MargemLiquida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComissGestVenda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CondicaoPgtoStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TxJuroStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoCobranca)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
             @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
-            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.Id })*@
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }

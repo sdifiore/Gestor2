@@ -228,8 +228,11 @@
     <Compile Include="Controllers\EmbalagemsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
+    <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Controllers\PadraoFixoesController.cs" />
+    <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
@@ -432,12 +435,37 @@
     <Compile Include="Migrations\201711071829425_AjusteProdutos.Designer.cs">
       <DependentUpon>201711071829425_AjusteProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AjusteProduto.cs" />
+    <Compile Include="Migrations\201711081128289_dROPaJUSTEpRODUTOS.cs" />
+    <Compile Include="Migrations\201711081128289_dROPaJUSTEpRODUTOS.Designer.cs">
+      <DependentUpon>201711081128289_dROPaJUSTEpRODUTOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081131289_AddAjusteToProdutos.cs" />
+    <Compile Include="Migrations\201711081131289_AddAjusteToProdutos.Designer.cs">
+      <DependentUpon>201711081131289_AddAjusteToProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081437332_RemoveDataFieldFromParametros.cs" />
+    <Compile Include="Migrations\201711081437332_RemoveDataFieldFromParametros.Designer.cs">
+      <DependentUpon>201711081437332_RemoveDataFieldFromParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081538360_AddFatHistoricos.cs" />
+    <Compile Include="Migrations\201711081538360_AddFatHistoricos.Designer.cs">
+      <DependentUpon>201711081538360_AddFatHistoricos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081716404_Custo_6FieldsToParametros.cs" />
+    <Compile Include="Migrations\201711081716404_Custo_6FieldsToParametros.Designer.cs">
+      <DependentUpon>201711081716404_Custo_6FieldsToParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711091837252_PadraoFixos.cs" />
+    <Compile Include="Migrations\201711091837252_PadraoFixos.Designer.cs">
+      <DependentUpon>201711091837252_PadraoFixos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
+    <Compile Include="Models\FatHistorico.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\PadraoFixo.cs" />
     <Compile Include="Models\ParmGraxa.cs" />
     <Compile Include="Models\Resina.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
@@ -462,7 +490,6 @@
     <Compile Include="Controllers\MedidaFitasController.cs" />
     <Compile Include="Controllers\MigracaoController.cs" />
     <Compile Include="Controllers\OperacaosController.cs" />
-    <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\PcpsController.cs" />
     <Compile Include="Controllers\QtdEmbalagemsController.cs" />
     <Compile Include="Controllers\QtdMaquinasController.cs" />
@@ -1314,11 +1341,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Parametroes\Create.cshtml" />
-    <Content Include="Views\Parametroes\Delete.cshtml" />
-    <Content Include="Views\Parametroes\Details.cshtml" />
-    <Content Include="Views\Parametroes\Edit.cshtml" />
-    <Content Include="Views\Parametroes\Index.cshtml" />
     <Content Include="Views\Unidades\Create.cshtml" />
     <Content Include="Views\Unidades\Delete.cshtml" />
     <Content Include="Views\Unidades\Details.cshtml" />
@@ -1486,6 +1508,21 @@
     <Content Include="Views\ParmGraxas\Details.cshtml" />
     <Content Include="Views\ParmGraxas\Edit.cshtml" />
     <Content Include="Views\ParmGraxas\Index.cshtml" />
+    <Content Include="Views\FatHistoricoes\Create.cshtml" />
+    <Content Include="Views\FatHistoricoes\Delete.cshtml" />
+    <Content Include="Views\FatHistoricoes\Details.cshtml" />
+    <Content Include="Views\FatHistoricoes\Edit.cshtml" />
+    <Content Include="Views\FatHistoricoes\Index.cshtml" />
+    <Content Include="Views\Parametroes\Create.cshtml" />
+    <Content Include="Views\Parametroes\Delete.cshtml" />
+    <Content Include="Views\Parametroes\Details.cshtml" />
+    <Content Include="Views\Parametroes\Edit.cshtml" />
+    <Content Include="Views\Parametroes\Index.cshtml" />
+    <Content Include="Views\PadraoFixoes\Create.cshtml" />
+    <Content Include="Views\PadraoFixoes\Delete.cshtml" />
+    <Content Include="Views\PadraoFixoes\Details.cshtml" />
+    <Content Include="Views\PadraoFixoes\Edit.cshtml" />
+    <Content Include="Views\PadraoFixoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2143,6 +2180,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711071829425_AjusteProdutos.resx">
       <DependentUpon>201711071829425_AjusteProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081128289_dROPaJUSTEpRODUTOS.resx">
+      <DependentUpon>201711081128289_dROPaJUSTEpRODUTOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081131289_AddAjusteToProdutos.resx">
+      <DependentUpon>201711081131289_AddAjusteToProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081437332_RemoveDataFieldFromParametros.resx">
+      <DependentUpon>201711081437332_RemoveDataFieldFromParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081538360_AddFatHistoricos.resx">
+      <DependentUpon>201711081538360_AddFatHistoricos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081716404_Custo_6FieldsToParametros.resx">
+      <DependentUpon>201711081716404_Custo_6FieldsToParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711091837252_PadraoFixos.resx">
+      <DependentUpon>201711091837252_PadraoFixos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
