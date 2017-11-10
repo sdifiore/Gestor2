@@ -6,109 +6,107 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    public class PrensaPreFormasController : Controller
+    public class ExtrusorasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: PrensaPreFormas
+        // GET: Extrusoras
         public ActionResult Index()
         {
-            var model = db.PrensasPreForma.OrderBy(ppf => ppf.Apelido).ToList();
-
-            return View(model);
+            return View(db.Extrusoras.ToList());
         }
 
-        // GET: PrensaPreFormas/Details/5
+        // GET: Extrusoras/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
-            if (prensaPreForma == null)
+            Extrusora extrusora = db.Extrusoras.Find(id);
+            if (extrusora == null)
             {
                 return HttpNotFound();
             }
-            return View(prensaPreForma);
+            return View(extrusora);
         }
 
-        // GET: PrensaPreFormas/Create
+        // GET: Extrusoras/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PrensaPreFormas/Create
+        // POST: Extrusoras/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao")] PrensaPreForma prensaPreForma)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao")] Extrusora extrusora)
         {
             if (ModelState.IsValid)
             {
-                db.PrensasPreForma.Add(prensaPreForma);
+                db.Extrusoras.Add(extrusora);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(prensaPreForma);
+            return View(extrusora);
         }
 
-        // GET: PrensaPreFormas/Edit/5
+        // GET: Extrusoras/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
-            if (prensaPreForma == null)
+            Extrusora extrusora = db.Extrusoras.Find(id);
+            if (extrusora == null)
             {
                 return HttpNotFound();
             }
-            return View(prensaPreForma);
+            return View(extrusora);
         }
 
-        // POST: PrensaPreFormas/Edit/5
+        // POST: Extrusoras/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao")] PrensaPreForma prensaPreForma)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao")] Extrusora extrusora)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prensaPreForma).State = EntityState.Modified;
+                db.Entry(extrusora).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(prensaPreForma);
+            return View(extrusora);
         }
 
-        // GET: PrensaPreFormas/Delete/5
+        // GET: Extrusoras/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
-            if (prensaPreForma == null)
+            Extrusora extrusora = db.Extrusoras.Find(id);
+            if (extrusora == null)
             {
                 return HttpNotFound();
             }
-            return View(prensaPreForma);
+            return View(extrusora);
         }
 
-        // POST: PrensaPreFormas/Delete/5
+        // POST: Extrusoras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
-            db.PrensasPreForma.Remove(prensaPreForma);
+            Extrusora extrusora = db.Extrusoras.Find(id);
+            db.Extrusoras.Remove(extrusora);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -35,6 +35,7 @@ namespace Gestor.Models
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Embalagem> Embalagens { get; set; }
+        public DbSet<Extrusora> Extrusoras { get; set; }
         public DbSet<EncapTubo> EncapTuboes { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
         public DbSet<Familia> Familias { get; set; }

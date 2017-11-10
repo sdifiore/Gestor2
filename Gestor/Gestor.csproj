@@ -228,6 +228,7 @@
     <Compile Include="Controllers\EmbalagemsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
+    <Compile Include="Controllers\ExtrusorasController.cs" />
     <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
@@ -464,9 +465,14 @@
     <Compile Include="Migrations\201711101202443_PrensaPreForma.Designer.cs">
       <DependentUpon>201711101202443_PrensaPreForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711101219306_Extrusoras.cs" />
+    <Compile Include="Migrations\201711101219306_Extrusoras.Designer.cs">
+      <DependentUpon>201711101219306_Extrusoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
+    <Compile Include="Models\Extrusora.cs" />
     <Compile Include="Models\FatHistorico.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
@@ -1535,6 +1541,11 @@
     <Content Include="Views\PrensaPreFormas\Details.cshtml" />
     <Content Include="Views\PrensaPreFormas\Edit.cshtml" />
     <Content Include="Views\PrensaPreFormas\Index.cshtml" />
+    <Content Include="Views\Extrusoras\Create.cshtml" />
+    <Content Include="Views\Extrusoras\Delete.cshtml" />
+    <Content Include="Views\Extrusoras\Details.cshtml" />
+    <Content Include="Views\Extrusoras\Edit.cshtml" />
+    <Content Include="Views\Extrusoras\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2213,6 +2224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101202443_PrensaPreForma.resx">
       <DependentUpon>201711101202443_PrensaPreForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101219306_Extrusoras.resx">
+      <DependentUpon>201711101219306_Extrusoras.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
