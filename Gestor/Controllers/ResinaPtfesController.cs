@@ -6,25 +6,38 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
+    [RoutePrefix("ResinaPtfe")]
     public class ResinaPtfesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ResinaPtfes
+        [Route]
         public ActionResult Index()
         {
-            var resinasPtfe = db.ResinasPtfe.Include(r => r.Fabricante).Include(r => r.Insumo).Include(r => r.ResinaBase);
+            var resinasPtfe = db.ResinasPtfe
+                .Include(r => r.Fabricante)
+                .Include(r => r.Insumo)
+                .Include(r => r.ResinaBase);
+
             return View(resinasPtfe.ToList());
         }
 
         // GET: ResinaPtfes/Details/5
+        [Route("Details")]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ResinaPtfe resinaPtfe = db.ResinasPtfe.Find(id);
+
+            var resinaPtfe = db.ResinasPtfe
+                .Include(r => r.Fabricante)
+                .Include(r => r.Insumo)
+                .Include(r => r.ResinaBase)
+                .SingleOrDefault(r => r.Id == id);
+
             if (resinaPtfe == null)
             {
                 return HttpNotFound();
@@ -105,7 +118,13 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ResinaPtfe resinaPtfe = db.ResinasPtfe.Find(id);
+
+            var resinaPtfe = db.ResinasPtfe
+                .Include(r => r.Fabricante)
+                .Include(r => r.Insumo)
+                .Include(r => r.ResinaBase)
+                .SingleOrDefault(r => r.Id == id);
+
             if (resinaPtfe == null)
             {
                 return HttpNotFound();

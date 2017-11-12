@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CalculoController.cs" />
+    <Compile Include="Controllers\CargasController.cs" />
     <Compile Include="Controllers\EmbalagemsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Controllers\ResinaBasesController.cs" />
     <Compile Include="Controllers\ResinaPtfesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
+    <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxProduto.cs" />
     <Compile Include="Global.cs" />
@@ -513,6 +515,19 @@
     <Compile Include="Migrations\201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.Designer.cs">
       <DependentUpon>201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711121303172_Series.cs" />
+    <Compile Include="Migrations\201711121303172_Series.Designer.cs">
+      <DependentUpon>201711121303172_Series.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711121325085_Cargas.cs" />
+    <Compile Include="Migrations\201711121325085_Cargas.Designer.cs">
+      <DependentUpon>201711121325085_Cargas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711121718212_ProcTubos.cs" />
+    <Compile Include="Migrations\201711121718212_ProcTubos.Designer.cs">
+      <DependentUpon>201711121718212_ProcTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
@@ -525,9 +540,11 @@
     <Compile Include="Models\ParmGraxa.cs" />
     <Compile Include="Models\PreForma.cs" />
     <Compile Include="Models\PrensaPreForma.cs" />
+    <Compile Include="Models\ProcTubo.cs" />
     <Compile Include="Models\Resina.cs" />
     <Compile Include="Models\ResinaBase.cs" />
     <Compile Include="Models\ResinaPtfe.cs" />
+    <Compile Include="Models\Serie.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1613,6 +1630,16 @@
     <Content Include="Views\ResinaPtfes\Details.cshtml" />
     <Content Include="Views\ResinaPtfes\Edit.cshtml" />
     <Content Include="Views\ResinaPtfes\Index.cshtml" />
+    <Content Include="Views\Series\Create.cshtml" />
+    <Content Include="Views\Series\Delete.cshtml" />
+    <Content Include="Views\Series\Details.cshtml" />
+    <Content Include="Views\Series\Edit.cshtml" />
+    <Content Include="Views\Series\Index.cshtml" />
+    <Content Include="Views\Cargas\Create.cshtml" />
+    <Content Include="Views\Cargas\Delete.cshtml" />
+    <Content Include="Views\Cargas\Details.cshtml" />
+    <Content Include="Views\Cargas\Edit.cshtml" />
+    <Content Include="Views\Cargas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2324,6 +2351,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.resx">
       <DependentUpon>201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711121303172_Series.resx">
+      <DependentUpon>201711121303172_Series.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711121325085_Cargas.resx">
+      <DependentUpon>201711121325085_Cargas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711121718212_ProcTubos.resx">
+      <DependentUpon>201711121718212_ProcTubos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

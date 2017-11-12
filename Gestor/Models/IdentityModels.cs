@@ -29,6 +29,7 @@ namespace Gestor.Models
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
+        public DbSet<Carga> Cargas { get; set; }
         public DbSet<Comum> Comuns { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
@@ -56,6 +57,7 @@ namespace Gestor.Models
         public DbSet<Pcp> Pcps { get; set; }
         public DbSet<PreForma> PreFormas { get; set; }
         public DbSet<PrensaPreForma> PrensasPreForma { get; set; }
+        public DbSet<ProcTubo> ProcTubos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<QtdEmbalagem> QtdEmbalagems { get; set; }
         public DbSet<QtdMaquinas> QtdMaquinas { get; set; }
@@ -65,6 +67,7 @@ namespace Gestor.Models
         public DbSet<ResinaBase> ResinasBase { get; set; }
         public DbSet<ResinaPtfe> ResinasPtfe { get; set; }
         public DbSet<Sequencia> Sequencias { get; set; }
+        public DbSet<Serie> Series { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Sucata> Sucatas { get; set; }
         public DbSet<TipoProducao> TiposProducao { get; set; }

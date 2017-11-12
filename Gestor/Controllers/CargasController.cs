@@ -6,115 +6,109 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    [RoutePrefix("Embalagens")]
-    public class EmbalagemsController : Controller
+    public class CargasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Embalagems
-        [Route]
+        // GET: Cargas
         public ActionResult Index()
         {
-            var model = db.Embalagens.OrderBy(e => e.Descricao).ToList();
+            var model = db.Cargas.OrderBy(c => c.Apelido).ToList();
 
             return View(model);
         }
 
-        // GET: Embalagems/Details/5
-        [Route("Details")]
+        // GET: Cargas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embalagem embalagem = db.Embalagens.Find(id);
-            if (embalagem == null)
+            Carga carga = db.Cargas.Find(id);
+            if (carga == null)
             {
                 return HttpNotFound();
             }
-            return View(embalagem);
+            return View(carga);
         }
 
-        // GET: Embalagems/Create
-        [Route("Create")]
+        // GET: Cargas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Embalagems/Create
+        // POST: Cargas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Route("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Descricao")] Embalagem embalagem)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao")] Carga carga)
         {
             if (ModelState.IsValid)
             {
-                db.Embalagens.Add(embalagem);
+                db.Cargas.Add(carga);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(embalagem);
+            return View(carga);
         }
 
-        // GET: Embalagems/Edit/5
+        // GET: Cargas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embalagem embalagem = db.Embalagens.Find(id);
-            if (embalagem == null)
+            Carga carga = db.Cargas.Find(id);
+            if (carga == null)
             {
                 return HttpNotFound();
             }
-            return View(embalagem);
+            return View(carga);
         }
 
-        // POST: Embalagems/Edit/5
+        // POST: Cargas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Descricao")] Embalagem embalagem)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao")] Carga carga)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(embalagem).State = EntityState.Modified;
+                db.Entry(carga).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(embalagem);
+            return View(carga);
         }
 
-        // GET: Embalagems/Delete/5
-        [Route("Delete")]
+        // GET: Cargas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embalagem embalagem = db.Embalagens.Find(id);
-            if (embalagem == null)
+            Carga carga = db.Cargas.Find(id);
+            if (carga == null)
             {
                 return HttpNotFound();
             }
-            return View(embalagem);
+            return View(carga);
         }
 
-        // POST: Embalagems/Delete/5
+        // POST: Cargas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Embalagem embalagem = db.Embalagens.Find(id);
-            db.Embalagens.Remove(embalagem);
+            Carga carga = db.Cargas.Find(id);
+            db.Cargas.Remove(carga);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
