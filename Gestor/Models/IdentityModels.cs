@@ -38,6 +38,7 @@ namespace Gestor.Models
         public DbSet<Extrusora> Extrusoras { get; set; }
         public DbSet<EncapTubo> EncapTuboes { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }
+        public DbSet<Fabricante> Fabricantes { get; set; }
         public DbSet<Familia> Familias { get; set; }
         public DbSet<FatHistorico> FatHistoricos { get; set; }
         public DbSet<Finalidade> Finalidades { get; set; }
@@ -61,6 +62,8 @@ namespace Gestor.Models
         public DbSet<Rateio> Rateios { get; set; }
         public DbSet<Regiao> Regioes { get; set; }
         public DbSet<Resina> Resinas { get; set; }
+        public DbSet<ResinaBase> ResinasBase { get; set; }
+        public DbSet<ResinaPtfe> ResinasPtfe { get; set; }
         public DbSet<Sequencia> Sequencias { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Sucata> Sucatas { get; set; }

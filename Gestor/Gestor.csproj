@@ -229,6 +229,7 @@
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\ExtrusorasController.cs" />
+    <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
@@ -238,6 +239,8 @@
     <Compile Include="Controllers\PreFormasController.cs" />
     <Compile Include="Controllers\PrensaPreFormasController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\ResinaBasesController.cs" />
+    <Compile Include="Controllers\ResinaPtfesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxProduto.cs" />
@@ -486,10 +489,35 @@
     <Compile Include="Migrations\201711101740390_ChangeMedidasInPreFormaToString.Designer.cs">
       <DependentUpon>201711101740390_ChangeMedidasInPreFormaToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111016237_ResinasPtfe.cs" />
+    <Compile Include="Migrations\201711111016237_ResinasPtfe.Designer.cs">
+      <DependentUpon>201711111016237_ResinasPtfe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111105445_Fabricantes.cs" />
+    <Compile Include="Migrations\201711111105445_Fabricantes.Designer.cs">
+      <DependentUpon>201711111105445_Fabricantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111215303_MigrateResinasPtfeFromTextToReferences.cs" />
+    <Compile Include="Migrations\201711111215303_MigrateResinasPtfeFromTextToReferences.Designer.cs">
+      <DependentUpon>201711111215303_MigrateResinasPtfeFromTextToReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111747549_ResinasBase.cs" />
+    <Compile Include="Migrations\201711111747549_ResinasBase.Designer.cs">
+      <DependentUpon>201711111747549_ResinasBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111836138_AddResinaBaseLinkToResinaPtfeTable.cs" />
+    <Compile Include="Migrations\201711111836138_AddResinaBaseLinkToResinaPtfeTable.Designer.cs">
+      <DependentUpon>201711111836138_AddResinaBaseLinkToResinaPtfeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.cs" />
+    <Compile Include="Migrations\201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.Designer.cs">
+      <DependentUpon>201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
+    <Compile Include="Models\Fabricante.cs" />
     <Compile Include="Models\FatHistorico.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
@@ -498,6 +526,8 @@
     <Compile Include="Models\PreForma.cs" />
     <Compile Include="Models\PrensaPreForma.cs" />
     <Compile Include="Models\Resina.cs" />
+    <Compile Include="Models\ResinaBase.cs" />
+    <Compile Include="Models\ResinaPtfe.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1568,6 +1598,21 @@
     <Content Include="Views\PreFormas\Details.cshtml" />
     <Content Include="Views\PreFormas\Edit.cshtml" />
     <Content Include="Views\PreFormas\Index.cshtml" />
+    <Content Include="Views\Fabricantes\Create.cshtml" />
+    <Content Include="Views\Fabricantes\Delete.cshtml" />
+    <Content Include="Views\Fabricantes\Details.cshtml" />
+    <Content Include="Views\Fabricantes\Edit.cshtml" />
+    <Content Include="Views\Fabricantes\Index.cshtml" />
+    <Content Include="Views\ResinaBases\Create.cshtml" />
+    <Content Include="Views\ResinaBases\Delete.cshtml" />
+    <Content Include="Views\ResinaBases\Details.cshtml" />
+    <Content Include="Views\ResinaBases\Edit.cshtml" />
+    <Content Include="Views\ResinaBases\Index.cshtml" />
+    <Content Include="Views\ResinaPtfes\Create.cshtml" />
+    <Content Include="Views\ResinaPtfes\Delete.cshtml" />
+    <Content Include="Views\ResinaPtfes\Details.cshtml" />
+    <Content Include="Views\ResinaPtfes\Edit.cshtml" />
+    <Content Include="Views\ResinaPtfes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2261,6 +2306,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101740390_ChangeMedidasInPreFormaToString.resx">
       <DependentUpon>201711101740390_ChangeMedidasInPreFormaToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111016237_ResinasPtfe.resx">
+      <DependentUpon>201711111016237_ResinasPtfe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111105445_Fabricantes.resx">
+      <DependentUpon>201711111105445_Fabricantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111215303_MigrateResinasPtfeFromTextToReferences.resx">
+      <DependentUpon>201711111215303_MigrateResinasPtfeFromTextToReferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111747549_ResinasBase.resx">
+      <DependentUpon>201711111747549_ResinasBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111836138_AddResinaBaseLinkToResinaPtfeTable.resx">
+      <DependentUpon>201711111836138_AddResinaBaseLinkToResinaPtfeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.resx">
+      <DependentUpon>201711111838588_ChangeResinaBaseLinkToVirtualInResinaPtfeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

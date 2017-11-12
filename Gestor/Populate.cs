@@ -197,8 +197,6 @@ namespace Gestor
 
             foreach (var register in model)
             {
-                int x = 0;
-
                 register.SecaoPf = (register.FormaDiamE * register.FormaDiamE - register.VaretaDiamI * register.VaretaDiamI) 
                     * (float)Math.PI / 400;
                 register.KgfPrensagem = db.PadroesFixos.Single(p => p.Descricao == comp1).Valor * register.SecaoPf;
@@ -208,6 +206,22 @@ namespace Gestor
                     * (float)Math.PI / 400) * db.PadroesFixos.Single(p => p.Descricao == comp1).Valor;
                 register.KgPfUmida = register.FormaDiamE * register.FormaDiamE * (float)Math.PI / 4 
                     * register.Comprimento / 1000 * db.PadroesFixos.Single(p => p.Descricao == comp2).Valor / 1000;
+            }
+
+            db.SaveChanges();
+        }
+
+        public static void ResinaPtfe()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.ResinasPtfe.ToList();
+
+            foreach (var resina in model)
+            {
+                var insumo = db.Insumos.SingleOrDefault(i => i.InsumoId == resina.InsumoId);
+                resina.Custo = insumo == null
+                    ? 0
+                    : insumo.CustoUndCnsm;
             }
 
             db.SaveChanges();

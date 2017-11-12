@@ -52,6 +52,13 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult ResinaPtfe()
+        {
+            Populate.ResinaPtfe();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.Insumo();
@@ -60,6 +67,7 @@ namespace Gestor.Controllers
             Populate.EncapTubos();
             Populate.Graxas();
             Populate.PreForma();
+            Populate.ResinaPtfe();
 
             return Redirect("/");
         }
