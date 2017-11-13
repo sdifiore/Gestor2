@@ -226,5 +226,29 @@ namespace Gestor
 
             db.SaveChanges();
         }
+
+        public static void ProcTubos()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.ProcTubos.ToList();
+
+            foreach (var register in model)
+            {
+                register.CodResinaAdotada = FxTubo.ResinaAdotada(register);      // L
+                register.RrMaxResina = FxTubo.RrMaxResina(register);        // M
+                register.BicoIdeal = FxTubo.BicoIdeal(register);        // N
+                register.MandrilIdeal = FxTubo.MandrilIdeal(register);      // O
+                register.SecaoExtrudado = FxTubo.SecaoExtrudado(register);      // P
+                register.PerimSecaoExtrud = FxTubo.PerimSecaoExtrud(register);      // Q
+                register.DiamExtFinalTubo = FxTubo.DiamExtFinalTubo(register);      // R
+                register.DiamIntFinalTubo = FxTubo.DiamIntFinalTubo(register);      // S
+                register.PesoUnKgMLiq = FxTubo.PesoUnKgMLiq(register);      // T
+                register.PtfeKgM = FxTubo.PtfeKgM(register);      // U
+                register.LubrKgM = FxTubo.LubrKgM(register);      // V
+                register.CodPreformaIdeal = FxTubo.CodPreformaIdeal(register);      // W
+                register.Rr = FxTubo.Rr(register);      // X
+                register.LanceSinterizado = FxTubo.LanceSinterizado(register);      // Y
+            }
+        }
     }
 }

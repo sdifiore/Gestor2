@@ -18,7 +18,8 @@ namespace Gestor.Controllers
             var resinasPtfe = db.ResinasPtfe
                 .Include(r => r.Fabricante)
                 .Include(r => r.Insumo)
-                .Include(r => r.ResinaBase);
+                .Include(r => r.ResinaBase)
+                .OrderBy(r => r.Ref);
 
             return View(resinasPtfe.ToList());
         }

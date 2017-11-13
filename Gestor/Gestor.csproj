@@ -239,13 +239,16 @@
     <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
     <Compile Include="Controllers\PrensaPreFormasController.cs" />
+    <Compile Include="Controllers\ProcTuboesController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\ResinaBasesController.cs" />
     <Compile Include="Controllers\ResinaPtfesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
+    <Compile Include="Function.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxProduto.cs" />
+    <Compile Include="FxTubo.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.cs" />
     <Compile Include="Migrations\201710221054446_AddLastColumnsToInsumos.Designer.cs">
@@ -526,6 +529,18 @@
     <Compile Include="Migrations\201711121718212_ProcTubos.cs" />
     <Compile Include="Migrations\201711121718212_ProcTubos.Designer.cs">
       <DependentUpon>201711121718212_ProcTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131435295_ResinaAdotadaToFloatInProTubosTable.cs" />
+    <Compile Include="Migrations\201711131435295_ResinaAdotadaToFloatInProTubosTable.Designer.cs">
+      <DependentUpon>201711131435295_ResinaAdotadaToFloatInProTubosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131454341_RRMaxResinaToFloatInProcTubos.cs" />
+    <Compile Include="Migrations\201711131454341_RRMaxResinaToFloatInProcTubos.Designer.cs">
+      <DependentUpon>201711131454341_RRMaxResinaToFloatInProcTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711132133107_RrFieldInProcTubosToFloat.cs" />
+    <Compile Include="Migrations\201711132133107_RrFieldInProcTubosToFloat.Designer.cs">
+      <DependentUpon>201711132133107_RrFieldInProcTubosToFloat.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -1640,6 +1655,11 @@
     <Content Include="Views\Cargas\Details.cshtml" />
     <Content Include="Views\Cargas\Edit.cshtml" />
     <Content Include="Views\Cargas\Index.cshtml" />
+    <Content Include="Views\ProcTuboes\Create.cshtml" />
+    <Content Include="Views\ProcTuboes\Delete.cshtml" />
+    <Content Include="Views\ProcTuboes\Details.cshtml" />
+    <Content Include="Views\ProcTuboes\Edit.cshtml" />
+    <Content Include="Views\ProcTuboes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2360,6 +2380,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711121718212_ProcTubos.resx">
       <DependentUpon>201711121718212_ProcTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131435295_ResinaAdotadaToFloatInProTubosTable.resx">
+      <DependentUpon>201711131435295_ResinaAdotadaToFloatInProTubosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131454341_RRMaxResinaToFloatInProcTubos.resx">
+      <DependentUpon>201711131454341_RRMaxResinaToFloatInProcTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711132133107_RrFieldInProcTubosToFloat.resx">
+      <DependentUpon>201711132133107_RrFieldInProcTubosToFloat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

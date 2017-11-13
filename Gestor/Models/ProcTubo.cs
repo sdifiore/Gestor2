@@ -51,10 +51,12 @@ namespace Gestor.Models
         public bool Sinterizado { get; set; }
 
         [Display(Name = "Cod. Resina Adotada")]
-        public int CodResinaAdotada { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float CodResinaAdotada { get; set; }
 
         [Display(Name = "RR Max Resina")]
-        public int RrMaxResina { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float RrMaxResina { get; set; }
 
         [Display(Name = "Bico Ideal")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
@@ -96,7 +98,7 @@ namespace Gestor.Models
         public int CodPreformaIdeal { get; set; }
 
         [Display(Name = "RR")]
-        public int Rr { get; set; }
+        public float Rr { get; set; }
 
         [Display(Name = "Lance Sinterizado")]
         public int LanceSinterizado { get; set; }

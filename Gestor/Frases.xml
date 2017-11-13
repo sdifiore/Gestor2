@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
+  <Branco>BRANCO</Branco>
+  <BrancoB>BRANCOB</BrancoB>
   <CompactacaoPTFE>Compactação PTFE Puro, kgf/cm2</CompactacaoPTFE>
+  <DensidadeCordaoSeco>Densidade do cordão seco:</DensidadeCordaoSeco>
   <DensidadePadraoPreForma>Densidade Padrão da Pré-Forma</DensidadePadraoPreForma>
+  <DensidadePadraoSinterizado>Densidade Padrão para Sinterizado</DensidadePadraoSinterizado>
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <ItemNaoExiste>999999</ItemNaoExiste>
+  <LubrificantePctPadrao>Lubrificante - % padrão</LubrificantePctPadrao>
   <Manufaturado>Manufaturado</Manufaturado>
   <Revenda>Revenda</Revenda>
   <SequenciaA>A</SequenciaA>
@@ -13,7 +18,13 @@
   <SequenciaE1>E1</SequenciaE1>
   <SequenciaE2>E2</SequenciaE2>
   <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
+  <PadraoFixo17>Resina Padrão adotada PTFE BrancoB</PadraoFixo17>
+  <PadraoFixo18>Resina Padrão adotada PTFE BrancoC</PadraoFixo18>
+  <PadraoFixo19>Resina Padrão adotada PTFE Translúcido</PadraoFixo19>
   <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
+  <ProdutoNaoExistente>999999</ProdutoNaoExistente>
+  <Transl>TRANSL</Transl>
+  <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
   <Subproduto>Subproduto</Subproduto>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
   <UnidadeHora>hora</UnidadeHora>
