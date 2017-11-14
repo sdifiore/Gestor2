@@ -6,10 +6,19 @@
   <DensidadeCordaoSeco>Densidade do cordão seco:</DensidadeCordaoSeco>
   <DensidadePadraoPreForma>Densidade Padrão da Pré-Forma</DensidadePadraoPreForma>
   <DensidadePadraoSinterizado>Densidade Padrão para Sinterizado</DensidadePadraoSinterizado>
+  <EficPadraoOpTubo>Efic. Padrão das Oper. Tubos</EficPadraoOpTubo>
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <ItemNaoExiste>999999</ItemNaoExiste>
+  <LoteMinTubos2>Lote mínimo Tubos - 2º Critério: qt.PFs</LoteMinTubos2>
   <LubrificantePctPadrao>Lubrificante - % padrão</LubrificantePctPadrao>
   <Manufaturado>Manufaturado</Manufaturado>
+  <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
+  <OcupacaoMOSinterizacao>Tx.Ocup MO Op. Sinterização</OcupacaoMOSinterizacao>
+  <PadraoFixo17>Resina Padrão adotada PTFE BrancoB</PadraoFixo17>
+  <PadraoFixo18>Resina Padrão adotada PTFE BrancoC</PadraoFixo18>
+  <PadraoFixo19>Resina Padrão adotada PTFE Translúcido</PadraoFixo19>
+  <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
+  <ProdutoNaoExistente>999999</ProdutoNaoExistente>
   <Revenda>Revenda</Revenda>
   <SequenciaA>A</SequenciaA>
   <SequenciaB>B</SequenciaB>
@@ -17,17 +26,20 @@
   <SequenciaD>D</SequenciaD>
   <SequenciaE1>E1</SequenciaE1>
   <SequenciaE2>E2</SequenciaE2>
-  <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
-  <PadraoFixo17>Resina Padrão adotada PTFE BrancoB</PadraoFixo17>
-  <PadraoFixo18>Resina Padrão adotada PTFE BrancoC</PadraoFixo18>
-  <PadraoFixo19>Resina Padrão adotada PTFE Translúcido</PadraoFixo19>
-  <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
-  <ProdutoNaoExistente>999999</ProdutoNaoExistente>
-  <Transl>TRANSL</Transl>
-  <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
   <Subproduto>Subproduto</Subproduto>
+  <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
+  <TaxaOcupacaoMOExtrusora>Tx.Ocup MO Op. Prep. Extrusoras</TaxaOcupacaoMOExtrusora>
+  <TaxaOcupacaoMOExtrusora>Tx.Ocup MO Op. Prep. Extrusoras</TaxaOcupacaoMOExtrusora>
+  <TaxaOcupacaoMOInspecao>Tx.Ocup MO Op. Inspeção</TaxaOcupacaoMOInspecao>
+  <Transl>TRANSL</Transl>
+  <TempoDosagemLub>Tempo de dosagem Lubrificante, min</TempoDosagemLub>
+  <TempoOcupacaoMOMIstura>Tx.Ocup MO Op. Mistura</TempoOcupacaoMOMIstura>
+  <TempoPadraoMistura>Tempo padrão ciclo de mistura, min</TempoPadraoMistura>
+  <TempoPadraoPrepExtrusora>Tempo padrão preparo extrusora, min</TempoPadraoPrepExtrusora>
+  <TempoPeneiramento>Tempo peneiramento, min/kg</TempoPeneiramento>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
   <UnidadeHora>hora</UnidadeHora>
   <UnidadeNaoInformada>Não Informada</UnidadeNaoInformada>
   <UnidadeUnidade>unidade</UnidadeUnidade>
+  <VelPadraoInspecUDC3>Veloc. Padrão Inspeção UDC3, m/min</VelPadraoInspecUDC3>
 </root>

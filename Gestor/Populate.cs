@@ -248,6 +248,20 @@ namespace Gestor
                 register.CodPreformaIdeal = FxTubo.CodPreformaIdeal(register);      // W
                 register.Rr = FxTubo.Rr(register);      // X
                 register.LanceSinterizado = FxTubo.LanceSinterizado(register);      // Y
+                register.VextrUmidoMin = FxTubo.VextrUmidoMin(register);      // AE
+                register.VsintMMin = FxTubo.VsintMMin(register);      // AG
+                register.VSintResultante = FxTubo.VSintResultante(register);      // AI
+                register.VelEfetExtrusaoMMin = FxTubo.VelEfetExtrusaoMMin(register);        // AO
+                register.TuSinterizadoMinM = FxTubo.TuSinterizadoMinM(register);        // AP
+                register.TuProducaoMinM = FxTubo.TuProducaoMinM(register);        // AQ
+                register.QtPCusto = FxTubo.QtPCusto(register);        // BG
+                register.QtPf = FxTubo.QtPf(register);        // AA
+                register.ConfAdtDosLub = FxTubo.ConfAdtDosLub(register);        // AK
+                register.Peneiramento = FxTubo.Peneiramento(register);        // AL
+                register.MisturaMinM = FxTubo.MisturaMinM(register);        // AM
+                register.PreparoExtrusMinM = FxTubo.PreparoExtrusMinM(register);        // AN
+                register.TuInspUdc3MinM = FxTubo.TuInspUdc3MinM(register);        // AR
+                register.TuTesteEstanqMinM = FxTubo.TuTesteEstanqMinM(register);        // AR
             }
         }
     }

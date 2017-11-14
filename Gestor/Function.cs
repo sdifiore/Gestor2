@@ -15,5 +15,15 @@ namespace Gestor
 
             return result;
         }
+
+        public static int Floor(float value, float significance)
+        {
+
+            int result = (value % significance) > Global.Tolerance
+                ? ((int)((value / significance) * significance))
+                : (int)Math.Floor(value);
+
+            return result;
+        }
     }
 }
