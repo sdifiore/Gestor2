@@ -25,6 +25,7 @@ namespace Gestor.Models
         {
         }
 
+        public DbSet<Aditivo> Aditivos { get; set; }
         public DbSet<Ajuste> Ajustes { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
@@ -35,6 +36,7 @@ namespace Gestor.Models
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
+        public DbSet<Embal> Embals { get; set; }
         public DbSet<Embalagem> Embalagens { get; set; }
         public DbSet<Extrusora> Extrusoras { get; set; }
         public DbSet<EncapTubo> EncapTuboes { get; set; }
@@ -49,6 +51,7 @@ namespace Gestor.Models
         public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
+        public DbSet<Lubrificante> Lubrificantes { get; set; }
         public DbSet<MedidaFita> MedidaFitas { get; set; }
         public DbSet<Operacao> Operacoes { get; set; }
         public DbSet<PadraoFixo> PadroesFixos { get; set; }

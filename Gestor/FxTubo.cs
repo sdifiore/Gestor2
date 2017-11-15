@@ -383,7 +383,124 @@ namespace Gestor
 
             if (procTubo.TesteEstqEsto)
             {
-              
+                var db = new ApplicationDbContext();
+                string temp = XmlReader.Read("EnsaioEstanque"); //10
+                float ensaio = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                temp = XmlReader.Read("EficPadraoOpTubo"); //9
+                float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                temp = XmlReader.Read("TaxaOcupacaoMOTesteEstanque"); //35
+                float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                result = procTubo.QtPf * ensaio / procTubo.QtPCusto / eficacia * ocupacao;
+            }
+
+            return result;
+        }
+
+        public static float TuTesteEstouroMinM(ProcTubo procTubo)        // AT
+        {
+            float result = 0;
+
+            if (procTubo.TesteEstqEsto)
+            {
+                var db = new ApplicationDbContext();
+                string temp = XmlReader.Read("EnsaioEstouro"); //11
+                float ensaio = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                temp = XmlReader.Read("EficPadraoOpTubo"); //9
+                float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                temp = XmlReader.Read("TaxaOcupacaoMOTesteEstouro"); //35
+                float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                result = ensaio / procTubo.QtPCusto / eficacia * ocupacao;
+            }
+
+            return result;
+        }
+
+        public static float TuEmbalMinM(ProcTubo procTubo)        // AU
+        {
+            var db = new ApplicationDbContext();
+            string temp = XmlReader.Read("TempoEmbalamento"); //23
+            float embalamento = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            temp = XmlReader.Read("EficPadraoOpTubo"); //9
+            float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            temp = XmlReader.Read("TaxaOcupacaoEmbalamento"); //28
+            float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            float intermediate = procTubo.QuantEmbalagem > Global.Tolerance
+                ? Function.Ceiling(procTubo.QtPCusto / procTubo.QuantEmbalagem, 1)
+                : 0;
+
+            return intermediate * embalamento / procTubo.QtPCusto / eficacia * ocupacao;
+        }
+
+        public static float TuTotalMinM(ProcTubo procTubo)      // AV
+        {
+            float intermediate = 0;
+
+            if (procTubo.VelEfetExtrusaoMMin > Global.Tolerance)
+            {
+                var db = new ApplicationDbContext();
+                string temp = XmlReader.Read("TaxaOcupacaoMOExtrusao"); //29
+                float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                temp = XmlReader.Read("EficPadraoOpTubo"); //9
+                float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+                intermediate = 1 / procTubo.VelEfetExtrusaoMMin * ocupacao / eficacia;
+            }
+
+            return procTubo.ConfAdtDosLub + procTubo.Peneiramento + procTubo.MisturaMinM + 
+                procTubo.PreparoExtrusMinM + intermediate + procTubo.TuSinterizadoMinM + 
+                procTubo.TuInspUdc3MinM + procTubo.TuTesteEstanqMinM + procTubo.TuTesteEstouroMinM + 
+                procTubo.TuEmbalMinM;
+        }
+
+        public static float CustoPtfeRsM(ProcTubo procTubo)     // AW
+        {
+            var db = new ApplicationDbContext();
+            var resina = db.ResinasPtfe.SingleOrDefault(r => r.Ref == procTubo.CodResinaAdotada);
+            float custo = resina == null ? 0 : resina.Custo;
+
+            return custo * procTubo.PtfeKgM;
+        }
+
+        public static float CustoAditivosRsM(ProcTubo procTubo)     // AX
+        {
+            float a = 0;
+            float b = 0;
+            var db = new ApplicationDbContext();
+            string temp = XmlReader.Read("SucatasAparasTubos"); //
+            float sucatas = 1 - db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            string naoDefinido = XmlReader.Read("ND");
+
+            if (procTubo.Carga1.Apelido != naoDefinido)
+            {
+                int insumoId = db.Aditivos.Single(ad => ad.Carga.Apelido == procTubo.Carga1.Apelido).InsumoId;
+                a = db.Insumos.Single(i => i.InsumoId == insumoId).Custo;
+            }
+
+            if (procTubo.Carga2.Apelido != naoDefinido)
+            {
+                int insumoId = db.Aditivos.Single(ad => ad.Carga.Apelido == procTubo.Carga2.Apelido).InsumoId;
+                a = db.Insumos.Single(i => i.InsumoId == insumoId).Custo;
+            }
+
+            return a * procTubo.PctCarga1 * procTubo.PesoUnKgMLiq / sucatas + b * procTubo.PctCarga2 * procTubo.PesoUnKgMLiq / sucatas;
+        }
+
+        public static float CustoLubrifRsM(ProcTubo procTubo)       // AY
+        {
+            var db = new ApplicationDbContext();
+            string isoparL = XmlReader.Read("IsoparL");
+            int insumoId = db.Lubrificantes.Single(l => l.Referencia == isoparL).InsumoId;
+            float custo = db.Insumos.Single(i => i.InsumoId == insumoId).CustoUndCnsm;
+
+            return procTubo.LubrKgM * custo;
+        }
+
+        public static float CustoEmbalRsM(ProcTubo procTubo)        // AZ
+        {
+            float result = 0;
+
+            if (procTubo.Embalagem.Descricao != XmlReader.Read("NaoDefinida"))
+            {
+
             }
 
             return result;

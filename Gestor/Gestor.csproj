@@ -224,9 +224,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AditivoesController.cs" />
     <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CargasController.cs" />
     <Compile Include="Controllers\EmbalagemsController.cs" />
+    <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\ExtrusorasController.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Controllers\LubrificantesController.cs" />
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
@@ -542,8 +545,22 @@
     <Compile Include="Migrations\201711132133107_RrFieldInProcTubosToFloat.Designer.cs">
       <DependentUpon>201711132133107_RrFieldInProcTubosToFloat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151254544_Aditivos.cs" />
+    <Compile Include="Migrations\201711151254544_Aditivos.Designer.cs">
+      <DependentUpon>201711151254544_Aditivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151604473_Lubrificantes.cs" />
+    <Compile Include="Migrations\201711151604473_Lubrificantes.Designer.cs">
+      <DependentUpon>201711151604473_Lubrificantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151708252_Embals.cs" />
+    <Compile Include="Migrations\201711151708252_Embals.Designer.cs">
+      <DependentUpon>201711151708252_Embals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
+    <Compile Include="Models\Embal.cs" />
     <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
@@ -551,6 +568,7 @@
     <Compile Include="Models\FatHistorico.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\Lubrificante.cs" />
     <Compile Include="Models\PadraoFixo.cs" />
     <Compile Include="Models\ParmGraxa.cs" />
     <Compile Include="Models\PreForma.cs" />
@@ -1660,6 +1678,21 @@
     <Content Include="Views\ProcTuboes\Details.cshtml" />
     <Content Include="Views\ProcTuboes\Edit.cshtml" />
     <Content Include="Views\ProcTuboes\Index.cshtml" />
+    <Content Include="Views\Aditivoes\Create.cshtml" />
+    <Content Include="Views\Aditivoes\Delete.cshtml" />
+    <Content Include="Views\Aditivoes\Details.cshtml" />
+    <Content Include="Views\Aditivoes\Edit.cshtml" />
+    <Content Include="Views\Aditivoes\Index.cshtml" />
+    <Content Include="Views\Lubrificantes\Create.cshtml" />
+    <Content Include="Views\Lubrificantes\Delete.cshtml" />
+    <Content Include="Views\Lubrificantes\Details.cshtml" />
+    <Content Include="Views\Lubrificantes\Edit.cshtml" />
+    <Content Include="Views\Lubrificantes\Index.cshtml" />
+    <Content Include="Views\Embals\Create.cshtml" />
+    <Content Include="Views\Embals\Delete.cshtml" />
+    <Content Include="Views\Embals\Details.cshtml" />
+    <Content Include="Views\Embals\Edit.cshtml" />
+    <Content Include="Views\Embals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2389,6 +2422,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711132133107_RrFieldInProcTubosToFloat.resx">
       <DependentUpon>201711132133107_RrFieldInProcTubosToFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151254544_Aditivos.resx">
+      <DependentUpon>201711151254544_Aditivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151604473_Lubrificantes.resx">
+      <DependentUpon>201711151604473_Lubrificantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151708252_Embals.resx">
+      <DependentUpon>201711151708252_Embals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

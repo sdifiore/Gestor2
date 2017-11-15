@@ -261,7 +261,14 @@ namespace Gestor
                 register.MisturaMinM = FxTubo.MisturaMinM(register);        // AM
                 register.PreparoExtrusMinM = FxTubo.PreparoExtrusMinM(register);        // AN
                 register.TuInspUdc3MinM = FxTubo.TuInspUdc3MinM(register);        // AR
-                register.TuTesteEstanqMinM = FxTubo.TuTesteEstanqMinM(register);        // AR
+                register.TuTesteEstanqMinM = FxTubo.TuTesteEstanqMinM(register);        // AS
+                register.TuTesteEstouroMinM = FxTubo.TuTesteEstouroMinM(register);        // AT
+                register.TuEmbalMinM = FxTubo.TuEmbalMinM(register);        // AU
+                register.TuTotalMinM = FxTubo.TuTotalMinM(register);        // AV
+                register.CustoPtfeRsM = FxTubo.CustoPtfeRsM(register);        // AW
+                register.CustoAditivosRsM = FxTubo.CustoAditivosRsM(register);        // AX
+                register.CustoLubrifRsM = FxTubo.CustoLubrifRsM(register);        // AY
+                register.CustoEmbalRsM = FxTubo.CustoEmbalRsM(register);        // AZ
             }
         }
     }
