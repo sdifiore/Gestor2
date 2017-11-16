@@ -34,10 +34,10 @@ namespace Gestor.Models
         public DbSet<Comum> Comuns { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
+        public DbSet<CustoCargoDireto> CustoCargoDiretos { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Embal> Embals { get; set; }
-        public DbSet<Embalagem> Embalagens { get; set; }
         public DbSet<Extrusora> Extrusoras { get; set; }
         public DbSet<EncapTubo> EncapTuboes { get; set; }
         public DbSet<Estrutura> Estruturas { get; set; }

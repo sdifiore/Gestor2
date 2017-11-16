@@ -112,7 +112,7 @@ namespace Gestor.Models
         [Display(Name = "Embalagem")]
         public int EmbalagemId { get; set; }
 
-        public virtual Embalagem Embalagem { get; set; }
+        public virtual Embal Embalagem { get; set; }
 
         [Display(Name = "Quant. por Embalagem")]
         public int QuantEmbalagem { get; set; }

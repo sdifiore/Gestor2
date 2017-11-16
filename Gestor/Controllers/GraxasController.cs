@@ -13,11 +13,7 @@ namespace Gestor.Controllers
         // GET: Graxas
         public ActionResult Index()
         {
-            var graxas = db.Graxas
-                .Include(g => g.Embalagem)
-                .Include(g => g.Resina)
-                .OrderBy(g => g.Apelido);
-
+            var graxas = db.Graxas.Include(g => g.Embalagem).Include(g => g.Resina);
             return View(graxas.ToList());
         }
 
@@ -39,7 +35,7 @@ namespace Gestor.Controllers
         // GET: Graxas/Create
         public ActionResult Create()
         {
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao");
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla");
             ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao");
             return View();
         }
@@ -58,7 +54,7 @@ namespace Gestor.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", graxa.EmbalagemId);
             ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
             return View(graxa);
         }
@@ -75,7 +71,7 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", graxa.EmbalagemId);
             ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
             return View(graxa);
         }
@@ -93,7 +89,7 @@ namespace Gestor.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", graxa.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", graxa.EmbalagemId);
             ViewBag.ResinaId = new SelectList(db.Resinas, "Id", "Descricao", graxa.ResinaId);
             return View(graxa);
         }

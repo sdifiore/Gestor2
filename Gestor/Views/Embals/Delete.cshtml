@@ -1,17 +1,25 @@
 ﻿@model Gestor.Models.Embal
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja eliminar o registro?</h3>
 <div>
-    <h4>Embal</h4>
+    <h4>Embalagem</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Insumo.Apelido)
         </dt>
@@ -21,11 +29,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sigla)
+            @Html.DisplayNameFor(model => model.Insumo.Descricao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sigla)
+            @Html.DisplayFor(model => model.Insumo.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insumo.CustoUndCnsm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insumo.CustoUndCnsm)
         </dd>
 
     </dl>
@@ -34,8 +50,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
         </div>
     }
 </div>

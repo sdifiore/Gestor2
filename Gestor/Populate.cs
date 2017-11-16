@@ -269,6 +269,12 @@ namespace Gestor
                 register.CustoAditivosRsM = FxTubo.CustoAditivosRsM(register);        // AX
                 register.CustoLubrifRsM = FxTubo.CustoLubrifRsM(register);        // AY
                 register.CustoEmbalRsM = FxTubo.CustoEmbalRsM(register);        // AZ
+                register.CustoModRsM = FxTubo.CustoModRsM(register);        // BA
+                register.CustoDiretoTotalRsM = FxTubo.CustoDiretoTotalRsM(register);        // BB
+                // ****************** Cálculo de BC depende de Planilha 2
+                // ****************** Cálculo de BD depende de BC
+                register.CapProducaoMH = FxTubo.CapProducaoMH(register);      // BE
+                register.PvCalculadoRsM = FxTubo.PvCalculadoRsM(register);      // BH
             }
         }
     }

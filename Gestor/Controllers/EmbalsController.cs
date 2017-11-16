@@ -24,7 +24,11 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embal embal = db.Embals.Find(id);
+
+            Embal embal = db.Embals
+                .Include(e => e.Insumo)
+                .SingleOrDefault(e => e.Id == id);
+
             if (embal == null)
             {
                 return HttpNotFound();
@@ -97,7 +101,11 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embal embal = db.Embals.Find(id);
+
+            Embal embal = db.Embals
+                .Include(e => e.Insumo)
+                .SingleOrDefault(e => e.Id == id);
+
             if (embal == null)
             {
                 return HttpNotFound();

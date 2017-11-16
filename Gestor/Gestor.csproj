@@ -227,7 +227,7 @@
     <Compile Include="Controllers\AditivoesController.cs" />
     <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CargasController.cs" />
-    <Compile Include="Controllers\EmbalagemsController.cs" />
+    <Compile Include="Controllers\CustoCargoDiretoesController.cs" />
     <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
@@ -557,11 +557,47 @@
     <Compile Include="Migrations\201711151708252_Embals.Designer.cs">
       <DependentUpon>201711151708252_Embals.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151827050_EmbalagemFieldChangesToEmbalInProTubos.cs" />
+    <Compile Include="Migrations\201711151827050_EmbalagemFieldChangesToEmbalInProTubos.Designer.cs">
+      <DependentUpon>201711151827050_EmbalagemFieldChangesToEmbalInProTubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161045446_CorrectingKeyInEmbal.cs" />
+    <Compile Include="Migrations\201711161045446_CorrectingKeyInEmbal.Designer.cs">
+      <DependentUpon>201711161045446_CorrectingKeyInEmbal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161056019_DropEmbalagens.cs" />
+    <Compile Include="Migrations\201711161056019_DropEmbalagens.Designer.cs">
+      <DependentUpon>201711161056019_DropEmbalagens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161112125_RestoreGraxa.cs" />
+    <Compile Include="Migrations\201711161112125_RestoreGraxa.Designer.cs">
+      <DependentUpon>201711161112125_RestoreGraxa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161113013_RestoreProtubos.cs" />
+    <Compile Include="Migrations\201711161113013_RestoreProtubos.Designer.cs">
+      <DependentUpon>201711161113013_RestoreProtubos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161637368_CustoCargoDiretos.cs" />
+    <Compile Include="Migrations\201711161637368_CustoCargoDiretos.Designer.cs">
+      <DependentUpon>201711161637368_CustoCargoDiretos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161638547_CustoCargoDiretos1.cs" />
+    <Compile Include="Migrations\201711161638547_CustoCargoDiretos1.Designer.cs">
+      <DependentUpon>201711161638547_CustoCargoDiretos1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161708257_CustoTotalToCustoUnitarioInCustoCargoDireto.cs" />
+    <Compile Include="Migrations\201711161708257_CustoTotalToCustoUnitarioInCustoCargoDireto.Designer.cs">
+      <DependentUpon>201711161708257_CustoTotalToCustoUnitarioInCustoCargoDireto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161731562_DropColumSetorProducaoInCustoCargoDireto.cs" />
+    <Compile Include="Migrations\201711161731562_DropColumSetorProducaoInCustoCargoDireto.Designer.cs">
+      <DependentUpon>201711161731562_DropColumSetorProducaoInCustoCargoDireto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
+    <Compile Include="Models\CustoCargoDireto.cs" />
     <Compile Include="Models\Embal.cs" />
-    <Compile Include="Models\Embalagem.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
     <Compile Include="Models\Fabricante.cs" />
@@ -1598,21 +1634,11 @@
     <Content Include="Views\EncapTuboes\Details.cshtml" />
     <Content Include="Views\EncapTuboes\Edit.cshtml" />
     <Content Include="Views\EncapTuboes\Index.cshtml" />
-    <Content Include="Views\Embalagems\Create.cshtml" />
-    <Content Include="Views\Embalagems\Delete.cshtml" />
-    <Content Include="Views\Embalagems\Details.cshtml" />
-    <Content Include="Views\Embalagems\Edit.cshtml" />
-    <Content Include="Views\Embalagems\Index.cshtml" />
     <Content Include="Views\Resinas\Create.cshtml" />
     <Content Include="Views\Resinas\Delete.cshtml" />
     <Content Include="Views\Resinas\Details.cshtml" />
     <Content Include="Views\Resinas\Edit.cshtml" />
     <Content Include="Views\Resinas\Index.cshtml" />
-    <Content Include="Views\Graxas\Create.cshtml" />
-    <Content Include="Views\Graxas\Delete.cshtml" />
-    <Content Include="Views\Graxas\Details.cshtml" />
-    <Content Include="Views\Graxas\Edit.cshtml" />
-    <Content Include="Views\Graxas\Index.cshtml" />
     <Content Include="Views\ParmGraxas\Create.cshtml" />
     <Content Include="Views\ParmGraxas\Delete.cshtml" />
     <Content Include="Views\ParmGraxas\Details.cshtml" />
@@ -1676,7 +1702,6 @@
     <Content Include="Views\ProcTuboes\Create.cshtml" />
     <Content Include="Views\ProcTuboes\Delete.cshtml" />
     <Content Include="Views\ProcTuboes\Details.cshtml" />
-    <Content Include="Views\ProcTuboes\Edit.cshtml" />
     <Content Include="Views\ProcTuboes\Index.cshtml" />
     <Content Include="Views\Aditivoes\Create.cshtml" />
     <Content Include="Views\Aditivoes\Delete.cshtml" />
@@ -1693,6 +1718,17 @@
     <Content Include="Views\Embals\Details.cshtml" />
     <Content Include="Views\Embals\Edit.cshtml" />
     <Content Include="Views\Embals\Index.cshtml" />
+    <Content Include="Views\Graxas\Create.cshtml" />
+    <Content Include="Views\Graxas\Delete.cshtml" />
+    <Content Include="Views\Graxas\Details.cshtml" />
+    <Content Include="Views\Graxas\Edit.cshtml" />
+    <Content Include="Views\Graxas\Index.cshtml" />
+    <Content Include="Views\ProcTuboes\Edit.cshtml" />
+    <Content Include="Views\CustoCargoDiretoes\Create.cshtml" />
+    <Content Include="Views\CustoCargoDiretoes\Delete.cshtml" />
+    <Content Include="Views\CustoCargoDiretoes\Details.cshtml" />
+    <Content Include="Views\CustoCargoDiretoes\Edit.cshtml" />
+    <Content Include="Views\CustoCargoDiretoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2431,6 +2467,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711151708252_Embals.resx">
       <DependentUpon>201711151708252_Embals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151827050_EmbalagemFieldChangesToEmbalInProTubos.resx">
+      <DependentUpon>201711151827050_EmbalagemFieldChangesToEmbalInProTubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161045446_CorrectingKeyInEmbal.resx">
+      <DependentUpon>201711161045446_CorrectingKeyInEmbal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161056019_DropEmbalagens.resx">
+      <DependentUpon>201711161056019_DropEmbalagens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161112125_RestoreGraxa.resx">
+      <DependentUpon>201711161112125_RestoreGraxa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161113013_RestoreProtubos.resx">
+      <DependentUpon>201711161113013_RestoreProtubos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161637368_CustoCargoDiretos.resx">
+      <DependentUpon>201711161637368_CustoCargoDiretos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161638547_CustoCargoDiretos1.resx">
+      <DependentUpon>201711161638547_CustoCargoDiretos1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161708257_CustoTotalToCustoUnitarioInCustoCargoDireto.resx">
+      <DependentUpon>201711161708257_CustoTotalToCustoUnitarioInCustoCargoDireto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161731562_DropColumSetorProducaoInCustoCargoDireto.resx">
+      <DependentUpon>201711161731562_DropColumSetorProducaoInCustoCargoDireto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

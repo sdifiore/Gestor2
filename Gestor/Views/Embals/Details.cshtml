@@ -1,16 +1,25 @@
 ﻿@model Gestor.Models.Embal
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>Embal</h4>
+    <h4>Embalagem</h4>
     <hr />
     <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+        
         <dt>
             @Html.DisplayNameFor(model => model.Insumo.Apelido)
         </dt>
@@ -20,16 +29,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sigla)
+            @Html.DisplayNameFor(model => model.Insumo.Descricao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sigla)
+            @Html.DisplayFor(model => model.Insumo.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insumo.CustoUndCnsm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insumo.CustoUndCnsm)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar a lista", "Index")
 </p>

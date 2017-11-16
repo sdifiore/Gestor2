@@ -498,10 +498,51 @@ namespace Gestor
         {
             float result = 0;
 
-            if (procTubo.Embalagem.Descricao != XmlReader.Read("NaoDefinida"))
+            if (procTubo.Embalagem.Sigla != XmlReader.Read("ND"))
             {
-
+                var db = new ApplicationDbContext();
+                int insumoId = db.Embals.Single(e => e.Id == procTubo.EmbalagemId).InsumoId;
+                result = db.Insumos.Single(i => i.InsumoId == insumoId).CustoUndCnsm;
             }
+
+            return result;
+        }
+
+        public static float CustoModRsM(ProcTubo procTubo)      // BA
+        {
+            var db = new ApplicationDbContext();
+            string comp = XmlReader.Read("TubosCordoes");
+            float custo = db.CustoCargoDiretos.Single(c => c.Setor.Descricao == comp).CustoUnitario;
+
+            return procTubo.TuTotalMinM / 60 * custo;
+        }
+
+        public static float CustoDiretoTotalRsM(ProcTubo procTubo)      // BB
+        {
+            return procTubo.CustoPtfeRsM + procTubo.CustoAditivosRsM + procTubo.CustoLubrifRsM + procTubo.CustoEmbalRsM + procTubo.CustoModRsM;
+        }
+
+        public static float PvRsKg(ProcTubo procTubo)      // BE
+        {
+            return procTubo.PvCalculadoRsM / procTubo.PesoUnKgMLiq;
+        }
+
+        public static float CapProducaoMH(ProcTubo procTubo)      // BF
+        {
+            float maximo = procTubo.TuSinterizadoMinM > procTubo.TuTesteEstanqMinM
+                ? procTubo.TuSinterizadoMinM
+                : procTubo.TuTesteEstanqMinM;
+
+            return Function.Floor(60 / maximo, 10);
+        }
+
+        public static float PvCalculadoRsM(ProcTubo procTubo)
+        {
+            var db = new ApplicationDbContext();
+            var par = db.Parametros.First() ;
+            float result = (0.66f * (par.Icms - par.Inss - par.Comissão - par.ComissGestVenda - 
+                (par.Frete + par.CustoFin + par.CustoCobranca) - (1 + par.Ipi)) - 
+                par.MargemLiquida * (1 - par.Icms - 0.0925f - par.Inss));
 
             return result;
         }

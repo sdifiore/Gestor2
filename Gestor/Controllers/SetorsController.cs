@@ -17,7 +17,9 @@ namespace Gestor.Controllers
         // GET: Setors
         public ActionResult Index()
         {
-            return View(db.Setores.ToList());
+            var setores = db.Setores.OrderBy(s => s.Codigo).ToList();
+
+            return View(setores);
         }
 
         // GET: Setors/Details/5

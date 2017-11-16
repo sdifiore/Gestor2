@@ -15,7 +15,14 @@ namespace Gestor.Controllers
         [Route]
         public ActionResult Index()
         {
-            var procTubos = db.ProcTubos.Include(p => p.Carga1).Include(p => p.Carga2).Include(p => p.Embalagem).Include(p => p.Produto).Include(p => p.ResinaBase).Include(p => p.Serie);
+            var procTubos = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie);
+
             return View(procTubos.ToList());
         }
 
@@ -41,7 +48,7 @@ namespace Gestor.Controllers
         {
             ViewBag.Carga1Id = new SelectList(db.Cargas, "Id", "Apelido");
             ViewBag.Carga2Id = new SelectList(db.Cargas, "Id", "Apelido");
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao");
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla");
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
             ViewBag.ResinaBaseId = new SelectList(db.ResinasBase, "Id", "Apelido");
             ViewBag.SerieId = new SelectList(db.Series, "Id", "Apelido");
@@ -64,7 +71,7 @@ namespace Gestor.Controllers
 
             ViewBag.Carga1Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga1Id);
             ViewBag.Carga2Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga2Id);
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", procTubo.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", procTubo.EmbalagemId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", procTubo.ProdutoId);
             ViewBag.ResinaBaseId = new SelectList(db.ResinasBase, "Id", "Apelido", procTubo.ResinaBaseId);
             ViewBag.SerieId = new SelectList(db.Series, "Id", "Apelido", procTubo.SerieId);
@@ -86,7 +93,7 @@ namespace Gestor.Controllers
             }
             ViewBag.Carga1Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga1Id);
             ViewBag.Carga2Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga2Id);
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", procTubo.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", procTubo.EmbalagemId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", procTubo.ProdutoId);
             ViewBag.ResinaBaseId = new SelectList(db.ResinasBase, "Id", "Apelido", procTubo.ResinaBaseId);
             ViewBag.SerieId = new SelectList(db.Series, "Id", "Apelido", procTubo.SerieId);
@@ -108,7 +115,7 @@ namespace Gestor.Controllers
             }
             ViewBag.Carga1Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga1Id);
             ViewBag.Carga2Id = new SelectList(db.Cargas, "Id", "Apelido", procTubo.Carga2Id);
-            ViewBag.EmbalagemId = new SelectList(db.Embalagens, "Id", "Descricao", procTubo.EmbalagemId);
+            ViewBag.EmbalagemId = new SelectList(db.Embals, "Id", "Sigla", procTubo.EmbalagemId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", procTubo.ProdutoId);
             ViewBag.ResinaBaseId = new SelectList(db.ResinasBase, "Id", "Apelido", procTubo.ResinaBaseId);
             ViewBag.SerieId = new SelectList(db.Series, "Id", "Apelido", procTubo.SerieId);

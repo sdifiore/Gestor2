@@ -17,7 +17,7 @@ namespace Gestor.Models
         [Display(Name = "Embalagem")]
         public int EmbalagemId { get; set; }
 
-        public virtual Embalagem Embalagem { get; set; }
+        public virtual Embal Embalagem { get; set; }
 
         [Display(Name = "Peso unitário")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
