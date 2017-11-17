@@ -138,9 +138,11 @@ namespace Gestor
         {
             var db = new ApplicationDbContext();
             float intermidiate = (procTubo.DiamExtFinalTubo * procTubo.DiamExtFinalTubo - procTubo.DiamIntFinalTubo * procTubo.DiamIntFinalTubo) * (float)Math.PI / 4;
+            string densCordao = XmlReader.Read("DensidadeCordaoSeco");
+            string densPadrao = XmlReader.Read("DensidadePadraoSinterizado");
             float result = procTubo.Sinterizado
-                ? intermidiate * db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("DensidadeCordaoSeco")).Valor
-                : intermidiate * db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("DensidadePadraoSinterizado")).Valor;
+                ? intermidiate * db.PadroesFixos.Single(p => p.Descricao == densCordao).Valor
+                : intermidiate * db.PadroesFixos.Single(p => p.Descricao == densPadrao).Valor;
 
             return result;
         }
@@ -148,7 +150,8 @@ namespace Gestor
         public static float PtfeKgM(ProcTubo procTubo)      // U
         {
             var db = new ApplicationDbContext();
-            var sucata = db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("SucatasAparasTubos"));
+            string comp = XmlReader.Read("SucatasAparasTubos");
+            var sucata = db.PadroesFixos.Single(p => p.Descricao == comp);
             float result = sucata == null
                 ? 0
                 : procTubo.PesoUnKgMLiq / (1 - sucata.Valor) * (1 - procTubo.PctCarga1) * (1 - procTubo.PctCarga2);
@@ -159,8 +162,10 @@ namespace Gestor
         public static float LubrKgM(ProcTubo procTubo)      // V
         {
             var db = new ApplicationDbContext();
-            var sucata = db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("SucatasAparasTubos"));
-            var lubrificante = db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("LubrificantePctPadrao"));
+            string comp = XmlReader.Read("SucatasAparasTubos");
+            var sucata = db.PadroesFixos.Single(p => p.Descricao == comp);
+            comp = XmlReader.Read("LubrificantePctPadrao");
+            var lubrificante = db.PadroesFixos.Single(p => p.Descricao == comp);
             float intermediate = (procTubo.PesoUnKgMLiq / (1 - sucata.Valor)) * lubrificante.Valor;
             int round = intermediate * 1_000 > 10
                 ? 3
@@ -220,7 +225,8 @@ namespace Gestor
 
                 if (comprimento != null)
                 {
-                    var sucata = db.PadroesFixos.Single(p => p.Descricao == XmlReader.Read("SucatasAparasTubos"));
+                    string comp = XmlReader.Read("SucatasAparasTubos");
+                    var sucata = db.PadroesFixos.Single(p => p.Descricao == comp);
                     result = Function.Floor(comprimento.Comprimento / 1_000f * procTubo.Rr * (1 - sucata.Valor) * 0.65f, 5);
                 }
             }
@@ -276,18 +282,26 @@ namespace Gestor
             string temp = XmlReader.Read("OcupacaoMOSinterizacao");
             var db = new ApplicationDbContext();
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            float result = procTubo.VsintMMin < Global.Tolerance
+                ? float.MaxValue
+                : (float)(Math.Round(1 / procTubo.VsintMMin, 3) / ocupacao);
 
-            return (float)(Math.Round(1 / procTubo.VsintMMin, 3) / ocupacao);
+            return result;
         }
 
         public static float TuProducaoMinM(ProcTubo procTubo)       // AQ
         {
+            float result = float.MaxValue;
             var db = new ApplicationDbContext();
             string temp = XmlReader.Read("EficPadraoOpTubo");
             float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
-            float result = procTubo.VelEfetExtrusaoMMin < Global.Tolerance
+
+            if (eficacia > Global.Tolerance) 
+            {
+                result = procTubo.VelEfetExtrusaoMMin < Global.Tolerance
                 ? procTubo.TuSinterizadoMinM / eficacia
                 : (procTubo.VelEfetExtrusaoMMin + procTubo.VelEfetExtrusaoMMin) / eficacia;
+            }
 
             return result;
         }

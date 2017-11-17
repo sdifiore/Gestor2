@@ -33,6 +33,7 @@
   <SequenciaE2>E2</SequenciaE2>
   <Subproduto>Subproduto</Subproduto>
   <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
+  <TaxaOcupacaoMOPesagem>Tx.Ocup MO Op. Pesagens</TaxaOcupacaoMOPesagem>
   <TaxaOcupacaoMOTesteEstanque>Tx.Ocup MO Op. Teste Estanqueidade</TaxaOcupacaoMOTesteEstanque>
   <TaxaOcupacaoMOTesteEstouro>Tx.Ocup MO Op. Teste Estouro</TaxaOcupacaoMOTesteEstouro>
   <TaxaOcupacaoEmbalamento>Tx.Ocup MO Op. Embalagem</TaxaOcupacaoEmbalamento>
@@ -47,7 +48,7 @@
   <TempoPadraoPrepExtrusora>Tempo padrão preparo extrusora, min</TempoPadraoPrepExtrusora>
   <TempoPeneiramento>Tempo peneiramento, min/kg</TempoPeneiramento>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
-  <TubosCordoes>Tubos e Cordões</TubosCordoes>
+  <TubosCordoes>Tubos PTFE</TubosCordoes>
   <UnidadeHora>hora</UnidadeHora>
   <UnidadeNaoInformada>Não Informada</UnidadeNaoInformada>
   <UnidadeUnidade>unidade</UnidadeUnidade>

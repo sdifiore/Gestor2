@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
 using System.Web.UI.WebControls;
 using Gestor.Models;
@@ -275,7 +274,11 @@ namespace Gestor
                 // ****************** Cálculo de BD depende de BC
                 register.CapProducaoMH = FxTubo.CapProducaoMH(register);      // BE
                 register.PvCalculadoRsM = FxTubo.PvCalculadoRsM(register);      // BH
+
+                db.SaveChanges();
             }
+
+            
         }
     }
 }

@@ -59,6 +59,13 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult ProcTubos()
+        {
+            Populate.ProcTubos();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.Insumo();
@@ -68,6 +75,7 @@ namespace Gestor.Controllers
             Populate.Graxas();
             Populate.PreForma();
             Populate.ResinaPtfe();
+            Populate.ProcTubos();
 
             return Redirect("/");
         }
