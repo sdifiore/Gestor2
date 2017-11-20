@@ -233,6 +233,7 @@ namespace Gestor
 
             foreach (var register in model)
             {
+                register.Cadastro = register.Cadastro;
                 register.CodResinaAdotada = FxTubo.ResinaAdotada(register);      // L
                 register.RrMaxResina = FxTubo.RrMaxResina(register);        // M
                 register.BicoIdeal = FxTubo.BicoIdeal(register);        // N

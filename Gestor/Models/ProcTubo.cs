@@ -237,5 +237,8 @@ namespace Gestor.Models
         [Display(Name = "PV calculado R$/ m")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public float PvCalculadoRsM { get; set; }
+
+        [StringLength(10)]
+        public string Cadastro { get; set; }
     }
 }

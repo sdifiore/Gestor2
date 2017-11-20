@@ -12,6 +12,7 @@
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <IsoparL>Isopar L</IsoparL>
   <ItemNaoExiste>999999</ItemNaoExiste>
+  <LoteMinimoTubos>Lote mínimo Tubos (Horas de Extrusão)</LoteMinimoTubos>
   <LoteMinTubos2>Lote mínimo Tubos - 2º Critério: qt.PFs</LoteMinTubos2>
   <LubrificantePctPadrao>Lubrificante - % padrão</LubrificantePctPadrao>
   <Manufaturado>Manufaturado</Manufaturado>
@@ -41,6 +42,7 @@
   <TaxaOcupacaoMOExtrusora>Tx.Ocup MO Op. Prep. Extrusoras</TaxaOcupacaoMOExtrusora>
   <TaxaOcupacaoMOInspecao>Tx.Ocup MO Op. Inspeção</TaxaOcupacaoMOInspecao>
   <Transl>TRANSL</Transl>
+  <TempoConferirPeso>Tempo p/ conferir peso aditivos, min</TempoConferirPeso>
   <TempoDosagemLub>Tempo de dosagem Lubrificante, min</TempoDosagemLub>
   <TempoEmbalamento>Tempo de embalamento, min/unidade</TempoEmbalamento>
   <TempoOcupacaoMOMIstura>Tx.Ocup MO Op. Mistura</TempoOcupacaoMOMIstura>

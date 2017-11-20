@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Gestor.Models.DespesaFixa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Despesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodCrit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriterioRateio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioFitas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioTuboCordaoPerfil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioFioGaxPtfePuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioFioGaxPtfeGraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioSucatas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Somas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Despesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodCrit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriterioRateio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioFitas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioTuboCordaoPerfil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioFioGaxPtfePuro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioFioGaxPtfeGraf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioGraxa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioSucatas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioRevenda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Somas)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -21,7 +21,8 @@ namespace Gestor.Controllers
                 .Include(p => p.Embalagem)
                 .Include(p => p.Produto)
                 .Include(p => p.ResinaBase)
-                .Include(p => p.Serie);
+                .Include(p => p.Serie)
+                .OrderBy(p => p.Produto.Apelido);
 
             return View(procTubos.ToList());
         }
@@ -147,6 +148,27 @@ namespace Gestor.Controllers
             db.ProcTubos.Remove(procTubo);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var procTubo = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie)
+                .SingleOrDefault(p => p.Cadastro == search);
+
+            if (procTubo == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo proctubo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", procTubo);
         }
 
         protected override void Dispose(bool disposing)

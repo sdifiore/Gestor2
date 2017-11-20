@@ -84,23 +84,26 @@ namespace Gestor
 
         public static float SecaoExtrudado(ProcTubo procTubo)
         {
-            return (procTubo.BicoIdeal * procTubo.BicoIdeal - procTubo.MandrilIdeal * procTubo.MandrilIdeal) * (float)Math.PI / 4;
+            return (procTubo.BicoIdeal * procTubo.BicoIdeal - procTubo.MandrilIdeal * procTubo.MandrilIdeal) * (float)Math.PI / 4f;
         }
 
         public static float PerimSecaoExtrud(ProcTubo procTubo)     // Q
         {
-            float result = procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente")
-                ? procTubo.BicoIdeal * (float)Math.PI / (procTubo.BicoIdeal * procTubo.BicoIdeal - procTubo.MandrilIdeal * procTubo.MandrilIdeal) * (float)Math.PI / 4
+            float result = procTubo.Cadastro != "--"
+                ? procTubo.BicoIdeal * (float)Math.PI / ((procTubo.BicoIdeal * procTubo.BicoIdeal - procTubo.MandrilIdeal * procTubo.MandrilIdeal) * (float)Math.PI / 4f)
                 : 0;
+
+            //float result = procTubo.BicoIdeal * (float)Math.PI / ((procTubo.BicoIdeal * procTubo.BicoIdeal - 
+            //    procTubo.MandrilIdeal * procTubo.MandrilIdeal) * (float)Math.PI / 4f);
 
             return result;
         }
 
-        public static float DiamExtFinalTubo(ProcTubo procTubo)
+        public static float DiamExtFinalTubo(ProcTubo procTubo)     // R
         {
             float result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
                 if (procTubo.Sinterizado)
                 {
@@ -115,11 +118,11 @@ namespace Gestor
             return procTubo.BicoIdeal * result;
         }
 
-        public static float DiamIntFinalTubo(ProcTubo procTubo)
+        public static float DiamIntFinalTubo(ProcTubo procTubo)     //~S
         {
             float result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
                 if (procTubo.Sinterizado)
                 {
@@ -137,12 +140,12 @@ namespace Gestor
         public static float PesoUnKgMLiq(ProcTubo procTubo)     // T
         {
             var db = new ApplicationDbContext();
-            float intermidiate = (procTubo.DiamExtFinalTubo * procTubo.DiamExtFinalTubo - procTubo.DiamIntFinalTubo * procTubo.DiamIntFinalTubo) * (float)Math.PI / 4;
+            float intermidiate = (procTubo.DiamExtFinalTubo * procTubo.DiamExtFinalTubo - procTubo.DiamIntFinalTubo * procTubo.DiamIntFinalTubo) * (float)Math.PI / 4f;
             string densCordao = XmlReader.Read("DensidadeCordaoSeco");
             string densPadrao = XmlReader.Read("DensidadePadraoSinterizado");
-            float result = procTubo.Sinterizado
-                ? intermidiate * db.PadroesFixos.Single(p => p.Descricao == densCordao).Valor
-                : intermidiate * db.PadroesFixos.Single(p => p.Descricao == densPadrao).Valor;
+            float result = !procTubo.Sinterizado
+                ? intermidiate * db.PadroesFixos.Single(p => p.Descricao == densCordao).Valor / 1_000f
+                : intermidiate * db.PadroesFixos.Single(p => p.Descricao == densPadrao).Valor / 1_000f;
 
             return result;
         }
@@ -154,7 +157,7 @@ namespace Gestor
             var sucata = db.PadroesFixos.Single(p => p.Descricao == comp);
             float result = sucata == null
                 ? 0
-                : procTubo.PesoUnKgMLiq / (1 - sucata.Valor) * (1 - procTubo.PctCarga1) * (1 - procTubo.PctCarga2);
+                : procTubo.PesoUnKgMLiq / (1f - sucata.Valor) * (1f - procTubo.PctCarga1) * (1f - procTubo.PctCarga2);
 
             return result;
         }
@@ -167,7 +170,7 @@ namespace Gestor
             comp = XmlReader.Read("LubrificantePctPadrao");
             var lubrificante = db.PadroesFixos.Single(p => p.Descricao == comp);
             float intermediate = (procTubo.PesoUnKgMLiq / (1 - sucata.Valor)) * lubrificante.Valor;
-            int round = intermediate * 1_000 > 10
+            int round = intermediate * 1_000f > 10f
                 ? 3
                 : 4;
 
@@ -178,18 +181,18 @@ namespace Gestor
         {
             int result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
-                if (7359 / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 5;
+                if (7359f / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 5;
                 else
                 {
-                    if (4533 / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 4;
+                    if (4533f / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 4;
                     else
                     {
-                        if (2543 / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 3;
+                        if (2543f / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 3;
                         else
                         {
-                            if (904 / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 2;
+                            if (904f / procTubo.SecaoExtrudado <= procTubo.RrMaxResina) result = 2;
                             else result = 1;
                         }
                     }
@@ -203,12 +206,12 @@ namespace Gestor
         {
             float result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
                 var db = new ApplicationDbContext();
                 var preforma = db.PreFormas.SingleOrDefault(p => p.PreFormaNum == procTubo.CodPreformaIdeal);
                 if (preforma == null) DbLogger.Log(Reason.Error, $"Preforma {procTubo.CodPreformaIdeal} não encontrada em Rr");
-                else result = (float)Math.Round(preforma.SecaoPf * 100 / procTubo.SecaoExtrudado, 1);
+                else result = (float)Math.Round(preforma.SecaoPf * 100f / procTubo.SecaoExtrudado, 1);
             }
 
             return result;
@@ -219,7 +222,7 @@ namespace Gestor
             var db = new ApplicationDbContext();
             int result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
                 var comprimento = db.PreFormas.SingleOrDefault(p => p.PreFormaNum == procTubo.CodPreformaIdeal);
 
@@ -245,8 +248,7 @@ namespace Gestor
 
                 if (comprimento != null)
                 {
-                    result = procTubo.LanceSinterizado / (comprimento.Comprimento / 1_000 * procTubo.Rr /
-                        (procTubo.VextrUmidoMin * procTubo.FatorMultiplVExter) + comprimento.TrocaPf);
+                    result = procTubo.LanceSinterizado / (comprimento.Comprimento / 1_000f * procTubo.Rr / (procTubo.VextrUmidoMin * procTubo.FatorMultiplVExter) + comprimento.TrocaPf);
                 }
             }
 
@@ -257,9 +259,9 @@ namespace Gestor
         {
             float result = 0;
 
-            if (procTubo.Produto.Apelido != XmlReader.Read("ProdutoNaoExistente"))
+            if (procTubo.Cadastro != "--")
             {
-                result = (float)Math.Round(-3.7755 * Math.Log10(procTubo.BicoIdeal) + 18.609);
+                result = (float)Math.Round(-3.7755f * Math.Log10(procTubo.BicoIdeal) + 18.609f);
             }
 
             return result;
@@ -269,7 +271,7 @@ namespace Gestor
         {
             float intermidiate = procTubo.Sinterizado ? 1 : 2;
 
-            return (float)Math.Round(0.7862f * Math.Pow(procTubo.PerimSecaoExtrud, 0.9191) * intermidiate, 1);
+            return (float)Math.Round(0.7862f * Math.Pow(procTubo.PerimSecaoExtrud, 0.9191f) * intermidiate, 1);
         }
 
         public static float VSintResultante(ProcTubo procTubo)      // AI
@@ -279,12 +281,18 @@ namespace Gestor
 
         public static float TuSinterizadoMinM(ProcTubo procTubo)        // AP
         {
-            string temp = XmlReader.Read("OcupacaoMOSinterizacao");
+
             var db = new ApplicationDbContext();
+            string temp = XmlReader.Read("OcupacaoMOSinterizacao"); //34
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
-            float result = procTubo.VsintMMin < Global.Tolerance
-                ? float.MaxValue
-                : (float)(Math.Round(1 / procTubo.VsintMMin, 3) / ocupacao);
+            temp = XmlReader.Read("EficPadraoOpTubo");  //9
+            float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            float intermediate = procTubo.ProcessoContinuo
+                ? 1
+                : ocupacao;
+            float result = procTubo.VSintResultante > Global.Tolerance
+                ? (float)(Math.Round(1 / procTubo.VSintResultante, 3) / eficacia * intermediate)
+                : float.MaxValue;
 
             return result;
         }
@@ -296,11 +304,11 @@ namespace Gestor
             string temp = XmlReader.Read("EficPadraoOpTubo");
             float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
 
-            if (eficacia > Global.Tolerance) 
+            if (eficacia > Global.Tolerance && procTubo.TuSinterizadoMinM < Global.Infinity) 
             {
                 result = procTubo.VelEfetExtrusaoMMin < Global.Tolerance
                 ? procTubo.TuSinterizadoMinM / eficacia
-                : (procTubo.VelEfetExtrusaoMMin + procTubo.VelEfetExtrusaoMMin) / eficacia;
+                : (1 / procTubo.VelEfetExtrusaoMMin + procTubo.TuSinterizadoMinM) / eficacia;
             }
 
             return result;
@@ -309,12 +317,14 @@ namespace Gestor
         public static float QtPCusto(ProcTubo procTubo)     // BG
         {
             var db = new ApplicationDbContext();
-            string temp = XmlReader.Read("LoteMinTubos2");
-            float a = 60 * db.PadroesFixos.Single(p => p.Descricao == temp).Valor / procTubo.TuProducaoMinM;
+            string temp = XmlReader.Read("LoteMinimoTubos");
+            float lote = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            float a = 60 * lote / procTubo.TuProducaoMinM;
             float b = procTubo.LanceSinterizado * procTubo.FatorMultiplQtde;
-            float result = a > b ? a : b;
+            float intermediate = a > b ? a : b;
+            float result = Function.Ceiling(intermediate, procTubo.LanceSinterizado);
 
-            return Function.Ceiling(result, procTubo.LanceSinterizado);
+            return result;
         }
 
         public static int QtPf(ProcTubo procTubo)       // AA
@@ -325,18 +335,20 @@ namespace Gestor
         public static float ConfAdtDosLub(ProcTubo procTubo)        // AK
         {
             var db = new ApplicationDbContext();
-            string temp = XmlReader.Read("EficPadraoOpTubo");
+            string temp = XmlReader.Read("EficPadraoOpTubo");   //9
             float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
-            temp = XmlReader.Read("TaxaOcupacaoMOPesagem");
+            temp = XmlReader.Read("TaxaOcupacaoMOPesagem"); //32
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
-            temp = XmlReader.Read("TempoDosagemLub");
+            temp = XmlReader.Read("TempoDosagemLub");   //22
             float tempo = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            temp = XmlReader.Read("TempoConferirPeso"); // 24
+            float tempoConf = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             float count = 0;
             if (procTubo.Carga1.Apelido != "ND") count++;
             if (procTubo.Carga2.Apelido != "ND") count++;
             if (procTubo.PctCarga1 > Global.Tolerance) count++;
 
-            return count * tempo / procTubo.QtPCusto / eficacia * ocupacao;
+            return (count * tempoConf + tempo) / procTubo.QtPCusto / eficacia * ocupacao;
         }
 
         public static float Peneiramento(ProcTubo procTubo)     // AL
@@ -387,8 +399,9 @@ namespace Gestor
             float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             temp = XmlReader.Read("TaxaOcupacaoMOInspecao"); //30
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
+            float result = 1 / velocidade / eficacia * ocupacao;
 
-            return 1 / velocidade / eficacia * ocupacao;
+            return result;
         }
 
         public static float TuTesteEstanqMinM(ProcTubo procTubo)        // AS
@@ -439,7 +452,7 @@ namespace Gestor
             temp = XmlReader.Read("TaxaOcupacaoEmbalamento"); //28
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             float intermediate = procTubo.QuantEmbalagem > Global.Tolerance
-                ? Function.Ceiling(procTubo.QtPCusto / procTubo.QuantEmbalagem, 1)
+                ? procTubo.QtPCusto / procTubo.QuantEmbalagem
                 : 0;
 
             return intermediate * embalamento / procTubo.QtPCusto / eficacia * ocupacao;
@@ -470,8 +483,9 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var resina = db.ResinasPtfe.SingleOrDefault(r => r.Ref == procTubo.CodResinaAdotada);
             float custo = resina == null ? 0 : resina.Custo;
+            float result = custo * procTubo.PtfeKgM;
 
-            return custo * procTubo.PtfeKgM;
+            return result;
         }
 
         public static float CustoAditivosRsM(ProcTubo procTubo)     // AX
@@ -516,7 +530,7 @@ namespace Gestor
             {
                 var db = new ApplicationDbContext();
                 int insumoId = db.Embals.Single(e => e.Id == procTubo.EmbalagemId).InsumoId;
-                result = db.Insumos.Single(i => i.InsumoId == insumoId).CustoUndCnsm;
+                result = db.Insumos.Single(i => i.InsumoId == insumoId).CustoUndCnsm / procTubo.QtPCusto;
             }
 
             return result;
@@ -528,7 +542,7 @@ namespace Gestor
             string comp = XmlReader.Read("TubosCordoes");
             float custo = db.CustoCargoDiretos.Single(c => c.Setor.Descricao == comp).CustoUnitario;
 
-            return procTubo.TuTotalMinM / 60 * custo;
+            return procTubo.TuTotalMinM / 60f * custo;
         }
 
         public static float CustoDiretoTotalRsM(ProcTubo procTubo)      // BB
@@ -547,16 +561,16 @@ namespace Gestor
                 ? procTubo.TuSinterizadoMinM
                 : procTubo.TuTesteEstanqMinM;
 
-            return Function.Floor(60 / maximo, 10);
+            return Function.Floor(60f / maximo, 10);
         }
 
-        public static float PvCalculadoRsM(ProcTubo procTubo)
+        public static float PvCalculadoRsM(ProcTubo procTubo)       // BH
         {
             var db = new ApplicationDbContext();
             var par = db.Parametros.First() ;
-            float result = (0.66f * (par.Icms - par.Inss - par.Comissão - par.ComissGestVenda - 
-                (par.Frete + par.CustoFin + par.CustoCobranca) - (1 + par.Ipi)) - 
-                par.MargemLiquida * (1 - par.Icms - 0.0925f - par.Inss));
+            float result = procTubo.CustoTotalRsM * 0.66f / ((0.66f * (1 - par.Icms - par.Inss - par.Comissão - par.ComissGestVenda -
+                (par.Frete + par.CustoFin + par.CustoCobranca) * (1f + par.Ipi)) -
+                par.MargemLiquida * (1f - par.Icms - 0.0925f - par.Inss)));
 
             return result;
         }

@@ -228,6 +228,7 @@
     <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CargasController.cs" />
     <Compile Include="Controllers\CustoCargoDiretoesController.cs" />
+    <Compile Include="Controllers\DespesaFixasController.cs" />
     <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
@@ -593,10 +594,27 @@
     <Compile Include="Migrations\201711161731562_DropColumSetorProducaoInCustoCargoDireto.Designer.cs">
       <DependentUpon>201711161731562_DropColumSetorProducaoInCustoCargoDireto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711191653057_AddCadastroFieldToProcProduto.cs" />
+    <Compile Include="Migrations\201711191653057_AddCadastroFieldToProcProduto.Designer.cs">
+      <DependentUpon>201711191653057_AddCadastroFieldToProcProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711201224232_DespesasFixas.cs" />
+    <Compile Include="Migrations\201711201224232_DespesasFixas.Designer.cs">
+      <DependentUpon>201711201224232_DespesasFixas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711201546216_AddComentarioFieldToDespesasFixasTable.cs" />
+    <Compile Include="Migrations\201711201546216_AddComentarioFieldToDespesasFixasTable.Designer.cs">
+      <DependentUpon>201711201546216_AddComentarioFieldToDespesasFixasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711201646170_ComentarioInDespesasFixasTo1024Chars.cs" />
+    <Compile Include="Migrations\201711201646170_ComentarioInDespesasFixasTo1024Chars.Designer.cs">
+      <DependentUpon>201711201646170_ComentarioInDespesasFixasTo1024Chars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
     <Compile Include="Models\CustoCargoDireto.cs" />
+    <Compile Include="Models\DespesaFixa.cs" />
     <Compile Include="Models\Embal.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
@@ -1729,6 +1747,11 @@
     <Content Include="Views\CustoCargoDiretoes\Details.cshtml" />
     <Content Include="Views\CustoCargoDiretoes\Edit.cshtml" />
     <Content Include="Views\CustoCargoDiretoes\Index.cshtml" />
+    <Content Include="Views\DespesaFixas\Create.cshtml" />
+    <Content Include="Views\DespesaFixas\Delete.cshtml" />
+    <Content Include="Views\DespesaFixas\Details.cshtml" />
+    <Content Include="Views\DespesaFixas\Edit.cshtml" />
+    <Content Include="Views\DespesaFixas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2494,6 +2517,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711161731562_DropColumSetorProducaoInCustoCargoDireto.resx">
       <DependentUpon>201711161731562_DropColumSetorProducaoInCustoCargoDireto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711191653057_AddCadastroFieldToProcProduto.resx">
+      <DependentUpon>201711191653057_AddCadastroFieldToProcProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711201224232_DespesasFixas.resx">
+      <DependentUpon>201711201224232_DespesasFixas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711201546216_AddComentarioFieldToDespesasFixasTable.resx">
+      <DependentUpon>201711201546216_AddComentarioFieldToDespesasFixasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711201646170_ComentarioInDespesasFixasTo1024Chars.resx">
+      <DependentUpon>201711201646170_ComentarioInDespesasFixasTo1024Chars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
