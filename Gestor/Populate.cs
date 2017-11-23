@@ -275,11 +275,30 @@ namespace Gestor
                 // ****************** Cálculo de BD depende de BC
                 register.CapProducaoMH = FxTubo.CapProducaoMH(register);      // BE
                 register.PvCalculadoRsM = FxTubo.PvCalculadoRsM(register);      // BH
-
-                db.SaveChanges();
             }
 
-            
+            db.SaveChanges();
+        }
+
+        public static void PrecoNacional()      // ******************** Calculando com erro... Rever!
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PrecosNacionais.ToList();
+
+            foreach (var register in model)
+            {
+                register.I18Nivel1 = FxPrecoNacional.I18Nivel1(register);       // G
+                register.I18Nivel2 = FxPrecoNacional.I18Nivel2(register);       // H
+                register.I18Nivel3 = FxPrecoNacional.I18Nivel3(register);       // I
+                register.I12Nivel1 = FxPrecoNacional.I12Nivel1(register);       // J
+                register.I12Nivel2 = FxPrecoNacional.I12Nivel2(register);       // K
+                register.I12Nivel3 = FxPrecoNacional.I12Nivel3(register);       // L
+                register.I7Nivel1 = FxPrecoNacional.I7Nivel1(register);       // M
+                register.I7Nivel2 = FxPrecoNacional.I7Nivel2(register);       // N
+                register.I7Nivel3 = FxPrecoNacional.I7Nivel3(register);       // O
+            }
+
+            db.SaveChanges();
         }
     }
 }

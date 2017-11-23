@@ -6,109 +6,107 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    [RoutePrefix("DespesasFixas")]
-    public class DespesaFixasController : Controller
+    public class IndicesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: DespesaFixas
-        [Route]
+        // GET: Indices
         public ActionResult Index()
         {
-            return View(db.DespesasFixas.ToList());
+            return View(db.Indices.ToList());
         }
 
-        // GET: DespesaFixas/Details/5
+        // GET: Indices/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            Indice indice = db.Indices.Find(id);
+            if (indice == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(indice);
         }
 
-        // GET: DespesaFixas/Create
+        // GET: Indices/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DespesaFixas/Create
+        // POST: Indices/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Despesa,ValorTotal,Comentario,CodCrit,CriterioRateio,RateioFitas,RateioTuboCordaoPerfil,RateioFioGaxPtfePuro,RateioFioGaxPtfeGraf,RateioGraxa,RateioSucatas,RateioRevenda,Somas")] DespesaFixa despesaFixa)
+        public ActionResult Create([Bind(Include = "Id,Descricao,Proprio,Terceiros,Exportacao")] Indice indice)
         {
             if (ModelState.IsValid)
             {
-                db.DespesasFixas.Add(despesaFixa);
+                db.Indices.Add(indice);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(despesaFixa);
+            return View(indice);
         }
 
-        // GET: DespesaFixas/Edit/5
+        // GET: Indices/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            Indice indice = db.Indices.Find(id);
+            if (indice == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(indice);
         }
 
-        // POST: DespesaFixas/Edit/5
+        // POST: Indices/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Despesa,ValorTotal,Comentario,CodCrit,CriterioRateio,RateioFitas,RateioTuboCordaoPerfil,RateioFioGaxPtfePuro,RateioFioGaxPtfeGraf,RateioGraxa,RateioSucatas,RateioRevenda,Somas")] DespesaFixa despesaFixa)
+        public ActionResult Edit([Bind(Include = "Id,Descricao,Proprio,Terceiros,Exportacao")] Indice indice)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(despesaFixa).State = EntityState.Modified;
+                db.Entry(indice).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(despesaFixa);
+            return View(indice);
         }
 
-        // GET: DespesaFixas/Delete/5
+        // GET: Indices/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            Indice indice = db.Indices.Find(id);
+            if (indice == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(indice);
         }
 
-        // POST: DespesaFixas/Delete/5
+        // POST: Indices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            db.DespesasFixas.Remove(despesaFixa);
+            Indice indice = db.Indices.Find(id);
+            db.Indices.Remove(indice);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

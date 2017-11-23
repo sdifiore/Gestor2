@@ -6,9 +6,11 @@
   <DensidadeCordaoSeco>Densidade do cordão seco:</DensidadeCordaoSeco>
   <DensidadePadraoPreForma>Densidade Padrão da Pré-Forma</DensidadePadraoPreForma>
   <DensidadePadraoSinterizado>Densidade Padrão para Sinterizado</DensidadePadraoSinterizado>
+  <DespesaCobranca>Despesas de Cobrança sobre Fat. Bruto </DespesaCobranca>
   <EficPadraoOpTubo>Efic. Padrão das Oper. Tubos</EficPadraoOpTubo>
   <EnsaioEstanque>Ensaio Estanqueidade, min/lance</EnsaioEstanque>
   <EnsaioEstouro>Ensaio Estouro, min/teste</EnsaioEstouro>
+  <IndiceGestaoVenda>Indice de Gestão de Vendas</IndiceGestaoVenda>
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <IsoparL>Isopar L</IsoparL>
   <ItemNaoExiste>999999</ItemNaoExiste>
@@ -34,6 +36,7 @@
   <SequenciaE2>E2</SequenciaE2>
   <Subproduto>Subproduto</Subproduto>
   <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
+  <TaxaEfetivaVendaNacional>Taxa Financeira Efetiva para Vendas Nacionais</TaxaEfetivaVendaNacional>
   <TaxaOcupacaoMOPesagem>Tx.Ocup MO Op. Pesagens</TaxaOcupacaoMOPesagem>
   <TaxaOcupacaoMOTesteEstanque>Tx.Ocup MO Op. Teste Estanqueidade</TaxaOcupacaoMOTesteEstanque>
   <TaxaOcupacaoMOTesteEstouro>Tx.Ocup MO Op. Teste Estouro</TaxaOcupacaoMOTesteEstouro>

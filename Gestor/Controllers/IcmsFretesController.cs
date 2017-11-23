@@ -6,109 +6,107 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
-    [RoutePrefix("DespesasFixas")]
-    public class DespesaFixasController : Controller
+    public class IcmsFretesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: DespesaFixas
-        [Route]
+        // GET: IcmsFretes
         public ActionResult Index()
         {
-            return View(db.DespesasFixas.ToList());
+            return View(db.IcmsFretes.ToList());
         }
 
-        // GET: DespesaFixas/Details/5
+        // GET: IcmsFretes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
+            if (icmsFrete == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(icmsFrete);
         }
 
-        // GET: DespesaFixas/Create
+        // GET: IcmsFretes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DespesaFixas/Create
+        // POST: IcmsFretes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Despesa,ValorTotal,Comentario,CodCrit,CriterioRateio,RateioFitas,RateioTuboCordaoPerfil,RateioFioGaxPtfePuro,RateioFioGaxPtfeGraf,RateioGraxa,RateioSucatas,RateioRevenda,Somas")] DespesaFixa despesaFixa)
+        public ActionResult Create([Bind(Include = "Id,Rotulo,Icms,Frete")] IcmsFrete icmsFrete)
         {
             if (ModelState.IsValid)
             {
-                db.DespesasFixas.Add(despesaFixa);
+                db.IcmsFretes.Add(icmsFrete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(despesaFixa);
+            return View(icmsFrete);
         }
 
-        // GET: DespesaFixas/Edit/5
+        // GET: IcmsFretes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
+            if (icmsFrete == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(icmsFrete);
         }
 
-        // POST: DespesaFixas/Edit/5
+        // POST: IcmsFretes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Despesa,ValorTotal,Comentario,CodCrit,CriterioRateio,RateioFitas,RateioTuboCordaoPerfil,RateioFioGaxPtfePuro,RateioFioGaxPtfeGraf,RateioGraxa,RateioSucatas,RateioRevenda,Somas")] DespesaFixa despesaFixa)
+        public ActionResult Edit([Bind(Include = "Id,Rotulo,Icms,Frete")] IcmsFrete icmsFrete)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(despesaFixa).State = EntityState.Modified;
+                db.Entry(icmsFrete).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(despesaFixa);
+            return View(icmsFrete);
         }
 
-        // GET: DespesaFixas/Delete/5
+        // GET: IcmsFretes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            if (despesaFixa == null)
+            IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
+            if (icmsFrete == null)
             {
                 return HttpNotFound();
             }
-            return View(despesaFixa);
+            return View(icmsFrete);
         }
 
-        // POST: DespesaFixas/Delete/5
+        // POST: IcmsFretes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
-            db.DespesasFixas.Remove(despesaFixa);
+            IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
+            db.IcmsFretes.Remove(icmsFrete);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

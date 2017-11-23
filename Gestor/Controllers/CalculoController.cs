@@ -66,8 +66,16 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult PrecoNacional()
+        {
+            Populate.PrecoNacional();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
+            Populate.PrecoNacional();
             Populate.Insumo();
             Populate.Estrutura();
             Populate.Produto();

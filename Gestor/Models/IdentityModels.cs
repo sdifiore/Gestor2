@@ -49,6 +49,8 @@ namespace Gestor.Models
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<Graxa> Graxas { get; set; }
         public DbSet<GrupoRateio> GruposRateio { get; set; }
+        public DbSet<IcmsFrete> IcmsFretes { get; set; }
+        public DbSet<Indice> Indices { get; set; }
         public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }
@@ -60,6 +62,7 @@ namespace Gestor.Models
         public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
         public DbSet<PreForma> PreFormas { get; set; }
+        public DbSet<PrecoNacional> PrecosNacionais { get; set; }
         public DbSet<PrensaPreForma> PrensasPreForma { get; set; }
         public DbSet<ProcTubo> ProcTubos { get; set; }
         public DbSet<Produto> Produtos { get; set; }

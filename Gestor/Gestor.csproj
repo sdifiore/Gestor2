@@ -236,11 +236,14 @@
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
+    <Compile Include="Controllers\IcmsFretesController.cs" />
+    <Compile Include="Controllers\IndicesController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
     <Compile Include="Controllers\LubrificantesController.cs" />
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
+    <Compile Include="Controllers\PrecoNacionalsController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
     <Compile Include="Controllers\PrensaPreFormasController.cs" />
     <Compile Include="Controllers\ProcTuboesController.cs" />
@@ -251,6 +254,7 @@
     <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FxEstrutura.cs" />
+    <Compile Include="FxPrecoNacional.cs" />
     <Compile Include="FxProduto.cs" />
     <Compile Include="FxTubo.cs" />
     <Compile Include="Global.cs" />
@@ -610,6 +614,22 @@
     <Compile Include="Migrations\201711201646170_ComentarioInDespesasFixasTo1024Chars.Designer.cs">
       <DependentUpon>201711201646170_ComentarioInDespesasFixasTo1024Chars.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711211700382_IcmsFrete.cs" />
+    <Compile Include="Migrations\201711211700382_IcmsFrete.Designer.cs">
+      <DependentUpon>201711211700382_IcmsFrete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711211729081_PrecosNacionais.cs" />
+    <Compile Include="Migrations\201711211729081_PrecosNacionais.Designer.cs">
+      <DependentUpon>201711211729081_PrecosNacionais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711211803145_ChangeStringsTo128BytesInPrecoNacionalTable.cs" />
+    <Compile Include="Migrations\201711211803145_ChangeStringsTo128BytesInPrecoNacionalTable.Designer.cs">
+      <DependentUpon>201711211803145_ChangeStringsTo128BytesInPrecoNacionalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711221741476_Indices.cs" />
+    <Compile Include="Migrations\201711221741476_Indices.Designer.cs">
+      <DependentUpon>201711221741476_Indices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -621,10 +641,14 @@
     <Compile Include="Models\Fabricante.cs" />
     <Compile Include="Models\FatHistorico.cs" />
     <Compile Include="Models\Graxa.cs" />
+    <Compile Include="Models\IcmsFrete.cs" />
+    <Compile Include="Models\Indice.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\Lubrificante.cs" />
     <Compile Include="Models\PadraoFixo.cs" />
     <Compile Include="Models\ParmGraxa.cs" />
+    <Compile Include="Models\PrecoExportacao.cs" />
+    <Compile Include="Models\PrecoNacional.cs" />
     <Compile Include="Models\PreForma.cs" />
     <Compile Include="Models\PrensaPreForma.cs" />
     <Compile Include="Models\ProcTubo.cs" />
@@ -1752,6 +1776,21 @@
     <Content Include="Views\DespesaFixas\Details.cshtml" />
     <Content Include="Views\DespesaFixas\Edit.cshtml" />
     <Content Include="Views\DespesaFixas\Index.cshtml" />
+    <Content Include="Views\IcmsFretes\Create.cshtml" />
+    <Content Include="Views\IcmsFretes\Delete.cshtml" />
+    <Content Include="Views\IcmsFretes\Details.cshtml" />
+    <Content Include="Views\IcmsFretes\Edit.cshtml" />
+    <Content Include="Views\IcmsFretes\Index.cshtml" />
+    <Content Include="Views\PrecoNacionals\Create.cshtml" />
+    <Content Include="Views\PrecoNacionals\Delete.cshtml" />
+    <Content Include="Views\PrecoNacionals\Details.cshtml" />
+    <Content Include="Views\PrecoNacionals\Edit.cshtml" />
+    <Content Include="Views\PrecoNacionals\Index.cshtml" />
+    <Content Include="Views\Indices\Create.cshtml" />
+    <Content Include="Views\Indices\Delete.cshtml" />
+    <Content Include="Views\Indices\Details.cshtml" />
+    <Content Include="Views\Indices\Edit.cshtml" />
+    <Content Include="Views\Indices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2529,6 +2568,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711201646170_ComentarioInDespesasFixasTo1024Chars.resx">
       <DependentUpon>201711201646170_ComentarioInDespesasFixasTo1024Chars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711211700382_IcmsFrete.resx">
+      <DependentUpon>201711211700382_IcmsFrete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711211729081_PrecosNacionais.resx">
+      <DependentUpon>201711211729081_PrecosNacionais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711211803145_ChangeStringsTo128BytesInPrecoNacionalTable.resx">
+      <DependentUpon>201711211803145_ChangeStringsTo128BytesInPrecoNacionalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711221741476_Indices.resx">
+      <DependentUpon>201711221741476_Indices.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

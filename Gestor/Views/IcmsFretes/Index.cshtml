@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Gestor.Models.IcmsFrete>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova relação ICMS Frete", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rotulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frete)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rotulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Frete)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
