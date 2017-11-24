@@ -1,0 +1,174 @@
+﻿@model IEnumerable<Gestor.Models.PrecoExportacao>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo preço de exportação", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.LinhaUn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoLiquido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtUnid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.De2A5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.De5A10)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.De10A20)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acima20)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Com)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LlMin)
+        </th>
+        <th>
+            Condição
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctRateio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CondPag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IEfetiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctEspecFrete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespExpPadrao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctDespExportEspec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PvFobMax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoDireto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioCustoFixo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PvFobMin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorCifPtfe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelPtfeSobrePv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.LinhaUn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PesoLiquido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtUnid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.De2A5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.De5A10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.De10A20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acima20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Com)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LlMin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CondicaoPreco.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctRateio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CondPag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IEfetiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctEspecFrete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DespExpPadrao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctDespExportEspec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvFobMax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoDireto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RateioCustoFixo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvFobMin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorCifPtfe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelPtfeSobrePv)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

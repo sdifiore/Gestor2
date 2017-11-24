@@ -227,7 +227,9 @@
     <Compile Include="Controllers\AditivoesController.cs" />
     <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CargasController.cs" />
+    <Compile Include="Controllers\CondicaoPrecoesController.cs" />
     <Compile Include="Controllers\CustoCargoDiretoesController.cs" />
+    <Compile Include="Controllers\DespesaExportacaosController.cs" />
     <Compile Include="Controllers\DespesaFixasController.cs" />
     <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
@@ -243,6 +245,7 @@
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
+    <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
     <Compile Include="Controllers\PrensaPreFormasController.cs" />
@@ -630,11 +633,29 @@
     <Compile Include="Migrations\201711221741476_Indices.Designer.cs">
       <DependentUpon>201711221741476_Indices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711231615419_CondicoesPrecos.cs" />
+    <Compile Include="Migrations\201711231615419_CondicoesPrecos.Designer.cs">
+      <DependentUpon>201711231615419_CondicoesPrecos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231658398_PrecosExportacao.cs" />
+    <Compile Include="Migrations\201711231658398_PrecosExportacao.Designer.cs">
+      <DependentUpon>201711231658398_PrecosExportacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231738209_RenameToPctDespExportEspecInPrecoExportacao.cs" />
+    <Compile Include="Migrations\201711231738209_RenameToPctDespExportEspecInPrecoExportacao.Designer.cs">
+      <DependentUpon>201711231738209_RenameToPctDespExportEspecInPrecoExportacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711241145027_DespesasExportacao.cs" />
+    <Compile Include="Migrations\201711241145027_DespesasExportacao.Designer.cs">
+      <DependentUpon>201711241145027_DespesasExportacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
+    <Compile Include="Models\CondicaoPreco.cs" />
     <Compile Include="Models\CustoCargoDireto.cs" />
     <Compile Include="Models\DespesaFixa.cs" />
+    <Compile Include="Models\DespesaExportacao.cs" />
     <Compile Include="Models\Embal.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
@@ -657,6 +678,7 @@
     <Compile Include="Models\ResinaPtfe.cs" />
     <Compile Include="Models\Serie.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
+    <Compile Include="FxPrecoExportacao.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1791,6 +1813,21 @@
     <Content Include="Views\Indices\Details.cshtml" />
     <Content Include="Views\Indices\Edit.cshtml" />
     <Content Include="Views\Indices\Index.cshtml" />
+    <Content Include="Views\CondicaoPrecoes\Create.cshtml" />
+    <Content Include="Views\CondicaoPrecoes\Delete.cshtml" />
+    <Content Include="Views\CondicaoPrecoes\Details.cshtml" />
+    <Content Include="Views\CondicaoPrecoes\Edit.cshtml" />
+    <Content Include="Views\CondicaoPrecoes\Index.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Create.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Delete.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Details.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Edit.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Index.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Create.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Delete.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Details.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Edit.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2580,6 +2617,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711221741476_Indices.resx">
       <DependentUpon>201711221741476_Indices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231615419_CondicoesPrecos.resx">
+      <DependentUpon>201711231615419_CondicoesPrecos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231658398_PrecosExportacao.resx">
+      <DependentUpon>201711231658398_PrecosExportacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231738209_RenameToPctDespExportEspecInPrecoExportacao.resx">
+      <DependentUpon>201711231738209_RenameToPctDespExportEspecInPrecoExportacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241145027_DespesasExportacao.resx">
+      <DependentUpon>201711241145027_DespesasExportacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

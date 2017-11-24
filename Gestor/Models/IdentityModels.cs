@@ -31,11 +31,13 @@ namespace Gestor.Models
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ClasseCusto> ClassesCusto { get; set; }
         public DbSet<Carga> Cargas { get; set; }
+        public DbSet<CondicaoPreco> CondicoesPrecos { get; set; }
         public DbSet<Comum> Comuns { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoCargoDireto> CustoCargoDiretos { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
+        public DbSet<DespesaExportacao> DespesasExportacao { get; set; }
         public DbSet<DespesaFixa> DespesasFixas { get; set; }
         public DbSet<Dominio> Dominios { get; set; }
         public DbSet<Embal> Embals { get; set; }
@@ -62,6 +64,7 @@ namespace Gestor.Models
         public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
         public DbSet<PreForma> PreFormas { get; set; }
+        public DbSet<PrecoExportacao> PrecosExpostacao { get; set; }
         public DbSet<PrecoNacional> PrecosNacionais { get; set; }
         public DbSet<PrensaPreForma> PrensasPreForma { get; set; }
         public DbSet<ProcTubo> ProcTubos { get; set; }

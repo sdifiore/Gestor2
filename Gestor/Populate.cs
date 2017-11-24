@@ -280,7 +280,7 @@ namespace Gestor
             db.SaveChanges();
         }
 
-        public static void PrecoNacional()      // ******************** Calculando com erro... Rever!
+        public static void PrecoNacional()
         {
             var db = new ApplicationDbContext();
             var model = db.PrecosNacionais.ToList();
@@ -299,6 +299,23 @@ namespace Gestor
             }
 
             db.SaveChanges();
+        }
+
+        public static void PrecoExportacao()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PrecosExpostacao.ToList();
+
+            foreach (var register in model)
+            {
+                register.De2A5 = FxPrecoExportacao.De2A5(register);     // F
+                register.De5A10 = FxPrecoExportacao.De5A10(register);     // G
+                register.De10A20 = FxPrecoExportacao.De10A20(register);     // H
+                register.Acima20 = FxPrecoExportacao.Acima20(register);     // I
+                register.IEfetiva = FxPrecoExportacao.IEfetiva(register);     // O
+                register.PvFobMax = FxPrecoExportacao.PvFobMax(register);     // S
+                register.PvFobMin = FxPrecoExportacao.PvFobMin(register);     // V  **********// Resolver tab Produtos primeiramente
+            }
         }
     }
 }
