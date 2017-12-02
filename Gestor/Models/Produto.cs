@@ -53,12 +53,14 @@ namespace Gestor.Models
         public GrupoRateio GrupoRateio { get; set; }
 
         [Display(Name = "Pelo Líquido")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float PesoLiquido { get; set; }
 
         [Display(Name = "Ativo")]
         public bool Ativo { get; set; }
 
         [Display(Name = "IPI")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
         public float Ipi { get; set; }
 
         [Display(Name = "Qt/un")]
@@ -83,45 +85,58 @@ namespace Gestor.Models
         public int QtUnPorUnArmz { get; set; }
 
         [Display(Name = "Peso Líquido Calculado")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float PesoLiquidoCalc { get; set; }
 
         [Display(Name = "Item Estrutura")]
         public int ItemStru { get; set; }
 
         [Display(Name = "Custo Direto Total")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustODirTotal { get; set; }
 
         [Display(Name = "Custo Mat última etapa")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstMatUltmEtapa { get; set; }
 
         [Display(Name = "Custo Mat etapa 1")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstMatEtapa1 { get; set; }
 
         [Display(Name = "Custo Mat etapa 2")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstMatEtapa2 { get; set; }
 
         [Display(Name = "Custo Mat etapa 3")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstMatEtapa3 { get; set; }
 
         [Display(Name = "Custo Tot Materiais")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstTotMaterial { get; set; }
 
         [Display(Name = "Custo Direto MOD")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoDirMod { get; set; }
 
         [Display(Name = "Horas MOD última etapa")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HorasModUltmEtapa { get; set; }
 
         [Display(Name = "Horas MOD etapa 1")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HorasModEtapa1 { get; set; }
 
         [Display(Name = "Horas MOD etapa 2")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HorasModEtapa2 { get; set; }
 
         [Display(Name = "Horas MOD Total")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HorasModTotal { get; set; }
 
         [Display(Name = "Capacidade Prod Hora")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float CapProdHora { get; set; }
 
         [Display(Name = "Lote Mínimo")]
@@ -137,15 +152,19 @@ namespace Gestor.Models
         public float RelModCstDir { get; set; }
 
         [Display(Name = "% mats etapa final")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
         public float PctMatEtapaFinal { get; set; }
 
         [Display(Name = "% mats etapa preced 1")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
         public float PctMatEtapa1 { get; set; }
 
         [Display(Name = "% mats etapa preced 2")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
         public float PctMatEtapa2 { get; set; }
 
         [Display(Name = "% mats etapa preced 3")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
         public float PctMatEtapa3 { get; set; }
 
         public virtual ICollection<Estrutura> Estrutura { get; set; }
@@ -154,44 +173,60 @@ namespace Gestor.Models
         public string Input { get; set; }
 
         [Display(Name = "Custo Fixo Total")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoFixoTotal { get; set; }
 
         [Display(Name = "MOI Fabricação")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float MoiFabricacao { get; set; }
 
         [Display(Name = "Outros Custos Fixos Fab")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float OutrosCustosFab { get; set; }
 
         [Display(Name = "COMACS + COMTEX p/ FPV")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float ComacsComtexFpv { get; set; }
 
         [Display(Name = "Custo Fixo Admin Logístico FPV")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoFixoAdminFpv { get; set; }
 
         [Display(Name = "R$ MOI + Desp. Fabr / hMOD")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float RsMoiDespFabHMod { get; set; }
 
         [Display(Name = "R$ SG&A / hMOD")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float RsSgNAHMod { get; set; }
 
         [Display(Name = "Custo Fixo Total p/ AnR")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoFixoTotalAnr { get; set; }
 
         [Display(Name = "MOI fabricação p/ AnR")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float MoiFabricAnr { get; set; }
 
         [Display(Name = "Outros custos fabric AnR")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float OutrosCustosFabricAnr { get; set; }
 
         [Display(Name = "Custo Fixo COMACS + COMTEX AnR")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoFixoComacsCmtexAnr { get; set; }
 
         [Display(Name = "Custo Fixo Admin Logístico Anr")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoFixoAdminAnr { get; set; }
 
         [Display(Name = "Tamanho")]
         public int MedidaFitaId { get; set; }
 
         public MedidaFita MedidaFita { get; set; }
+
+        [Display(Name = "% PTFE em Peso")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
+        public float PctPtfePeso { get; set; }
     }
 }

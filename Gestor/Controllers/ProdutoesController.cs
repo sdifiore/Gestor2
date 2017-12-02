@@ -15,8 +15,6 @@ namespace Gestor.Controllers
         [Route]
         public ActionResult Index()
         {
-            // Populate.Produto();
-
             var produtos = db.Produtos
                 .Include(p => p.Categoria)
                 .Include(p => p.ClasseCusto)
@@ -24,9 +22,11 @@ namespace Gestor.Controllers
                 .Include(p => p.Familia)
                 .Include(p => p.GrupoRateio)
                 .Include(p => p.Linha)
+                .Include(p => p.MedidaFita)
                 .Include(p => p.Pcp)
                 .Include(p => p.Tipo)
                 .Include(p => p.Unidade)
+                .Include(p => p.TipoProd)
                 .OrderBy(p => p.Apelido);
 
             return View(produtos.ToList());
@@ -61,6 +61,7 @@ namespace Gestor.Controllers
         }
 
         // GET: Produtoes/Create
+        [Route("Create")]
         public ActionResult Create()
         {
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido");
@@ -69,6 +70,7 @@ namespace Gestor.Controllers
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido");
             ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao");
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido");
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido");
             ViewBag.PcpId = new SelectList(db.Pcps, "PcpId", "Descricao");
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido");
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
@@ -80,7 +82,7 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3")] Produto produto)
+        public ActionResult Create([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3,Input,CustoFixoTotal,MoiFabricacao,OutrosCustosFab,ComacsComtexFpv,CustoFixoAdminFpv,RsMoiDespFabHMod,RsSgNAHMod,CustoFixoTotalAnr,MoiFabricAnr,OutrosCustosFabricAnr,CustoFixoComacsCmtexAnr,CustoFixoAdminAnr,MedidaFitaId")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +97,7 @@ namespace Gestor.Controllers
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
             ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
             ViewBag.PcpId = new SelectList(db.Pcps, "PcpId", "Descricao", produto.PcpId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
@@ -102,6 +105,7 @@ namespace Gestor.Controllers
         }
 
         // GET: Produtoes/Edit/5
+        [Route("Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -113,12 +117,15 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
+            produto.PctPtfePeso = produto.PctPtfePeso * 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
             ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
             ViewBag.PcpId = new SelectList(db.Pcps, "PcpId", "Descricao", produto.PcpId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
@@ -130,7 +137,7 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3,Input,CustoFixoTotal,MoiFabricacao,OutrosCustosFab,ComacsComtexFpv,CustoFixoAdminFpv,RsMoiDespFabHMod,RsSgNAHMod,CustoFixoTotalAnr,MoiFabricAnr,OutrosCustosFabricAnr,CustoFixoComacsCmtexAnr,CustoFixoAdminAnr,MedidaFitaId")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -138,12 +145,15 @@ namespace Gestor.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            produto.PctPtfePeso = produto.PctPtfePeso / 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
             ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
             ViewBag.PcpId = new SelectList(db.Pcps, "PcpId", "Descricao", produto.PcpId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);

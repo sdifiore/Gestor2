@@ -1,7 +1,5 @@
 ﻿using Gestor.Models;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Gestor
@@ -24,8 +22,9 @@ namespace Gestor
         public static int ItemStru(Produto produto)     // S
         {
             var db = new ApplicationDbContext();
+            var result = db.Estruturas.Count(e => e.ProdutoId == produto.Id);
 
-            return db.Estruturas.Count(e => e.Item == produto.Apelido);
+            return result;
         }
 
         public static float CustoDirTotal(Produto produto)      // T
@@ -34,10 +33,9 @@ namespace Gestor
             float result;
             IQueryable<Estrutura> estrutura;
 
-
             if (produto.Categoria.Descricao != XmlReader.Read("MercadoriaRevenda"))
             {
-                estrutura = db.Estruturas.Where(e => e.Item == produto.Apelido);
+                estrutura = db.Estruturas.Where(e => e.ProdutoId == produto.Id);
                 result = estrutura.Any() ? estrutura.Sum(e => e.CstCmprUndPrd) : 0;
             }
                 
@@ -108,19 +106,11 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var comp1 = XmlReader.Read("SequenciaE1");
             var comp2 = XmlReader.Read("SequenciaE2");
-            float result = 0;
-
-            var operando1 = db.Estruturas.Where(e => e.Produto.Apelido == produto.Apelido && e.Sequencia.Tipo == comp1);
-
-            if (operando1.Any())
-            {
-                var operando2 = db.Estruturas.Where(e => e.Produto.Apelido == produto.Apelido && e.Sequencia.Tipo == comp2);
-
-                if (operando2.Any())
-                {
-                    result = operando1.Sum(e => e.HrsModFnl) + operando2.Sum(e => e.HrsModFnl);
-                }
-            }
+            var estrutura = db.Estruturas.Where(e => e.Produto.Apelido == produto.Apelido && e.Sequencia.Tipo == comp1);
+            float a = estrutura.Any() ? estrutura.Sum(e => e.HrsModFnl) : 0;
+            estrutura = db.Estruturas.Where(e => e.Produto.Apelido == produto.Apelido && e.Sequencia.Tipo == comp2);
+            float b = estrutura.Any() ? estrutura.Sum(e => e.HrsModFnl) : 0;
+            float result = a + b;
 
             return result;
         }
@@ -168,8 +158,8 @@ namespace Gestor
         {
             var db = new ApplicationDbContext();
             string grupoDeRateio = db.GruposRateio.Single(gr => gr.GrupoRateioId == produto.GrupoRateioId).Descricao;
-            var rateio = db.Rateios.SingleOrDefault(r => r.Grupo == grupoDeRateio);
-            int result = 0;
+            var rateio = db.Rateios.SingleOrDefault(r => r.Grupo.ToLower() == grupoDeRateio.ToLower());
+            int result = produto.QtUnPorUnArmz;
 
             if (rateio != null)
             {

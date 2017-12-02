@@ -73,12 +73,20 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult PrecoExportacao()
+        {
+            Populate.PrecoExportacao();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.PrecoNacional();
             Populate.Insumo();
             Populate.Estrutura();
             Populate.Produto();
+            Populate.PrecoExportacao();
             Populate.EncapTubos();
             Populate.Graxas();
             Populate.PreForma();

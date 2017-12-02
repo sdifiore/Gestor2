@@ -23,7 +23,8 @@ namespace Gestor.Controllers
                 .Include(i => i.Finalidade)
                 .Include(i => i.Linha)
                 .Include(i => i.Tipo)
-                .Include(i => i.UnidadeConsumo);
+                .Include(i => i.UnidadeConsumo)
+                .OrderBy(i => i.Apelido);
 
             return View(insumos.ToList());
         }

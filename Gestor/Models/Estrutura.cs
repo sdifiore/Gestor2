@@ -56,12 +56,15 @@ namespace Gestor.Models
         public string Observacao { get; set; }
 
         [Display(Name = "Parte no Custo")]
+        [DisplayFormat(DataFormatString = "{0:P1}")]
         public float PartCusto { get; set; }
 
         [Display(Name = "Qt Eff unit comp")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float QtEftvUntrCmpnt { get; set; }
 
         [Display(Name = "Cst Compr Un Prod")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstCmprUndPrd { get; set; }
 
         [Display(Name = "Tipo Item Custo")]
@@ -71,24 +74,30 @@ namespace Gestor.Models
         public string AlrtSbPrdt { get; set; }
 
         [Display(Name = "Tempo máquina")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float TempMaq { get; set; }
 
         [Display(Name = "Qtd por  Unidade")]
         public int QtdUndd { get; set; }
 
         [Display(Name = "Peso Liq Final")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float PsLiqdFnl { get; set; }
 
         [Display(Name = "Peso Liq Precedente")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float PsLiqdPrcdt { get; set; }
 
         [Display(Name = "Horas Mod Final")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HrsModFnl { get; set; }
 
         [Display(Name = "Horas Mod Prec 1")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HrsModPrec1 { get; set; }
 
         [Display(Name = "Horas Mod Prec 2")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float HrsModPrec2 { get; set; }
 
         [Display(Name = "Id Produto")]
@@ -98,6 +107,7 @@ namespace Gestor.Models
         public string IdCmpnt { get; set; }
 
         [Display(Name = "Prod Horária")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float PdrHoraria { get; set; }
 
         [Display(Name = "Prod-comp")]
@@ -105,18 +115,23 @@ namespace Gestor.Models
         public string ProdComp { get; set; }
 
         [Display(Name = "Custo Individual")]
+        [DisplayFormat(DataFormatString = "{0:N5}")]
         public float CstIndividual { get; set; }
 
         [Display(Name = "Cust Material Direto")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float CstMtrlDrt { get; set; }
 
         [Display(Name = "Cust Material Prec 1")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float CstMtrlPrcd1 { get; set; }
 
         [Display(Name = "Cust Material Prec 2")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float CstMtrlPrcd2 { get; set; }
 
         [Display(Name = "Cust Material Prec 3")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float CstMtrlPrcd3 { get; set; }
 
         public bool Header { get; set; }

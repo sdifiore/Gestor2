@@ -132,8 +132,9 @@ namespace Gestor
             return result;
         }
 
-        public static float QtEftvUntrCmpnt(Estrutura estrutura)
-        {
+        public static float QtEftvUntrCmpnt(Estrutura estrutura)        // O
+        
+            {
             var db = new ApplicationDbContext();
 
             float a = estrutura.Onera
@@ -144,15 +145,21 @@ namespace Gestor
                 ? 1
                 : 1 / (1 - estrutura.Perda);
 
-            float c = estrutura.QtdCusto > Global.Tolerance
+            float c = Math.Abs(estrutura.QtdCusto) > Global.Tolerance
                 ? estrutura.Lote / estrutura.QtdCusto * kd
                 : 0;
 
-            float b = estrutura.Sequencia.Tipo == XmlReader.Read("SequenciaE1").Substring(0, 1)
-                ? db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).Custo
-                : 0;
+            float b = 1;
 
-            return a * b * c;
+            if (estrutura.Sequencia.Tipo.Substring(0, 1) == XmlReader.Read("SequenciaE1").Substring(0, 1))
+            {
+                var operacao = db.Operacoes.SingleOrDefault(o => o.CodigoOperacao == estrutura.Item);
+                if (operacao != null) b = operacao.TaxaOcupacao;
+            }
+
+            float result = a * b * c;
+
+            return result;
         }
 
         public static float CstCmprUndPrd(Estrutura estrutura)
@@ -173,7 +180,7 @@ namespace Gestor
             if (stru.Any())
             {
                 float soma = stru.Sum(e => e.CustoUnitCompra);
-                result = soma < Global.Tolerance
+                result = Math.Abs(soma) < Global.Tolerance
                     ? 0
                     : estrutura.CustoUnitCompra / soma;
             }
@@ -187,7 +194,7 @@ namespace Gestor
             var produto = db.Produtos.SingleOrDefault(p => p.Apelido == estrutura.Item);
 
             string result = produto != null
-                ? db.Categorias.Single(c => c.CategoriaId == produto.CategoriaId).Descricao
+                ? db.ClassesCusto.Single(c => c.ClasseCustoId == produto.ClasseCustoId).Descricao
                 : "";
 
             return result;
@@ -198,39 +205,54 @@ namespace Gestor
             var db = new ApplicationDbContext();
             string tpItmCst = $"{estrutura.TpItmCst}{Global.Space20}";
             float result = tpItmCst.Substring(0, 5) == "c-MOD"
-                ? db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).TaxaOcupacao
+                ? estrutura.QtEftvUntrCmpnt / db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).TaxaOcupacao
                 : 0;
 
             return result;
         }
 
+        public static int QtdUndd(Estrutura estrutura)
+        {
+            return estrutura.Produto.QtdUnid;
+
+        }
+
         public static float PsLiqdFnl(Estrutura estrutura)      // U
         {
-            float result = estrutura.QtdCusto > Global.Tolerance && estrutura.Sequencia.Descricao == "A" &&
-                           estrutura.UnidadeCompra.Apelido == "Kg"
+            
+            var db = new ApplicationDbContext();
+            string unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeCompraId).Apelido;
+            float result = Math.Abs(estrutura.QtdCusto) 
+                > Global.Tolerance 
+                && estrutura.Sequencia.Tipo == "A" 
+                && unidade == "kg"
                 ? estrutura.Lote / estrutura.QtdCusto
                 : 0;
 
             return result;
         }
-
         public static float PesoLiqPrec(Estrutura estrutura)    // V
         {
             var db = new ApplicationDbContext();
-            float result = estrutura.Sequencia.Descricao == XmlReader.Read("SequenciaA") && estrutura.UnidadeCompra.Apelido == "Kg" &&
-                           estrutura.TpItmCst == XmlReader.Read("Manufaturado")
-                ? db.Estruturas.Where(e => e.Produto.Apelido == estrutura.Item).Sum(e => e.PsLiqdFnl) * estrutura.Lote /
-                  estrutura.QtdCusto
-                : 0;
+            float result = 0;
+            string sequencia = XmlReader.Read("SequenciaA");
+            string unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeCompraId).Apelido;
+
+            if (estrutura.Sequencia.Tipo == sequencia
+                && estrutura.TpItmCst == XmlReader.Read("Manufaturado")
+                && unidade != "kg")
+            {
+                var produto = db.Estruturas.Where(e => e.Produto.Apelido == estrutura.Item);
+                if (produto.Any()) result = produto.Sum(e => e.PsLiqdFnl) * estrutura.Lote / estrutura.QtdCusto;
+            }
 
             return result;
         }
 
         public static float HrsModFnl(Estrutura estrutura)      // W
         {
-            float result = estrutura.QtdCusto > Global.Tolerance &&
-                           estrutura.Sequencia.Descricao == XmlReader.Read("SequenciaE1").Substring(0, 1) &&
-                           estrutura.UnidadeCompra.Apelido == "Kg"
+            float result = Math.Abs(estrutura.QtdCusto) > Global.Tolerance
+                && estrutura.Sequencia.Tipo.Substring(0, 1) == XmlReader.Read("SequenciaE1").Substring(0, 1)
                 ? estrutura.QtEftvUntrCmpnt
                 : 0;
 
@@ -241,7 +263,7 @@ namespace Gestor
         {
             var db = new ApplicationDbContext();
             float result = estrutura.TpItmCst == XmlReader.Read("Manufaturado") && estrutura.Onera
-                ? db.Produtos.Single(p => p.Apelido == estrutura.Item).HorasModUltmEtapa
+                ? db.Produtos.Single(p => p.Apelido == estrutura.Item).HorasModUltmEtapa * estrutura.QtEftvUntrCmpnt
                 : 0;
 
             return result;
@@ -251,7 +273,7 @@ namespace Gestor
         {
             var db = new ApplicationDbContext();
             float result = estrutura.TpItmCst == XmlReader.Read("Manufaturado") && estrutura.Onera
-                ? db.Produtos.Single(p => p.Apelido == estrutura.Item).HorasModEtapa1
+                ? db.Produtos.Single(p => p.Apelido == estrutura.Item).HorasModEtapa1 * estrutura.QtEftvUntrCmpnt
                 : 0;
 
             return result;
@@ -260,11 +282,11 @@ namespace Gestor
         public static string IdProd(Estrutura estrutura)        // Z
         {
             var db = new ApplicationDbContext();
-            var produto = db.Produtos.SingleOrDefault(p => p.Apelido == estrutura.Item);
+            var produto = db.Produtos.SingleOrDefault(p => p.Id == estrutura.ProdutoId);
 
             if (produto == null)
             {
-                DbLogger.Log(Reason.Error,$"Erro: Produto {estrutura.Item} não encontrado");
+                DbLogger.Log(Reason.Error,$"Erro: Produto {estrutura.ProdutoId} não encontrado");
                 return "Erro";
             }
 
@@ -275,7 +297,7 @@ namespace Gestor
         public static string IdCmpnt(Estrutura estrutura)       // AA
         {
             var db = new ApplicationDbContext();
-            string unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeId).Apelido;
+            string unidade = db.Unidades.Single(u => u.UnidadeId == estrutura.UnidadeCompraId).Apelido;
 
             return $"{estrutura.Item}-{estrutura.DescCompProc}-{unidade}";
         }
@@ -284,9 +306,9 @@ namespace Gestor
         {
             float result = 0;
 
-            if (estrutura.Sequencia.Descricao == XmlReader.Read("SequenciaE1").Substring(0, 1))
+            if (estrutura.Sequencia.Tipo.Substring(0, 1) == XmlReader.Read("SequenciaE1").Substring(0, 1))
             {
-                if (estrutura.Lote > Global.Tolerance)
+                if (Math.Abs(estrutura.Lote) > Global.Tolerance)
                 {
                     result = estrutura.QtdCusto / estrutura.Lote / (1 - estrutura.Perda);
                 }
@@ -303,8 +325,11 @@ namespace Gestor
         public static float CstIndividual(Estrutura estrutura)      // AD
         {
             var db = new ApplicationDbContext();
+            float quantidade = db.Produtos.Single(p => p.Apelido == estrutura.Produto.Apelido).QtdUnid;
+            float result = float.MaxValue;
+            if (Math.Abs(quantidade) > Global.Tolerance) result = estrutura.CstCmprUndPrd / quantidade;
 
-            return db.Produtos.Single(p => p.Apelido == estrutura.Produto.Apelido).QtdUnid;
+            return result;
         }
 
         public static float CstMtrlDrt(Estrutura estrutura)     // AE

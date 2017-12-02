@@ -649,6 +649,10 @@
     <Compile Include="Migrations\201711241145027_DespesasExportacao.Designer.cs">
       <DependentUpon>201711241145027_DespesasExportacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711291050461_AddPctPtfePesoToProdutos.cs" />
+    <Compile Include="Migrations\201711291050461_AddPctPtfePesoToProdutos.Designer.cs">
+      <DependentUpon>201711291050461_AddPctPtfePesoToProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -1681,18 +1685,12 @@
     <Content Include="Views\Insumoes\Details.cshtml" />
     <Content Include="Views\Insumoes\Edit.cshtml" />
     <Content Include="Views\Insumoes\Index.cshtml" />
-    <Content Include="Views\Produtoes\Create.cshtml" />
-    <Content Include="Views\Produtoes\Delete.cshtml" />
-    <Content Include="Views\Produtoes\Details.cshtml" />
-    <Content Include="Views\Produtoes\Edit.cshtml" />
-    <Content Include="Views\Produtoes\Index.cshtml" />
     <Content Include="Views\Estruturas\Create.cshtml" />
     <Content Include="Views\Estruturas\Delete.cshtml" />
     <Content Include="Views\Estruturas\Details.cshtml" />
     <Content Include="Views\Estruturas\Edit.cshtml" />
     <Content Include="Views\Estruturas\Index.cshtml" />
     <Content Include="Views\Calculo\Index.cshtml" />
-    <Content Include="Views\Produtoes\Search.cshtml" />
     <Content Include="Views\EncapTuboes\Create.cshtml" />
     <Content Include="Views\EncapTuboes\Delete.cshtml" />
     <Content Include="Views\EncapTuboes\Details.cshtml" />
@@ -1818,16 +1816,21 @@
     <Content Include="Views\CondicaoPrecoes\Details.cshtml" />
     <Content Include="Views\CondicaoPrecoes\Edit.cshtml" />
     <Content Include="Views\CondicaoPrecoes\Index.cshtml" />
-    <Content Include="Views\PrecoExportacaos\Create.cshtml" />
-    <Content Include="Views\PrecoExportacaos\Delete.cshtml" />
-    <Content Include="Views\PrecoExportacaos\Details.cshtml" />
-    <Content Include="Views\PrecoExportacaos\Edit.cshtml" />
-    <Content Include="Views\PrecoExportacaos\Index.cshtml" />
     <Content Include="Views\DespesaExportacaos\Create.cshtml" />
     <Content Include="Views\DespesaExportacaos\Delete.cshtml" />
     <Content Include="Views\DespesaExportacaos\Details.cshtml" />
     <Content Include="Views\DespesaExportacaos\Edit.cshtml" />
     <Content Include="Views\DespesaExportacaos\Index.cshtml" />
+    <Content Include="Views\Produtoes\Create.cshtml" />
+    <Content Include="Views\Produtoes\Delete.cshtml" />
+    <Content Include="Views\Produtoes\Details.cshtml" />
+    <Content Include="Views\Produtoes\Edit.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Create.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Delete.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Details.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Edit.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2629,6 +2632,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711241145027_DespesasExportacao.resx">
       <DependentUpon>201711241145027_DespesasExportacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711291050461_AddPctPtfePesoToProdutos.resx">
+      <DependentUpon>201711291050461_AddPctPtfePesoToProdutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

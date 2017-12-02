@@ -20,6 +20,7 @@ namespace Gestor.Controllers
                 .Include(e => e.Produto)
                 .Include(e => e.Sequencia)
                 .Include(e => e.Unidade);
+                //.Take(100);
 
             return View(estruturas.ToList());
         }

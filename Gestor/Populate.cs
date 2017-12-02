@@ -35,13 +35,13 @@ namespace Gestor
                 register.AlrtSbPrdt = FxEstrutura.AlrtSbPrdt(register);     // R
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
                 register.TpItmCst = FxEstrutura.TipoItemCusto(register);    // Q
-                register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H
+                //register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H
                 register.CustoUnitCompra = FxEstrutura.CustoUnitCompra(register);   // I
                 register.QtEftvUntrCmpnt = FxEstrutura.QtEftvUntrCmpnt(register);   // O
                 register.CstCmprUndPrd = FxEstrutura.CstCmprUndPrd(register);   // P
                 register.PartCusto = FxEstrutura.PartCusto(register);   // N
                 register.TempMaq = FxEstrutura.TempMaq(register);   // S
-                register.QtdUndd = register.Produto.QtUnPorUnArmz;  // T
+                register.QtdUndd = FxEstrutura.QtdUndd(register);  // T
                 register.PsLiqdFnl = FxEstrutura.PsLiqdFnl(register);   // U
                 register.PsLiqdPrcdt = FxEstrutura.PesoLiqPrec(register);   // V
                 register.HrsModFnl = FxEstrutura.HrsModFnl(register);   // W
@@ -304,18 +304,27 @@ namespace Gestor
         public static void PrecoExportacao()
         {
             var db = new ApplicationDbContext();
-            var model = db.PrecosExpostacao.ToList();
+            var model = db.PrecosExpostacao
+                .Include(p => p.CondicaoPreco)
+                .ToList();
 
             foreach (var register in model)
             {
-                register.De2A5 = FxPrecoExportacao.De2A5(register);     // F
-                register.De5A10 = FxPrecoExportacao.De5A10(register);     // G
-                register.De10A20 = FxPrecoExportacao.De10A20(register);     // H
-                register.Acima20 = FxPrecoExportacao.Acima20(register);     // I
-                register.IEfetiva = FxPrecoExportacao.IEfetiva(register);     // O
-                register.PvFobMax = FxPrecoExportacao.PvFobMax(register);     // S
-                register.PvFobMin = FxPrecoExportacao.PvFobMin(register);     // V  **********// Resolver tab Produtos primeiramente
+                if (register.Apelido != "--")
+                {
+                    register.IEfetiva = FxPrecoExportacao.IEfetiva(register);     // O
+                    register.De2A5 = FxPrecoExportacao.De2A5(register);     // F
+                    register.De5A10 = FxPrecoExportacao.De5A10(register);     // G
+                    register.De10A20 = FxPrecoExportacao.De10A20(register);     // H
+                    register.Acima20 = FxPrecoExportacao.Acima20(register);     // I
+                    register.PvFobMax = FxPrecoExportacao.PvFobMax(register);     // S
+                    register.PvFobMin = FxPrecoExportacao.PvFobMin(register);     // V 
+                    register.ValorCifPtfe = FxPrecoExportacao.ValorCifPtfe(register);     // W
+                    register.RelPtfeSobrePv = FxPrecoExportacao.RelPtfeSobrePv(register);     // X
+                }
             }
+
+            db.SaveChanges();
         }
     }
 }

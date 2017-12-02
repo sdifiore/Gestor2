@@ -20,13 +20,14 @@ namespace Gestor.Controllers
         }
 
         // GET: PrecoExportacaos/Details/5
+        [Route("Detail")]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FxPrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
+            PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
             if (precoExportacao == null)
             {
                 return HttpNotFound();
@@ -35,6 +36,7 @@ namespace Gestor.Controllers
         }
 
         // GET: PrecoExportacaos/Create
+        [Route("Create")]
         public ActionResult Create()
         {
             ViewBag.CondicaoPrecoId = new SelectList(db.CondicoesPrecos, "Id", "Apelido");
@@ -46,7 +48,7 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LinhaUn,Descricao,Apelido,PesoLiquido,QtUnid,De2A5,De5A10,De10A20,Acima20,Com,LlMin,CondicaoPrecoId,PctRateio,CondPag,IEfetiva,PctEspecFrete,DespExpPadrao,PctDespExportEspec,PvFobMax,CustoDireto,RateioCustoFixo,PvFobMin,ValorCifPtfe,RelPtfeSobrePv")] FxPrecoExportacao precoExportacao)
+        public ActionResult Create([Bind(Include = "Id,LinhaUn,Descricao,Apelido,PesoLiquido,QtUnid,De2A5,De5A10,De10A20,Acima20,Com,LlMin,CondicaoPrecoId,PctRateio,CondPag,IEfetiva,PctEspecFrete,DespExpPadrao,PctDespExportEspec,PvFobMax,CustoDireto,RateioCustoFixo,PvFobMin,ValorCifPtfe,RelPtfeSobrePv")] PrecoExportacao precoExportacao)
         {
             if (ModelState.IsValid)
             {
@@ -60,13 +62,14 @@ namespace Gestor.Controllers
         }
 
         // GET: PrecoExportacaos/Edit/5
+        [Route("Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FxPrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
+            PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
             if (precoExportacao == null)
             {
                 return HttpNotFound();
@@ -80,7 +83,7 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,LinhaUn,Descricao,Apelido,PesoLiquido,QtUnid,De2A5,De5A10,De10A20,Acima20,Com,LlMin,CondicaoPrecoId,PctRateio,CondPag,IEfetiva,PctEspecFrete,DespExpPadrao,PctDespExportEspec,PvFobMax,CustoDireto,RateioCustoFixo,PvFobMin,ValorCifPtfe,RelPtfeSobrePv")] FxPrecoExportacao precoExportacao)
+        public ActionResult Edit([Bind(Include = "Id,LinhaUn,Descricao,Apelido,PesoLiquido,QtUnid,De2A5,De5A10,De10A20,Acima20,Com,LlMin,CondicaoPrecoId,PctRateio,CondPag,IEfetiva,PctEspecFrete,DespExpPadrao,PctDespExportEspec,PvFobMax,CustoDireto,RateioCustoFixo,PvFobMin,ValorCifPtfe,RelPtfeSobrePv")] PrecoExportacao precoExportacao)
         {
             if (ModelState.IsValid)
             {
@@ -93,13 +96,14 @@ namespace Gestor.Controllers
         }
 
         // GET: PrecoExportacaos/Delete/5
+        [Route("Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FxPrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
+            PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
             if (precoExportacao == null)
             {
                 return HttpNotFound();
@@ -112,7 +116,7 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FxPrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
+            PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
             db.PrecosExpostacao.Remove(precoExportacao);
             db.SaveChanges();
             return RedirectToAction("Index");
