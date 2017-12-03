@@ -326,5 +326,27 @@ namespace Gestor
 
             db.SaveChanges();
         }
+
+        public static void DfxProdRev()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.DfxProdRevs.ToList();
+
+            foreach (var register in model)
+            {
+                register.ValorCompra = FxDfxProdRev.ValorCompra(register);      // G
+                register.RateioDfixProduto = FxDfxProdRev.RateioDfixProduto(register);      // H ** Depende de Desp Fixas em Planilha 2, com erro
+                register.RateioDfixProdutoUnitario = FxDfxProdRev.RateioDfixProdutoUnitario(register);      // I
+                register.DespsFabrica = FxDfxProdRev.DespsFabrica(register);      // K ** Depende de Desp Fixas em Planilha 2, com erro
+                register.DespsDepComercial = FxDfxProdRev.DespsDepComercial(register);      // L ** Depende de Desp Fixas em Planilha 2, com erro
+                register.DespsDeptAdminLog = FxDfxProdRev.DespsDeptAdminLog(register);      // M ** Depende de Desp Fixas em Planilha 2, com erro
+                register.QtdRolos = FxDfxProdRev.QtdRolos(register);      // N
+                register.RateioDfixUnidade = FxDfxProdRev.RateioDfixUnidade(register);      // O
+                register.ProporcaoCusto = FxDfxProdRev.ProporcaoCusto(register, model.Sum(m => m.ValorCompra));      // P
+                register.ProporcaoEmCxs = FxDfxProdRev.ProporcaoEmCxs(register, model.Sum(m => m.QtdCompra));      // Q
+            }
+
+            db.SaveChanges();
+        }
     }
 }

@@ -231,6 +231,7 @@
     <Compile Include="Controllers\CustoCargoDiretoesController.cs" />
     <Compile Include="Controllers\DespesaExportacaosController.cs" />
     <Compile Include="Controllers\DespesaFixasController.cs" />
+    <Compile Include="Controllers\DfxProdRevsController.cs" />
     <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Controllers\ResinasController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Function.cs" />
+    <Compile Include="FxDfxProdRev.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxPrecoNacional.cs" />
     <Compile Include="FxProduto.cs" />
@@ -657,6 +659,10 @@
     <Compile Include="Migrations\201712031330043_MakeTipoProdVirtualInPrtodutos.Designer.cs">
       <DependentUpon>201712031330043_MakeTipoProdVirtualInPrtodutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712031543232_DfxProdRev.cs" />
+    <Compile Include="Migrations\201712031543232_DfxProdRev.Designer.cs">
+      <DependentUpon>201712031543232_DfxProdRev.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -664,6 +670,7 @@
     <Compile Include="Models\CustoCargoDireto.cs" />
     <Compile Include="Models\DespesaFixa.cs" />
     <Compile Include="Models\DespesaExportacao.cs" />
+    <Compile Include="Models\DfxProdRev.cs" />
     <Compile Include="Models\Embal.cs" />
     <Compile Include="Models\EncapTubo.cs" />
     <Compile Include="Models\Extrusora.cs" />
@@ -1835,6 +1842,11 @@
     <Content Include="Views\PrecoExportacaos\Details.cshtml" />
     <Content Include="Views\PrecoExportacaos\Edit.cshtml" />
     <Content Include="Views\PrecoExportacaos\Index.cshtml" />
+    <Content Include="Views\DfxProdRevs\Create.cshtml" />
+    <Content Include="Views\DfxProdRevs\Delete.cshtml" />
+    <Content Include="Views\DfxProdRevs\Details.cshtml" />
+    <Content Include="Views\DfxProdRevs\Edit.cshtml" />
+    <Content Include="Views\DfxProdRevs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2642,6 +2654,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712031330043_MakeTipoProdVirtualInPrtodutos.resx">
       <DependentUpon>201712031330043_MakeTipoProdVirtualInPrtodutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031543232_DfxProdRev.resx">
+      <DependentUpon>201712031543232_DfxProdRev.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -80,8 +80,16 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult DfxProdRev()
+        {
+            Populate.DfxProdRev();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
+            Populate.DfxProdRev();
             Populate.PrecoNacional();
             Populate.Insumo();
             Populate.Estrutura();
