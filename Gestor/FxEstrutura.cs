@@ -162,7 +162,7 @@ namespace Gestor
             return result;
         }
 
-        public static float CstCmprUndPrd(Estrutura estrutura)
+        public static float CstCmprUndPrd(Estrutura estrutura)      // P
         {
             float r = estrutura.AlrtSbPrdt == XmlReader.Read("Subproduto")
                 ? 1 - estrutura.Perda

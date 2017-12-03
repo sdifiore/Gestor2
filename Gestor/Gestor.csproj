@@ -653,6 +653,10 @@
     <Compile Include="Migrations\201711291050461_AddPctPtfePesoToProdutos.Designer.cs">
       <DependentUpon>201711291050461_AddPctPtfePesoToProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712031330043_MakeTipoProdVirtualInPrtodutos.cs" />
+    <Compile Include="Migrations\201712031330043_MakeTipoProdVirtualInPrtodutos.Designer.cs">
+      <DependentUpon>201712031330043_MakeTipoProdVirtualInPrtodutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -2635,6 +2639,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291050461_AddPctPtfePesoToProdutos.resx">
       <DependentUpon>201711291050461_AddPctPtfePesoToProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031330043_MakeTipoProdVirtualInPrtodutos.resx">
+      <DependentUpon>201712031330043_MakeTipoProdVirtualInPrtodutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

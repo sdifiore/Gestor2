@@ -47,6 +47,7 @@ namespace Gestor.Models
         public Linha Linha { get; set; }
 
         [Display(Name = "Peso")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float Peso { get; set; }
 
         [Display(Name = "Última atualização")]
@@ -160,7 +161,7 @@ namespace Gestor.Models
         public float Custo { get; set; }
 
         [Display(Name = "Custo Un Consumo")]
-        [DisplayFormat(DataFormatString = "{0:N2}")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CustoUndCnsm { get; set; }
 
         [Display(Name = "Pag Forn Import R$/un")]

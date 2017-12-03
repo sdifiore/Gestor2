@@ -159,12 +159,13 @@ namespace Gestor
             var db = new ApplicationDbContext();
             string grupoDeRateio = db.GruposRateio.Single(gr => gr.GrupoRateioId == produto.GrupoRateioId).Descricao;
             var rateio = db.Rateios.SingleOrDefault(r => r.Grupo.ToLower() == grupoDeRateio.ToLower());
-            int result = produto.QtUnPorUnArmz;
+            int result = 0;
 
             if (rateio != null)
             {
-                int temp = (int)Math.Ceiling(rateio.Horas * produto.CapProdHora);
-                result = temp > produto.QtUnPorUnArmz ? temp : produto.QtUnPorUnArmz;
+                float temp = (float)Math.Ceiling(rateio.Horas * produto.CapProdHora);
+                if (Math.Abs(produto.QtUnPorUnArmz) < Global.Tolerance) temp = 0;
+                result = temp > produto.QtUnPorUnArmz ? (int)temp : produto.QtUnPorUnArmz;
             }
 
             return result;

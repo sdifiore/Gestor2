@@ -74,7 +74,7 @@ namespace Gestor.Models
         [Display(Name = "Tipo Produção")]
         public int TipoProdId { get; set; }
 
-        public TipoProducao TipoProd { get; set; }
+        public virtual TipoProducao TipoProd { get; set; }
 
         [Display(Name = "PCP")]
         public int PcpId { get; set; }
