@@ -262,6 +262,8 @@ namespace Gestor
         public static float HrsModPrec1(Estrutura estrutura)        // X
         {
             var db = new ApplicationDbContext();
+            var boh = estrutura.Produto.Apelido;
+            var mah = estrutura.Item;
             float result = estrutura.TpItmCst == XmlReader.Read("Manufaturado") && estrutura.Onera
                 ? db.Produtos.Single(p => p.Apelido == estrutura.Item).HorasModUltmEtapa * estrutura.QtEftvUntrCmpnt
                 : 0;

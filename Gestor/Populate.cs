@@ -125,8 +125,21 @@ namespace Gestor
                 register.PctMatEtapa1 = FxProduto.PctMatEtapa1(register);       // AK
                 register.PctMatEtapa2 = FxProduto.PctMatEtapa2(register);       // AL
                 register.PctMatEtapa3 = FxProduto.PctMatEtapa3(register);       // AM
-                register.CustoFixoTotal = FxProduto.CustoFixoTotal(register);       // Planilha 2, S -- Fazer
-                register.MoiFabricacao = FxProduto.MoiFabricacao(register);     // T -- Fazer
+                register.CustoFixoTotal = FxProduto.CustoFixoTotal(register);       // Planilha 2, S
+                register.MoiFabricacao = FxProduto.MoiFabricacao(register);     // T
+                register.OutrosCustosFab = FxProduto.OutrosCustosFab(register);     // U
+                register.ComacsComtexFpv = FxProduto.ComacsComtexFpv(register);     // V
+                register.CustoFixoAdminLogFpv = FxProduto.CustoFixoAdminLogFpv(register);     // W
+                register.RsMoiDespFabHMod = FxProduto.RsMoiDespFabHMod(register);     // X
+                register.RsSgNAHMod = FxProduto.RsSgNAHMod(register);     // Y
+                register.CustoFixoTotalAnr = FxProduto.CustoFixoTotalAnr(register);     // Z
+                register.MoiFabricAnr = FxProduto.MoiFabricAnr(register);     // AA
+                register.OutrosCustosFabricAnr = FxProduto.OutrosCustosFabricAnr(register);     // AB
+                register.CustoFixoComacsCmtexAnr = FxProduto.CustoFixoComacsCmtexAnr(register);     // AC
+                register.CustoFixoAdminAnr = FxProduto.CustoFixoAdminAnr(register);     // AD
+                register.PropCustoFixoTotal = FxProduto.PropCustoFixoTotal(register);     // Planilha 4, T
+                register.CstDirUnidade = FxProduto.CstDirUnidade(register);     // U
+                register.CstIndirUnidade = FxProduto.CstIndirUnidade(register);     // V
 
             }
 

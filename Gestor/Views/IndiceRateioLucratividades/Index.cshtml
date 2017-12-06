@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Gestor.Models.IndiceRateioLucratividade>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo índice", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCustoFixo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoiFabricacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutroCustoFixoFabricacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoComacs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoComtex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminLog)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrupoRateio.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCustoFixo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoiFabricacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutroCustoFixoFabricacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoComacs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoComtex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoAdminLog)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

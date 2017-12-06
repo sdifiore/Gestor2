@@ -54,6 +54,8 @@ namespace Gestor.Models
         public DbSet<GrupoRateio> GruposRateio { get; set; }
         public DbSet<IcmsFrete> IcmsFretes { get; set; }
         public DbSet<Indice> Indices { get; set; }
+        public DbSet<IndiceRateioFormacaoPrecoVenda> IndiceRateioFormacaoPrecoVendas { get; set; }
+        public DbSet<IndiceRateioLucratividade> IndiceRateioLucratividades { get; set; }
         public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Linha> Linhas { get; set; }
         public DbSet<LogData> LogData { get; set; }

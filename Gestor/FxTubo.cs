@@ -39,7 +39,7 @@ namespace Gestor
         }
 
 
-        public static float RrMaxResina(ProcTubo procTubo)
+        public static float RrMaxResina(ProcTubo procTubo)      // M
         {
             float result = 0;
             var db = new ApplicationDbContext();
@@ -445,17 +445,19 @@ namespace Gestor
         public static float TuEmbalMinM(ProcTubo procTubo)        // AU
         {
             var db = new ApplicationDbContext();
+            var boh = procTubo.Cadastro;
             string temp = XmlReader.Read("TempoEmbalamento"); //23
             float embalamento = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             temp = XmlReader.Read("EficPadraoOpTubo"); //9
             float eficacia = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             temp = XmlReader.Read("TaxaOcupacaoEmbalamento"); //28
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
-            float intermediate = procTubo.QuantEmbalagem > Global.Tolerance
+            float intermediate = Math.Abs(procTubo.QuantEmbalagem) > Global.Tolerance
                 ? procTubo.QtPCusto / procTubo.QuantEmbalagem
                 : 0;
+            float result = intermediate * embalamento / procTubo.QtPCusto / eficacia * ocupacao;
 
-            return intermediate * embalamento / procTubo.QtPCusto / eficacia * ocupacao;
+            return result;
         }
 
         public static float TuTotalMinM(ProcTubo procTubo)      // AV

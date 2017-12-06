@@ -381,10 +381,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CustoFixoAdminFpv, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CustoFixoAdminLogFpv, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CustoFixoAdminFpv, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CustoFixoAdminFpv, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.CustoFixoAdminLogFpv, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustoFixoAdminLogFpv, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -451,6 +451,30 @@
                 @Html.ValidationMessageFor(model => model.MedidaFitaId, "", new { @class = "text-danger" })
             </div>
         </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PropCustoFixoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PropCustoFixoTotal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PropCustoFixoTotal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CstDirUnidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CstDirUnidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CstDirUnidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CstIndirUnidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CstIndirUnidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CstIndirUnidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

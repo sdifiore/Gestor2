@@ -240,6 +240,8 @@
     <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\IcmsFretesController.cs" />
+    <Compile Include="Controllers\IndiceRateioFormacaoPrecoVendasController.cs" />
+    <Compile Include="Controllers\IndiceRateioLucratividadesController.cs" />
     <Compile Include="Controllers\IndicesController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
     <Compile Include="Controllers\LubrificantesController.cs" />
@@ -663,6 +665,30 @@
     <Compile Include="Migrations\201712031543232_DfxProdRev.Designer.cs">
       <DependentUpon>201712031543232_DfxProdRev.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712041026384_IndiceRateioFormacaoPrecoVenda.cs" />
+    <Compile Include="Migrations\201712041026384_IndiceRateioFormacaoPrecoVenda.Designer.cs">
+      <DependentUpon>201712041026384_IndiceRateioFormacaoPrecoVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041036420_AddGrupoRateioToIndiceFormacaoPrecos.cs" />
+    <Compile Include="Migrations\201712041036420_AddGrupoRateioToIndiceFormacaoPrecos.Designer.cs">
+      <DependentUpon>201712041036420_AddGrupoRateioToIndiceFormacaoPrecos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051727083_RenameFieldToCustoFixoAdminLogFpvInProduto.cs" />
+    <Compile Include="Migrations\201712051727083_RenameFieldToCustoFixoAdminLogFpvInProduto.Designer.cs">
+      <DependentUpon>201712051727083_RenameFieldToCustoFixoAdminLogFpvInProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051812523_IndiceRateioLucratividade.cs" />
+    <Compile Include="Migrations\201712051812523_IndiceRateioLucratividade.Designer.cs">
+      <DependentUpon>201712051812523_IndiceRateioLucratividade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051814485_IndiceRateioLucratividade1.cs" />
+    <Compile Include="Migrations\201712051814485_IndiceRateioLucratividade1.Designer.cs">
+      <DependentUpon>201712051814485_IndiceRateioLucratividade1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712061220060_Sheet4ToProdutos.cs" />
+    <Compile Include="Migrations\201712061220060_Sheet4ToProdutos.Designer.cs">
+      <DependentUpon>201712061220060_Sheet4ToProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -679,6 +705,8 @@
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\IcmsFrete.cs" />
     <Compile Include="Models\Indice.cs" />
+    <Compile Include="Models\IndiceRateioFormacaoPrecoVenda.cs" />
+    <Compile Include="Models\IndiceRateioLucratividade.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\Lubrificante.cs" />
     <Compile Include="Models\PadraoFixo.cs" />
@@ -1847,6 +1875,16 @@
     <Content Include="Views\DfxProdRevs\Details.cshtml" />
     <Content Include="Views\DfxProdRevs\Edit.cshtml" />
     <Content Include="Views\DfxProdRevs\Index.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Create.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Delete.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Details.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Edit.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Index.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Create.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Delete.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Details.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Edit.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2657,6 +2695,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712031543232_DfxProdRev.resx">
       <DependentUpon>201712031543232_DfxProdRev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041026384_IndiceRateioFormacaoPrecoVenda.resx">
+      <DependentUpon>201712041026384_IndiceRateioFormacaoPrecoVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041036420_AddGrupoRateioToIndiceFormacaoPrecos.resx">
+      <DependentUpon>201712041036420_AddGrupoRateioToIndiceFormacaoPrecos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051727083_RenameFieldToCustoFixoAdminLogFpvInProduto.resx">
+      <DependentUpon>201712051727083_RenameFieldToCustoFixoAdminLogFpvInProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051812523_IndiceRateioLucratividade.resx">
+      <DependentUpon>201712051812523_IndiceRateioLucratividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051814485_IndiceRateioLucratividade1.resx">
+      <DependentUpon>201712051814485_IndiceRateioLucratividade1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712061220060_Sheet4ToProdutos.resx">
+      <DependentUpon>201712061220060_Sheet4ToProdutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

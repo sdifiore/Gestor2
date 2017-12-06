@@ -177,56 +177,68 @@ namespace Gestor.Models
         public float CustoFixoTotal { get; set; }
 
         [Display(Name = "MOI Fabricação")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float MoiFabricacao { get; set; }
 
         [Display(Name = "Outros Custos Fixos Fab")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float OutrosCustosFab { get; set; }
 
         [Display(Name = "COMACS + COMTEX p/ FPV")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N4}")]
         public float ComacsComtexFpv { get; set; }
 
         [Display(Name = "Custo Fixo Admin Logístico FPV")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
-        public float CustoFixoAdminFpv { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N4}")]
+        public float CustoFixoAdminLogFpv { get; set; }
 
         [Display(Name = "R$ MOI + Desp. Fabr / hMOD")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float RsMoiDespFabHMod { get; set; }
 
         [Display(Name = "R$ SG&A / hMOD")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float RsSgNAHMod { get; set; }
 
         [Display(Name = "Custo Fixo Total p/ AnR")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float CustoFixoTotalAnr { get; set; }
 
         [Display(Name = "MOI fabricação p/ AnR")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float MoiFabricAnr { get; set; }
 
         [Display(Name = "Outros custos fabric AnR")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float OutrosCustosFabricAnr { get; set; }
 
         [Display(Name = "Custo Fixo COMACS + COMTEX AnR")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float CustoFixoComacsCmtexAnr { get; set; }
 
         [Display(Name = "Custo Fixo Admin Logístico Anr")]
-        [DisplayFormat(DataFormatString = "{0:N3}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public float CustoFixoAdminAnr { get; set; }
+
+        [Display(Name = "Prop Custo Fixo e Total")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
+        public float PropCustoFixoTotal { get; set; }
+
+        [Display(Name = "Cst dir unidade")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
+        public float CstDirUnidade { get; set; }
+
+        [Display(Name = "Cst indir unidade")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
+        public float CstIndirUnidade { get; set; }
+
+        [Display(Name = "% PTFE em Peso")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
+        public float PctPtfePeso { get; set; }
 
         [Display(Name = "Tamanho")]
         public int MedidaFitaId { get; set; }
 
         public MedidaFita MedidaFita { get; set; }
-
-        [Display(Name = "% PTFE em Peso")]
-        [DisplayFormat(DataFormatString = "{0:P0}")]
-        public float PctPtfePeso { get; set; }
     }
 }
