@@ -230,7 +230,7 @@ namespace Gestor
                 {
                     string comp = XmlReader.Read("SucatasAparasTubos");
                     var sucata = db.PadroesFixos.Single(p => p.Descricao == comp);
-                    result = Function.Floor(comprimento.Comprimento / 1_000f * procTubo.Rr * (1 - sucata.Valor) * 0.65f, 5);
+                    result = (int)Function.Multiplo((float)Math.Floor(comprimento.Comprimento / 1_000f * procTubo.Rr * (1 - sucata.Valor) * 0.65f), 5);
                 }
             }
 
@@ -445,7 +445,6 @@ namespace Gestor
         public static float TuEmbalMinM(ProcTubo procTubo)        // AU
         {
             var db = new ApplicationDbContext();
-            var boh = procTubo.Cadastro;
             string temp = XmlReader.Read("TempoEmbalamento"); //23
             float embalamento = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             temp = XmlReader.Read("EficPadraoOpTubo"); //9
@@ -453,7 +452,7 @@ namespace Gestor
             temp = XmlReader.Read("TaxaOcupacaoEmbalamento"); //28
             float ocupacao = db.PadroesFixos.Single(p => p.Descricao == temp).Valor;
             float intermediate = Math.Abs(procTubo.QuantEmbalagem) > Global.Tolerance
-                ? procTubo.QtPCusto / procTubo.QuantEmbalagem
+                ? (float)Function.Ceiling(procTubo.QtPCusto / procTubo.QuantEmbalagem, 1)
                 : 0;
             float result = intermediate * embalamento / procTubo.QtPCusto / eficacia * ocupacao;
 
@@ -552,9 +551,29 @@ namespace Gestor
             return procTubo.CustoPtfeRsM + procTubo.CustoAditivosRsM + procTubo.CustoLubrifRsM + procTubo.CustoEmbalRsM + procTubo.CustoModRsM;
         }
 
+        public static float CustoIndiretoRsM(ProcTubo procTubo)      // BC
+        {
+            var db = new ApplicationDbContext();
+            string tubo = XmlReader.Read("GrupoRateioTubo");
+            int id = db.GruposRateio.Single(g => g.Descricao == tubo).GrupoRateioId;
+            float custo = db.IndiceRateioFormacaoPrecoVendas.Single(i => i.GrupoRateioId == id).TotalCustoFixo;
+            float result = procTubo.TuTotalMinM / 60 * custo;
+
+            return result;
+        }
+
+        public static float CustoTotalRsM(ProcTubo procTubo)      // BD
+        {
+            return procTubo.CustoDiretoTotalRsM + procTubo.CustoIndiretoRsM;
+        }
+
         public static float PvRsKg(ProcTubo procTubo)      // BE
         {
-            return procTubo.PvCalculadoRsM / procTubo.PesoUnKgMLiq;
+            float result = (Math.Abs(procTubo.PesoUnKgMLiq) > Global.Tolerance) && (Math.Abs(procTubo.PvCalculadoRsM) < Global.Infinity)
+                ? procTubo.PvCalculadoRsM / procTubo.PesoUnKgMLiq
+                : float.MaxValue;
+
+            return result;
         }
 
         public static float CapProducaoMH(ProcTubo procTubo)      // BF
@@ -563,14 +582,15 @@ namespace Gestor
                 ? procTubo.TuSinterizadoMinM
                 : procTubo.TuTesteEstanqMinM;
 
-            return Function.Floor(60f / maximo, 10);
+            return Function.Multiplo((float)Math.Floor(60f / maximo), 10);
         }
 
         public static float PvCalculadoRsM(ProcTubo procTubo)       // BH
         {
+            var boh = procTubo.Cadastro;
             var db = new ApplicationDbContext();
             var par = db.Parametros.First() ;
-            float result = procTubo.CustoTotalRsM * 0.66f / ((0.66f * (1 - par.Icms - par.Inss - par.Comissão - par.ComissGestVenda -
+            float result = procTubo.CustoTotalRsM * 0.66f / ((0.66f * (1 - par.Icms - 0.0925f - par.Inss - par.Comissão - par.ComissGestVenda -
                 (par.Frete + par.CustoFin + par.CustoCobranca) * (1f + par.Ipi)) -
                 par.MargemLiquida * (1f - par.Icms - 0.0925f - par.Inss)));
 

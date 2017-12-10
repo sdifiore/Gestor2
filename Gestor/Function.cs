@@ -25,5 +25,15 @@ namespace Gestor
 
             return result;
         }
+
+        public static float Multiplo(float valor, float limite)
+        {
+            while ((valor % limite) != 0)
+            {
+                valor--;
+            }
+
+            return valor;
+        }
     }
 }

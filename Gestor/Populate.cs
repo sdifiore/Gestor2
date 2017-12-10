@@ -284,9 +284,10 @@ namespace Gestor
                 register.CustoEmbalRsM = FxTubo.CustoEmbalRsM(register);        // AZ
                 register.CustoModRsM = FxTubo.CustoModRsM(register);        // BA
                 register.CustoDiretoTotalRsM = FxTubo.CustoDiretoTotalRsM(register);        // BB
-                // ****************** Cálculo de BC depende de Planilha 2
-                // ****************** Cálculo de BD depende de BC
-                register.CapProducaoMH = FxTubo.CapProducaoMH(register);      // BE
+                register.CustoIndiretoRsM = FxTubo.CustoIndiretoRsM(register);        // BC
+                register.CustoTotalRsM = FxTubo.CustoTotalRsM(register);        // BD
+                register.PvRsKg = FxTubo.PvRsKg(register);      // BE
+                register.CapProducaoMH = FxTubo.CapProducaoMH(register);      // BF
                 register.PvCalculadoRsM = FxTubo.PvCalculadoRsM(register);      // BH
             }
 
@@ -357,6 +358,31 @@ namespace Gestor
                 register.RateioDfixUnidade = FxDfxProdRev.RateioDfixUnidade(register);      // O
                 register.ProporcaoCusto = FxDfxProdRev.ProporcaoCusto(register, model.Sum(m => m.ValorCompra));      // P
                 register.ProporcaoEmCxs = FxDfxProdRev.ProporcaoEmCxs(register, model.Sum(m => m.QtdCompra));      // Q
+            }
+
+            db.SaveChanges();
+        }
+
+        public static void PlanejMod()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PlanejMods.ToList();
+
+            foreach (var register in model)
+            {
+                var boh = register.OperacaoId;
+                register.AnoMenos11 = FxPlanejMod.AnoMenos11(register);     // Q
+                register.AnoMenos10 = FxPlanejMod.AnoMenos10(register);     // R
+                register.AnoMenos9 = FxPlanejMod.AnoMenos9(register);     // S
+                register.AnoMenos8 = FxPlanejMod.AnoMenos8(register);     // T
+                register.AnoMenos7 = FxPlanejMod.AnoMenos7(register);     // U
+                register.AnoMenos6 = FxPlanejMod.AnoMenos6(register);     // V
+                register.AnoMenos5 = FxPlanejMod.AnoMenos5(register);     // W
+                register.AnoMenos4 = FxPlanejMod.AnoMenos4(register);     // X
+                register.AnoMenos3 = FxPlanejMod.AnoMenos3(register);     // Y
+                register.AnoMenos2 = FxPlanejMod.AnoMenos2(register);     // Z
+                register.AnoMenos1 = FxPlanejMod.AnoMenos1(register);     // AA
+                register.Ano = FxPlanejMod.Ano(register);     // AB
             }
 
             db.SaveChanges();

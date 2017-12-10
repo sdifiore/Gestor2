@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Gestor.Models
@@ -16,7 +13,9 @@ namespace Gestor.Models
         // GET: Categorias
         public ActionResult Index()
         {
-            return View(db.Categorias.ToList());
+            var model = db.Categorias.OrderBy(c => c.Apelido).ToList();
+
+            return View(model);
         }
 
         // GET: Categorias/Details/5

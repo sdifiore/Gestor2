@@ -87,6 +87,13 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult PlanejMod()
+        {
+            Populate.PlanejMod();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.DfxProdRev();
@@ -100,6 +107,7 @@ namespace Gestor.Controllers
             Populate.PreForma();
             Populate.ResinaPtfe();
             Populate.ProcTubos();
+            Populate.PlanejMod();
 
             return Redirect("/");
         }

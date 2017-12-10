@@ -34,6 +34,7 @@ namespace Gestor.Models
         public DbSet<CondicaoPreco> CondicoesPrecos { get; set; }
         public DbSet<Comum> Comuns { get; set; }
         public DbSet<Cotacao> Cotacoes { get; set; }
+        public DbSet<CuboEstoque> CubosEstoque { get; set; }
         public DbSet<CustoFolha> CustoFolhas { get; set; }
         public DbSet<CustoCargoDireto> CustoCargoDiretos { get; set; }
         public DbSet<CustoInsumo> CustoInsumos { get; set; }
@@ -66,6 +67,8 @@ namespace Gestor.Models
         public DbSet<Parametro> Parametros { get; set; }
         public DbSet<ParmGraxa> ParmGraxas { get; set; }
         public DbSet<Pcp> Pcps { get; set; }
+        public DbSet<PlanejCompra> PlanejCompras { get; set; }
+        public DbSet<PlanejMod> PlanejMods { get; set; }
         public DbSet<PreForma> PreFormas { get; set; }
         public DbSet<PrecoExportacao> PrecosExpostacao { get; set; }
         public DbSet<PrecoNacional> PrecosNacionais { get; set; }

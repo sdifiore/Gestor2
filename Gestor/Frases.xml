@@ -13,7 +13,9 @@
   <FOB>FOB</FOB>
   <FreteNacionalPadrao>Frete nacional padrão para Exportação (Santos ou Foz)</FreteNacionalPadrao>
   <GrupoRateioRevenda>revenda</GrupoRateioRevenda>
+  <GrupoRateioTubo>tubo</GrupoRateioTubo>
   <IndiceGestaoVenda>Indice de Gestão de Vendas</IndiceGestaoVenda>
+  <IndicePrecoVendaTubo>TUBO</IndicePrecoVendaTubo>
   <Insumos>Insumos/Matérias-Primas</Insumos>
   <IsoparL>Isopar L</IsoparL>
   <ItemNaoExiste>999999</ItemNaoExiste>
