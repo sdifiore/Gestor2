@@ -13,7 +13,7 @@ namespace Gestor.Models
         public Insumo Insumo { get; set; }
 
         [Display(Name = "Soma  de 1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float SomaDe1 { get; set; }
 
         [Display(Name = "Soma  de 2° mês")]
@@ -76,7 +76,7 @@ namespace Gestor.Models
 
         [Display(Name = "Estoque Min")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public int EstoqueMinimo { get; set; }
+        public float EstoqueMinimo { get; set; }
 
         [Display(Name = "Preço Unitário Bruto")]
         [DisplayFormat(DataFormatString = "{0:N3}")]
@@ -116,9 +116,13 @@ namespace Gestor.Models
         [Display(Name = "Mês ref pag 2 fornec")]
         public int MesRefPag2Fornec { get; set; }
 
+        [Display(Name = "% Pag 1")]
+        [DisplayFormat(DataFormatString = "{0:P0}")]
+        public float PctPag1 { get; set; }
+
         [Display(Name = "Estoque Inicial")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public int EstoqueInicial { get; set; }
+        public float EstoqueInicial { get; set; }
 
         [Display(Name = "Ano - 11 meses")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
@@ -169,7 +173,7 @@ namespace Gestor.Models
         public float NCMPAno { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float QCMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -265,7 +269,7 @@ namespace Gestor.Models
         public float SFCMAno { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float VBCMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -313,7 +317,7 @@ namespace Gestor.Models
         public float VBCMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float PFNMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -361,7 +365,7 @@ namespace Gestor.Models
         public float PFNMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float PFIMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -409,7 +413,7 @@ namespace Gestor.Models
         public float PFIMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float PIIDIMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -457,7 +461,7 @@ namespace Gestor.Models
         public float PIIDIMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float VCCMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -505,7 +509,7 @@ namespace Gestor.Models
         public float VCCMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float VCIcmsMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -553,7 +557,7 @@ namespace Gestor.Models
         public float VCIcmsMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float VCIpiMes1 { get; set; }
 
         [Display(Name = "2° mês")]
@@ -601,7 +605,7 @@ namespace Gestor.Models
         public float VCIpiMes12 { get; set; }
 
         [Display(Name = "1° mês")]
-        [DisplayFormat(DataFormatString = "{0:N1}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public float CPisCofinsMes1 { get; set; }
 
         [Display(Name = "2° mês")]

@@ -17,6 +17,7 @@
   <IndiceGestaoVenda>Indice de Gestão de Vendas</IndiceGestaoVenda>
   <IndicePrecoVendaTubo>TUBO</IndicePrecoVendaTubo>
   <Insumos>Insumos/Matérias-Primas</Insumos>
+  <InsumoNaoExistente>999999</InsumoNaoExistente>
   <IsoparL>Isopar L</IsoparL>
   <ItemNaoExiste>999999</ItemNaoExiste>
   <LoteMinimoTubos>Lote mínimo Tubos (Horas de Extrusão)</LoteMinimoTubos>
@@ -33,6 +34,8 @@
   <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
   <ProdutoNaoExistente>999999</ProdutoNaoExistente>
   <Revenda>Revenda</Revenda>
+  <SemanaEstoquePtfe>PTFE</SemanaEstoquePtfe>
+  <SemanaEstoqueDemais>Demais</SemanaEstoqueDemais>
   <SequenciaA>A</SequenciaA>
   <SequenciaB>B</SequenciaB>
   <SequenciaC>C</SequenciaC>

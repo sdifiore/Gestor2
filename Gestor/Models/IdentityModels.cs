@@ -82,6 +82,7 @@ namespace Gestor.Models
         public DbSet<Resina> Resinas { get; set; }
         public DbSet<ResinaBase> ResinasBase { get; set; }
         public DbSet<ResinaPtfe> ResinasPtfe { get; set; }
+        public DbSet<SemanaEstoque> SemanasEstoque { get; set; }
         public DbSet<Sequencia> Sequencias { get; set; }
         public DbSet<Serie> Series { get; set; }
         public DbSet<Setor> Setores { get; set; }

@@ -249,6 +249,7 @@
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
     <Compile Include="Controllers\ParmGraxasController.cs" />
+    <Compile Include="Controllers\PlanejComprasController.cs" />
     <Compile Include="Controllers\PlanejModsController.cs" />
     <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="Controllers\ResinaBasesController.cs" />
     <Compile Include="Controllers\ResinaPtfesController.cs" />
     <Compile Include="Controllers\ResinasController.cs" />
+    <Compile Include="Controllers\SemanaEstoquesController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FxDfxProdRev.cs" />
@@ -708,6 +710,18 @@
     <Compile Include="Migrations\201712091805257_PlanejCompras.Designer.cs">
       <DependentUpon>201712091805257_PlanejCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712101436543_SemansEstoque.cs" />
+    <Compile Include="Migrations\201712101436543_SemansEstoque.Designer.cs">
+      <DependentUpon>201712101436543_SemansEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712101537187_EstoquesToFloatInPlanejCompras.cs" />
+    <Compile Include="Migrations\201712101537187_EstoquesToFloatInPlanejCompras.Designer.cs">
+      <DependentUpon>201712101537187_EstoquesToFloatInPlanejCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712101827532_AddFieldPctPag1ToPlanejVendas.cs" />
+    <Compile Include="Migrations\201712101827532_AddFieldPctPag1ToPlanejVendas.Designer.cs">
+      <DependentUpon>201712101827532_AddFieldPctPag1ToPlanejVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -741,9 +755,11 @@
     <Compile Include="Models\Resina.cs" />
     <Compile Include="Models\ResinaBase.cs" />
     <Compile Include="Models\ResinaPtfe.cs" />
+    <Compile Include="Models\SemanaEstoque.cs" />
     <Compile Include="Models\Serie.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
     <Compile Include="FxPrecoExportacao.cs" />
+    <Compile Include="FxPlanejCompra.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1917,6 +1933,16 @@
     <Content Include="Views\CuboEstoques\Details.cshtml" />
     <Content Include="Views\CuboEstoques\Edit.cshtml" />
     <Content Include="Views\CuboEstoques\Index.cshtml" />
+    <Content Include="Views\PlanejCompras\Create.cshtml" />
+    <Content Include="Views\PlanejCompras\Delete.cshtml" />
+    <Content Include="Views\PlanejCompras\Details.cshtml" />
+    <Content Include="Views\PlanejCompras\Edit.cshtml" />
+    <Content Include="Views\PlanejCompras\Index.cshtml" />
+    <Content Include="Views\SemanaEstoques\Create.cshtml" />
+    <Content Include="Views\SemanaEstoques\Delete.cshtml" />
+    <Content Include="Views\SemanaEstoques\Details.cshtml" />
+    <Content Include="Views\SemanaEstoques\Edit.cshtml" />
+    <Content Include="Views\SemanaEstoques\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2757,6 +2783,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091805257_PlanejCompras.resx">
       <DependentUpon>201712091805257_PlanejCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101436543_SemansEstoque.resx">
+      <DependentUpon>201712101436543_SemansEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101537187_EstoquesToFloatInPlanejCompras.resx">
+      <DependentUpon>201712101537187_EstoquesToFloatInPlanejCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101827532_AddFieldPctPag1ToPlanejVendas.resx">
+      <DependentUpon>201712101827532_AddFieldPctPag1ToPlanejVendas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

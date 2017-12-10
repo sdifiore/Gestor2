@@ -370,7 +370,6 @@ namespace Gestor
 
             foreach (var register in model)
             {
-                var boh = register.OperacaoId;
                 register.AnoMenos11 = FxPlanejMod.AnoMenos11(register);     // Q
                 register.AnoMenos10 = FxPlanejMod.AnoMenos10(register);     // R
                 register.AnoMenos9 = FxPlanejMod.AnoMenos9(register);     // S
@@ -383,6 +382,32 @@ namespace Gestor
                 register.AnoMenos2 = FxPlanejMod.AnoMenos2(register);     // Z
                 register.AnoMenos1 = FxPlanejMod.AnoMenos1(register);     // AA
                 register.Ano = FxPlanejMod.Ano(register);     // AB
+            }
+
+            db.SaveChanges();
+        }
+
+        public static void PlanejCompra()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PlanejCompras.ToList();
+
+            foreach (var register in model)
+            {
+                register.FatorConsumo = FxPlanejCompra.FatorConsumo(register);        // R
+                register.LoteCompra = FxPlanejCompra.LoteCompra(register);        // S
+                register.EstoqueMinimo = FxPlanejCompra.EstoqueMinimo(register);        // T
+                register.PrecoUnitarioBruto = FxPlanejCompra.PrecoUnitarioBruto(register);        // U
+                register.CustoUnitario = FxPlanejCompra.CustoUnitario(register);        // V
+                register.CreditoUnitIcms = FxPlanejCompra.CreditoUnitIcms(register);        // w ** Checar fórmula! É a mesma da anterior! Assumindo valor diferente na função por dedução da planilha.
+                register.CreditoUnitIpi = FxPlanejCompra.CreditoUnitIpi(register);        // X
+                register.CreditoUnitPis = FxPlanejCompra.CreditoUnitPis(register);        // Y
+                register.CreditoUnitCofins = FxPlanejCompra.CreditoUnitCofins(register);        // Z
+                register.PagFornecImport = FxPlanejCompra.PagFornecImport(register);        // AA
+                register.IiDespImport = FxPlanejCompra.IiDespImport(register);        // AB
+                register.MesRefPag1Fornec = FxPlanejCompra.MesRefPag1Fornec(register);        // AC
+                register.MesRefPag2Fornec = FxPlanejCompra.MesRefPag2Fornec(register);        // AD
+                register.PctPag1 = FxPlanejCompra.PctPag1(register);        // AE
             }
 
             db.SaveChanges();
