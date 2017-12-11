@@ -408,6 +408,21 @@ namespace Gestor
                 register.MesRefPag1Fornec = FxPlanejCompra.MesRefPag1Fornec(register);        // AC
                 register.MesRefPag2Fornec = FxPlanejCompra.MesRefPag2Fornec(register);        // AD
                 register.PctPag1 = FxPlanejCompra.PctPag1(register);        // AE
+                register.EstoqueInicial = FxPlanejCompra.EstoqueInicial(register);        // AF
+                register.NCMPAnoMenos11 = FxPlanejCompra.NCMPAnoMenos11(register);        // AG
+                register.NCMPAnoMenos10 = FxPlanejCompra.NCMPAnoMenos10(register);        // AH
+                register.NCMPAnoMenos9 = FxPlanejCompra.NCMPAnoMenos9(register);        // AI
+                register.NCMPAnoMenos8 = FxPlanejCompra.NCMPAnoMenos8(register);        // AJ
+                register.NCMPAnoMenos7 = FxPlanejCompra.NCMPAnoMenos7(register);        // AK
+                register.NCMPAnoMenos6 = FxPlanejCompra.NCMPAnoMenos6(register);        // AL
+                register.NCMPAnoMenos5 = FxPlanejCompra.NCMPAnoMenos5(register);        // AM
+                register.NCMPAnoMenos4 = FxPlanejCompra.NCMPAnoMenos4(register);        // AN
+                register.NCMPAnoMenos3 = FxPlanejCompra.NCMPAnoMenos3(register);        // AO
+                register.NCMPAnoMenos2 = FxPlanejCompra.NCMPAnoMenos2(register);        // AP
+                register.NCMPAnoMenos1 = FxPlanejCompra.NCMPAnoMenos1(register);        // AQ
+                register.NCMPAno = FxPlanejCompra.NCMPAno(register);        // AR
+                register.QCMes1 = FxPlanejCompra.QCMes1(register);        // AS
+                register.QCMes2 = FxPlanejCompra.QCMes2(register);        // AT
             }
 
             db.SaveChanges();

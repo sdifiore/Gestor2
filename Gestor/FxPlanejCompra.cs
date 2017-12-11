@@ -243,5 +243,104 @@ namespace Gestor
 
             return result;
         }
+
+        public static float EstoqueInicial(PlanejCompra planej)     // AF
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            var insumo = db.Insumos.SingleOrDefault(i => i.InsumoId == planej.InsumoId);
+            if (insumo == null) DbLogger.Log(Reason.Error, $"Insumo id {planej.InsumoId} não encontrado em PlanejCompra EstoqueInicial");
+            else
+            {
+                var estoque = db.CubosEstoque.SingleOrDefault(e => e.Apelido == insumo.Apelido);
+                if (estoque != null) result = estoque.Quantidade;
+            }
+
+            return result;
+        }
+
+        public static float NCMPAnoMenos11(PlanejCompra planej)     // AG
+        {
+            return planej.SomaDe1 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos10(PlanejCompra planej)     // AH
+        {
+            return planej.SomaDe2 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos9(PlanejCompra planej)     // AI
+        {
+            return planej.SomaDe3 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos8(PlanejCompra planej)     // AJ
+        {
+            return planej.SomaDe4 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos7(PlanejCompra planej)     // AK
+        {
+            return planej.SomaDe5 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos6(PlanejCompra planej)     // AL
+        {
+            return planej.SomaDe6 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos5(PlanejCompra planej)     // AM
+        {
+            return planej.SomaDe7 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos4(PlanejCompra planej)     // AN
+        {
+            return planej.SomaDe8 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos3(PlanejCompra planej)     // AO
+        {
+            return planej.SomaDe9 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos2(PlanejCompra planej)     // AP
+        {
+            return planej.SomaDe10 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAnoMenos1(PlanejCompra planej)     // AQ
+        {
+            return planej.SomaDe11 * planej.FatorConsumo;
+        }
+
+        public static float NCMPAno(PlanejCompra planej)     // AR
+        {
+            return planej.SomaDe12 * planej.FatorConsumo;
+        }
+
+        public static float QCMes1(PlanejCompra planej)     // AS
+        {
+            float result = 0;
+            float a = planej.NCMPAnoMenos11 - planej.EstoqueInicial + planej.EstoqueMinimo;
+            if (a > Global.Tolerance)
+            {
+                result = Function.MinCeiling(a, planej.LoteCompra);
+            }
+
+            return result;
+        }
+
+        public static float QCMes2(PlanejCompra planej)     // AT
+        {
+            float result = 0;
+            float a = planej.NCMPAnoMenos10 - planej.EstoqueInicial + planej.EstoqueMinimo;
+            if (a > Global.Tolerance)
+            {
+                result = Function.MinCeiling(a, planej.LoteCompra);
+            }
+
+            return result;
+        }
     }
 }

@@ -35,5 +35,22 @@ namespace Gestor
 
             return valor;
         }
+
+        public static float MinCeiling(float valor, float multiplo)
+        {
+            double acumulo = valor;
+
+            if (Math.Abs(multiplo) > Global.Tolerance)
+            {
+                acumulo = Math.Truncate(valor / multiplo) * multiplo;
+
+                while (acumulo < valor)
+                {
+                    acumulo = acumulo + multiplo;
+                }
+            }
+
+            return (float)acumulo;
+        }
     }
 }
