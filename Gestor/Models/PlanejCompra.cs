@@ -220,6 +220,10 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float QCMes12 { get; set; }
 
+        [Display(Name = "Total Período")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float TotalPeriodo { get; set; }
+
         [Display(Name = "Ano - 11 meses")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float SFCMAnoMenos11 { get; set; }

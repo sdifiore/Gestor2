@@ -722,6 +722,14 @@
     <Compile Include="Migrations\201712101827532_AddFieldPctPag1ToPlanejVendas.Designer.cs">
       <DependentUpon>201712101827532_AddFieldPctPag1ToPlanejVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712121109052_QuantidadeToFloatInCuboEstoque.cs" />
+    <Compile Include="Migrations\201712121109052_QuantidadeToFloatInCuboEstoque.Designer.cs">
+      <DependentUpon>201712121109052_QuantidadeToFloatInCuboEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs" />
+    <Compile Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.Designer.cs">
+      <DependentUpon>201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -2792,6 +2800,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712101827532_AddFieldPctPag1ToPlanejVendas.resx">
       <DependentUpon>201712101827532_AddFieldPctPag1ToPlanejVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712121109052_QuantidadeToFloatInCuboEstoque.resx">
+      <DependentUpon>201712121109052_QuantidadeToFloatInCuboEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.resx">
+      <DependentUpon>201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

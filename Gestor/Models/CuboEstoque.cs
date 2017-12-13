@@ -20,6 +20,6 @@ namespace Gestor.Models
 
         [Display(Name = "Quantidade")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public int Quantidade { get; set; }
+        public float Quantidade { get; set; }
     }
 }
