@@ -755,6 +755,7 @@
     <Compile Include="Models\ParmGraxa.cs" />
     <Compile Include="Models\PlanejCompra.cs" />
     <Compile Include="Models\PlanejMod.cs" />
+    <Compile Include="Models\PlanejNecessid.cs" />
     <Compile Include="Models\PrecoExportacao.cs" />
     <Compile Include="Models\PrecoNacional.cs" />
     <Compile Include="Models\PreForma.cs" />
