@@ -251,6 +251,7 @@
     <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\PlanejComprasController.cs" />
     <Compile Include="Controllers\PlanejModsController.cs" />
+    <Compile Include="Controllers\PlanejNecessidsController.cs" />
     <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
@@ -729,6 +730,10 @@
     <Compile Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs" />
     <Compile Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.Designer.cs">
       <DependentUpon>201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712141235194_PlanejNecessidades.cs" />
+    <Compile Include="Migrations\201712141235194_PlanejNecessidades.Designer.cs">
+      <DependentUpon>201712141235194_PlanejNecessidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
@@ -1952,6 +1957,11 @@
     <Content Include="Views\SemanaEstoques\Details.cshtml" />
     <Content Include="Views\SemanaEstoques\Edit.cshtml" />
     <Content Include="Views\SemanaEstoques\Index.cshtml" />
+    <Content Include="Views\PlanejNecessids\Create.cshtml" />
+    <Content Include="Views\PlanejNecessids\Delete.cshtml" />
+    <Content Include="Views\PlanejNecessids\Details.cshtml" />
+    <Content Include="Views\PlanejNecessids\Edit.cshtml" />
+    <Content Include="Views\PlanejNecessids\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2807,6 +2817,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712121248390_AddTotalPeriodoFieldToPlanejCompras.resx">
       <DependentUpon>201712121248390_AddTotalPeriodoFieldToPlanejCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141235194_PlanejNecessidades.resx">
+      <DependentUpon>201712141235194_PlanejNecessidades.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
