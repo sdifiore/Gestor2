@@ -251,7 +251,7 @@
     <Compile Include="Controllers\ParmGraxasController.cs" />
     <Compile Include="Controllers\PlanejComprasController.cs" />
     <Compile Include="Controllers\PlanejModsController.cs" />
-    <Compile Include="Controllers\PlanejNecessidsController.cs" />
+    <Compile Include="Controllers\PlanejNecessidades.cs" />
     <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
@@ -735,6 +735,14 @@
     <Compile Include="Migrations\201712141235194_PlanejNecessidades.Designer.cs">
       <DependentUpon>201712141235194_PlanejNecessidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712151250105_AddPlanejNecessidadesToEstruturaTable.cs" />
+    <Compile Include="Migrations\201712151250105_AddPlanejNecessidadesToEstruturaTable.Designer.cs">
+      <DependentUpon>201712151250105_AddPlanejNecessidadesToEstruturaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.cs" />
+    <Compile Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.Designer.cs">
+      <DependentUpon>201712151329229_RemovedPlanejNecessidModelAndTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -760,7 +768,6 @@
     <Compile Include="Models\ParmGraxa.cs" />
     <Compile Include="Models\PlanejCompra.cs" />
     <Compile Include="Models\PlanejMod.cs" />
-    <Compile Include="Models\PlanejNecessid.cs" />
     <Compile Include="Models\PrecoExportacao.cs" />
     <Compile Include="Models\PrecoNacional.cs" />
     <Compile Include="Models\PreForma.cs" />
@@ -1957,11 +1964,11 @@
     <Content Include="Views\SemanaEstoques\Details.cshtml" />
     <Content Include="Views\SemanaEstoques\Edit.cshtml" />
     <Content Include="Views\SemanaEstoques\Index.cshtml" />
-    <Content Include="Views\PlanejNecessids\Create.cshtml" />
-    <Content Include="Views\PlanejNecessids\Delete.cshtml" />
-    <Content Include="Views\PlanejNecessids\Details.cshtml" />
-    <Content Include="Views\PlanejNecessids\Edit.cshtml" />
-    <Content Include="Views\PlanejNecessids\Index.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Create.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Delete.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Details.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Edit.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2820,6 +2827,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712141235194_PlanejNecessidades.resx">
       <DependentUpon>201712141235194_PlanejNecessidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712151250105_AddPlanejNecessidadesToEstruturaTable.resx">
+      <DependentUpon>201712151250105_AddPlanejNecessidadesToEstruturaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.resx">
+      <DependentUpon>201712151329229_RemovedPlanejNecessidModelAndTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
