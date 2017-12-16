@@ -19,7 +19,8 @@ namespace Gestor.Controllers
             var estruturas = db.Estruturas
                 .Include(e => e.Produto)
                 .Include(e => e.Sequencia)
-                .Include(e => e.Unidade);
+                .Include(e => e.Unidade)
+                .Include(e => e.UnidadeCompra);
                 //.Take(100);
 
             return View(estruturas.ToList());
@@ -37,6 +38,7 @@ namespace Gestor.Controllers
                 .Include(e => e.Produto)
                 .Include(e => e.Sequencia)
                 .Include(e => e.Unidade)
+                .Include(e => e.UnidadeCompra)
                 .SingleOrDefault(e => e.Id == id);
 
             if (estrutura == null)

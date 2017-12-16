@@ -18,7 +18,7 @@ namespace Gestor
                 .ToList();
             string compAlias = Global.CompAlias;
 
-          //  Insumo();
+            //  Insumo();
 
             foreach (var register in model)
             {
@@ -60,7 +60,7 @@ namespace Gestor
             db.SaveChanges();
         }
 
-            public static void Insumo()
+        public static void Insumo()
         {
             var db = new ApplicationDbContext();
             var model = db.Insumos.Include(i => i.Finalidade).ToList();
@@ -209,14 +209,14 @@ namespace Gestor
 
             foreach (var register in model)
             {
-                register.SecaoPf = (register.FormaDiamE * register.FormaDiamE - register.VaretaDiamI * register.VaretaDiamI) 
+                register.SecaoPf = (register.FormaDiamE * register.FormaDiamE - register.VaretaDiamI * register.VaretaDiamI)
                     * (float)Math.PI / 400;
                 register.KgfPrensagem = db.PadroesFixos.Single(p => p.Descricao == comp1).Valor * register.SecaoPf;
                 register.PressaoOleo = register.DiamPistaoHidraulico < Global.Tolerance
                     ? float.MaxValue
                     : register.SecaoPf / (register.DiamPistaoHidraulico * register.DiamPistaoHidraulico
                     * (float)Math.PI / 400) * db.PadroesFixos.Single(p => p.Descricao == comp1).Valor;
-                register.KgPfUmida = register.FormaDiamE * register.FormaDiamE * (float)Math.PI / 4 
+                register.KgPfUmida = register.FormaDiamE * register.FormaDiamE * (float)Math.PI / 4
                     * register.Comprimento / 1000 * db.PadroesFixos.Single(p => p.Descricao == comp2).Valor / 1000;
             }
 
@@ -546,6 +546,17 @@ namespace Gestor
             }
 
             db.SaveChanges();
+        }
+
+        public static void PlanejNecessidades()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.Estruturas.ToList();
+
+            foreach (var stru in model)
+            {
+                stru.SetorProducao = FxPlanejNecessidade.SetorProducao(stru);       // T
+            }
         }
     }
 }

@@ -267,6 +267,7 @@
     <Compile Include="FxDfxProdRev.cs" />
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxPlanejMod.cs" />
+    <Compile Include="FxPlanejNecessidade.cs" />
     <Compile Include="FxPrecoNacional.cs" />
     <Compile Include="FxProduto.cs" />
     <Compile Include="FxTubo.cs" />

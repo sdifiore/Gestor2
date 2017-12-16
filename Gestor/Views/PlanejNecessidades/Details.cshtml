@@ -1,14 +1,14 @@
 ﻿@model Gestor.Models.Estrutura
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>Estrutura</h4>
+    <h4>Planejamento de necessidades</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,11 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sequencia.Tipo)
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sequencia.Tipo)
+            @Html.DisplayFor(model => model.Produto.Descricao)
         </dd>
 
         <dt>
@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UnidadeId)
+            @Html.DisplayFor(model => model.Unidade.Descricao)
         </dd>
 
         <dt>
@@ -41,6 +41,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.QtdCusto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequencia.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequencia.Tipo)
         </dd>
 
         <dt>
@@ -68,10 +76,10 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustoUnitCompra)
+            @Html.DisplayNameFor(model => model.UnidadeCompra.Descricao)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.CustoUnitCompra)
         </dd>
 
@@ -113,7 +121,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.PartCusto)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.QtEftvUntrCmpnt)
@@ -123,13 +131,13 @@
             @Html.DisplayFor(model => model.QtEftvUntrCmpnt)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.CstCmprUndPrd)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CstCmprUndPrd)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.TpItmCst)
@@ -139,13 +147,13 @@
             @Html.DisplayFor(model => model.TpItmCst)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.AlrtSbPrdt)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.AlrtSbPrdt)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.TempMaq)
@@ -155,7 +163,7 @@
             @Html.DisplayFor(model => model.TempMaq)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.QtdUndd)
         </dt>
 
@@ -281,7 +289,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Header)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.SetorProducao)
@@ -502,6 +510,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar a lista", "Index")
 </p>

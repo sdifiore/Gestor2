@@ -101,6 +101,13 @@ namespace Gestor.Controllers
             return Redirect("/");
         }
 
+        public ActionResult PlanejNecessidade()
+        {
+            Populate.PlanejNecessidades();
+
+            return Redirect("/");
+        }
+
         public ActionResult Tudo()
         {
             Populate.DfxProdRev();
@@ -116,6 +123,7 @@ namespace Gestor.Controllers
             Populate.ProcTubos();
             Populate.PlanejMod();
             Populate.PlanejCompra();
+            Populate.PlanejNecessidades();
 
             return Redirect("/");
         }

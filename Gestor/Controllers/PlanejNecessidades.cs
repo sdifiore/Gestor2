@@ -126,6 +126,25 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var estruturas = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .Include(e => e.Unidade)
+                .Include(e => e.UnidadeCompra)
+                .Where(e => e.Produto.Apelido == search);
+
+            if (!estruturas.Any())
+            {
+                DbLogger.Log(Reason.Info, $"Procura pela estrutura {search} não produziu resultado em PlanejNecessidades");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Index", estruturas);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
