@@ -556,7 +556,11 @@ namespace Gestor
             foreach (var stru in model)
             {
                 stru.SetorProducao = FxPlanejNecessidade.SetorProducao(stru);       // T
+                stru.Categoria = FxPlanejNecessidade.Categoria(stru);       // U
+                stru.ListaPlanejProducao = FxPlanejNecessidade.ListaPlanejProducao(stru);       // W    *********** Calcular primeiro PnalejProdução
             }
+
+            db.SaveChanges();
         }
     }
 }

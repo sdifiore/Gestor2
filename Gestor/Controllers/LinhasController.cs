@@ -1,121 +1,117 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using Gestor.Models;
 
-namespace Gestor.Controllers
+namespace Gestor.Models
 {
-    [RoutePrefix("FaturamentoHistorico")]
-    public class FatHistoricoesController : Controller
+    public class LinhasController : Controller
     {
-
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: FatHistoricoes
-        [Route]
+        // GET: Linhas
         public ActionResult Index()
         {
-            return View(db.FatHistoricos.ToList());
+            var model = db.Linhas.OrderBy(l => l.Apelido);
+
+            return View(model.ToList());
         }
 
-        // GET: FatHistoricoes/Details/5
-        [Route("Details")]
+        // GET: Linhas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FatHistorico fatHistorico = db.FatHistoricos.Find(id);
-            if (fatHistorico == null)
+            Linha linha = db.Linhas.Find(id);
+            if (linha == null)
             {
                 return HttpNotFound();
             }
-            return View(fatHistorico);
+            return View(linha);
         }
 
-        // GET: FatHistoricoes/Create
-        [Route("Create")]
+        // GET: Linhas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: FatHistoricoes/Create
+        // POST: Linhas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Route("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Rotulo,FitaRecLiq,FitaPeso,FitaHora,TuboRecLiq,TuboPeso,TuboHora,GxfPuroRecLiq,GxfPuroPeso,GxfPuroHora,GxfGrafRecLiq,GxfGrafPeso,GxfGrafHora,GraxaRecLiq,GraxaPeso,GraxaHora")] FatHistorico fatHistorico)
+        public ActionResult Create([Bind(Include = "LinhaId,Apelido,Descricao")] Linha linha)
         {
             if (ModelState.IsValid)
             {
-                db.FatHistoricos.Add(fatHistorico);
+                db.Linhas.Add(linha);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(fatHistorico);
+            return View(linha);
         }
 
-        // GET: FatHistoricoes/Edit/5
-        [Route("Edit")]
+        // GET: Linhas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FatHistorico fatHistorico = db.FatHistoricos.Find(id);
-            if (fatHistorico == null)
+            Linha linha = db.Linhas.Find(id);
+            if (linha == null)
             {
                 return HttpNotFound();
             }
-            return View(fatHistorico);
+            return View(linha);
         }
 
-        // POST: FatHistoricoes/Edit/5
+        // POST: Linhas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Rotulo,FitaRecLiq,FitaPeso,FitaHora,TuboRecLiq,TuboPeso,TuboHora,GxfPuroRecLiq,GxfPuroPeso,GxfPuroHora,GxfGrafRecLiq,GxfGrafPeso,GxfGrafHora,GraxaRecLiq,GraxaPeso,GraxaHora")] FatHistorico fatHistorico)
+        public ActionResult Edit([Bind(Include = "LinhaId,Apelido,Descricao")] Linha linha)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(fatHistorico).State = EntityState.Modified;
+                db.Entry(linha).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(fatHistorico);
+            return View(linha);
         }
 
-        // GET: FatHistoricoes/Delete/5
-        [Route("Delete")]
+        // GET: Linhas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FatHistorico fatHistorico = db.FatHistoricos.Find(id);
-            if (fatHistorico == null)
+            Linha linha = db.Linhas.Find(id);
+            if (linha == null)
             {
                 return HttpNotFound();
             }
-            return View(fatHistorico);
+            return View(linha);
         }
 
-        // POST: FatHistoricoes/Delete/5
+        // POST: Linhas/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Route("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FatHistorico fatHistorico = db.FatHistoricos.Find(id);
-            db.FatHistoricos.Remove(fatHistorico);
+            Linha linha = db.Linhas.Find(id);
+            db.Linhas.Remove(linha);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

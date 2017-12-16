@@ -238,13 +238,13 @@
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\ExtrusorasController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
-    <Compile Include="Controllers\FatHistoricoesController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\IcmsFretesController.cs" />
     <Compile Include="Controllers\IndiceRateioFormacaoPrecoVendasController.cs" />
     <Compile Include="Controllers\IndiceRateioLucratividadesController.cs" />
     <Compile Include="Controllers\IndicesController.cs" />
     <Compile Include="Controllers\InsumoesController.cs" />
+    <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\LubrificantesController.cs" />
     <Compile Include="Controllers\PadraoFixoesController.cs" />
     <Compile Include="Controllers\ParametroesController.cs" />
@@ -743,6 +743,18 @@
     <Compile Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.cs" />
     <Compile Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.Designer.cs">
       <DependentUpon>201712151329229_RemovedPlanejNecessidModelAndTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161549188_DropFaturamentoHistorico.cs" />
+    <Compile Include="Migrations\201712161549188_DropFaturamentoHistorico.Designer.cs">
+      <DependentUpon>201712161549188_DropFaturamentoHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161657090_AddFirstPartFatHistoricos.cs" />
+    <Compile Include="Migrations\201712161657090_AddFirstPartFatHistoricos.Designer.cs">
+      <DependentUpon>201712161657090_AddFirstPartFatHistoricos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161920083_CompleteFatHistorico.cs" />
+    <Compile Include="Migrations\201712161920083_CompleteFatHistorico.Designer.cs">
+      <DependentUpon>201712161920083_CompleteFatHistorico.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
@@ -1508,7 +1520,6 @@
     <Compile Include="Models\Rateio.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linha.cs" />
-    <Compile Include="Models\LinhasController.cs" />
     <Compile Include="Models\LogData.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parametro.cs" />
@@ -1805,11 +1816,6 @@
     <Content Include="Views\ParmGraxas\Details.cshtml" />
     <Content Include="Views\ParmGraxas\Edit.cshtml" />
     <Content Include="Views\ParmGraxas\Index.cshtml" />
-    <Content Include="Views\FatHistoricoes\Create.cshtml" />
-    <Content Include="Views\FatHistoricoes\Delete.cshtml" />
-    <Content Include="Views\FatHistoricoes\Details.cshtml" />
-    <Content Include="Views\FatHistoricoes\Edit.cshtml" />
-    <Content Include="Views\FatHistoricoes\Index.cshtml" />
     <Content Include="Views\Parametroes\Create.cshtml" />
     <Content Include="Views\Parametroes\Delete.cshtml" />
     <Content Include="Views\Parametroes\Details.cshtml" />
@@ -2834,6 +2840,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712151329229_RemovedPlanejNecessidModelAndTable.resx">
       <DependentUpon>201712151329229_RemovedPlanejNecessidModelAndTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161549188_DropFaturamentoHistorico.resx">
+      <DependentUpon>201712161549188_DropFaturamentoHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161657090_AddFirstPartFatHistoricos.resx">
+      <DependentUpon>201712161657090_AddFirstPartFatHistoricos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161920083_CompleteFatHistorico.resx">
+      <DependentUpon>201712161920083_CompleteFatHistorico.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

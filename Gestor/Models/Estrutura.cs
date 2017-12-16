@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gestor.Models
 {
@@ -242,5 +243,10 @@ namespace Gestor.Models
 
         [StringLength(10)]
         public string Input { get; set; }
+
+        public static implicit operator Estrutura(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
