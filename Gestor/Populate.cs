@@ -596,6 +596,11 @@ namespace Gestor
                 item.PvMed3o3m = FxPlanejVenda.PvMed3o3m(item);     // AE
                 item.PvMed4o3m = FxPlanejVenda.PvMed4o3m(item);     // AF
                 item.PvNacAdotado = FxPlanejVenda.PvNacAdotado(item);     // AG
+                item.StMedia = FxPlanejVenda.StMedia(item);     // AH
+                item.IcmsMedio = FxPlanejVenda.IcmsMedio(item);     // AI
+                item.ComissaoMediaNac = FxPlanejVenda.ComissaoMediaNac(item);     // AJ
+                item.FreteNacPct = FxPlanejVenda.FreteNacPct(item);     // AK
+                item.PrazoRecebMedioNac = FxPlanejVenda.PrazoRecebMedioNac(item);     // AL
             }
 
             db.SaveChanges();

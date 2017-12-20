@@ -810,6 +810,10 @@
     <Compile Include="Migrations\201712201155145_RetifyNumerationInPlaejVendas.Designer.cs">
       <DependentUpon>201712201155145_RetifyNumerationInPlaejVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.cs" />
+    <Compile Include="Migrations\201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.Designer.cs">
+      <DependentUpon>201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -2948,6 +2952,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712201155145_RetifyNumerationInPlaejVendas.resx">
       <DependentUpon>201712201155145_RetifyNumerationInPlaejVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.resx">
+      <DependentUpon>201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

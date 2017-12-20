@@ -115,6 +115,9 @@
             @Html.DisplayNameFor(model => model.ComissaoMediaNac)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PrazoRecebMedioNac)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FreteNacPct)
         </th>
         <th>
@@ -1145,1132 +1148,1135 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PesoUnitario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasMod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoDiretoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoDiretoMats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoDiretoMod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixoFabrica)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixAdmCom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AliquotaIpi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos09)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos08)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos07)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos06)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos05)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos04)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos03)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos02)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QvQtNacAno00)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtNacMediaMensal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMed1o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMed2o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMed3o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMed4o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvNacAdotado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StMedia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IcmsMedio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComissaoMediaNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FreteNacPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MesRecebMedNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtExpMediaMensal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMedEx1o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMedEx2o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMedEx3o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMedEx4o3m)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvMedExAdotado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComissaoExpPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrazoRecebMedExp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComentarioCelulaBi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Criterio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VartC1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VarTc2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VartC3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VartC4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqQtNacTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PplKgNacTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvvpvaVarPvAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PcbRbNacTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PipiIpiNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos09)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos08)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos07)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos06)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos05)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos04)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos03)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos02)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAnoMenos01)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PstStNacAno00)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PfbFatBrAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PicmsIcmsNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnFatBrutoNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnImpostos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnRecLiquidaNacional)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnComissaoNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnFreteNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnRecLiquidaVendaNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnCustoDirMateriaisNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnCustoDirModNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnFixoFabricaNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnMCNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnMCNacPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnCustoFixoAdmComNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnResultadoBrutoNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnResultadoBrutoNacPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CrnComentario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeCriterio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeAumDim)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PqeQtExpTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PpleKgExpTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PvppvaVPVexAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreUsdRcExpUsRecExportUSD)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreRecExportRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreComissaoExportRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreFreteDespExportRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreRecLiqVendaExportRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreCustoDiretoMatModExptRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreCustoFixoFabExpRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreMCExportRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreMCExportPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreCustoFixoAdmComExpRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreResultadoBrutoExpRs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreResBrutoExpPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FbQuantTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FbPesoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FbFaturamentoBrutoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RlImpostoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RlReceitaLiquidaTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RlComissaoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RlFreteDespExpTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RlRecLiqVendaTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.McCustoDirMatModTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.McCustoFixoFabricaTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.McMargemContribTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.McMCbTotalPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoCustoFixoComAdmTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoCustoFixoComAdmAjustadoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoResultadoOperacionalTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoResultadoOperacionalTotalPct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdTotAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GifTotAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComTotAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrtNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrDexpAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CdsmtCfMatAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QtvQtTottAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasProdAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecNacAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecExpAno)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PesoUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoDiretoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoDiretoMats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoDiretoMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixoFabrica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoFixAdmCom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AliquotaIpi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos09)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos08)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos07)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos06)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos05)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos04)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos03)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos02)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAno00)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtNacMediaMensal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMed1o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMed2o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMed3o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMed4o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvNacAdotado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StMedia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcmsMedio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComissaoMediaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreteNacPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrazoRecebMedioNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesRecebMedNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpMediaMensal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMedEx1o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMedEx2o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMedEx3o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMedEx4o3m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvMedExAdotado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComissaoExpPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrazoRecebMedExp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComentarioCelulaBi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Criterio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VartC1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VarTc2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VartC3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VartC4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqQtNacTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PplKgNacTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvpvaVarPvAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PcbRbNacTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PipiIpiNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos09)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos08)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos07)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos06)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos05)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos04)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos03)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos02)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAnoMenos01)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PstStNacAno00)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PfbFatBrAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicmsIcmsNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnFatBrutoNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnImpostos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnRecLiquidaNacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnComissaoNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnFreteNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnRecLiquidaVendaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnCustoDirMateriaisNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnCustoDirModNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnFixoFabricaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnMCNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnMCNacPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnCustoFixoAdmComNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnResultadoBrutoNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnResultadoBrutoNacPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrnComentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeCriterio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeAumDim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PqeQtExpTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PpleKgExpTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvppvaVPVexAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreUsdRcExpUsRecExportUSD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreRecExportRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreComissaoExportRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreFreteDespExportRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreRecLiqVendaExportRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreCustoDiretoMatModExptRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreCustoFixoFabExpRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreMCExportRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreMCExportPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreCustoFixoAdmComExpRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreResultadoBrutoExpRs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreResBrutoExpPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FbQuantTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FbPesoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FbFaturamentoBrutoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RlImpostoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RlReceitaLiquidaTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RlComissaoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RlFreteDespExpTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RlRecLiqVendaTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.McCustoDirMatModTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.McCustoFixoFabricaTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.McMargemContribTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.McMCbTotalPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoCustoFixoComAdmTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoCustoFixoComAdmAjustadoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoResultadoOperacionalTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoResultadoOperacionalTotalPct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdTotAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GifTotAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComTotAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrtNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrDexpAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CdsmtCfMatAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtvQtTottAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasProdAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecNacAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAnoMenos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecExpAno)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
     }
 
 </table>

@@ -298,7 +298,7 @@ namespace Gestor
 
             var result = Math.Abs(d) > Global.Tolerance
                             ? (a + b + c) / d
-                            : float.MaxValue;
+                            : 0;
 
             return result;
         }
@@ -332,7 +332,7 @@ namespace Gestor
 
             var result = Math.Abs(d) > Global.Tolerance
                             ? (a + b + c) / d
-                            : float.MaxValue;
+                            : 0;
 
             return result;
         }
@@ -366,7 +366,7 @@ namespace Gestor
 
             var result = Math.Abs(d) > Global.Tolerance
                 ? (a + b + c) / d
-                : float.MaxValue;
+                : 0;
 
             return result;
         }
@@ -400,14 +400,124 @@ namespace Gestor
 
             var result = Math.Abs(d) > Global.Tolerance
                 ? (a + b + c) / d
-                : float.MaxValue;
+                : 0;
 
             return result;
         }
 
-        public static float PvNacAdotado(PlanejVenda planej)
+        public static float PvNacAdotado(PlanejVenda planej)        // AG
         {
+            float result = planej.PvMed4o3m;
 
+            if (Math.Abs(result) < Global.Tolerance)
+            {
+                int countif = 0;
+                if (Math.Abs(planej.PvMed1o3m) > Global.Tolerance) countif++;
+                if (Math.Abs(planej.PvMed2o3m) > Global.Tolerance) countif++;
+                if (Math.Abs(planej.PvMed3o3m) > Global.Tolerance) countif++;
+                if (Math.Abs(planej.PvMed4o3m) > Global.Tolerance) countif++;
+                float soma = planej.PvMed1o3m + planej.PvMed2o3m + planej.PvMed3o3m + planej.PvMed4o3m;
+                result = countif > 0
+                    ? soma / countif
+                    : 0; 
+            }
+
+            return result;
+        }
+
+        public static float StMedia(PlanejVenda planej)     // AH
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaNacional");
+
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico.Any())
+            {
+                float a = fatHistorico.Sum(f => f.ValorSubstTributaria);
+                float b = fatHistorico.Sum(f => f.ValorMercadoria);
+                if (Math.Abs(b) > Global.Tolerance) result = a / b;
+            }
+
+            return result;
+        }
+
+        public static float IcmsMedio(PlanejVenda planej)       // AI
+        {
+            float result = 0;
+
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaNacional");
+
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico.Any())
+            {
+                float a = fatHistorico.Sum(f => f.Icms);
+                float b = fatHistorico.Sum(f => f.ValorMercadoria);
+                if (Math.Abs(b) > Global.Tolerance) result = a / b;
+            }
+
+            return result;
+        }
+
+        public static float ComissaoMediaNac(PlanejVenda planej)       // AJ
+        {
+            float result = 0;
+
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaNacional");
+
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico.Any())
+            {
+                float a = fatHistorico.Sum(f => f.Comissao);
+                float b = fatHistorico.Sum(f => f.ComGvComacs);
+                float c = fatHistorico.Sum(f => f.RecBruta);
+                if (Math.Abs(b) > Global.Tolerance) result = (a + b) / c;
+            }
+
+            return result;
+        }
+
+        public static float FreteNacPct(PlanejVenda planej)       // AK
+        {
+            float result = 0;
+
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaNacional");
+
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico.Any())
+            {
+                float a = fatHistorico.Sum(f => f.Frete);
+                float b = fatHistorico.Sum(f => f.FaturBruto);
+                if (Math.Abs(b) > Global.Tolerance) result = a / b;
+            }
+
+            return result;
+        }
+
+        public static float PrazoRecebMedioNac(PlanejVenda planej)       // AL
+        {
+            float result = 0;
+
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaNacional");
+
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico.Any())
+            {
+                float a = fatHistorico.Sum(f => f.PrazoFatur);
+                float b = fatHistorico.Sum(f => f.FaturBruto);
+                if (Math.Abs(b) > Global.Tolerance) result = a / b;
+            }
+
+            return result;
         }
 
         public static string AnoMes(string data, DateTime referencia)

@@ -117,7 +117,7 @@ namespace Gestor.Models
         public float PvMed4o3m { get; set; }
 
         [Display(Name = "PV Nac adotado")]
-        [DisplayFormat(DataFormatString = "{0:N2}")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
         public float PvNacAdotado { get; set; }
 
         [Display(Name = "ST Média")]
@@ -132,9 +132,13 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:P2}")]
         public float ComissaoMediaNac { get; set; }
 
-        [Display(Name = "Fretes Nac %a")]
+        [Display(Name = "Fretes Nac %")]
         [DisplayFormat(DataFormatString = "{0:P2}")]
         public float FreteNacPct { get; set; }
+
+        [Display(Name = "Prazo Receb Med NAC")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float PrazoRecebMedioNac { get; set; }
 
         [Display(Name = "Mês Receb Med Nac")]       // AM
         public int MesRecebMedNac { get; set; }
