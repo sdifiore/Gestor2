@@ -562,5 +562,43 @@ namespace Gestor
 
             db.SaveChanges();
         }
+
+        public static void PlanejVendas()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PlanejVendas.ToList();
+
+            foreach (var item in model)
+            {
+                item.PesoUnitario = FxPlanejVenda.PesoUnitario(item);       // G
+                item.HorasMod = FxPlanejVenda.HorasMod(item);       // H
+                item.CustoDiretoTotal = FxPlanejVenda.CustoDiretoTotal(item);       // I
+                item.CustoDiretoMats = FxPlanejVenda.CustoDiretoMats(item);       // J
+                item.CustoDiretoMod = FxPlanejVenda.CustoDiretoMod(item);       // K
+                item.CustoFixoFabrica = FxPlanejVenda.CustoFixoFabrica(item);       // L
+                item.CustoFixAdmCom = FxPlanejVenda.CustoFixAdmCom(item);       // M
+                item.AliquotaIpi = FxPlanejVenda.AliquotaIpi(item);       // O
+                item.QvQtNacAnoMenos12 = FxPlanejVenda.QvQtNacAnoMenos11(item);     // P
+                item.QvQtNacAnoMenos11 = FxPlanejVenda.QvQtNacAnoMenos10(item);     // Q
+                item.QvQtNacAnoMenos10 = FxPlanejVenda.QvQtNacAnoMenos9(item);     // R
+                item.QvQtNacAnoMenos09 = FxPlanejVenda.QvQtNacAnoMenos8(item);     // S
+                item.QvQtNacAnoMenos08 = FxPlanejVenda.QvQtNacAnoMenos7(item);     // T
+                item.QvQtNacAnoMenos07 = FxPlanejVenda.QvQtNacAnoMenos6(item);     // U
+                item.QvQtNacAnoMenos06 = FxPlanejVenda.QvQtNacAnoMenos5(item);     // V
+                item.QvQtNacAnoMenos05 = FxPlanejVenda.QvQtNacAnoMenos4(item);     // W
+                item.QvQtNacAnoMenos04 = FxPlanejVenda.QvQtNacAnoMenos3(item);     // X
+                item.QvQtNacAnoMenos03 = FxPlanejVenda.QvQtNacAnoMenos2(item);     // Y
+                item.QvQtNacAnoMenos02 = FxPlanejVenda.QvQtNacAnoMenos1(item);     // Z
+                item.QvQtNacAno00 = FxPlanejVenda.QvQtNacAno(item);     // AA
+                item.QtNacMediaMensal = FxPlanejVenda.QtNacMediaMensal(item);     // AB
+                item.PvMed1o3m = FxPlanejVenda.PvMed1o3m(item);     // AC
+                item.PvMed2o3m = FxPlanejVenda.PvMed2o3m(item);     // AD
+                item.PvMed3o3m = FxPlanejVenda.PvMed3o3m(item);     // AE
+                item.PvMed4o3m = FxPlanejVenda.PvMed4o3m(item);     // AF
+                item.PvNacAdotado = FxPlanejVenda.PvNacAdotado(item);     // AG
+            }
+
+            db.SaveChanges();
+        }
     }
 }

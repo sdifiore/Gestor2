@@ -52,5 +52,10 @@ namespace Gestor
 
             return (float)acumulo;
         }
+
+        public static string Right(string texto, int posicoes)
+        {
+            return texto.Substring(texto.Length - posicoes, posicoes);
+        }
     }
 }

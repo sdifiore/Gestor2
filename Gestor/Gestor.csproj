@@ -252,6 +252,7 @@
     <Compile Include="Controllers\PlanejComprasController.cs" />
     <Compile Include="Controllers\PlanejModsController.cs" />
     <Compile Include="Controllers\PlanejNecessidades.cs" />
+    <Compile Include="Controllers\PlanejVendasController.cs" />
     <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
     <Compile Include="Controllers\PreFormasController.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxPlanejMod.cs" />
     <Compile Include="FxPlanejNecessidade.cs" />
+    <Compile Include="FxPlanejVenda.cs" />
     <Compile Include="FxPrecoNacional.cs" />
     <Compile Include="FxProduto.cs" />
     <Compile Include="FxTubo.cs" />
@@ -756,6 +758,58 @@
     <Compile Include="Migrations\201712161920083_CompleteFatHistorico.Designer.cs">
       <DependentUpon>201712161920083_CompleteFatHistorico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712171123070_DropFatHistorico.cs" />
+    <Compile Include="Migrations\201712171123070_DropFatHistorico.Designer.cs">
+      <DependentUpon>201712171123070_DropFatHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712171126462_PlanejVendas.cs" />
+    <Compile Include="Migrations\201712171126462_PlanejVendas.Designer.cs">
+      <DependentUpon>201712171126462_PlanejVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712171223164_LinkPlanejVendasToProdutos.cs" />
+    <Compile Include="Migrations\201712171223164_LinkPlanejVendasToProdutos.Designer.cs">
+      <DependentUpon>201712171223164_LinkPlanejVendasToProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712180953248_FaturamentoHistoricos.cs" />
+    <Compile Include="Migrations\201712180953248_FaturamentoHistoricos.Designer.cs">
+      <DependentUpon>201712180953248_FaturamentoHistoricos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181336369_FieldProdCategoriaAjustadoInFatHistoricoTo64char.cs" />
+    <Compile Include="Migrations\201712181336369_FieldProdCategoriaAjustadoInFatHistoricoTo64char.Designer.cs">
+      <DependentUpon>201712181336369_FieldProdCategoriaAjustadoInFatHistoricoTo64char.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181341083_ChangeNumeroPedidoInFatHistoricoToString.cs" />
+    <Compile Include="Migrations\201712181341083_ChangeNumeroPedidoInFatHistoricoToString.Designer.cs">
+      <DependentUpon>201712181341083_ChangeNumeroPedidoInFatHistoricoToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712191111406_FattenStringsInFatHistorico.cs" />
+    <Compile Include="Migrations\201712191111406_FattenStringsInFatHistorico.Designer.cs">
+      <DependentUpon>201712191111406_FattenStringsInFatHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712191535443_AddRefAnoToPlanejVendas.cs" />
+    <Compile Include="Migrations\201712191535443_AddRefAnoToPlanejVendas.Designer.cs">
+      <DependentUpon>201712191535443_AddRefAnoToPlanejVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712191539407_RefANoInPlanejVendasAsDateTime.cs" />
+    <Compile Include="Migrations\201712191539407_RefANoInPlanejVendasAsDateTime.Designer.cs">
+      <DependentUpon>201712191539407_RefANoInPlanejVendasAsDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712191556517_PlanejVendasQvQtAnoNN.cs" />
+    <Compile Include="Migrations\201712191556517_PlanejVendasQvQtAnoNN.Designer.cs">
+      <DependentUpon>201712191556517_PlanejVendasQvQtAnoNN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712191621591_RefAnoNotNullable.cs" />
+    <Compile Include="Migrations\201712191621591_RefAnoNotNullable.Designer.cs">
+      <DependentUpon>201712191621591_RefAnoNotNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201148409_PstStAnoInPlanejVendasWitnNN.cs" />
+    <Compile Include="Migrations\201712201148409_PstStAnoInPlanejVendasWitnNN.Designer.cs">
+      <DependentUpon>201712201148409_PstStAnoInPlanejVendasWitnNN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201155145_RetifyNumerationInPlaejVendas.cs" />
+    <Compile Include="Migrations\201712201155145_RetifyNumerationInPlaejVendas.Designer.cs">
+      <DependentUpon>201712201155145_RetifyNumerationInPlaejVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -770,6 +824,7 @@
     <Compile Include="Models\Extrusora.cs" />
     <Compile Include="Models\Fabricante.cs" />
     <Compile Include="Models\FatHistorico.cs" />
+    <Compile Include="Models\PlanejVenda.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\IcmsFrete.cs" />
     <Compile Include="Models\Indice.cs" />
@@ -1976,6 +2031,11 @@
     <Content Include="Views\PlanejNecessidades\Details.cshtml" />
     <Content Include="Views\PlanejNecessidades\Edit.cshtml" />
     <Content Include="Views\PlanejNecessidades\Index.cshtml" />
+    <Content Include="Views\PlanejVendas\Create.cshtml" />
+    <Content Include="Views\PlanejVendas\Delete.cshtml" />
+    <Content Include="Views\PlanejVendas\Details.cshtml" />
+    <Content Include="Views\PlanejVendas\Edit.cshtml" />
+    <Content Include="Views\PlanejVendas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -2849,6 +2909,45 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161920083_CompleteFatHistorico.resx">
       <DependentUpon>201712161920083_CompleteFatHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171123070_DropFatHistorico.resx">
+      <DependentUpon>201712171123070_DropFatHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171126462_PlanejVendas.resx">
+      <DependentUpon>201712171126462_PlanejVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171223164_LinkPlanejVendasToProdutos.resx">
+      <DependentUpon>201712171223164_LinkPlanejVendasToProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712180953248_FaturamentoHistoricos.resx">
+      <DependentUpon>201712180953248_FaturamentoHistoricos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181336369_FieldProdCategoriaAjustadoInFatHistoricoTo64char.resx">
+      <DependentUpon>201712181336369_FieldProdCategoriaAjustadoInFatHistoricoTo64char.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181341083_ChangeNumeroPedidoInFatHistoricoToString.resx">
+      <DependentUpon>201712181341083_ChangeNumeroPedidoInFatHistoricoToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191111406_FattenStringsInFatHistorico.resx">
+      <DependentUpon>201712191111406_FattenStringsInFatHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191535443_AddRefAnoToPlanejVendas.resx">
+      <DependentUpon>201712191535443_AddRefAnoToPlanejVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191539407_RefANoInPlanejVendasAsDateTime.resx">
+      <DependentUpon>201712191539407_RefANoInPlanejVendasAsDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191556517_PlanejVendasQvQtAnoNN.resx">
+      <DependentUpon>201712191556517_PlanejVendasQvQtAnoNN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712191621591_RefAnoNotNullable.resx">
+      <DependentUpon>201712191621591_RefAnoNotNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201148409_PstStAnoInPlanejVendasWitnNN.resx">
+      <DependentUpon>201712201148409_PstStAnoInPlanejVendasWitnNN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201155145_RetifyNumerationInPlaejVendas.resx">
+      <DependentUpon>201712201155145_RetifyNumerationInPlaejVendas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

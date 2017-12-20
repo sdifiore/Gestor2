@@ -62,6 +62,7 @@
   <TempoPadraoPrepExtrusora>Tempo padrão preparo extrusora, min</TempoPadraoPrepExtrusora>
   <TempoPeneiramento>Tempo peneiramento, min/kg</TempoPeneiramento>
   <TipoNaoInformado>Não Informado</TipoNaoInformado>
+  <TipoVendaNacional>NAC</TipoVendaNacional>
   <TubosCordoes>Tubos PTFE</TubosCordoes>
   <UnidadeHora>hora</UnidadeHora>
   <UnidadeNaoInformada>Não Informada</UnidadeNaoInformada>
