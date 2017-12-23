@@ -52,9 +52,6 @@
             @Html.DisplayNameFor(model => model.AliquotaIpi)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QvQtNacAnoMenos12)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.QvQtNacAnoMenos11)
         </th>
         <th>
@@ -83,6 +80,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QvQtNacAnoMenos02)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QvQtNacAnoMenos01)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QvQtNacAno00)
@@ -124,40 +124,40 @@
             @Html.DisplayNameFor(model => model.MesRecebMedNac)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos12)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.QtExpAnoMenos11)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QtExpAnoMenos10)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos9)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos09)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos8)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos08)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos7)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos07)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos6)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos06)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos5)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos05)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos4)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos04)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos3)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos03)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAnoMenos2)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos02)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QtExpAno)
+            @Html.DisplayNameFor(model => model.QtExpAnoMenos01)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtExpAno00)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QtExpMediaMensal)
@@ -182,6 +182,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PrazoRecebMedExp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesRecebMedExp)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ComentarioCelulaBi)
@@ -1180,9 +1183,6 @@
             @Html.DisplayFor(modelItem => item.AliquotaIpi)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos12)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos11)
         </td>
         <td>
@@ -1211,6 +1211,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos02)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QvQtNacAnoMenos01)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QvQtNacAno00)
@@ -1249,10 +1252,10 @@
             @Html.DisplayFor(modelItem => item.PrazoRecebMedioNac)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MesRecebMedNac)
+            @Html.DisplayFor(modelItem => item.MesRecebMedExp)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos12)
+            @Html.DisplayFor(modelItem => item.MesRecebMedNac)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QtExpAnoMenos11)
@@ -1261,31 +1264,34 @@
             @Html.DisplayFor(modelItem => item.QtExpAnoMenos10)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos9)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos09)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos8)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos08)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos7)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos07)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos6)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos06)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos5)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos05)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos4)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos04)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos3)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos03)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAnoMenos2)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos02)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QtExpAno)
+            @Html.DisplayFor(modelItem => item.QtExpAnoMenos01)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtExpAno00)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QtExpMediaMensal)

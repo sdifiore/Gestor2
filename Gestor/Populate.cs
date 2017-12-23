@@ -35,7 +35,7 @@ namespace Gestor
                 register.AlrtSbPrdt = FxEstrutura.AlrtSbPrdt(register);     // R
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
                 register.TpItmCst = FxEstrutura.TipoItemCusto(register);    // Q
-                //register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H
+                //register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H *********************
                 register.CustoUnitCompra = FxEstrutura.CustoUnitCompra(register);   // I
                 register.QtEftvUntrCmpnt = FxEstrutura.QtEftvUntrCmpnt(register);   // O
                 register.CstCmprUndPrd = FxEstrutura.CstCmprUndPrd(register);   // P
@@ -578,17 +578,17 @@ namespace Gestor
                 item.CustoFixoFabrica = FxPlanejVenda.CustoFixoFabrica(item);       // L
                 item.CustoFixAdmCom = FxPlanejVenda.CustoFixAdmCom(item);       // M
                 item.AliquotaIpi = FxPlanejVenda.AliquotaIpi(item);       // O
-                item.QvQtNacAnoMenos12 = FxPlanejVenda.QvQtNacAnoMenos11(item);     // P
-                item.QvQtNacAnoMenos11 = FxPlanejVenda.QvQtNacAnoMenos10(item);     // Q
-                item.QvQtNacAnoMenos10 = FxPlanejVenda.QvQtNacAnoMenos9(item);     // R
-                item.QvQtNacAnoMenos09 = FxPlanejVenda.QvQtNacAnoMenos8(item);     // S
-                item.QvQtNacAnoMenos08 = FxPlanejVenda.QvQtNacAnoMenos7(item);     // T
-                item.QvQtNacAnoMenos07 = FxPlanejVenda.QvQtNacAnoMenos6(item);     // U
-                item.QvQtNacAnoMenos06 = FxPlanejVenda.QvQtNacAnoMenos5(item);     // V
-                item.QvQtNacAnoMenos05 = FxPlanejVenda.QvQtNacAnoMenos4(item);     // W
-                item.QvQtNacAnoMenos04 = FxPlanejVenda.QvQtNacAnoMenos3(item);     // X
-                item.QvQtNacAnoMenos03 = FxPlanejVenda.QvQtNacAnoMenos2(item);     // Y
-                item.QvQtNacAnoMenos02 = FxPlanejVenda.QvQtNacAnoMenos1(item);     // Z
+                item.QvQtNacAnoMenos11 = FxPlanejVenda.QvQtNacAnoMenos11(item);     // P
+                item.QvQtNacAnoMenos10 = FxPlanejVenda.QvQtNacAnoMenos10(item);     // Q
+                item.QvQtNacAnoMenos09 = FxPlanejVenda.QvQtNacAnoMenos9(item);     // R
+                item.QvQtNacAnoMenos08 = FxPlanejVenda.QvQtNacAnoMenos8(item);     // S
+                item.QvQtNacAnoMenos07 = FxPlanejVenda.QvQtNacAnoMenos7(item);     // T
+                item.QvQtNacAnoMenos06 = FxPlanejVenda.QvQtNacAnoMenos6(item);     // U
+                item.QvQtNacAnoMenos05 = FxPlanejVenda.QvQtNacAnoMenos5(item);     // V
+                item.QvQtNacAnoMenos04 = FxPlanejVenda.QvQtNacAnoMenos4(item);     // W
+                item.QvQtNacAnoMenos03 = FxPlanejVenda.QvQtNacAnoMenos3(item);     // X
+                item.QvQtNacAnoMenos02 = FxPlanejVenda.QvQtNacAnoMenos2(item);     // Y
+                item.QvQtNacAnoMenos01 = FxPlanejVenda.QvQtNacAnoMenos1(item);     // Z
                 item.QvQtNacAno00 = FxPlanejVenda.QvQtNacAno(item);     // AA
                 item.QtNacMediaMensal = FxPlanejVenda.QtNacMediaMensal(item);     // AB
                 item.PvMed1o3m = FxPlanejVenda.PvMed1o3m(item);     // AC
@@ -601,6 +601,28 @@ namespace Gestor
                 item.ComissaoMediaNac = FxPlanejVenda.ComissaoMediaNac(item);     // AJ
                 item.FreteNacPct = FxPlanejVenda.FreteNacPct(item);     // AK
                 item.PrazoRecebMedioNac = FxPlanejVenda.PrazoRecebMedioNac(item);     // AL
+                item.MesRecebMedNac = FxPlanejVenda.MesRecebMedNac(item);     // AM
+                item.QtExpAnoMenos11 = FxPlanejVenda.QtExpAnoMenos11(item);     // AN
+                item.QtExpAnoMenos10 = FxPlanejVenda.QtExpAnoMenos10(item);     // AO
+                item.QtExpAnoMenos09 = FxPlanejVenda.QtExpAnoMenos09(item);     // AP
+                item.QtExpAnoMenos08 = FxPlanejVenda.QtExpAnoMenos08(item);     // AQ
+                item.QtExpAnoMenos07 = FxPlanejVenda.QtExpAnoMenos07(item);     // AR
+                item.QtExpAnoMenos06 = FxPlanejVenda.QtExpAnoMenos06(item);     // AS
+                item.QtExpAnoMenos05 = FxPlanejVenda.QtExpAnoMenos05(item);     // AT
+                item.QtExpAnoMenos04 = FxPlanejVenda.QtExpAnoMenos04(item);     // AU
+                item.QtExpAnoMenos03 = FxPlanejVenda.QtExpAnoMenos03(item);     // AV
+                item.QtExpAnoMenos02 = FxPlanejVenda.QtExpAnoMenos02(item);     // AW
+                item.QtExpAnoMenos01 = FxPlanejVenda.QtExpAnoMenos01(item);     // AX
+                item.QtExpAno00 = FxPlanejVenda.QtExpAno00(item);     // AY
+                item.QtExpMediaMensal = FxPlanejVenda.QtExpMediaMensal(item);     // AZ
+                item.PvMedEx1o3m = FxPlanejVenda.PvMedEx1o3m(item);     // BA
+                item.PvMedEx2o3m = FxPlanejVenda.PvMedEx2o3m(item);     // BB
+                item.PvMedEx3o3m = FxPlanejVenda.PvMedEx3o3m(item);     // BC
+                item.PvMedEx4o3m = FxPlanejVenda.PvMedEx4o3m(item);     // BD
+                item.PvMedExAdotado = FxPlanejVenda.PvMedExAdotado(item);     // BE
+                item.ComissaoExpPct = FxPlanejVenda.ComissaoExpPct(item);     // BF
+                item.PrazoRecebMedExp = FxPlanejVenda.PrazoRecebMedExp(item);     // BG
+                item.MesRecebMedExp = FxPlanejVenda.MesRecebMedExp(item);     // BH
             }
 
             db.SaveChanges();

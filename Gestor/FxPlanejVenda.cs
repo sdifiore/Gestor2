@@ -264,7 +264,7 @@ namespace Gestor
 
         public static float QtNacMediaMensal(PlanejVenda planej)        // AB
         {
-            return (planej.QvQtNacAnoMenos12 + planej.QvQtNacAnoMenos11 + planej.QvQtNacAnoMenos10 + planej.QvQtNacAnoMenos09 +
+            return (planej.QvQtNacAnoMenos01 + planej.QvQtNacAnoMenos11 + planej.QvQtNacAnoMenos10 + planej.QvQtNacAnoMenos09 +
                 planej.QvQtNacAnoMenos08 + planej.QvQtNacAnoMenos07 + planej.QvQtNacAnoMenos06 + planej.QvQtNacAnoMenos05 +
                 planej.QvQtNacAnoMenos04 + planej.QvQtNacAnoMenos03 + planej.QvQtNacAnoMenos02 + planej.QvQtNacAno00) / 12;
         }
@@ -294,7 +294,7 @@ namespace Gestor
                                                     && f.AnoMesFatura == anoMes);
             if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.RecBruta);
 
-            var d = planej.QvQtNacAnoMenos12 + planej.QvQtNacAnoMenos11 + planej.QvQtNacAnoMenos10;
+            var d = planej.QvQtNacAnoMenos11 + planej.QvQtNacAnoMenos10 + planej.QvQtNacAnoMenos09;
 
             var result = Math.Abs(d) > Global.Tolerance
                             ? (a + b + c) / d
@@ -303,7 +303,7 @@ namespace Gestor
             return result;
         }
 
-        public static float PvMed2o3m(PlanejVenda planej)       // AC
+        public static float PvMed2o3m(PlanejVenda planej)       // AD
         {
             float a = 0;
             float b = 0;
@@ -328,7 +328,7 @@ namespace Gestor
                                                     && f.AnoMesFatura == anoMes);
             if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.RecBruta);
 
-            var d = planej.QvQtNacAnoMenos09 + planej.QvQtNacAnoMenos08 + planej.QvQtNacAnoMenos07;
+            var d = planej.QvQtNacAnoMenos08 + planej.QvQtNacAnoMenos07 + planej.QvQtNacAnoMenos06;
 
             var result = Math.Abs(d) > Global.Tolerance
                             ? (a + b + c) / d
@@ -337,7 +337,7 @@ namespace Gestor
             return result;
         }
 
-        public static float PvMed3o3m(PlanejVenda planej)       // AC
+        public static float PvMed3o3m(PlanejVenda planej)       // AE
         {
             float a = 0;
             float b = 0;
@@ -362,7 +362,7 @@ namespace Gestor
                                                     && f.AnoMesFatura == anoMes);
             if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.RecBruta);
 
-            var d = planej.QvQtNacAnoMenos06 + planej.QvQtNacAnoMenos05 + planej.QvQtNacAnoMenos04;
+            var d = planej.QvQtNacAnoMenos05 + planej.QvQtNacAnoMenos04 + planej.QvQtNacAnoMenos03;
 
             var result = Math.Abs(d) > Global.Tolerance
                 ? (a + b + c) / d
@@ -371,7 +371,7 @@ namespace Gestor
             return result;
         }
 
-        public static float PvMed4o3m(PlanejVenda planej)       // AC
+        public static float PvMed4o3m(PlanejVenda planej)       // AF
         {
             float a = 0;
             float b = 0;
@@ -396,7 +396,7 @@ namespace Gestor
                                                     && f.AnoMesFatura == anoMes);
             if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.RecBruta);
 
-            var d = planej.QvQtNacAnoMenos03 + planej.QvQtNacAnoMenos02 + planej.QvQtNacAno00;
+            var d = planej.QvQtNacAnoMenos02 + planej.QvQtNacAnoMenos01 + planej.QvQtNacAno00;
 
             var result = Math.Abs(d) > Global.Tolerance
                 ? (a + b + c) / d
@@ -516,6 +516,383 @@ namespace Gestor
                 float b = fatHistorico.Sum(f => f.FaturBruto);
                 if (Math.Abs(b) > Global.Tolerance) result = a / b;
             }
+
+            return result;
+        }
+
+        public static int MesRecebMedNac(PlanejVenda planej)      // AM
+        {
+            int result = (int)Math.Truncate((15 + planej.PrazoRecebMedioNac) / 30);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos11(PlanejVenda planej)       // AN
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos11), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos10(PlanejVenda planej)       // AO
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos10), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos09(PlanejVenda planej)       // AP
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos09), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos08(PlanejVenda planej)       // AQ
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos08), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos07(PlanejVenda planej)       // AR
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos07), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos06(PlanejVenda planej)       // AS
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos06), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos05(PlanejVenda planej)       // AT
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos05), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos04(PlanejVenda planej)       // AU
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos04), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos03(PlanejVenda planej)       // AV
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos03), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos02(PlanejVenda planej)       // AW
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos02), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAnoMenos01(PlanejVenda planej)       // AX
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAnoMenos01), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpAno00(PlanejVenda planej)       // AY
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QtExpAno00), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) result = fatHistorico.Sum(f => f.QuantAjustada);
+
+            return result;
+        }
+
+        public static float QtExpMediaMensal(PlanejVenda planej)        // AZ
+        {
+            float result = (planej.QtExpAnoMenos01 + planej.QtExpAnoMenos02 + planej.QtExpAnoMenos03 +
+                planej.QtExpAnoMenos04 + planej.QtExpAnoMenos05 + planej.QtExpAnoMenos06 + planej.QtExpAnoMenos07 +
+                planej.QtExpAnoMenos08 + planej.QtExpAnoMenos09 + planej.QtExpAnoMenos10 + planej.QtExpAnoMenos11 +
+                planej.QtExpAno00) / 12;
+
+            return result;
+        }
+
+        public static float PvMedEx1o3m(PlanejVenda planej)       // BA
+        {
+            float a = 0;
+            float b = 0;
+            float c = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos11), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) a = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos10), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) b = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos09), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            var d = planej.QtExpAnoMenos11 + planej.QtExpAnoMenos10 + planej.QtExpAnoMenos09;
+
+            var result = Math.Abs(d) > Global.Tolerance
+                            ? (a + b + c) / d
+                            : 0;
+
+            return result;
+        }
+
+        public static float PvMedEx2o3m(PlanejVenda planej)       // BB
+        {
+            float a = 0;
+            float b = 0;
+            float c = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos08), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) a = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos07), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) b = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos06), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            var d = planej.QtExpAnoMenos08 + planej.QtExpAnoMenos07 + planej.QtExpAnoMenos06;
+
+            var result = Math.Abs(d) > Global.Tolerance
+                            ? (a + b + c) / d
+                            : 0;
+
+            return result;
+        }
+
+        public static float PvMedEx3o3m(PlanejVenda planej)       // BC
+        {
+            float a = 0;
+            float b = 0;
+            float c = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos05), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) a = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos04), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) b = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos03), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            var d = planej.QtExpAnoMenos05 + planej.QtExpAnoMenos04 + planej.QtExpAnoMenos03;
+
+            var result = Math.Abs(d) > Global.Tolerance
+                            ? (a + b + c) / d
+                            : 0;
+
+            return result;
+        }
+
+        public static float PvMedEx4o3m(PlanejVenda planej)       // BD
+        {
+            float a = 0;
+            float b = 0;
+            float c = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            string anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos02), planej.RefAno);
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda
+                                                        && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) a = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAnoMenos01), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) b = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            anoMes = AnoMes(nameof(planej.QvQtNacAno00), planej.RefAno);
+            fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                    && f.TipoVenda == tipoVenda
+                                                    && f.AnoMesFatura == anoMes);
+            if (fatHistorico.Any()) c = fatHistorico.Sum(f => f.FatBrutoUsd);
+
+            var d = planej.QtExpAnoMenos02 + planej.QtExpAnoMenos01 + planej.QtExpAno00;
+
+            var result = Math.Abs(d) > Global.Tolerance
+                            ? (a + b + c) / d
+                            : 0;
+
+            return result;
+        }
+
+        public static float PvMedExAdotado(PlanejVenda planej)      // BE
+        {
+            int countif = 0;
+            if (Math.Abs(planej.PvMedEx1o3m) > Global.Tolerance) countif++;
+            if (Math.Abs(planej.PvMedEx2o3m) > Global.Tolerance) countif++;
+            if (Math.Abs(planej.PvMedEx3o3m) > Global.Tolerance) countif++;
+            if (Math.Abs(planej.PvMedEx4o3m) > Global.Tolerance) countif++;
+
+            float result = countif > 0
+                ? (planej.PvMedEx1o3m + planej.PvMedEx2o3m + planej.PvMedEx3o3m + planej.PvMedEx4o3m) / countif
+                : 0;
+
+            return result;
+        }
+
+        public static float ComissaoExpPct(PlanejVenda planej)      // BF
+        {
+            float result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            var fatHistorico = db.FatHistoricos.FirstOrDefault(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda);
+            if (fatHistorico != null)
+            {
+                float a = fatHistorico.Comissao;
+                float b = fatHistorico.RecBruta;
+                if (Math.Abs(b) > Global.Tolerance) result = a / b;
+            }
+
+            return result;
+        }
+
+        public static int PrazoRecebMedExp(PlanejVenda planej)      // BG
+        {
+            int result = 0;
+            var db = new ApplicationDbContext();
+            string tipoVenda = XmlReader.Read("TipoVendaExportacao");
+            var fatHistorico = db.FatHistoricos.Where(f => f.ProdutoAjustadoId == planej.ProdutoId
+                                                        && f.TipoVenda == tipoVenda).ToList();
+            if (fatHistorico != null)
+            {
+                float a = fatHistorico.Sum(f => f.PrazoFatur);
+                float b = fatHistorico.Sum(f => f.FaturBruto);
+                if (Math.Abs(b) > Global.Tolerance) result = (int)(a / b);
+            }
+
+            return result;
+        }
+
+        public static int MesRecebMedExp(PlanejVenda planej)      // AM
+        {
+            int result = ((15 + planej.PrazoRecebMedExp) / 30);
 
             return result;
         }

@@ -46,10 +46,6 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:P0}")]
         public float AliquotaIpi { get; set; }
 
-        [Display(Name = "QvQtNac Ano - 12")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QvQtNacAnoMenos12 { get; set; }
-
         [Display(Name = "QvQtNac Ano - 11")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float QvQtNacAnoMenos11 { get; set; }
@@ -89,6 +85,10 @@ namespace Gestor.Models
         [Display(Name = "QvQtNac Ano - 2")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float QvQtNacAnoMenos02 { get; set; }
+
+        [Display(Name = "QvQtNac Ano - 1")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float QvQtNacAnoMenos01 { get; set; }
 
         [Display(Name = "QvQtNac Ano")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
@@ -143,10 +143,6 @@ namespace Gestor.Models
         [Display(Name = "Mês Receb Med Nac")]       // AM
         public int MesRecebMedNac { get; set; }
 
-        [Display(Name = "QtExp Ano - 12")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos12 { get; set; }
-
         [Display(Name = "QtExp Ano - 11")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float QtExpAnoMenos11 { get; set; }
@@ -157,39 +153,43 @@ namespace Gestor.Models
 
         [Display(Name = "QtExp Ano - 9")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos9 { get; set; }
+        public float QtExpAnoMenos09 { get; set; }
 
         [Display(Name = "QtExp Ano - 8")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos8 { get; set; }
+        public float QtExpAnoMenos08 { get; set; }
 
         [Display(Name = "QtExp Ano - 7")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos7 { get; set; }
+        public float QtExpAnoMenos07 { get; set; }
 
         [Display(Name = "QtExp Ano - 6")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos6 { get; set; }
+        public float QtExpAnoMenos06 { get; set; }
 
         [Display(Name = "QtExp Ano - 5")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos5 { get; set; }
+        public float QtExpAnoMenos05 { get; set; }
 
         [Display(Name = "QtExp Ano - 4")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos4 { get; set; }
+        public float QtExpAnoMenos04 { get; set; }
 
         [Display(Name = "QtExp Ano - 3")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos3 { get; set; }
-
+        public float QtExpAnoMenos03 { get; set; }
+        
         [Display(Name = "QtExp Ano - 2")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAnoMenos2 { get; set; }
+        public float QtExpAnoMenos02 { get; set; }
+
+        [Display(Name = "QtExp Ano - 1")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float QtExpAnoMenos01 { get; set; }
 
         [Display(Name = "QtExp Ano")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float QtExpAno { get; set; }
+        public float QtExpAno00 { get; set; }
 
         [Display(Name = "Média Mensal")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
@@ -221,6 +221,9 @@ namespace Gestor.Models
 
         [Display(Name = "Prazo Receb Med Exp")]
         public int PrazoRecebMedExp { get; set; }
+
+        [Display(Name = "Mês Receb Med Exp")]
+        public int MesRecebMedExp { get; set; }
 
         [StringLength(128)]      // BI
         [Display(Name = "Comentário")]

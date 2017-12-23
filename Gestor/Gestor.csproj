@@ -814,6 +814,22 @@
     <Compile Include="Migrations\201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.Designer.cs">
       <DependentUpon>201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712221411286_RenameQtExpAnoMenosWithNN.cs" />
+    <Compile Include="Migrations\201712221411286_RenameQtExpAnoMenosWithNN.Designer.cs">
+      <DependentUpon>201712221411286_RenameQtExpAnoMenosWithNN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712221559500_QtExpInPlanejVendasSubstractOf1.cs" />
+    <Compile Include="Migrations\201712221559500_QtExpInPlanejVendasSubstractOf1.Designer.cs">
+      <DependentUpon>201712221559500_QtExpInPlanejVendasSubstractOf1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712221742379_AdjustNumeralsInQtNacForPlanejVendasTable.cs" />
+    <Compile Include="Migrations\201712221742379_AdjustNumeralsInQtNacForPlanejVendasTable.Designer.cs">
+      <DependentUpon>201712221742379_AdjustNumeralsInQtNacForPlanejVendasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712231939397_MesRecebMedExpFieldInPlanejVendas.cs" />
+    <Compile Include="Migrations\201712231939397_MesRecebMedExpFieldInPlanejVendas.Designer.cs">
+      <DependentUpon>201712231939397_MesRecebMedExpFieldInPlanejVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -2955,6 +2971,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.resx">
       <DependentUpon>201712201925080_AddPrazoRecebMedioNacFieldToPlanejVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712221411286_RenameQtExpAnoMenosWithNN.resx">
+      <DependentUpon>201712221411286_RenameQtExpAnoMenosWithNN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712221559500_QtExpInPlanejVendasSubstractOf1.resx">
+      <DependentUpon>201712221559500_QtExpInPlanejVendasSubstractOf1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712221742379_AdjustNumeralsInQtNacForPlanejVendasTable.resx">
+      <DependentUpon>201712221742379_AdjustNumeralsInQtNacForPlanejVendasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712231939397_MesRecebMedExpFieldInPlanejVendas.resx">
+      <DependentUpon>201712231939397_MesRecebMedExpFieldInPlanejVendas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
