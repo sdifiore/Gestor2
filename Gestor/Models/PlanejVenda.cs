@@ -245,10 +245,6 @@ namespace Gestor.Models
         [Display(Name = "Var TC4")]
         public int VartC4 { get; set; }
 
-        [Display(Name = "PqQtNac Ano - 12")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos12 { get; set; }
-
         [Display(Name = "PqQtNac Ano - 11")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float PqQtNacAnoMenos11 { get; set; }
@@ -257,41 +253,45 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float PqQtNacAnoMenos10 { get; set; }
 
-        [Display(Name = "PqQtNac Ano - 9")]
+        [Display(Name = "PqQtNac Ano - 09")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos9 { get; set; }
+        public float PqQtNacAnoMenos09 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 8")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos8 { get; set; }
+        public float PqQtNacAnoMenos08 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 7")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos7 { get; set; }
+        public float PqQtNacAnoMenos07 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 6")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos6 { get; set; }
+        public float PqQtNacAnoMenos06 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 5")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos5 { get; set; }
+        public float PqQtNacAnoMenos05 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 4")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos4 { get; set; }
+        public float PqQtNacAnoMenos04 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 3")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos3 { get; set; }
+        public float PqQtNacAnoMenos03 { get; set; }
 
         [Display(Name = "PqQtNac Ano - 2")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAnoMenos2 { get; set; }
+        public float PqQtNacAnoMenos02 { get; set; }
+
+        [Display(Name = "PqQtNac Ano - 1")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float PqQtNacAnoMenos01 { get; set; }
 
         [Display(Name = "PqQtNac Ano")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
-        public float PqQtNacAno { get; set; }
+        public float PqQtNacAno00 { get; set; }
 
         [Display(Name = "PqQtNac Total")]       // CA
         [DisplayFormat(DataFormatString = "{0:N0}")]

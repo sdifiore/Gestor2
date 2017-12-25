@@ -623,6 +623,19 @@ namespace Gestor
                 item.ComissaoExpPct = FxPlanejVenda.ComissaoExpPct(item);     // BF
                 item.PrazoRecebMedExp = FxPlanejVenda.PrazoRecebMedExp(item);     // BG
                 item.MesRecebMedExp = FxPlanejVenda.MesRecebMedExp(item);     // BH
+                item.PqQtNacAnoMenos11 = FxPlanejVenda.PqQtNacAnoMenos11(item);     // BO
+                item.PqQtNacAnoMenos10 = FxPlanejVenda.PqQtNacAnoMenos10(item);     // BP
+                item.PqQtNacAnoMenos09 = FxPlanejVenda.PqQtNacAnoMenos09(item);     // BQ
+                item.PqQtNacAnoMenos08 = FxPlanejVenda.PqQtNacAnoMenos08(item);     // BR
+                item.PqQtNacAnoMenos07 = FxPlanejVenda.PqQtNacAnoMenos07(item);     // BS
+                item.PqQtNacAnoMenos06 = FxPlanejVenda.PqQtNacAnoMenos06(item);     // BT
+                item.PqQtNacAnoMenos05 = FxPlanejVenda.PqQtNacAnoMenos05(item);     // BU
+                item.PqQtNacAnoMenos04 = FxPlanejVenda.PqQtNacAnoMenos04(item);     // BV
+                item.PqQtNacAnoMenos03 = FxPlanejVenda.PqQtNacAnoMenos03(item);     // BW
+                item.PqQtNacAnoMenos02 = FxPlanejVenda.PqQtNacAnoMenos02(item);     // BX
+                item.PqQtNacAnoMenos01 = FxPlanejVenda.PqQtNacAnoMenos01(item);     // BY
+                item.PqQtNacAno00 = FxPlanejVenda.PqQtNacAno00(item);     // BZ
+                item.PqQtNacTotal = FxPlanejVenda.PqQtNacTotal(item);     // CA
             }
 
             db.SaveChanges();
