@@ -636,6 +636,19 @@ namespace Gestor
                 item.PqQtNacAnoMenos01 = FxPlanejVenda.PqQtNacAnoMenos01(item);     // BY
                 item.PqQtNacAno00 = FxPlanejVenda.PqQtNacAno00(item);     // BZ
                 item.PqQtNacTotal = FxPlanejVenda.PqQtNacTotal(item);     // CA
+                item.PplKgNacAnoMenos12 = FxPlanejVenda.PplKgNacAnoMenos12(item);     // CB
+                item.PplKgNacAnoMenos11 = FxPlanejVenda.PplKgNacAnoMenos11(item);     // CC
+                item.PplKgNacAnoMenos10 = FxPlanejVenda.PplKgNacAnoMenos10(item);     // CD
+                item.PplKgNacAnoMenos9 = FxPlanejVenda.PplKgNacAnoMenos9(item);     // CE
+                item.PplKgNacAnoMenos8 = FxPlanejVenda.PplKgNacAnoMenos8(item);     // CF
+                item.PplKgNacAnoMenos7 = FxPlanejVenda.PplKgNacAnoMenos7(item);     // CG
+                item.PplKgNacAnoMenos6 = FxPlanejVenda.PplKgNacAnoMenos6(item);     // CH
+                item.PplKgNacAnoMenos5 = FxPlanejVenda.PplKgNacAnoMenos5(item);     // CI
+                item.PplKgNacAnoMenos4 = FxPlanejVenda.PplKgNacAnoMenos4(item);     // CJ
+                item.PplKgNacAnoMenos3 = FxPlanejVenda.PplKgNacAnoMenos3(item);     // CK
+                item.PplKgNacAnoMenos2 = FxPlanejVenda.PplKgNacAnoMenos2(item);     // CL
+                item.PplKgNacAno = FxPlanejVenda.PplKgNacAno(item);     // CM
+                item.PplKgNacTotal = FxPlanejVenda.PplKgNacTotal(item);     // CN
             }
 
             db.SaveChanges();
