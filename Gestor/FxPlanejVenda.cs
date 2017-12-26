@@ -1253,11 +1253,318 @@ namespace Gestor
             return planej.PesoUnitario * planej.PqQtNacAno00;
         }
 
-        public static float PplKgNacTotal(PlanejVenda planej)
+        public static float PplKgNacTotal(PlanejVenda planej)       // CN
         {
             return planej.PplKgNacAnoMenos12 + planej.PplKgNacAnoMenos11 + planej.PplKgNacAnoMenos10 + planej.PplKgNacAnoMenos9 +
                 planej.PplKgNacAnoMenos8 + planej.PplKgNacAnoMenos7 + planej.PplKgNacAnoMenos6 + planej.PplKgNacAnoMenos5 + planej.PplKgNacAnoMenos4 +
                 planej.PplKgNacAnoMenos3 + planej.PplKgNacAnoMenos2 + planej.PplKgNacAno;
+        }
+
+        public static float PcbRbNacAnoMenos12(PlanejVenda planej)      // DA
+        {
+            return planej.PqQtNacAnoMenos11 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos12);
+        }
+
+        public static float PcbRbNacAnoMenos11(PlanejVenda planej)      // DB
+        {
+            return planej.PqQtNacAnoMenos10 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos11);
+        }
+
+        public static float PcbRbNacAnoMenos10(PlanejVenda planej)      // DC
+        {
+            return planej.PqQtNacAnoMenos09 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos10);
+        }
+
+        public static float PcbRbNacAnoMenos9(PlanejVenda planej)      // DD
+        {
+            return planej.PqQtNacAnoMenos08 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos9);
+        }
+
+        public static float PcbRbNacAnoMenos8(PlanejVenda planej)      // DE
+        {
+            return planej.PqQtNacAnoMenos07 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos8);
+        }
+
+        public static float PcbRbNacAnoMenos7(PlanejVenda planej)      // DF
+        {
+            return planej.PqQtNacAnoMenos06 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos7);
+        }
+
+        public static float PcbRbNacAnoMenos6(PlanejVenda planej)      // DG
+        {
+            return planej.PqQtNacAnoMenos05 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos6);
+        }
+
+        public static float PcbRbNacAnoMenos5(PlanejVenda planej)      // DH
+        {
+            return planej.PqQtNacAnoMenos04 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos5);
+        }
+
+        public static float PcbRbNacAnoMenos4(PlanejVenda planej)      // DI
+        {
+            return planej.PqQtNacAnoMenos03 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos4);
+        }
+
+        public static float PcbRbNacAnoMenos3(PlanejVenda planej)      // DJ
+        {
+            return planej.PqQtNacAnoMenos02 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos3);
+        }
+
+        public static float PcbRbNacAnoMenos2(PlanejVenda planej)      // DK
+        {
+            return planej.PqQtNacAnoMenos01 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAnoMenos2);
+        }
+
+        public static float PcbRbNacAnoMenos1(PlanejVenda planej)      // DL
+        {
+            return planej.PqQtNacAno00 * planej.PvNacAdotado * (1 + planej.PvvpvaVarPvAno);
+        }
+
+        public static float PcbRbNacTotal(PlanejVenda planej)       // DM
+        {
+            return planej.PcbRbNacAno + planej.PcbRbNacAnoMenos2 + planej.PcbRbNacAnoMenos3 + planej.PcbRbNacAnoMenos4 +
+                planej.PcbRbNacAnoMenos5 + planej.PcbRbNacAnoMenos6 + planej.PcbRbNacAnoMenos7 + planej.PcbRbNacAnoMenos8 + planej.PcbRbNacAnoMenos9 +
+                planej.PcbRbNacAnoMenos10 + planej.PcbRbNacAnoMenos11 + planej.PcbRbNacAnoMenos12;
+        }
+
+        public static float PipiIpiNacAnoMenos12(PlanejVenda planej)        // DN
+        {
+            return planej.PcbRbNacAnoMenos12 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos11(PlanejVenda planej)        // DO
+        {
+            return planej.PcbRbNacAnoMenos11 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos10(PlanejVenda planej)        // DP
+        {
+            return planej.PcbRbNacAnoMenos10 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos9(PlanejVenda planej)        // DQ
+        {
+            return planej.PcbRbNacAnoMenos9 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos8(PlanejVenda planej)        // DR
+        {
+            return planej.PcbRbNacAnoMenos8 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos7(PlanejVenda planej)        // DS
+        {
+            return planej.PcbRbNacAnoMenos7 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos6(PlanejVenda planej)        // DT
+        {
+            return planej.PcbRbNacAnoMenos6 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos5(PlanejVenda planej)        // DU
+        {
+            return planej.PcbRbNacAnoMenos5 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos4(PlanejVenda planej)        // DV
+        {
+            return planej.PcbRbNacAnoMenos4 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos3(PlanejVenda planej)        // DW
+        {
+            return planej.PcbRbNacAnoMenos3 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos2(PlanejVenda planej)        // DX
+        {
+            return planej.PcbRbNacAnoMenos2 * planej.AliquotaIpi;
+        }
+
+        public static float PipiIpiNacAnoMenos1(PlanejVenda planej)        // DY
+        {
+            return planej.PcbRbNacAno * planej.AliquotaIpi;
+        }
+
+        public static float PstStNacAnoMenos11(PlanejVenda planej)      // DZ
+        {
+            return planej.PcbRbNacAnoMenos12 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos10(PlanejVenda planej)      // EA
+        {
+            return planej.PcbRbNacAnoMenos11 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos9(PlanejVenda planej)      // EB
+        {
+            return planej.PcbRbNacAnoMenos10 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos8(PlanejVenda planej)      // EC
+        {
+            return planej.PcbRbNacAnoMenos9 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos7(PlanejVenda planej)      // ED
+        {
+            return planej.PcbRbNacAnoMenos8 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos6(PlanejVenda planej)      // EE
+        {
+            return planej.PcbRbNacAnoMenos7 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos5(PlanejVenda planej)      // EF
+        {
+            return planej.PcbRbNacAnoMenos6 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos4(PlanejVenda planej)      // EG
+        {
+            return planej.PcbRbNacAnoMenos5 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos3(PlanejVenda planej)      // EH
+        {
+            return planej.PcbRbNacAnoMenos4 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos2(PlanejVenda planej)      // EI
+        {
+            return planej.PcbRbNacAnoMenos3 * planej.StMedia;
+        }
+
+        public static float PstStNacAnoMenos1(PlanejVenda planej)      // EJ
+        {
+            return planej.PcbRbNacAnoMenos2 * planej.StMedia;
+        }
+
+        public static float PstStNacAno(PlanejVenda planej)      // EK
+        {
+            return planej.PcbRbNacAno * planej.StMedia;
+        }
+
+        public static float PfbFatBrAnoMenos12(PlanejVenda planej)      // EL
+        {
+            return planej.PcbRbNacAnoMenos12 + planej.PipiIpiNacAnoMenos12 + planej.PstStNacAnoMenos11;
+        }
+
+        public static float PfbFatBrAnoMenos11(PlanejVenda planej)      // EM
+        {
+            return planej.PcbRbNacAnoMenos11 + planej.PipiIpiNacAnoMenos11 + planej.PstStNacAnoMenos10;
+        }
+
+        public static float PfbFatBrAnoMenos10(PlanejVenda planej)      // EN
+        {
+            return planej.PcbRbNacAnoMenos10 + planej.PipiIpiNacAnoMenos10 + planej.PstStNacAnoMenos09;
+        }
+
+        public static float PfbFatBrAnoMenos9(PlanejVenda planej)      // EO
+        {
+            return planej.PcbRbNacAnoMenos9 + planej.PipiIpiNacAnoMenos9 + planej.PstStNacAnoMenos08;
+        }
+
+        public static float PfbFatBrAnoMenos8(PlanejVenda planej)      // EP
+        {
+            return planej.PcbRbNacAnoMenos8 + planej.PipiIpiNacAnoMenos8 + planej.PstStNacAnoMenos07;
+        }
+
+        public static float PfbFatBrAnoMenos7(PlanejVenda planej)      // EQ
+        {
+            return planej.PcbRbNacAnoMenos7 + planej.PipiIpiNacAnoMenos7 + planej.PstStNacAnoMenos06;
+        }
+
+        public static float PfbFatBrAnoMenos6(PlanejVenda planej)      // ER
+        {
+            return planej.PcbRbNacAnoMenos6 + planej.PipiIpiNacAnoMenos6 + planej.PstStNacAnoMenos05;
+        }
+
+        public static float PfbFatBrAnoMenos5(PlanejVenda planej)      // ES
+        {
+            return planej.PcbRbNacAnoMenos5 + planej.PipiIpiNacAnoMenos5 + planej.PstStNacAnoMenos04;
+        }
+
+        public static float PfbFatBrAnoMenos4(PlanejVenda planej)      // ET
+        {
+            return planej.PcbRbNacAnoMenos4 + planej.PipiIpiNacAnoMenos4 + planej.PstStNacAnoMenos03;
+        }
+
+        public static float PfbFatBrAnoMenos3(PlanejVenda planej)      // EU
+        {
+            return planej.PcbRbNacAnoMenos3 + planej.PipiIpiNacAnoMenos3 + planej.PstStNacAnoMenos02;
+        }
+
+        public static float PfbFatBrAnoMenos2(PlanejVenda planej)      // EV
+        {
+            return planej.PcbRbNacAnoMenos2 + planej.PipiIpiNacAnoMenos2 + planej.PstStNacAnoMenos01;
+        }
+
+        public static float PfbFatBrAnoMenos1(PlanejVenda planej)      // EW
+        {
+            return planej.PcbRbNacAno + planej.PipiIpiNacAno + planej.PstStNacAno00;
+        }
+
+        public static float PicmsIcmsNacAnoMenos12(PlanejVenda planej)      // EX
+        {
+            return planej.PcbRbNacAnoMenos12 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos11(PlanejVenda planej)      // EY
+        {
+            return planej.PcbRbNacAnoMenos11 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos10(PlanejVenda planej)      // EZ
+        {
+            return planej.PcbRbNacAnoMenos10 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos9(PlanejVenda planej)      // FA
+        {
+            return planej.PcbRbNacAnoMenos9 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos8(PlanejVenda planej)      // FB
+        {
+            return planej.PcbRbNacAnoMenos8 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos7(PlanejVenda planej)      // FC
+        {
+            return planej.PcbRbNacAnoMenos7 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos6(PlanejVenda planej)      // FD
+        {
+            return planej.PcbRbNacAnoMenos6 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos5(PlanejVenda planej)      // FE
+        {
+            return planej.PcbRbNacAnoMenos5 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos4(PlanejVenda planej)      // FF
+        {
+            return planej.PcbRbNacAnoMenos4 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos3(PlanejVenda planej)      // FG
+        {
+            return planej.PcbRbNacAnoMenos3 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos2(PlanejVenda planej)      // FH
+        {
+            return planej.PcbRbNacAnoMenos2 * planej.IcmsMedio;
+        }
+
+        public static float PicmsIcmsNacAnoMenos1(PlanejVenda planej)      // FI
+        {
+            return planej.PcbRbNacAno * planej.IcmsMedio;
         }
 
         public static string AnoMes(string data, DateTime referencia)
