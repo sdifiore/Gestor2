@@ -1567,6 +1567,110 @@ namespace Gestor
             return planej.PcbRbNacAno * planej.IcmsMedio;
         }
 
+        public static float CrnFatBrutoNac(PlanejVenda planej)      // FJ
+        {
+            return planej.PfbFatBrAnoMenos12 + planej.PfbFatBrAnoMenos11 + planej.PfbFatBrAnoMenos10 +
+                planej.PfbFatBrAnoMenos9 + planej.PfbFatBrAnoMenos8 + planej.PfbFatBrAnoMenos7 +
+                planej.PfbFatBrAnoMenos6 + planej.PfbFatBrAnoMenos5 + planej.PfbFatBrAnoMenos4 +
+                planej.PfbFatBrAnoMenos3 + planej.PfbFatBrAnoMenos2 + planej.PfbFatBrAno;
+        }
+
+        public static float CrnImpostos(PlanejVenda planej)      // FK
+        {
+            float a = planej.PicmsIcmsNacAnoMenos12 + planej.PicmsIcmsNacAnoMenos11 + planej.PicmsIcmsNacAnoMenos10 +
+                planej.PicmsIcmsNacAnoMenos9 + planej.PicmsIcmsNacAnoMenos8 + planej.PicmsIcmsNacAnoMenos7 +
+                planej.PicmsIcmsNacAnoMenos6 + planej.PicmsIcmsNacAnoMenos5 + planej.PicmsIcmsNacAnoMenos4 +
+                planej.PicmsIcmsNacAnoMenos3 + planej.PicmsIcmsNacAnoMenos2 + planej.PicmsIcmsNacAno;
+            float c = planej.PstStNacAnoMenos01 + planej.PstStNacAnoMenos02 + planej.PstStNacAnoMenos03 +
+                planej.PstStNacAnoMenos04 + planej.PstStNacAnoMenos05 + planej.PstStNacAnoMenos06 +
+                planej.PstStNacAnoMenos07 + planej.PstStNacAnoMenos08 + planej.PstStNacAnoMenos09 +
+                planej.PstStNacAnoMenos10 + planej.PstStNacAnoMenos11 + planej.PstStNacAno00;
+            float result = a + 0.0925f * planej.PcbRbNacTotal + c;
+
+            return result;
+        }
+
+        public static float CrnRecLiquidaNacional(PlanejVenda planej)      // FL
+        {
+            return planej.CrnFatBrutoNac - planej.CrnImpostos;
+        }
+
+        public static float CrnComissaoNac(PlanejVenda planej)      // FM
+        {
+            return planej.ComissaoMediaNac * planej.PcbRbNacTotal;
+        }
+
+        public static float CrnFreteNac(PlanejVenda planej)      // FN
+        {
+            return planej.FreteNacPct * planej.CrnFatBrutoNac;
+        }
+
+        public static float CrnRecLiquidaVendaNac(PlanejVenda planej)      // FO
+        {
+            return planej.CrnRecLiquidaNacional - planej.CrnComissaoNac - planej.CrnFreteNac;
+        }
+
+        public static float CrnCustoDirMateriaisNac(PlanejVenda planej)      // FP
+        {
+            float result = planej.CustoDiretoMats * planej.PqQtNacTotal;
+
+            return result;
+        }
+
+        public static float CrnCustoDirModNac(PlanejVenda planej)      // FQ
+        {
+            float result = planej.CustoDiretoMod * planej.PqQtNacTotal;
+
+            return result;
+        }
+
+        public static float CrnFixoFabricaNac(PlanejVenda planej)      // FR
+        {
+            float result = planej.CustoFixoFabrica * planej.PqQtNacTotal;
+
+            return result;
+        }
+
+
+        public static float CrnMCNac(PlanejVenda planej)      // FS
+        {
+            float result = planej.CrnRecLiquidaVendaNac - planej.CrnCustoDirMateriaisNac - planej.CrnCustoDirModNac - planej.CrnFreteNac;
+
+            return result;
+        }
+
+        public static float CrnMCNacPct(PlanejVenda planej)      // FT
+        {
+            float result = Math.Abs(planej.CrnRecLiquidaNacional) > Global.Tolerance
+                ? planej.CrnMCNac / planej.CrnRecLiquidaNacional
+                : 0;
+
+            return result;
+        }
+
+        public static float CrnCustoFixoAdmComNac(PlanejVenda planej)      // FU
+        {
+            float result = planej.CustoFixAdmCom * planej.PqQtNacTotal;
+
+            return result;
+        }
+
+        public static float CrnResultadoBrutoNac(PlanejVenda planej)      // FV
+        {
+            float result = planej.CrnMCNac - planej.CrnCustoFixoAdmComNac;
+
+            return result;
+        }
+
+        public static float CrnResultadoBrutoNacPct(PlanejVenda planej)      // FW
+        {
+            float result = Math.Abs(planej.CrnRecLiquidaNacional) > Global.Tolerance
+                ? planej.CrnResultadoBrutoNac / planej.CrnRecLiquidaNacional
+                : 0;
+
+            return result;
+        }
+
         public static string AnoMes(string data, DateTime referencia)
         {
             int diferenca = 0 - int.Parse(Function.Right(data, 2));

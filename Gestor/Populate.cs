@@ -710,6 +710,20 @@ namespace Gestor
                 item.PicmsIcmsNacAnoMenos3 = FxPlanejVenda.PicmsIcmsNacAnoMenos3(item);     // FG
                 item.PicmsIcmsNacAnoMenos2 = FxPlanejVenda.PicmsIcmsNacAnoMenos2(item);     // FH
                 item.PicmsIcmsNacAno = FxPlanejVenda.PicmsIcmsNacAnoMenos1(item);     // FI
+                item.CrnFatBrutoNac = FxPlanejVenda.CrnFatBrutoNac(item);     // FJ
+                item.CrnImpostos = FxPlanejVenda.CrnImpostos(item);     // FK
+                item.CrnRecLiquidaNacional = FxPlanejVenda.CrnRecLiquidaNacional(item);     // FL
+                item.CrnComissaoNac = FxPlanejVenda.CrnComissaoNac(item);     // FM
+                item.CrnFreteNac = FxPlanejVenda.CrnFreteNac(item);     // FN
+                item.CrnRecLiquidaVendaNac = FxPlanejVenda.CrnRecLiquidaVendaNac(item);     // FO
+                item.CrnCustoDirMateriaisNac = FxPlanejVenda.CrnCustoDirMateriaisNac(item);     // FP
+                item.CrnCustoDirModNac = FxPlanejVenda.CrnCustoDirModNac(item);     // FQ
+                item.CrnFixoFabricaNac = FxPlanejVenda.CrnFixoFabricaNac(item);     // FR
+                item.CrnMCNac = FxPlanejVenda.CrnMCNac(item);     // FS
+                item.CrnMCNacPct = FxPlanejVenda.CrnMCNacPct(item);     // FT
+                item.CrnCustoFixoAdmComNac = FxPlanejVenda.CrnCustoFixoAdmComNac(item);     // FU
+                item.CrnResultadoBrutoNac = FxPlanejVenda.CrnResultadoBrutoNac(item);     // FV
+                item.CrnResultadoBrutoNacPct = FxPlanejVenda.CrnResultadoBrutoNacPct(item);     // FW
             }
 
             db.SaveChanges();
