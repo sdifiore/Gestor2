@@ -1967,6 +1967,100 @@ namespace Gestor
             return result;
         }
 
+        public static float PreUsdRcExpUsAnoMenos12(PlanejVenda planej)     // HM
+        {
+            float result = planej.PqeQtExpAnoMenos12 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos12);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos11(PlanejVenda planej)     // HN
+        {
+            float result = planej.PqeQtExpAnoMenos11 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos11);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos10(PlanejVenda planej)     // HO
+        {
+            float result = planej.PqeQtExpAnoMenos10 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos10);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos9(PlanejVenda planej)     // HP
+        {
+            float result = planej.PqeQtExpAnoMenos9 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos9);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos8(PlanejVenda planej)     // HQ
+        {
+            float result = planej.PqeQtExpAnoMenos8 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos8);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos7(PlanejVenda planej)     // HR
+        {
+            float result = planej.PqeQtExpAnoMenos7 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos7);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos6(PlanejVenda planej)     // HS
+        {
+            float result = planej.PqeQtExpAnoMenos6 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos6);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos5(PlanejVenda planej)     // HT
+        {
+            float result = planej.PqeQtExpAnoMenos5 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos5);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos4(PlanejVenda planej)     // HU
+        {
+            float result = planej.PqeQtExpAnoMenos4 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos4);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos3(PlanejVenda planej)     // HV
+        {
+            float result = planej.PqeQtExpAnoMenos3 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos3);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos2(PlanejVenda planej)     // HW
+        {
+            float result = planej.PqeQtExpAnoMenos2 * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAnoMenos2);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsAnoMenos1(PlanejVenda planej)     // HX
+        {
+            float result = planej.PqeQtExpAno * planej.PvMedExAdotado * (1 + planej.PvppvaVPVexAno);
+
+            return result;
+        }
+
+        public static float PreUsdRcExpUsRecExportUSD(PlanejVenda planej)     // HY
+        {
+            float result = planej.PreUsdRcExpUsAnoMenos12 + planej.PreUsdRcExpUsAnoMenos11 + planej.PreUsdRcExpUsAnoMenos10 +
+                planej.PreUsdRcExpUsAnoMenos9 + planej.PreUsdRcExpUsAnoMenos8 + planej.PreUsdRcExpUsAnoMenos7 +
+                planej.PreUsdRcExpUsAnoMenos6 + planej.PreUsdRcExpUsAnoMenos5 + planej.PreUsdRcExpUsAnoMenos4 +
+                planej.PreUsdRcExpUsAnoMenos3 + planej.PreUsdRcExpUsAnoMenos2 + planej.PreUsdRcExpUsAno;
+
+            return result;
+        }
+
         public static string AnoMes(string data, DateTime referencia)
         {
             int diferenca = 0 - int.Parse(Function.Right(data, 2));

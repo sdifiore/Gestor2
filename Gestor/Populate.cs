@@ -750,6 +750,19 @@ namespace Gestor
                 item.PpleKgExpAnoMenos2 = FxPlanejVenda.PpleKgExpAnoMenos2(item);     // GX
                 item.PpleKgExpAno = FxPlanejVenda.PpleKgExpAnoMenos1(item);     // GY
                 item.PpleKgExpTotal = FxPlanejVenda.PpleKgExpTotal(item);     // GZ
+                item.PreUsdRcExpUsAnoMenos12 = FxPlanejVenda.PreUsdRcExpUsAnoMenos12(item);     // HM
+                item.PreUsdRcExpUsAnoMenos11 = FxPlanejVenda.PreUsdRcExpUsAnoMenos11(item);     // HN
+                item.PreUsdRcExpUsAnoMenos10 = FxPlanejVenda.PreUsdRcExpUsAnoMenos10(item);     // HO
+                item.PreUsdRcExpUsAnoMenos9 = FxPlanejVenda.PreUsdRcExpUsAnoMenos9(item);     // HP
+                item.PreUsdRcExpUsAnoMenos8 = FxPlanejVenda.PreUsdRcExpUsAnoMenos8(item);     // HQ
+                item.PreUsdRcExpUsAnoMenos7 = FxPlanejVenda.PreUsdRcExpUsAnoMenos7(item);     // HR
+                item.PreUsdRcExpUsAnoMenos6 = FxPlanejVenda.PreUsdRcExpUsAnoMenos6(item);     // HS
+                item.PreUsdRcExpUsAnoMenos5 = FxPlanejVenda.PreUsdRcExpUsAnoMenos5(item);     // HT
+                item.PreUsdRcExpUsAnoMenos4 = FxPlanejVenda.PreUsdRcExpUsAnoMenos4(item);     // HU
+                item.PreUsdRcExpUsAnoMenos3 = FxPlanejVenda.PreUsdRcExpUsAnoMenos3(item);     // HV
+                item.PreUsdRcExpUsAnoMenos2 = FxPlanejVenda.PreUsdRcExpUsAnoMenos2(item);     // HW
+                item.PreUsdRcExpUsAno = FxPlanejVenda.PreUsdRcExpUsAnoMenos1(item);     // HX
+                item.PreUsdRcExpUsRecExportUSD = FxPlanejVenda.PreUsdRcExpUsRecExportUSD(item);     // Hy
             }
 
             db.SaveChanges();
