@@ -724,6 +724,32 @@ namespace Gestor
                 item.CrnCustoFixoAdmComNac = FxPlanejVenda.CrnCustoFixoAdmComNac(item);     // FU
                 item.CrnResultadoBrutoNac = FxPlanejVenda.CrnResultadoBrutoNac(item);     // FV
                 item.CrnResultadoBrutoNacPct = FxPlanejVenda.CrnResultadoBrutoNacPct(item);     // FW
+                item.PqeQtExpAnoMenos12 = FxPlanejVenda.PqeQtExpAnoMenos12(item);     // GA
+                item.PqeQtExpAnoMenos11 = FxPlanejVenda.PqeQtExpAnoMenos11(item);     // GB
+                item.PqeQtExpAnoMenos10 = FxPlanejVenda.PqeQtExpAnoMenos10(item);     // GC
+                item.PqeQtExpAnoMenos9 = FxPlanejVenda.PqeQtExpAnoMenos9(item);     // GD
+                item.PqeQtExpAnoMenos8 = FxPlanejVenda.PqeQtExpAnoMenos8(item);     // GE
+                item.PqeQtExpAnoMenos7 = FxPlanejVenda.PqeQtExpAnoMenos7(item);     // GF
+                item.PqeQtExpAnoMenos6 = FxPlanejVenda.PqeQtExpAnoMenos6(item);     // GG
+                item.PqeQtExpAnoMenos5 = FxPlanejVenda.PqeQtExpAnoMenos5(item);     // GH
+                item.PqeQtExpAnoMenos4 = FxPlanejVenda.PqeQtExpAnoMenos4(item);     // GI
+                item.PqeQtExpAnoMenos3 = FxPlanejVenda.PqeQtExpAnoMenos3(item);     // GJ
+                item.PqeQtExpAnoMenos2 = FxPlanejVenda.PqeQtExpAnoMenos2(item);     // GK
+                item.PqeQtExpAno = FxPlanejVenda.PqeQtExpAnoMenos1(item);     // GL
+                item.PqeQtExpTotal = FxPlanejVenda.PqeQtExpTotal(item);     // GM
+                item.PpleKgExpAnoMenos12 = FxPlanejVenda.PpleKgExpAnoMenos12(item);     // GN
+                item.PpleKgExpAnoMenos11 = FxPlanejVenda.PpleKgExpAnoMenos11(item);     // GO
+                item.PpleKgExpAnoMenos10 = FxPlanejVenda.PpleKgExpAnoMenos10(item);     // GP
+                item.PpleKgExpAnoMenos9 = FxPlanejVenda.PpleKgExpAnoMenos9(item);     // GQ
+                item.PpleKgExpAnoMenos8 = FxPlanejVenda.PpleKgExpAnoMenos8(item);     // GR
+                item.PpleKgExpAnoMenos7 = FxPlanejVenda.PpleKgExpAnoMenos7(item);     // GS
+                item.PpleKgExpAnoMenos6 = FxPlanejVenda.PpleKgExpAnoMenos9(item);     // GT
+                item.PpleKgExpAnoMenos5 = FxPlanejVenda.PpleKgExpAnoMenos5(item);     // GU
+                item.PpleKgExpAnoMenos4 = FxPlanejVenda.PpleKgExpAnoMenos4(item);     // GV
+                item.PpleKgExpAnoMenos3 = FxPlanejVenda.PpleKgExpAnoMenos3(item);     // GW
+                item.PpleKgExpAnoMenos2 = FxPlanejVenda.PpleKgExpAnoMenos2(item);     // GX
+                item.PpleKgExpAno = FxPlanejVenda.PpleKgExpAnoMenos1(item);     // GY
+                item.PpleKgExpTotal = FxPlanejVenda.PpleKgExpTotal(item);     // GZ
             }
 
             db.SaveChanges();

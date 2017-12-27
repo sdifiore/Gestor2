@@ -1671,6 +1671,302 @@ namespace Gestor
             return result;
         }
 
+        public static float PqeQtExpAnoMenos12(PlanejVenda planej)       //GA
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos11 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos11(PlanejVenda planej)       //GB
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos10 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos10(PlanejVenda planej)       //GC
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos09 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos9(PlanejVenda planej)       //GD
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos08 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos8(PlanejVenda planej)       //GE
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos07 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos7(PlanejVenda planej)       //GF
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos06 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos6(PlanejVenda planej)       //GG
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos05 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos5(PlanejVenda planej)       //GH
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos04 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos4(PlanejVenda planej)       //GI
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos03 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos3(PlanejVenda planej)       //GJ
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos02 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos2(PlanejVenda planej)       //GK
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAnoMenos01 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpAnoMenos1(PlanejVenda planej)       //GL
+        {
+            float result = 0;
+            float intermediate = 0;
+
+            if (planej.Criterio != "x")
+            {
+                if (planej.Criterio == "m") intermediate = planej.QtExpMediaMensal * (1 + planej.PqeAumDim / 100f);
+                else intermediate = planej.PqQtNacAno00 * (1 + planej.PqeAumDim / 100f);
+            }
+
+            result = (float)Math.Ceiling(intermediate); // (1 + $BU$2) onde BU2 Não tem valor definido!
+
+            return result;
+        }
+
+        public static float PqeQtExpTotal(PlanejVenda planej)       // GM
+        {
+            float result = planej.PqeQtExpAnoMenos12 + planej.PqeQtExpAnoMenos11 + planej.PqeQtExpAnoMenos10 +
+                planej.PqeQtExpAnoMenos9 + planej.PqeQtExpAnoMenos8 + planej.PqeQtExpAnoMenos7 +
+                planej.PqeQtExpAnoMenos6 + planej.PqeQtExpAnoMenos5 + planej.PqeQtExpAnoMenos4 +
+                planej.PqeQtExpAnoMenos3 + planej.PqeQtExpAnoMenos2 + planej.PqeQtExpAno;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos12(PlanejVenda planej)     // GN
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos12;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos11(PlanejVenda planej)     // GO
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos11;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos10(PlanejVenda planej)     // GP
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos10;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos9(PlanejVenda planej)     // GQ
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos9;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos8(PlanejVenda planej)     // GR
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos8;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos7(PlanejVenda planej)     // GS
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos7;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos6(PlanejVenda planej)     // GT
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos6;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos5(PlanejVenda planej)     // GU
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos5;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos4(PlanejVenda planej)     // GV
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos4;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos3(PlanejVenda planej)     // GW
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos3;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos2(PlanejVenda planej)     // GX
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAnoMenos2;
+
+            return result;
+        }
+
+        public static float PpleKgExpAnoMenos1(PlanejVenda planej)     // GY
+        {
+            float result = planej.PesoUnitario * planej.PqeQtExpAno;
+
+            return result;
+        }
+
+        public static float PpleKgExpTotal(PlanejVenda planej)      // GZ
+        {
+            float result = planej.PpleKgExpAnoMenos12 + planej.PpleKgExpAnoMenos11 + planej.PpleKgExpAnoMenos10 +
+                planej.PpleKgExpAnoMenos9 + planej.PpleKgExpAnoMenos8 + planej.PpleKgExpAnoMenos7 +
+                planej.PpleKgExpAnoMenos6 + planej.PpleKgExpAnoMenos5 + planej.PpleKgExpAnoMenos4 +
+                planej.PpleKgExpAnoMenos3 + planej.PpleKgExpAnoMenos2 + planej.PpleKgExpAno;
+
+            return result;
+        }
+
         public static string AnoMes(string data, DateTime referencia)
         {
             int diferenca = 0 - int.Parse(Function.Right(data, 2));
