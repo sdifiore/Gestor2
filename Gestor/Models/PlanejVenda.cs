@@ -813,51 +813,51 @@ namespace Gestor.Models
         public float PpleKgExpTotal { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 12")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos12 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 11")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos11 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 10")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos10 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 9")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos9 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 8")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos8 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 7")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos7 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 6")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos6 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 5")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos5 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 4")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos4 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 3")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos3 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano - 2")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAnoMenos2 { get; set; }
 
         [Display(Name = "PvppvaVPVex Ano")]     // HL
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float PvppvaVPVexAno { get; set; }
 
         [Display(Name = "PreUsdRcExpUs Ano - 12")]
