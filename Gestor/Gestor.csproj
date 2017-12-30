@@ -834,6 +834,14 @@
     <Compile Include="Migrations\201712251700026_sync.Designer.cs">
       <DependentUpon>201712251700026_sync.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712281911066_AddMcCustoFixoFabricaAjustadoToPlanejVenda.cs" />
+    <Compile Include="Migrations\201712281911066_AddMcCustoFixoFabricaAjustadoToPlanejVenda.Designer.cs">
+      <DependentUpon>201712281911066_AddMcCustoFixoFabricaAjustadoToPlanejVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.cs" />
+    <Compile Include="Migrations\201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.Designer.cs">
+      <DependentUpon>201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -2990,6 +2998,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712251700026_sync.resx">
       <DependentUpon>201712251700026_sync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281911066_AddMcCustoFixoFabricaAjustadoToPlanejVenda.resx">
+      <DependentUpon>201712281911066_AddMcCustoFixoFabricaAjustadoToPlanejVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.resx">
+      <DependentUpon>201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

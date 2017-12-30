@@ -2061,6 +2061,928 @@ namespace Gestor
             return result;
         }
 
+        public static float CreRecExportRs(PlanejVenda planej)     // HZ
+        {
+            var db = new ApplicationDbContext();
+            float dolar = db.Parametros.First().Dolar;
+            float result = planej.PreUsdRcExpUsRecExportUSD * dolar;
+
+            return result;
+        }
+
+        public static float CreComissaoExportRs(PlanejVenda planej)     // IA
+        {
+            float result = planej.ComissaoExpPct * planej.CreRecExportRs;
+
+            return result;
+        }
+
+        public static float CreFreteDespExportRs(PlanejVenda planej)     // IB
+        {
+            float result = planej.CreRecExportRs * 0.12f; // Onde 0.12 é hardcoded na planilha
+
+            return result;
+        }
+
+        public static float CreRecLiqVendaExportRs(PlanejVenda planej)     // IC
+        {
+            float result = planej.CreRecExportRs - planej.CreComissaoExportRs - planej.CreFreteDespExportRs;
+
+            return result;
+        }
+
+        public static float CreCustoDiretoMatModExptRs(PlanejVenda planej)     // ID
+        {
+            float result = planej.CustoDiretoMats * planej.PqeQtExpTotal;
+
+            return result;
+        }
+
+        public static float CreCustoFixoFabExpRs(PlanejVenda planej)     // IE
+        {
+            float result = planej.CustoFixoFabrica * planej.PqeQtExpTotal;
+
+            return result;
+        }
+
+        public static float CreMCExportRs(PlanejVenda planej)     // IF
+        {
+            float result = planej.CreRecLiqVendaExportRs - planej.CreCustoDiretoMatModExptRs - planej.CreCustoFixoFabExpRs;
+
+            return result;
+        }
+
+        public static float CreMCExportPct(PlanejVenda planej)     // IG
+        {
+            float result = Math.Abs(planej.CreRecExportRs) > Global.Tolerance
+                ? planej.CreMCExportRs / planej.CreRecExportRs
+                : 0;
+
+            return result;
+        }
+
+        public static float CreCustoFixoAdmComExpRs(PlanejVenda planej)     // IH
+        {
+            float result = planej.CustoFixAdmCom * planej.PqeQtExpTotal;
+
+            return result;
+        }
+
+        public static float CreResultadoBrutoExpRs(PlanejVenda planej)     // II
+        {
+            float result = planej.CreMCExportRs - planej.CreCustoFixoAdmComExpRs;
+
+            return result;
+        }
+
+
+        public static float CreResBrutoExpPct(PlanejVenda planej)     // IJ
+        {
+            float result = Math.Abs(planej.CreRecExportRs) > Global.Tolerance
+                ? planej.CreResultadoBrutoExpRs / planej.CreRecExportRs
+                : 0;
+
+            return result;
+        }
+
+        public static float FbQuantTotal(PlanejVenda planej)     // IK
+        {
+            float result = planej.PqQtNacTotal + planej.PqeQtExpTotal;
+
+            return result;
+        }
+
+        public static float FbPesoTotal(PlanejVenda planej)     // IL
+        {
+            float result = planej.PplKgNacTotal + planej.PpleKgExpTotal;
+
+            return result;
+        }
+
+        public static float FbFaturamentoBrutoTotal(PlanejVenda planej)     // IM
+        {
+            float result = planej.CrnFatBrutoNac + planej.CreRecExportRs;
+
+            return result;
+        }
+
+        public static float RlImpostoTotal(PlanejVenda planej)     // IN
+        {
+            float result = planej.PipiIpiNacAnoMenos12 + planej.PipiIpiNacAnoMenos11 + planej.PipiIpiNacAnoMenos10 +
+                           planej.PipiIpiNacAnoMenos9 + planej.PipiIpiNacAnoMenos8 + planej.PipiIpiNacAnoMenos7 +
+                           planej.PipiIpiNacAnoMenos6 + planej.PipiIpiNacAnoMenos5 + planej.PipiIpiNacAnoMenos4 +
+                           planej.PipiIpiNacAnoMenos3 + planej.PipiIpiNacAnoMenos2 + planej.PipiIpiNacAno +
+                           planej.CrnImpostos;
+
+            return result;
+        }
+
+        public static float RlReceitaLiquidaTotal(PlanejVenda planej)     // IO
+        {
+            float result = planej.FbFaturamentoBrutoTotal - planej.RlImpostoTotal;
+
+            return result;
+        }
+
+        public static float RlComissaoTotal(PlanejVenda planej)     // IP
+        {
+            float result = planej.CrnComissaoNac + planej.CreComissaoExportRs;
+
+            return result;
+        }
+
+        public static float RlFreteDespExpTotal(PlanejVenda planej)     // IQ
+        {
+            float result = planej.CrnFreteNac + planej.CreFreteDespExportRs;
+
+            return result;
+        }
+
+        public static float RlRecLiqVendaTotal(PlanejVenda planej)     // IR
+        {
+            float result = planej.RlReceitaLiquidaTotal - planej.RlComissaoTotal - planej.RlFreteDespExpTotal;
+
+            return result;
+        }
+
+        public static float McCustoDirMatModTotal(PlanejVenda planej)     // IS
+        {
+            float result = planej.CrnCustoDirMateriaisNac + planej.CreCustoDiretoMatModExptRs;
+
+            return result;
+        }
+
+        public static float McCustoFixoFabricaTotal(PlanejVenda planej)     // IT
+        {
+            float result = planej.CrnFixoFabricaNac + planej.CreCustoFixoFabExpRs;
+
+            return result;
+        }
+
+        public static float McCustoFixoFabricaAjustado(PlanejVenda planej)     // IU
+        {
+            var db = new ApplicationDbContext();
+            float quociente = db.PlanejVendas.Sum(p => p.McCustoFixoFabricaTotal);
+            float result = Math.Abs(quociente) > Global.Tolerance
+                ? db.Parametros.First().CustoFixoIndustrialAno / quociente * planej.McCustoFixoFabricaTotal
+                : 0;
+
+            return result;
+        }
+
+        public static float McMargemContribTotal(PlanejVenda planej)     // IV
+        {
+            float result = planej.RlRecLiqVendaTotal - planej.McCustoDirMatModTotal - planej.McCustoFixoFabricaAjustado;
+
+            return result;
+        }
+
+        public static float McMCbTotalPct(PlanejVenda planej)     // IW
+        {
+            float result = Math.Abs(planej.RlReceitaLiquidaTotal) > Global.Tolerance
+                ? planej.McMargemContribTotal / planej.RlReceitaLiquidaTotal
+                : 0;
+
+            return result;
+        }
+
+        public static float RoCustoFixoComAdmTotal(PlanejVenda planej)     // IX
+        {
+            float result = planej.CrnCustoFixoAdmComNac + planej.CreCustoFixoAdmComExpRs;
+
+            return result;
+        }
+
+        public static float RoCustoFixoComAdmAjustadoTotal(PlanejVenda planej)     // IY ** Somente cálculado quando TODOS IX tiverem sido calculados
+        {
+            var db = new ApplicationDbContext();
+            float b = db.PlanejVendas.Sum(p => p.RoCustoFixoComAdmTotal);
+            float c = db.Parametros.First().CustoFixoComercialAno +
+                      db.Parametros.First().CustoFixoComtexAno +
+                      db.Parametros.First().CustoFixoAdminAno;
+            float result = Math.Abs(b) > Global.Tolerance
+                ? planej.RoCustoFixoComAdmTotal / b * c
+                : 0;
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos12(PlanejVenda planej)     // JB
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos11(PlanejVenda planej)     // JC
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos10 + planej.PqeQtExpAnoMenos11);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos10(PlanejVenda planej)     // JD
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos09 + planej.PqeQtExpAnoMenos10);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos9(PlanejVenda planej)     // JE
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos08 + planej.PqeQtExpAnoMenos9);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos8(PlanejVenda planej)     // JF
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos07 + planej.PqeQtExpAnoMenos8);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos7(PlanejVenda planej)     // JG
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos06 + planej.PqeQtExpAnoMenos7);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos6(PlanejVenda planej)     // JH
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos05 + planej.PqeQtExpAnoMenos6);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos5(PlanejVenda planej)     // JI
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos04 + planej.PqeQtExpAnoMenos5);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos4(PlanejVenda planej)     // JJ
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos03 + planej.PqeQtExpAnoMenos4);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos3(PlanejVenda planej)     // JK
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos02 + planej.PqeQtExpAnoMenos3);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos2(PlanejVenda planej)     // JL
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos01 + planej.PqeQtExpAnoMenos2);
+
+            return result;
+        }
+
+        public static float CdTotAnoMenos1(PlanejVenda planej)     // JM
+        {
+            float result = planej.CustoDiretoTotal * (planej.PqQtNacAno00 + planej.PqeQtExpAno);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos12(PlanejVenda planej)     // JN
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);
+            int x = 0;
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos11(PlanejVenda planej)     // JO
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos10 + planej.PqeQtExpAnoMenos11);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos10(PlanejVenda planej)     // JP
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos09 + planej.PqeQtExpAnoMenos10);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos9(PlanejVenda planej)     // JQ
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos08 + planej.PqeQtExpAnoMenos9);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos8(PlanejVenda planej)     // JR
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos07 + planej.PqeQtExpAnoMenos8);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos7(PlanejVenda planej)     // JS
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos06 + planej.PqeQtExpAnoMenos7);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos6(PlanejVenda planej)     // JT
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos05 + planej.PqeQtExpAnoMenos6);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos5(PlanejVenda planej)     // JU
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos04 + planej.PqeQtExpAnoMenos5);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos4(PlanejVenda planej)     // JV
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos03 + planej.PqeQtExpAnoMenos4);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos3(PlanejVenda planej)     // JW
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos02 + planej.PqeQtExpAnoMenos3);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos2(PlanejVenda planej)     // JX
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos01 + planej.PqeQtExpAnoMenos2);
+
+            return result;
+        }
+
+        public static float GifTotAnoMenos1(PlanejVenda planej)     // JY
+        {
+            float result = planej.CustoFixoFabrica * (planej.PqQtNacAno00 + planej.PqeQtExpAno);
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos12(PlanejVenda planej)     // JZ
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos12 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos12;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos11(PlanejVenda planej)     // KA
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos11 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos11;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos10(PlanejVenda planej)     // KB
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos10 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos10;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos9(PlanejVenda planej)     // KC
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos9 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos9;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos8(PlanejVenda planej)     // KD
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos8 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos8;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos7(PlanejVenda planej)     // KE
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos7 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos7;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos6(PlanejVenda planej)     // KF
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos6 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos6;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos5(PlanejVenda planej)     // KG
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos5 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos5;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos4(PlanejVenda planej)     // KH
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos4 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos4;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos3(PlanejVenda planej)     // KI
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos3 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos3;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos2(PlanejVenda planej)     // KJ
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAnoMenos2 + planej.ComissaoExpPct * planej.PreUsdRcExpUsAnoMenos2;
+
+            return result;
+        }
+
+        public static float ComTotAnoMenos1(PlanejVenda planej)     // KK
+        {
+            float result = planej.ComissaoMediaNac * planej.PcbRbNacAno + planej.ComissaoExpPct * planej.PreUsdRcExpUsAno;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos12(PlanejVenda planej)     // KL
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos12;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos11(PlanejVenda planej)     // KM
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos11;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos10(PlanejVenda planej)     // KN
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos10;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos9(PlanejVenda planej)     // KO
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos9;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos8(PlanejVenda planej)     // KP
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos8;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos7(PlanejVenda planej)     // KQ
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos7;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos6(PlanejVenda planej)     // KR
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos6;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos5(PlanejVenda planej)     // KS
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos5;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos4(PlanejVenda planej)     // KT
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos4;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos3(PlanejVenda planej)     // KU
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos3;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos2(PlanejVenda planej)     // KV
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAnoMenos2;
+
+            return result;
+        }
+
+        public static float FrtNacAnoMenos1(PlanejVenda planej)     // KW
+        {
+            float result = planej.FreteNacPct * planej.PfbFatBrAno;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos12(PlanejVenda planej)     // KX
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos12 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos11(PlanejVenda planej)     // KY
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos11 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos10(PlanejVenda planej)     // KZ
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos10 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos9(PlanejVenda planej)     // LA
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos9 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos8(PlanejVenda planej)     // LB
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos8 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos7(PlanejVenda planej)     // LC
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos7 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos6(PlanejVenda planej)     // LD
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos6 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos5(PlanejVenda planej)     // LE
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos5 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos4(PlanejVenda planej)     // LF
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos4 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos3(PlanejVenda planej)     // LG
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos3 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos2(PlanejVenda planej)     // LH
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAnoMenos2 / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float FrDexpAnoMenos1(PlanejVenda planej)     // LI
+        {
+            float result = Math.Abs(planej.PreUsdRcExpUsRecExportUSD) > Global.Tolerance
+                ? planej.CreFreteDespExportRs * planej.PreUsdRcExpUsAno / planej.PreUsdRcExpUsRecExportUSD
+                : 0;
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos12(PlanejVenda planej)     // LJ
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos11(PlanejVenda planej)     // LK
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos10 + planej.PqeQtExpAnoMenos11);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos10(PlanejVenda planej)     // LL
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos09 + planej.PqeQtExpAnoMenos10);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos9(PlanejVenda planej)     // LM
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos08 + planej.PqeQtExpAnoMenos9);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos8(PlanejVenda planej)     // LN
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos07 + planej.PqeQtExpAnoMenos8);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos7(PlanejVenda planej)     // LO
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos06 + planej.PqeQtExpAnoMenos7);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos6(PlanejVenda planej)     // LP
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos05 + planej.PqeQtExpAnoMenos6);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos5(PlanejVenda planej)     // LQ
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos04 + planej.PqeQtExpAnoMenos5);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos4(PlanejVenda planej)     // LR
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos03 + planej.PqeQtExpAnoMenos4);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos3(PlanejVenda planej)     // LS
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos02 + planej.PqeQtExpAnoMenos3);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos2(PlanejVenda planej)     // LT
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAnoMenos01 + planej.PqeQtExpAnoMenos2);
+
+            return result;
+        }
+
+        public static float CdsmtCfMatAnoMenos1(PlanejVenda planej)     // LU
+        {
+            float result = planej.CustoDiretoMats * (planej.PqQtNacAno00 + planej.PqeQtExpAno);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos12(PlanejVenda planej)     // LV
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos11(PlanejVenda planej)     // LW
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos10 + planej.PqeQtExpAnoMenos11);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos10(PlanejVenda planej)     // LX
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos09 + planej.PqeQtExpAnoMenos10);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos9(PlanejVenda planej)     // LY
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos08 + planej.PqeQtExpAnoMenos9);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos8(PlanejVenda planej)     // LZ
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos07 + planej.PqeQtExpAnoMenos8);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos7(PlanejVenda planej)     // MA
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos06 + planej.PqeQtExpAnoMenos7);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos6(PlanejVenda planej)     // MB
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos05 + planej.PqeQtExpAnoMenos6);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos5(PlanejVenda planej)     // MC
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos04 + planej.PqeQtExpAnoMenos5);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos4(PlanejVenda planej)     // MD
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos03 + planej.PqeQtExpAnoMenos4);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos3(PlanejVenda planej)     // ME
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos02 + planej.PqeQtExpAnoMenos3);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos2(PlanejVenda planej)     // MF
+        {
+            float result = (float)Math.Round(planej.PqQtNacAnoMenos01 + planej.PqeQtExpAnoMenos2);
+
+            return result;
+        }
+
+        public static float QtvQtTottAnoMenos1(PlanejVenda planej)     // MG
+        {
+            float result = (float)Math.Round(planej.PqQtNacAno00 + planej.PqeQtExpAno);
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos12(PlanejVenda planej)     // MH
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos12;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos11(PlanejVenda planej)     // MI
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos11;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos10(PlanejVenda planej)     // MJ
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos10;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos9(PlanejVenda planej)     // MK
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos9;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos8(PlanejVenda planej)     // ML
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos8;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos7(PlanejVenda planej)     // MM
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos7;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos6(PlanejVenda planej)     // MN
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos6;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos5(PlanejVenda planej)     // MO
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos5;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos4(PlanejVenda planej)     // MP
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos4;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos3(PlanejVenda planej)     // MQ
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos3;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos2(PlanejVenda planej)     // MR
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAnoMenos2;
+
+            return result;
+        }
+
+        public static float HorasProdAnoMenos1(PlanejVenda planej)     // MS
+        {
+            float result = planej.HorasMod * planej.QtvQtTottAno;
+
+            return result;
+        }
+
+        public static float HorasProdTotal(PlanejVenda planej)     // MT
+        {
+            float result = planej.HorasProdAnoMenos12 + planej.HorasProdAnoMenos11 + planej.HorasProdAnoMenos10 +
+                planej.HorasProdAnoMenos9 + planej.HorasProdAnoMenos8 + planej.HorasProdAnoMenos7 +
+                planej.HorasProdAnoMenos6 + planej.HorasProdAnoMenos5 + planej.HorasProdAnoMenos4 +
+                planej.HorasProdAnoMenos3 + planej.HorasProdAnoMenos2 + planej.HorasProdAno;
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos12(PlanejVenda planej)     // MU
+        {
+            float result = Math.Abs(planej.MesRecebMedNac) < Global.Tolerance
+                ? planej.PfbFatBrAnoMenos12
+                : 0;
+
+            return result;
+        }
+
         public static string AnoMes(string data, DateTime referencia)
         {
             int diferenca = 0 - int.Parse(Function.Right(data, 2));

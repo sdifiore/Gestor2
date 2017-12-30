@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Gestor.Models;
 
 namespace Gestor.Models
 {
@@ -992,9 +993,13 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float McCustoDirMatModTotal { get; set; }
 
-        [Display(Name = "Custo Fixo Fábrica Total")]
+        [Display(Name = "Custo Fixo Fábrica Total Teórico")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float McCustoFixoFabricaTotal { get; set; }
+
+        [Display(Name = "Custo Fixo Fábrica Total Ajustado")]       // IU
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float McCustoFixoFabricaAjustado { get; set; }
 
         [Display(Name = "Margem Contrib Total")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
@@ -1020,7 +1025,7 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:P1}")]
         public float RoResultadoOperacionalTotalPct { get; set; }
 
-        [Display(Name = "CdTot Ano - 12")]
+        [Display(Name = "CdTot Ano - 12")]      // JB
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float CdTotAnoMenos12 { get; set; }
 
@@ -1357,52 +1362,56 @@ namespace Gestor.Models
         public float QtvQtTottAno { get; set; }
 
         [Display(Name = "HorasProd Ano - 12")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos12 { get; set; }
 
         [Display(Name = "HorasProd Ano - 11")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos11 { get; set; }
 
         [Display(Name = "HorasProd Ano - 10")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos10 { get; set; }
 
         [Display(Name = "HorasProd Ano - 9")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos9 { get; set; }
 
         [Display(Name = "HorasProd Ano - 8")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos8 { get; set; }
 
         [Display(Name = "HorasProd Ano - 7")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos7 { get; set; }
 
         [Display(Name = "HorasProd Ano - 6")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos6 { get; set; }
 
         [Display(Name = "HorasProd Ano - 5")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos5 { get; set; }
 
         [Display(Name = "HorasProd Ano - 4")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos4 { get; set; }
 
         [Display(Name = "HorasProd Ano - 3")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos3 { get; set; }
 
         [Display(Name = "HorasProd Ano - 2")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAnoMenos2 { get; set; }
 
-        [Display(Name = "HorasProd Ano")]       // MT
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [Display(Name = "HorasProd Ano")]       // MS
+        [DisplayFormat(DataFormatString = "{0:N1}")]
         public float HorasProdAno { get; set; }
+
+        [Display(Name = "HorasProd Total")]       // MT
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public float HorasProdTotal { get; set; }
 
         [Display(Name = "RecNac Ano - 12")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
