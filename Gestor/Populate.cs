@@ -887,6 +887,29 @@ namespace Gestor
                 item.HorasProdAno = FxPlanejVenda.HorasProdAnoMenos1(item);     // MS
                 item.HorasProdTotal = FxPlanejVenda.HorasProdTotal(item);     // MT
                 item.RecNacAnoMenos12 = FxPlanejVenda.RecNacAnoMenos12(item);     // MU
+                item.RecNacAnoMenos11 = FxPlanejVenda.RecNacAnoMenos11(item);     // MV
+                item.RecNacAnoMenos10 = FxPlanejVenda.RecNacAnoMenos10(item);     // MW
+                item.RecNacAnoMenos9 = FxPlanejVenda.RecNacAnoMenos9(item);     // MX
+                item.RecNacAnoMenos8 = FxPlanejVenda.RecNacAnoMenos8(item);     // MY
+                item.RecNacAnoMenos7 = FxPlanejVenda.RecNacAnoMenos7(item);     // MZ
+                item.RecNacAnoMenos6 = FxPlanejVenda.RecNacAnoMenos6(item);     // NA
+                item.RecNacAnoMenos5 = FxPlanejVenda.RecNacAnoMenos5(item);     // NB
+                item.RecNacAnoMenos4 = FxPlanejVenda.RecNacAnoMenos4(item);     // NC
+                item.RecNacAnoMenos3 = FxPlanejVenda.RecNacAnoMenos3(item);     // ND
+                item.RecNacAnoMenos2 = FxPlanejVenda.RecNacAnoMenos2(item);     // NE
+                item.RecNacAno = FxPlanejVenda.RecNacAnoMenos1(item);     // NF
+                item.RecExpAnoMenos12 = FxPlanejVenda.RecExpAnoMenos12(item);     // NG
+                item.RecExpAnoMenos11 = FxPlanejVenda.RecExpAnoMenos11(item);     // NH
+                item.RecExpAnoMenos10 = FxPlanejVenda.RecExpAnoMenos10(item);     // NI
+                item.RecExpAnoMenos9 = FxPlanejVenda.RecExpAnoMenos9(item);     // NJ
+                item.RecExpAnoMenos8 = FxPlanejVenda.RecExpAnoMenos8(item);     // NK
+                item.RecExpAnoMenos7 = FxPlanejVenda.RecExpAnoMenos7(item);     // NL
+                item.RecExpAnoMenos6 = FxPlanejVenda.RecExpAnoMenos6(item);     // NM
+                item.RecExpAnoMenos5 = FxPlanejVenda.RecExpAnoMenos5(item);     // NN
+                item.RecExpAnoMenos4 = FxPlanejVenda.RecExpAnoMenos4(item);     // NO
+                item.RecExpAnoMenos3 = FxPlanejVenda.RecExpAnoMenos3(item);     // NP
+                item.RecExpAnoMenos2 = FxPlanejVenda.RecExpAnoMenos2(item);     // NQ
+                item.RecExpAno = FxPlanejVenda.RecExpAnoMenos1(item);     // NR
             }
 
             db.SaveChanges();

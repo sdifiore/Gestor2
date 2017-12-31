@@ -1,5 +1,6 @@
 ﻿using Gestor.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Gestor
@@ -2979,6 +2980,279 @@ namespace Gestor
             float result = Math.Abs(planej.MesRecebMedNac) < Global.Tolerance
                 ? planej.PfbFatBrAnoMenos12
                 : 0;
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos11(PlanejVenda planej)     // MV
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PstStNacAnoMenos01);
+            offset.Add(planej.PstStNacAno00);
+            offset.Add(planej.PfbFatBrAnoMenos12);
+            offset.Add(planej.PfbFatBrAnoMenos11);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos10(PlanejVenda planej)     // MW
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PstStNacAno00);
+            offset.Add(planej.PfbFatBrAnoMenos12);
+            offset.Add(planej.PfbFatBrAnoMenos11);
+            offset.Add(planej.PfbFatBrAnoMenos10);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos9(PlanejVenda planej)     // MX
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos12);
+            offset.Add(planej.PfbFatBrAnoMenos11);
+            offset.Add(planej.PfbFatBrAnoMenos10);
+            offset.Add(planej.PfbFatBrAnoMenos9);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos8(PlanejVenda planej)     // MY
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos11);
+            offset.Add(planej.PfbFatBrAnoMenos10);
+            offset.Add(planej.PfbFatBrAnoMenos9);
+            offset.Add(planej.PfbFatBrAnoMenos8);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos7(PlanejVenda planej)     // MZ
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos10);
+            offset.Add(planej.PfbFatBrAnoMenos9);
+            offset.Add(planej.PfbFatBrAnoMenos8);
+            offset.Add(planej.PfbFatBrAnoMenos7);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos6(PlanejVenda planej)     // NA
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos9);
+            offset.Add(planej.PfbFatBrAnoMenos8);
+            offset.Add(planej.PfbFatBrAnoMenos7);
+            offset.Add(planej.PfbFatBrAnoMenos6);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos5(PlanejVenda planej)     // NB
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos8);
+            offset.Add(planej.PfbFatBrAnoMenos7);
+            offset.Add(planej.PfbFatBrAnoMenos6);
+            offset.Add(planej.PfbFatBrAnoMenos5);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos4(PlanejVenda planej)     // NC
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos7);
+            offset.Add(planej.PfbFatBrAnoMenos6);
+            offset.Add(planej.PfbFatBrAnoMenos5);
+            offset.Add(planej.PfbFatBrAnoMenos4);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos3(PlanejVenda planej)     // ND
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos6);
+            offset.Add(planej.PfbFatBrAnoMenos5);
+            offset.Add(planej.PfbFatBrAnoMenos4);
+            offset.Add(planej.PfbFatBrAnoMenos3);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos2(PlanejVenda planej)     // NE
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos5);
+            offset.Add(planej.PfbFatBrAnoMenos4);
+            offset.Add(planej.PfbFatBrAnoMenos3);
+            offset.Add(planej.PfbFatBrAnoMenos2);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecNacAnoMenos1(PlanejVenda planej)     // NF
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PfbFatBrAnoMenos4);
+            offset.Add(planej.PfbFatBrAnoMenos3);
+            offset.Add(planej.PfbFatBrAnoMenos2);
+            offset.Add(planej.PfbFatBrAno);
+            var result = offset[3 - planej.MesRecebMedNac];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos12(PlanejVenda planej)     // NG
+        {
+            float result = Math.Abs(planej.MesRecebMedExp) < Global.Tolerance
+                ? planej.PreUsdRcExpUsAnoMenos12
+                : 0;
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos11(PlanejVenda planej)     // NH
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PvvpvaVarPvAnoMenos2);
+            offset.Add(planej.PvvpvaVarPvAno);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos12);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos11);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos10(PlanejVenda planej)     // NI
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PvvpvaVarPvAno);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos12);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos11);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos10);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos9(PlanejVenda planej)     // NJ
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos12);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos11);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos10);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos9);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos8(PlanejVenda planej)     // NK
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos11);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos10);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos9);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos8);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos7(PlanejVenda planej)     // NL
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos10);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos9);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos8);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos7);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos6(PlanejVenda planej)     // NM
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos9);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos8);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos7);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos6);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos5(PlanejVenda planej)     // NN
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos8);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos7);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos6);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos5);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos4(PlanejVenda planej)     // NO
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos7);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos6);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos5);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos4);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos3(PlanejVenda planej)     // NP
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos6);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos5);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos4);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos3);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos2(PlanejVenda planej)     // NQ
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos5);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos4);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos3);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos2);
+            var result = offset[3 - planej.MesRecebMedExp];
+
+            return result;
+        }
+
+        public static float RecExpAnoMenos1(PlanejVenda planej)     // NR
+        {
+            var offset = new List<float>();
+            offset.Add(planej.PreUsdRcExpUsAnoMenos4);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos3);
+            offset.Add(planej.PreUsdRcExpUsAnoMenos2);
+            offset.Add(planej.PreUsdRcExpUsAno);
+            var result = offset[3 - planej.MesRecebMedExp];
 
             return result;
         }
