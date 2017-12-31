@@ -2268,6 +2268,22 @@ namespace Gestor
             return result;
         }
 
+        public static float RoResultadoOperacionalTotal(PlanejVenda planej)     // IZ
+        {
+            float result = planej.McMargemContribTotal - planej.RoCustoFixoComAdmAjustadoTotal;
+
+            return result;
+        }
+
+        public static float RoResultadoOperacionalTotalPct(PlanejVenda planej)     // JA
+        {
+            float result = Math.Abs(planej.RlReceitaLiquidaTotal) > Global.Tolerance
+                ? planej.RoResultadoOperacionalTotal / planej.RlReceitaLiquidaTotal
+                : 0;
+
+            return result;
+        }
+
         public static float CdTotAnoMenos12(PlanejVenda planej)     // JB
         {
             float result = planej.CustoDiretoTotal * (planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);

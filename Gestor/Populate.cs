@@ -787,8 +787,7 @@ namespace Gestor
                 item.McCustoFixoFabricaAjustado = FxPlanejVenda.McCustoFixoFabricaAjustado(item);     // IU
                 item.McMargemContribTotal = FxPlanejVenda.McMargemContribTotal(item);     // IV
                 item.McMCbTotalPct = FxPlanejVenda.McMCbTotalPct(item);     // IW
-                item.RoCustoFixoComAdmTotal = FxPlanejVenda.RoCustoFixoComAdmTotal(item);     // IX
-                item.RoCustoFixoComAdmAjustadoTotal = FxPlanejVenda.RoCustoFixoComAdmAjustadoTotal(item);     // IY  ** Somente cálculado quando TODOS IX tiverem sido calculados
+                
                 item.CdTotAnoMenos12 = FxPlanejVenda.CdTotAnoMenos12(item);     // JB
                 item.CdTotAnoMenos11 = FxPlanejVenda.CdTotAnoMenos11(item);     // JC
                 item.CdTotAnoMenos10 = FxPlanejVenda.CdTotAnoMenos10(item);     // JD
@@ -910,6 +909,14 @@ namespace Gestor
                 item.RecExpAnoMenos3 = FxPlanejVenda.RecExpAnoMenos3(item);     // NP
                 item.RecExpAnoMenos2 = FxPlanejVenda.RecExpAnoMenos2(item);     // NQ
                 item.RecExpAno = FxPlanejVenda.RecExpAnoMenos1(item);     // NR
+            }
+
+            foreach (var item in model)
+            {
+                item.RoCustoFixoComAdmTotal = FxPlanejVenda.RoCustoFixoComAdmTotal(item);     // IX
+                item.RoCustoFixoComAdmAjustadoTotal = FxPlanejVenda.RoCustoFixoComAdmAjustadoTotal(item);     // IY
+                item.RoResultadoOperacionalTotal = FxPlanejVenda.RoCustoFixoComAdmTotal(item);     // IZ
+                item.RoResultadoOperacionalTotalPct = FxPlanejVenda.RoResultadoOperacionalTotalPct(item);     // JA
             }
 
             db.SaveChanges();
