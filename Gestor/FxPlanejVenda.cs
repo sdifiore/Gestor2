@@ -2371,7 +2371,6 @@ namespace Gestor
         public static float GifTotAnoMenos12(PlanejVenda planej)     // JN
         {
             float result = planej.CustoFixoFabrica * (planej.PqQtNacAnoMenos11 + planej.PqeQtExpAnoMenos12);
-            int x = 0;
 
             return result;
         }

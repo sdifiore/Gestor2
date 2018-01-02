@@ -847,6 +847,10 @@
     <Compile Include="Migrations\201801021243414_PlanejProducao.Designer.cs">
       <DependentUpon>201801021243414_PlanejProducao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs" />
+    <Compile Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.Designer.cs">
+      <DependentUpon>201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -3018,6 +3022,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801021243414_PlanejProducao.resx">
       <DependentUpon>201801021243414_PlanejProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.resx">
+      <DependentUpon>201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
