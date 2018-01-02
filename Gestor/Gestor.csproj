@@ -252,6 +252,7 @@
     <Compile Include="Controllers\PlanejComprasController.cs" />
     <Compile Include="Controllers\PlanejModsController.cs" />
     <Compile Include="Controllers\PlanejNecessidades.cs" />
+    <Compile Include="Controllers\PlanejProducaosController.cs" />
     <Compile Include="Controllers\PlanejVendasController.cs" />
     <Compile Include="Controllers\PrecoExportacaosController.cs" />
     <Compile Include="Controllers\PrecoNacionalsController.cs" />
@@ -842,6 +843,10 @@
     <Compile Include="Migrations\201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.Designer.cs">
       <DependentUpon>201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801021243414_PlanejProducao.cs" />
+    <Compile Include="Migrations\201801021243414_PlanejProducao.Designer.cs">
+      <DependentUpon>201801021243414_PlanejProducao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -856,6 +861,7 @@
     <Compile Include="Models\Extrusora.cs" />
     <Compile Include="Models\Fabricante.cs" />
     <Compile Include="Models\FatHistorico.cs" />
+    <Compile Include="Models\PlanejProducao.cs" />
     <Compile Include="Models\PlanejVenda.cs" />
     <Compile Include="Models\Graxa.cs" />
     <Compile Include="Models\IcmsFrete.cs" />
@@ -2068,6 +2074,11 @@
     <Content Include="Views\PlanejVendas\Details.cshtml" />
     <Content Include="Views\PlanejVendas\Edit.cshtml" />
     <Content Include="Views\PlanejVendas\Index.cshtml" />
+    <Content Include="Views\PlanejProducaos\Create.cshtml" />
+    <Content Include="Views\PlanejProducaos\Delete.cshtml" />
+    <Content Include="Views\PlanejProducaos\Details.cshtml" />
+    <Content Include="Views\PlanejProducaos\Edit.cshtml" />
+    <Content Include="Views\PlanejProducaos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -3004,6 +3015,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.resx">
       <DependentUpon>201712302017326_AddHorasProdTotalFieldToPlanejVendaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801021243414_PlanejProducao.resx">
+      <DependentUpon>201801021243414_PlanejProducao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
