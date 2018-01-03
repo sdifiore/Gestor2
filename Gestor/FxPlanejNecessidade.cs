@@ -59,7 +59,8 @@ namespace Gestor
 
         public static float ListaPlanejProducao(Estrutura stru)     // W
         {
-            // ***************** Deve-se primeiramente calcular PlanejProdução
+            var db = new ApplicationDbContext();
+            var pmps = db.PlanejProducoes.
 
             return 0;
         }
