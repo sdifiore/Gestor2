@@ -12,6 +12,19 @@ namespace Gestor.Models
         [Display(Name = "Código")]
         public Produto Produto { get; set; }
 
+        [Display(Name = "Un/UArm")]
+        public int UnUArm { get; set; }
+
+        [Display(Name = "Estoque de Reposição")]
+        public float EstoqueReposicao { get; set; }
+
+        [StringLength(32)]
+        [Display(Name = "Tipo de Produto")]
+        public string TipoPcp { get; set; }
+
+        [Display(Name = "Estoque")]
+        public float Estoque { get; set; }
+
         [Display(Name = "Venda mês -11")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float VendaMesMenos11 { get; set; }

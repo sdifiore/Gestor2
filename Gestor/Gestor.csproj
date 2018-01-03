@@ -270,6 +270,7 @@
     <Compile Include="FxEstrutura.cs" />
     <Compile Include="FxPlanejMod.cs" />
     <Compile Include="FxPlanejNecessidade.cs" />
+    <Compile Include="FxPlanejProducao.cs" />
     <Compile Include="FxPlanejVenda.cs" />
     <Compile Include="FxPrecoNacional.cs" />
     <Compile Include="FxProduto.cs" />
@@ -850,6 +851,22 @@
     <Compile Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs" />
     <Compile Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.Designer.cs">
       <DependentUpon>201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801021833371_MissingFieldsPlanejProducao.cs" />
+    <Compile Include="Migrations\201801021833371_MissingFieldsPlanejProducao.Designer.cs">
+      <DependentUpon>201801021833371_MissingFieldsPlanejProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801021932199_FieldsWithEstoqueToFloatInPlanejProducao.cs" />
+    <Compile Include="Migrations\201801021932199_FieldsWithEstoqueToFloatInPlanejProducao.Designer.cs">
+      <DependentUpon>201801021932199_FieldsWithEstoqueToFloatInPlanejProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801022051003_AddFieldSemanasReposicaoToParametros.cs" />
+    <Compile Include="Migrations\201801022051003_AddFieldSemanasReposicaoToParametros.Designer.cs">
+      <DependentUpon>201801022051003_AddFieldSemanasReposicaoToParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.cs" />
+    <Compile Include="Migrations\201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.Designer.cs">
+      <DependentUpon>201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
@@ -3025,6 +3042,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.resx">
       <DependentUpon>201801021711154_AddVendaMesMenosNNFieldsToPlanejProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801021833371_MissingFieldsPlanejProducao.resx">
+      <DependentUpon>201801021833371_MissingFieldsPlanejProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801021932199_FieldsWithEstoqueToFloatInPlanejProducao.resx">
+      <DependentUpon>201801021932199_FieldsWithEstoqueToFloatInPlanejProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801022051003_AddFieldSemanasReposicaoToParametros.resx">
+      <DependentUpon>201801022051003_AddFieldSemanasReposicaoToParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.resx">
+      <DependentUpon>201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

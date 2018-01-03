@@ -1,23 +1,87 @@
 ﻿@model Gestor.Models.PlanejProducao
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja eliminar o registro?</h3>
 <div>
-    <h4>PlanejProducao</h4>
+    <h4>Planejamento Produção</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Categoria.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Categoria.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Familia.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Familia.Descricao)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Produto.Apelido)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Unidade.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Unidade.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnUArm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnUArm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstoqueReposicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstoqueReposicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPcp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPcp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estoque)
         </dd>
 
         <dt>
@@ -314,8 +378,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
         </div>
     }
 </div>

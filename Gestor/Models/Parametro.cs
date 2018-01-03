@@ -43,6 +43,10 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public float CustoFixoAdminAno { get; set; }
 
+        [Display(Name = "Semanas de Reposição")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public int SemanasReposicao { get; set; }
+
         [Display(Name = "Comissão GC-COMACS")]
         [DisplayFormat(DataFormatString = "{0:P2}")]
         public float ComissaoGcComacs { get; set; }

@@ -921,5 +921,58 @@ namespace Gestor
 
             db.SaveChanges();
         }
+
+        public static void PlanejProducao()
+        {
+            var db = new ApplicationDbContext();
+            var model = db.PlanejProducoes.ToList();
+
+            foreach (var item in model)
+            {
+                item.UnUArm = FxPlanejProducao.UnUArm(item);        // G
+                item.TipoPcp = FxPlanejProducao.TipoPcp(item);        // I
+                item.Estoque = FxPlanejProducao.Estoque(item);        // J
+                item.VendaMesMenos11 = FxPlanejProducao.VendaMesMenos11(item);        // K
+                item.VendaMesMenos10 = FxPlanejProducao.VendaMesMenos10(item);        // L
+                item.VendaMesMenos09 = FxPlanejProducao.VendaMesMenos09(item);        // M
+                item.VendaMesMenos08 = FxPlanejProducao.VendaMesMenos08(item);        // N
+                item.VendaMesMenos07 = FxPlanejProducao.VendaMesMenos07(item);        // O
+                item.VendaMesMenos06 = FxPlanejProducao.VendaMesMenos06(item);        // P
+                item.VendaMesMenos05 = FxPlanejProducao.VendaMesMenos05(item);        // Q
+                item.VendaMesMenos04 = FxPlanejProducao.VendaMesMenos04(item);        // R
+                item.VendaMesMenos03 = FxPlanejProducao.VendaMesMenos03(item);        // S
+                item.VendaMesMenos02 = FxPlanejProducao.VendaMesMenos02(item);        // T
+                item.VendaMesMenos01 = FxPlanejProducao.VendaMesMenos01(item);        // U
+                item.VendaMesMenos00 = FxPlanejProducao.VendaMesMenos00(item);        // V
+                item.EstoqueReposicao = FxPlanejProducao.EstoqueReposicao(item);        // H
+                item.PmpAnoMenos11 = FxPlanejProducao.PmpAnoMenos11(item);        // W
+                item.SfmAnoMenos11 = FxPlanejProducao.SfmAnoMenos11(item);        // AI
+                item.PmpAnoMenos10 = FxPlanejProducao.PmpAnoMenos10(item);        // X
+                item.SfmAnoMenos10 = FxPlanejProducao.SfmAnoMenos10(item);        // AJ
+                item.PmpAnoMenos09 = FxPlanejProducao.PmpAnoMenos09(item);        // Y
+                item.SfmAnoMenos09 = FxPlanejProducao.SfmAnoMenos09(item);        // AK
+                item.PmpAnoMenos08 = FxPlanejProducao.PmpAnoMenos08(item);        // Z
+                item.SfmAnoMenos08 = FxPlanejProducao.SfmAnoMenos08(item);        // AL
+                item.PmpAnoMenos07 = FxPlanejProducao.PmpAnoMenos07(item);        // AA
+                item.SfmAnoMenos07 = FxPlanejProducao.SfmAnoMenos07(item);        // AM
+                item.PmpAnoMenos06 = FxPlanejProducao.PmpAnoMenos06(item);        // AB
+                item.SfmAnoMenos06 = FxPlanejProducao.SfmAnoMenos06(item);        // AN
+                item.PmpAnoMenos05 = FxPlanejProducao.PmpAnoMenos05(item);        // AC
+                item.SfmAnoMenos05 = FxPlanejProducao.SfmAnoMenos05(item);        // AO
+                item.PmpAnoMenos04 = FxPlanejProducao.PmpAnoMenos04(item);        // AD
+                item.SfmAnoMenos04 = FxPlanejProducao.SfmAnoMenos04(item);        // AP
+                item.PmpAnoMenos03 = FxPlanejProducao.PmpAnoMenos03(item);        // AE
+                item.SfmAnoMenos03 = FxPlanejProducao.SfmAnoMenos03(item);        // AQ
+                item.PmpAnoMenos02 = FxPlanejProducao.PmpAnoMenos02(item);        // AF
+                item.SfmAnoMenos02 = FxPlanejProducao.SfmAnoMenos02(item);        // AR
+                item.PmpAnoMenos01 = FxPlanejProducao.PmpAnoMenos01(item);        // AG
+                item.SfmAnoMenos01 = FxPlanejProducao.SfmAnoMenos01(item);        // AS
+                item.PmpAnoMenos00 = FxPlanejProducao.PmpAnoMenos00(item);        // AH
+                item.SfmAnoMenos00 = FxPlanejProducao.SfmAnoMenos00(item);        // AT
+            }
+
+
+            db.SaveChanges();
+        }
     }
 }

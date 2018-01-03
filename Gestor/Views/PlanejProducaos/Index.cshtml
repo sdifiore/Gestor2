@@ -1,19 +1,46 @@
 ﻿@model IEnumerable<Gestor.Models.PlanejProducao>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Índice</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo planejamento de produção", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
+            Categoria
+        </th>
+        <th>
+            Família
+        </th>
+        <th>
+            Linha
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+        <th>
+            Descrição
+        </th>
+        <th>
+            Unidade
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnUArm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstoqueReposicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPcp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estoque)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.VendaMesMenos11)
@@ -129,7 +156,34 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Produto.Categoria.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Familia.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Linha.Descricao)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Unidade.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnUArm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstoqueReposicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPcp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estoque)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.VendaMesMenos11)
@@ -240,9 +294,9 @@
             @Html.DisplayFor(modelItem => item.SfmAnoMenos00)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

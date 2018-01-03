@@ -6,25 +6,42 @@ using Gestor.Models;
 
 namespace Gestor.Controllers
 {
+    [RoutePrefix("PlanejProducao")]
     public class PlanejProducaosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: PlanejProducaos
+        [Route]
         public ActionResult Index()
         {
-            var planejProducoes = db.PlanejProducoes.Include(p => p.Produto);
+            var planejProducoes = db.PlanejProducoes
+                .Include(p => p.Produto)
+                .Include(p => p.Produto.Categoria)
+                .Include(p => p.Produto.Familia)
+                .Include(p => p.Produto.Linha)
+                .Include(p => p.Produto.Unidade);
+
             return View(planejProducoes.ToList());
         }
 
         // GET: PlanejProducaos/Details/5
+        [Route("Details")]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlanejProducao planejProducao = db.PlanejProducoes.Find(id);
+
+            PlanejProducao planejProducao = db.PlanejProducoes
+                .Include(p => p.Produto)
+                .Include(p => p.Produto.Categoria)
+                .Include(p => p.Produto.Familia)
+                .Include(p => p.Produto.Linha)
+                .Include(p => p.Produto.Unidade)
+                .SingleOrDefault(p => p.Id == id);
+
             if (planejProducao == null)
             {
                 return HttpNotFound();
@@ -33,6 +50,7 @@ namespace Gestor.Controllers
         }
 
         // GET: PlanejProducaos/Create
+        [Route("Create")]
         public ActionResult Create()
         {
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
@@ -58,6 +76,7 @@ namespace Gestor.Controllers
         }
 
         // GET: PlanejProducaos/Edit/5
+        [Route("Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,13 +110,22 @@ namespace Gestor.Controllers
         }
 
         // GET: PlanejProducaos/Delete/5
+        [Route("Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlanejProducao planejProducao = db.PlanejProducoes.Find(id);
+
+            PlanejProducao planejProducao = db.PlanejProducoes
+                .Include(p => p.Produto)
+                .Include(p => p.Produto.Categoria)
+                .Include(p => p.Produto.Familia)
+                .Include(p => p.Produto.Linha)
+                .Include(p => p.Produto.Unidade)
+                .SingleOrDefault(p => p.Id == id);
+
             if (planejProducao == null)
             {
                 return HttpNotFound();
