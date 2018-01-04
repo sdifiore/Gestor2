@@ -557,7 +557,17 @@ namespace Gestor
             {
                 stru.SetorProducao = FxPlanejNecessidade.SetorProducao(stru);       // T
                 stru.Categoria = FxPlanejNecessidade.Categoria(stru);       // U
-                stru.ListaPlanejProducao = FxPlanejNecessidade.ListaPlanejProducao(stru);       // W    *********** Calcular primeiro PnalejProdução
+                // v????
+                stru.ListaPlanejProducao = FxPlanejNecessidade.ListaPlanejProducao(stru);       // W
+                stru.ListaPlanejProducao = FxPlanejNecessidade.NeedComponProducao(stru);       // X
+                stru.ListaNecessProdNivel1 = FxPlanejNecessidade.ListaNecessProdNivel1(stru);       // Y
+                stru.NecCompListaP1 = FxPlanejNecessidade.NecCompListaP1(stru);       // Z
+                stru.ListaNecessProdNivel2 = FxPlanejNecessidade.ListaNecessProdNivel2(stru);       // AA
+                stru.NecCompListaP2 = FxPlanejNecessidade.NecCompListaP2(stru);       // AB
+                stru.ListaNecessProdNivel3 = FxPlanejNecessidade.ListaNecessProdNivel3(stru);       // AC
+                stru.NecCompListaP3 = FxPlanejNecessidade.NecCompListaP3(stru);       // AD
+                stru.ListaNecessProdNivel4 = FxPlanejNecessidade.ListaNecessProdNivel4(stru);       // AE
+                stru.NecCompListaP4 = FxPlanejNecessidade.NecCompListaP4(stru);       // AF
             }
 
             db.SaveChanges();
