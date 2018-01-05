@@ -231,6 +231,7 @@ namespace Gestor
 
             return result;
         }
+
         public static float PesoLiqPrec(Estrutura estrutura)    // V
         {
             var db = new ApplicationDbContext();
@@ -243,7 +244,8 @@ namespace Gestor
                 && unidade != "kg")
             {
                 var produto = db.Estruturas.Where(e => e.Produto.Apelido == estrutura.Item);
-                if (produto.Any()) result = produto.Sum(e => e.PsLiqdFnl) * estrutura.Lote / estrutura.QtdCusto;
+                if (produto.Any() && (Math.Abs(estrutura.QtdCusto) > Global.Tolerance) )
+                    result = produto.Sum(e => e.PsLiqdFnl) * estrutura.Lote / estrutura.QtdCusto;
             }
 
             return result;

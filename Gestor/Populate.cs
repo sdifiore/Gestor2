@@ -18,8 +18,6 @@ namespace Gestor
                 .ToList();
             string compAlias = Global.CompAlias;
 
-            //  Insumo();
-
             foreach (var register in model)
             {
                 register.Header = false;

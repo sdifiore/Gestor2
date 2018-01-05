@@ -238,6 +238,7 @@
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\ExtrusorasController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
+    <Compile Include="Controllers\FaturamentoHistoricoController.cs" />
     <Compile Include="Controllers\GraxasController.cs" />
     <Compile Include="Controllers\IcmsFretesController.cs" />
     <Compile Include="Controllers\IndiceRateioFormacaoPrecoVendasController.cs" />
@@ -2100,6 +2101,11 @@
     <Content Include="Views\PlanejProducaos\Details.cshtml" />
     <Content Include="Views\PlanejProducaos\Edit.cshtml" />
     <Content Include="Views\PlanejProducaos\Index.cshtml" />
+    <Content Include="Views\FaturamentoHistorico\Create.cshtml" />
+    <Content Include="Views\FaturamentoHistorico\Delete.cshtml" />
+    <Content Include="Views\FaturamentoHistorico\Details.cshtml" />
+    <Content Include="Views\FaturamentoHistorico\Edit.cshtml" />
+    <Content Include="Views\FaturamentoHistorico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
