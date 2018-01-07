@@ -84,7 +84,7 @@
 
 @foreach (var item in Model) {
     <tr>
-       
+
         <td>
             @Html.DisplayFor(modelItem => item.LinhaUn)
         </td>
@@ -94,6 +94,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Apelido)
         </td>
+
+        @if (item.Descricao != "--")
+    {
         <td>
             @Html.DisplayFor(modelItem => item.Ipi)
         </td>
@@ -152,10 +155,12 @@
             @Html.DisplayFor(modelItem => item.Aumento)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
+        }
+
     </tr>
 }
 

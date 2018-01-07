@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Gestor.Models.Graxa>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Índice</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar nova graxa", "Create")
 </p>
 <table class="table">
     <tr>
@@ -138,9 +138,9 @@
             @Html.DisplayFor(modelItem => item.RotularH)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
