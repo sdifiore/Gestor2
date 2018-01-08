@@ -36,7 +36,7 @@ namespace Gestor.Models
         [Display(Name = "Unidade de Compra")]
         public int UnidadeCompraId { get; set; }
 
-        public Unidade UnidadeCompra { get; set; }
+        public virtual Unidade UnidadeCompra { get; set; }
 
         [Display(Name = "Custo unit compra")]
         [DisplayFormat(DataFormatString = "{0:N3}")]
@@ -244,9 +244,5 @@ namespace Gestor.Models
         [StringLength(10)]
         public string Input { get; set; }
 
-        public static implicit operator Estrutura(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

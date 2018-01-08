@@ -869,6 +869,10 @@
     <Compile Include="Migrations\201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.Designer.cs">
       <DependentUpon>201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801081711489_EstruturaToUnidadeOneToOneRelation.cs" />
+    <Compile Include="Migrations\201801081711489_EstruturaToUnidadeOneToOneRelation.Designer.cs">
+      <DependentUpon>201801081711489_EstruturaToUnidadeOneToOneRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -3060,6 +3064,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.resx">
       <DependentUpon>201801031331241_TipoPcpFieldInPlanejProducaoTo32Chars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801081711489_EstruturaToUnidadeOneToOneRelation.resx">
+      <DependentUpon>201801081711489_EstruturaToUnidadeOneToOneRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

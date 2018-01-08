@@ -26,9 +26,9 @@
             @Html.DisplayNameFor(model => model.Produto.Descricao)
         </th>
         
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.QtdCusto)
         </th>
@@ -41,9 +41,9 @@
         <th>
             @Html.DisplayNameFor(model => model.DescCompProc)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.UnidadeCompraId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CustoUnitCompra)
         </th>
@@ -137,9 +137,18 @@
             @Html.DisplayFor(modelItem => item.Produto.Descricao)
         </td>
 
+        @*@if (item.Unidade != null)
+    {
         <td>
-            @Html.DisplayFor(modelItem => item.Unidade.Apelido)
+            @Html.Display(item.Unidade.Descricao)
         </td>
+}
+else
+{
+    <td>
+        ***
+    </td>
+}*@
         <td>
             @Html.DisplayFor(modelItem => item.QtdCusto)
         </td>
@@ -153,11 +162,21 @@
             @Html.DisplayFor(modelItem => item.DescCompProc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnidadeCompraId)
+            @Html.Display(item.UnidadeCompraId.ToString())
         </td>
+
+        @*@if (item.UnidadeCompra != null)
+    {
         <td>
-            @Html.DisplayFor(modelItem => item.CustoUnitCompra)
+            @Html.Display(item.UnidadeCompra.Descricao)
         </td>
+}
+else
+{
+    <td>
+        ***
+    </td>
+}*@
         <td>
             @Html.DisplayFor(modelItem => item.Onera)
         </td>
@@ -237,9 +256,9 @@
             @Html.DisplayFor(modelItem => item.Header)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
     </tr>
 }
