@@ -12,6 +12,7 @@
 </p>
 <table class="table">
     <tr>
+        
         <th>
             @Html.DisplayNameFor(model => model.LinhaUn)
         </th>
@@ -87,12 +88,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+
+    @foreach (var item in Model)
+    {
+
+
     <tr>
+        @if (item.Descricao != "--")
+    {
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+}
 
         <td>
             @Html.DisplayFor(modelItem => item.LinhaUn)
         </td>
+
+        @if (item.Descricao != "--")
+    {
+
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
@@ -100,8 +117,7 @@
             @Html.DisplayFor(modelItem => item.Apelido)
         </td>
 
-        @if (item.Descricao != "--")
-        {
+
         <td>
             @Html.DisplayFor(modelItem => item.PesoLiquido)
         </td>
@@ -173,9 +189,9 @@
             @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
 
-        }
+}
 
     </tr>
-}
+    }
 
 </table>

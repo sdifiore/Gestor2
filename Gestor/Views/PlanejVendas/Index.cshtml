@@ -21,6 +21,7 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Produto.Apelido)
         </th>
@@ -1158,6 +1159,11 @@
     @foreach (var item in Model)
     {
     <tr>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Produto.Apelido)
         </td>

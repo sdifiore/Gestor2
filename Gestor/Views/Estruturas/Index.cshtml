@@ -19,13 +19,14 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Produto.Apelido)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Produto.Descricao)
         </th>
-        
+
         @*<th>
             @Html.DisplayNameFor(model => model.Unidade.Apelido)
         </th>*@
@@ -131,6 +132,11 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Produto.Apelido)
         </td>
         <td>
@@ -138,17 +144,17 @@
         </td>
 
         @*@if (item.Unidade != null)
-    {
-        <td>
-            @Html.Display(item.Unidade.Descricao)
-        </td>
-}
-else
-{
-    <td>
-        ***
-    </td>
-}*@
+            {
+                <td>
+                    @Html.Display(item.Unidade.Descricao)
+                </td>
+        }
+        else
+        {
+            <td>
+                ***
+            </td>
+        }*@
         <td>
             @Html.DisplayFor(modelItem => item.QtdCusto)
         </td>
@@ -162,21 +168,21 @@ else
             @Html.DisplayFor(modelItem => item.DescCompProc)
         </td>
         <td>
-            @Html.Display(item.UnidadeCompraId.ToString())
+            @Html.DisplayFor(modelItem => item.CustoUnitCompra)
         </td>
 
         @*@if (item.UnidadeCompra != null)
-    {
-        <td>
-            @Html.Display(item.UnidadeCompra.Descricao)
-        </td>
-}
-else
-{
-    <td>
-        ***
-    </td>
-}*@
+            {
+                <td>
+                    @Html.Display(item.UnidadeCompra.Descricao)
+                </td>
+        }
+        else
+        {
+            <td>
+                ***
+            </td>
+        }*@
         <td>
             @Html.DisplayFor(modelItem => item.Onera)
         </td>

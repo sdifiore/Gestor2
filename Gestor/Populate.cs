@@ -33,7 +33,7 @@ namespace Gestor
                 register.AlrtSbPrdt = FxEstrutura.AlrtSbPrdt(register);     // R
                 register.DescCompProc = FxEstrutura.DescCompProc(register); // G
                 register.TpItmCst = FxEstrutura.TipoItemCusto(register);    // Q
-                //register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H *********************
+                register.UnidadeCompraId = FxEstrutura.UnidadeCompraId(register);    // H
                 register.CustoUnitCompra = FxEstrutura.CustoUnitCompra(register);   // I
                 register.QtEftvUntrCmpnt = FxEstrutura.QtEftvUntrCmpnt(register);   // O
                 register.CstCmprUndPrd = FxEstrutura.CstCmprUndPrd(register);   // P

@@ -21,7 +21,7 @@
 
 <table class="table">
     <tr>
-        
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Apelido)
         </th>
@@ -148,7 +148,11 @@
 
 @foreach (var item in Model) {
     <tr>
-        
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.InsumoId })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.InsumoId })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.InsumoId })
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Apelido)
         </td>
@@ -170,11 +174,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Categoria.Descricao)
         </td>
-        
+
         <td>
             @Html.DisplayFor(modelItem => item.Familia.Descricao)
         </td>
-       
+
         <td>
             @Html.DisplayFor(modelItem => item.Linha.Descricao)
         </td>
@@ -270,9 +274,9 @@
             @Html.DisplayFor(modelItem => item.UsoStru)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Edit", new { id=item.InsumoId })
-            @Html.ActionLink("Detalhes", "Details", new { id=item.InsumoId })
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.InsumoId })
+            @Html.ActionLink("Alterar", "Edit", new { id = item.InsumoId })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.InsumoId })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.InsumoId })
         </td>
     </tr>
 }

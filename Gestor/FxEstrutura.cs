@@ -44,6 +44,8 @@ namespace Gestor
         public static string TipoItemCusto(Estrutura register)      // Q
         {
             string tipoItemCusto = "";
+            string boh = register.Produto.Apelido;
+            string mah = register.Item;
 
             if (register.Sequencia.Descricao != "")
             {
