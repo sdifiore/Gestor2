@@ -15,7 +15,8 @@ namespace Gestor.Controllers
         [Route]
         public ActionResult Index()
         {
-            var precosExpostacao = db.PrecosExpostacao.Include(p => p.CondicaoPreco);
+            var precosExpostacao = db.PrecosExpostacao
+                .Include(p => p.CondicaoPreco);
             return View(precosExpostacao.ToList());
         }
 
@@ -120,6 +121,22 @@ namespace Gestor.Controllers
             db.PrecosExpostacao.Remove(precoExportacao);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var precoExpostacao = db.PrecosExpostacao
+                .Include(p => p.CondicaoPreco)
+                .SingleOrDefault(p => p.Apelido == search);
+
+            if (precoExpostacao == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo precoExpostacao {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", precoExpostacao);
         }
 
         protected override void Dispose(bool disposing)

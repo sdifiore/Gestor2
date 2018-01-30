@@ -13,7 +13,9 @@ namespace Gestor.Controllers
         // GET: Graxas
         public ActionResult Index()
         {
-            var graxas = db.Graxas.Include(g => g.Embalagem).Include(g => g.Resina);
+            var graxas = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina);
             return View(graxas.ToList());
         }
 
@@ -118,6 +120,23 @@ namespace Gestor.Controllers
             db.Graxas.Remove(graxa);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var graxa = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina)
+                .SingleOrDefault(g => g.Apelido == search);
+
+            if (graxa == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo insumo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", graxa);
         }
 
         protected override void Dispose(bool disposing)

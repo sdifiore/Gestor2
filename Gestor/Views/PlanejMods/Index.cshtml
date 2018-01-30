@@ -10,6 +10,15 @@
 <p>
     @Html.ActionLink("Criar novo planejamento MOD", "Create")
 </p>
+
+@using (Html.BeginForm("Search", "PlanejMods", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th></th>
@@ -106,109 +115,110 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Operacao.CodigoOperacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Operacao.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Setor.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Setor.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unidade.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe5)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe6)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe7)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe8)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe9)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe10)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe11)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SomaDe12)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos11)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos10)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos9)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos8)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos7)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos6)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos5)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoMenos1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ano)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MediaMensal)
-        </td>
-        <td>
-            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operacao.CodigoOperacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operacao.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setor.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setor.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SomaDe12)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoMenos1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediaMensal)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -141,6 +141,24 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var planejMod = db.PlanejMods
+                .Include(p => p.Operacao)
+                .Include(p => p.Setor)
+                .Include(p => p.Unidade)
+                .SingleOrDefault(p => p.Operacao.CodigoOperacao == search);
+
+            if (planejMod == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo insumo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", planejMod);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

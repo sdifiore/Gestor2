@@ -134,6 +134,23 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var dfxProdRev = db.DfxProdRevs
+                .Include(d => d.Produto)
+                .Include(d => d.Unidade)
+                .SingleOrDefault(d => d.Produto.Apelido == search);
+
+            if (dfxProdRev == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo dfxProdRev {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", dfxProdRev);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

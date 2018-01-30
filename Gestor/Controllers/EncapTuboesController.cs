@@ -140,6 +140,23 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var encapTubo = db.EncapTuboes
+                .Include(e => e.Produto)
+                .Include(e => e.Unidade)
+                .SingleOrDefault(e => e.Produto.Apelido == search);
+
+            if (encapTubo == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo insumo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", encapTubo);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

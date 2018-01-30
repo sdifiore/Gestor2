@@ -122,6 +122,23 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Route("Search")]
+        public ActionResult Search(string search)
+        {
+            var precoNacional = db.PrecosNacionais
+                .Include(p => p.TipoProducao)
+                .SingleOrDefault(p => p.Apelido == search);
+
+            if (precoNacional == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo precoNacional {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", precoNacional);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

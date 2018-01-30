@@ -144,6 +144,26 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var planejProducao = db.PlanejProducoes
+                .Include(p => p.Produto)
+                .Include(p => p.Produto.Categoria)
+                .Include(p => p.Produto.Familia)
+                .Include(p => p.Produto.Linha)
+                .Include(p => p.Produto.Unidade)
+                .SingleOrDefault(p => p.Produto.Apelido == search);
+
+            if (planejProducao == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo insumo {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", planejProducao);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

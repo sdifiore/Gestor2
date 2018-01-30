@@ -8,12 +8,14 @@
 <h2>Índice</h2>
 
 <p>
-    @Html.ActionLink("Criar nova pré-forma", "Create")
+    @Html.ActionLink("Criar nova preforma", "Create")
 </p>
+
+
 <table class="table">
     <tr>
-        
-       
+
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.PreFormaNum)
         </th>
@@ -62,65 +64,66 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.PreFormaNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormaDiamE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VaretaDiamI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Medidas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comprimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tup)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrensaPreForma.Apelido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Preparo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrocaPf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Extrusora.Apelido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SecaoPf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KgfPrensagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PressaoOleo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiamPistaoHidraulico)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KgPfUmida)
-        </td>
-        <td>
-            @Html.ActionLink("Alterar", "Edit", new { id=item.Id })
-            @Html.ActionLink("Detalhes", "Details", new { id=item.Id })
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PreFormaNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaDiamE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VaretaDiamI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medidas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comprimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrensaPreForma.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preparo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrocaPf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Extrusora.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecaoPf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KgfPrensagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PressaoOleo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiamPistaoHidraulico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KgPfUmida)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
