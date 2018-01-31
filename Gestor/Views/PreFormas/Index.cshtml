@@ -12,6 +12,14 @@
 </p>
 
 
+@using (Html.BeginForm("Search", "PreFormas", FormMethod.Post))
+{
+    <p>
+        Número: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
 <table class="table">
     <tr>
 

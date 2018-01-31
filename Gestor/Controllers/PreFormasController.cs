@@ -133,7 +133,24 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+            var preForma = db.PreFormas
+                .Include(p => p.Extrusora)
+                .Include(p => p.PrensaPreForma)
+                .SingleOrDefault(p => p.PreFormaNum.ToString() == search);
+
+            if (preForma == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo preForma {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+
+            return View("Details", preForma);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
