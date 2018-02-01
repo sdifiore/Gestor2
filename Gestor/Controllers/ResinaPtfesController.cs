@@ -144,6 +144,24 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Route("Search")]
+        public ActionResult Search(string search)
+        {
+            var resinaPtfe = db.ResinasPtfe
+                .Include(r => r.Fabricante)
+                .Include(r => r.Insumo)
+                .Include(r => r.ResinaBase)
+                .SingleOrDefault(r => r.Referencia.ToLower() == search.ToLower());
+
+            if (resinaPtfe == null)
+            {
+                DbLogger.Log(Reason.Info, $"Procura pelo resinaPtfe {search} não produziu resultado");
+                return Content($"Item {search} não encontrado");
+            }
+            return View("Details", resinaPtfe);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
