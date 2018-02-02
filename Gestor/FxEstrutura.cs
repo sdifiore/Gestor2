@@ -166,7 +166,7 @@ namespace Gestor
 
         public static float CstCmprUndPrd(Estrutura estrutura)      // P
         {
-            float r = estrutura.AlrtSbPrdt == XmlReader.Read("Subproduto")
+            float r = (estrutura.AlrtSbPrdt == XmlReader.Read("Subproduto")) || (estrutura.AlrtSbPrdt == XmlReader.Read("Sucata"))
                 ? 1 - estrutura.Perda
                 : 1;
 
@@ -205,9 +205,16 @@ namespace Gestor
         public static float TempMaq(Estrutura estrutura)        // S
         {
             var db = new ApplicationDbContext();
+            float quociente = 0;
             string tpItmCst = $"{estrutura.TpItmCst}{Global.Space20}";
-            float result = tpItmCst.Substring(0, 5) == "c-MOD"
-                ? estrutura.QtEftvUntrCmpnt / db.Operacoes.Single(o => o.CodigoOperacao == estrutura.Item).TaxaOcupacao
+            var operacao = db.Operacoes.SingleOrDefault(o => o.CodigoOperacao == estrutura.Item);
+
+            if (operacao == null)
+                DbLogger.Log(Reason.Error, $"FxEstrutura.TempMaq resultou em item de operação (${estrutura.Item}) inexistente");
+            else quociente = operacao.TaxaOcupacao;
+
+            float result = (tpItmCst.Substring(0, 5) == "c-MOD") && (Math.Abs(quociente) > Global.Tolerance)
+                ? estrutura.QtEftvUntrCmpnt / quociente
                 : 0;
 
             return result;

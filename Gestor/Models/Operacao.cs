@@ -19,9 +19,14 @@ namespace Gestor.Models
         public string Descricao { get; set; }
 
         [Display(Name = "Taxa de Ocupação")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
         public float TaxaOcupacao { get; set; }
 
-        [StringLength(100)]
+        [Display(Name = "Ineficiência Adotada")]
+        [DisplayFormat(DataFormatString = "{0:P2}")]
+        public float IneficienciaAdotada { get; set; }
+
+        [StringLength(128)]
         [Display(Name = "Comentário")]
         public string Comentario { get; set; }
 

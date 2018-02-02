@@ -889,6 +889,14 @@
     <Compile Include="Migrations\201801081711489_EstruturaToUnidadeOneToOneRelation.Designer.cs">
       <DependentUpon>201801081711489_EstruturaToUnidadeOneToOneRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011820071_AddRefAuxiliarProdutoFieldToProdutosTable.cs" />
+    <Compile Include="Migrations\201802011820071_AddRefAuxiliarProdutoFieldToProdutosTable.Designer.cs">
+      <DependentUpon>201802011820071_AddRefAuxiliarProdutoFieldToProdutosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.cs" />
+    <Compile Include="Migrations\201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.Designer.cs">
+      <DependentUpon>201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -3083,6 +3091,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801081711489_EstruturaToUnidadeOneToOneRelation.resx">
       <DependentUpon>201801081711489_EstruturaToUnidadeOneToOneRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011820071_AddRefAuxiliarProdutoFieldToProdutosTable.resx">
+      <DependentUpon>201802011820071_AddRefAuxiliarProdutoFieldToProdutosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.resx">
+      <DependentUpon>201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

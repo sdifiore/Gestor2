@@ -53,6 +53,7 @@ namespace Gestor
                 register.CstMtrlPrcd1 = FxEstrutura.CstMtrlPrcd1(register);     // AF
                 register.CstMtrlPrcd2 = FxEstrutura.CstMtrlPrcd2(register);     // AG
                 register.CstMtrlPrcd3 = FxEstrutura.CstMtrlPrcd3(register);     // AH
+
             }
 
             db.SaveChanges();
@@ -97,7 +98,8 @@ namespace Gestor
             var db = new ApplicationDbContext();
             var model = db.Produtos
                 .Include(p => p.Categoria)
-                .Include(p => p.ClasseCusto);
+                .Include(p => p.ClasseCusto)
+                .ToList();
 
             foreach (var register in model)
             {

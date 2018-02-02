@@ -79,6 +79,10 @@ namespace Gestor.Models
         [Display(Name = "PCP")]
         public int PcpId { get; set; }
 
+        [StringLength(16)]
+        [Display(Name = "Ref Auxiliar Produto")]
+        public string RefAuxiliarProduto { get; set; }
+
         public Pcp Pcp { get; set; }
 
         [Display(Name = "Qt Un por Un Armz")]

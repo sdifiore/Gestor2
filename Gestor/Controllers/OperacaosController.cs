@@ -48,10 +48,12 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OperacaoId,CodigoOperacao,SetorProducao,Descricao,TaxaOcupacao,Comentario,QtdMaquinas,Custo,SetorId")] Operacao operacao)
+        public ActionResult Create([Bind(Include = "OperacaoId,CodigoOperacao,SetorProducao,Descricao,TaxaOcupacao,IneficienciaAdotada,Comentario,QtdMaquinas,Custo,SetorId")] Operacao operacao)
         {
             if (ModelState.IsValid)
             {
+                operacao.IneficienciaAdotada = operacao.IneficienciaAdotada / 100;
+                operacao.TaxaOcupacao = operacao.TaxaOcupacao / 100;
                 db.Operacoes.Add(operacao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -73,6 +75,10 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
+            operacao.TaxaOcupacao = operacao.TaxaOcupacao * 100;
+            operacao.IneficienciaAdotada = operacao.IneficienciaAdotada * 100;
+
             ViewBag.SetorId = new SelectList(db.Setores, "SetorId", "Codigo", operacao.SetorId);
             return View(operacao);
         }
@@ -82,10 +88,12 @@ namespace Gestor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OperacaoId,CodigoOperacao,SetorProducao,Descricao,TaxaOcupacao,Comentario,QtdMaquinas,Custo,SetorId")] Operacao operacao)
+        public ActionResult Edit([Bind(Include = "OperacaoId,CodigoOperacao,SetorProducao,Descricao,TaxaOcupacao,IneficienciaAdotada,Comentario,QtdMaquinas,Custo,SetorId")] Operacao operacao)
         {
             if (ModelState.IsValid)
             {
+                operacao.TaxaOcupacao = operacao.TaxaOcupacao / 100;
+                operacao.IneficienciaAdotada = operacao.IneficienciaAdotada / 100;
                 db.Entry(operacao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
