@@ -27,9 +27,9 @@
             @Html.DisplayNameFor(model => model.Produto.Descricao)
         </th>
 
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.QtdCusto)
         </th>
@@ -42,9 +42,9 @@
         <th>
             @Html.DisplayNameFor(model => model.DescCompProc)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.UnidadeCompraId)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.CustoUnitCompra)
         </th>
@@ -81,6 +81,11 @@
         <th>
             @Html.DisplayNameFor(model => model.QtdUndd)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.PsLiqdFnl)
         </th>
@@ -143,18 +148,18 @@
             @Html.DisplayFor(modelItem => item.Produto.Descricao)
         </td>
 
-        @*@if (item.Unidade != null)
-            {
-                <td>
-                    @Html.Display(item.Unidade.Descricao)
-                </td>
-        }
-        else
-        {
-            <td>
-                ***
-            </td>
-        }*@
+        @if (item.Unidade != null)
+    {
+        <td>
+            @Html.Display(item.Unidade.Descricao)
+        </td>
+}
+else
+{
+    <td>
+        ***
+    </td>
+}
         <td>
             @Html.DisplayFor(modelItem => item.QtdCusto)
         </td>
@@ -171,18 +176,19 @@
             @Html.DisplayFor(modelItem => item.CustoUnitCompra)
         </td>
 
-        @*@if (item.UnidadeCompra != null)
-            {
-                <td>
-                    @Html.Display(item.UnidadeCompra.Descricao)
-                </td>
-        }
-        else
-        {
-            <td>
-                ***
-            </td>
-        }*@
+        @if (item.UnidadeCompra != null)
+    {
+        <td>
+            @Html.Display(item.UnidadeCompra.Descricao)
+        </td>
+}
+else
+{
+    <td>
+        ***
+    </td>
+}
+
         <td>
             @Html.DisplayFor(modelItem => item.Onera)
         </td>
@@ -216,6 +222,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.QtdUndd)
         </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.PsLiqdFnl)
         </td>

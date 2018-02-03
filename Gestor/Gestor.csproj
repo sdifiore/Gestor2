@@ -897,6 +897,10 @@
     <Compile Include="Migrations\201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.Designer.cs">
       <DependentUpon>201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802031955173_EstruturaDeAcordoComNovaPlanilhaMarcelo.cs" />
+    <Compile Include="Migrations\201802031955173_EstruturaDeAcordoComNovaPlanilhaMarcelo.Designer.cs">
+      <DependentUpon>201802031955173_EstruturaDeAcordoComNovaPlanilhaMarcelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Carga.cs" />
     <Compile Include="Models\Comum.cs" />
@@ -3097,6 +3101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.resx">
       <DependentUpon>201802021218270_AddIneficienciaAdotadaFieldToOperacoesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031955173_EstruturaDeAcordoComNovaPlanilhaMarcelo.resx">
+      <DependentUpon>201802031955173_EstruturaDeAcordoComNovaPlanilhaMarcelo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

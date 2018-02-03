@@ -68,6 +68,10 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N3}")]
         public float CstCmprUndPrd { get; set; }
 
+        [Display(Name = "Custo Individual")]
+        [DisplayFormat(DataFormatString = "{0:N3}")]
+        public float CustoIndividual { get; set; }
+
         [Display(Name = "Tipo Item Custo")]
         public string TpItmCst { get; set; }
 
@@ -80,6 +84,18 @@ namespace Gestor.Models
 
         [Display(Name = "Qtd por  Unidade")]
         public int QtdUndd { get; set; }
+
+        [StringLength(16)]
+        [Display(Name = "Ref Auxiliar Produto")]
+        public string RefAuxiliarProduto { get; set; }
+
+        [StringLength(128)]
+        [Display(Name = "Tipo Item Custo")]
+        public string TipoItemCusto { get; set; }
+
+        [StringLength(128)]
+        [Display(Name = "Linha")]
+        public string Linha { get; set; }
 
         [Display(Name = "Peso Liq Final")]
         [DisplayFormat(DataFormatString = "{0:N3}")]
