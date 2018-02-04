@@ -172,9 +172,7 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.DescCompProc)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustoUnitCompra)
-        </td>
+
 
         @if (item.UnidadeCompra != null)
     {
@@ -188,7 +186,9 @@ else
         ***
     </td>
 }
-
+        <td>
+            @Html.DisplayFor(modelItem => item.CustoUnitCompra)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Onera)
         </td>

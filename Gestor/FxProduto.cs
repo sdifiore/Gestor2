@@ -33,7 +33,7 @@ namespace Gestor
             float result;
             IQueryable<Estrutura> estrutura;
 
-            if (produto.Categoria.Descricao != XmlReader.Read("MercadoriaRevenda"))
+            if (produto.ClasseCusto.Descricao != XmlReader.Read("MercadoriaRevenda"))
             {
                 estrutura = db.Estruturas.Where(e => e.ProdutoId == produto.Id);
                 result = estrutura.Any() ? estrutura.Sum(e => e.CstCmprUndPrd) : 0;

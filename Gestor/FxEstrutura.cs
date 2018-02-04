@@ -166,14 +166,16 @@ namespace Gestor
 
         public static float CstCmprUndPrd(Estrutura estrutura)      // P
         {
-            string subproduto = XmlReader.Read("Subproduto");
-            string sucata = XmlReader.Read("Sucata");
+            string subproduto = XmlReader.Read("Subproduto").ToLower();
+            string sucata = XmlReader.Read("Sucata").ToLower();
 
-            float r = (estrutura.Categoria.Contains(subproduto) || estrutura.Categoria.Contains(sucata))
+            float r = (estrutura.Categoria.ToLower().Contains(subproduto) || estrutura.Categoria.ToLower().Contains(sucata))
                 ? 1 - estrutura.Perda
                 : 1;
 
-            return estrutura.QtEftvUntrCmpnt * estrutura.CustoUnitCompra * r;
+            float result = estrutura.QtEftvUntrCmpnt * estrutura.CustoUnitCompra * r;
+
+            return result;
         }
 
         public static float PartCusto(Estrutura estrutura)      // N
@@ -399,18 +401,11 @@ namespace Gestor
 
         public static string Categoria(Estrutura estrutura)     // U
         {
-            string result = Global.NaoDefinido;
             var db = new ApplicationDbContext();
-            var produto = db.Produtos.SingleOrDefault(p => p.Id == estrutura.ProdutoId);
-            if (produto == null)
-                DbLogger.Log(Reason.Error, $"FxEstutura.Categoria não encontrou produto com ID: {estrutura.ProdutoId}");
-            else
-            {
-                var categoria = produto.Categoria;
-                if (categoria != null) result = categoria.Descricao;
-            }
+            var produto = db.Produtos.Find(estrutura.ProdutoId);
+            var categoria = db.Categorias.Find(produto.CategoriaId);
 
-            return result;
+            return categoria.Descricao;
         }
     }
 }
